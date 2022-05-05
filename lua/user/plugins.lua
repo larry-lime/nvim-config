@@ -1,0 +1,81 @@
+local fn = vim.fn
+
+-- Automatically install packer
+local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
+if fn.empty(fn.glob(install_path)) > 0 then
+  PACKER_BOOTSTRAP = fn.system {
+    "git",
+    "clone",
+    "--depth",
+    "1",
+    "https://github.com/wbthomason/packer.nvim",
+    install_path,
+  }
+  print "Installing packer close and reopen Neovim..."
+  vim.cmd [[packadd packer.nvim]]
+end
+
+
+-- Use a protected call so we don't error out on first use
+local status_ok, packer = pcall(require, "packer")
+if not status_ok then
+  return
+end
+
+-- Have packer use a popup window
+packer.init {
+  display = {
+    open_fn = function()
+      return require("packer.util").float { border = "rounded" }
+    end,
+  },
+}
+
+-- Install your plugins here
+return packer.startup(function(use)
+  -- My plugins here
+  use "wbthomason/packer.nvim" -- Have packer manage itself
+  use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
+  use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
+  --use "kyazdani42/nvim-tree.lua"
+  use 'navarasu/onedark.nvim'
+  --use 'https://github.com/github/copilot.vim.git'
+  use { "ellisonleao/gruvbox.nvim" }
+  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+  use "Pocco81/AutoSave.nvim"
+  use { 'nvim-telescope/telescope.nvim', requires = { {'nvim-lua/plenary.nvim'} } }
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/cmp-path'
+  use 'hrsh7th/cmp-cmdline'
+  use 'preservim/nerdtree'
+  --Snippets
+  use { 'L3MON4D3/LuaSnip' }
+  use {
+    'hrsh7th/nvim-cmp',
+    config = function ()
+      require'cmp'.setup {
+      snippet = {
+        expand = function(args)
+          require'luasnip'.lsp_expand(args.body)
+        end
+      },
+
+      sources = {
+        { name = 'luasnip' },
+        -- more sources
+      },
+    }
+    end
+  }
+  use { 'saadparwaiz1/cmp_luasnip' }  use 'rafamadriz/friendly-snippets'
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'neovim/nvim-lspconfig'
+  use 'williamboman/nvim-lsp-installer'
+  use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
+  use "numToStr/Comment.nvim" -- Easily comment stuff
+  -- Automatically set up your configuration after cloning packer.nvim
+  -- Put this at the end after all plugins
+  if PACKER_BOOTSTRAP then
+    require("packer").sync()
+  end
+end)
