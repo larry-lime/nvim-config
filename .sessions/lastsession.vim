@@ -13,15 +13,12 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +47 lua/user/cmp.lua
-badd +0 gitsigns:///home/larrylime/.config/nvim/.git/:0:lua/user/plugins.lua
+badd +1 .gitignore
 argglobal
 %argdel
-$argadd lua
+$argadd .gitignore
+edit .gitignore
 argglobal
-enew
-file gitsigns:///home/larrylime/.config/nvim/.git/:0:lua/user/plugins.lua
-balt lua/user/cmp.lua
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -29,7 +26,15 @@ setlocal fdi=#
 setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
-setlocal nofen
+setlocal fen
+silent! normal! zE
+let &fdl = &fdl
+let s:l = 1 - ((0 * winheight(0) + 25) / 50)
+if s:l < 1 | let s:l = 1 | endif
+keepjumps exe s:l
+normal! zt
+keepjumps 1
+normal! 02|
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf

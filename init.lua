@@ -11,8 +11,11 @@ require('Comment').setup()
 require('onedark').setup {style = 'darker'}
 require('onedark').load()
 require('gitsigns').setup()
-require'lspconfig'.pyright.setup{}
+require('lspconfig').bashls.setup{}
+
 require'nvim-treesitter.configs'.setup {
+
+
   -- A list of parser names, or "all"
   ensure_installed = { "python", "lua"},
 

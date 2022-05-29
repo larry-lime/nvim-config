@@ -1,12 +1,12 @@
---    ______                           __   
---   / ____/__  ____  ___  _________ _/ /   
---  / / __/ _ \/ __ \/ _ \/ ___/ __ `/ /    
--- / /_/ /  __/ / / /  __/ /  / /_/ / /     
--- \____/\___/_/ /_/\___/_/   \__,_/_/      
+--    ______                           __
+--   / ____/__  ____  ___  _________ _/ /
+--  / / __/ _ \/ __ \/ _ \/ ___/ __ `/ /
+-- / /_/ /  __/ / / /  __/ /  / /_/ / /
+-- \____/\___/_/ /_/\___/_/   \__,_/_/
 
 -- FUNCTIONS --
-local result = vim.api.nvim_exec(
-[[
+vim.api.nvim_exec(
+  [[
 function LoadSession(name)
     let b:sesh = join(["./.sessions/",a:name],"")
     if filereadable(b:sesh)
@@ -29,8 +29,8 @@ function ExitVim()
     call MakeSession('lastsession.vim')
     silent! execute 'qa!'
 endfunction
-]],
-true)
+]] ,
+  true)
 
 -- KEYBOARD SHORTCUTS --
 local opts = { noremap = true, silent = true }
@@ -51,18 +51,18 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- Save Sessions
-keymap("n", "<leader>ss", ":call MakeSession('mysession.vim') | tabn<CR>",opts)
-keymap("n", "<leader>sl", ":call LoadSession('mysession.vim')<CR>",opts)
+keymap("n", "<leader>ss", ":call MakeSession('mysession.vim') | tabn<CR>", opts)
+keymap("n", "<leader>sl", ":call LoadSession('mysession.vim')<CR>", opts)
 keymap("n", "<leader>qq", ":call ExitVim()<CR>", opts)
 
 -- Buffer Navigation
-keymap("n","<leader>oo", ":bd!<CR>",opts)
-keymap("n","<leader>oa",":%bd! | e# |bd#<CR>",opts)
+keymap("n", "<leader>oo", ":bd!<CR>", opts)
+keymap("n", "<leader>oa", ":%bd! | e# |bd#<CR>", opts)
 
 -- Open and Close Tabs
-keymap("n","<leader>tn","tabnew<CR>",opts)
-keymap("n","<leader>tc","tabclose<CR>",opts)
-keymap("n","<leader>tc","tabclose<CR>",opts)
+keymap("n", "<leader>tn", "tabnew<CR>", opts)
+keymap("n", "<leader>tc", "tabclose<CR>", opts)
+keymap("n", "<leader>tc", "tabclose<CR>", opts)
 keymap("n", "<leader>rn", "*Ncgn", opts)
 keymap("n", "<leader>v", "g_v^", opts)
 
@@ -73,18 +73,18 @@ keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
 -- Surround Quotes
-keymap ("n", [[<leader>']], [[ciw'<C-R>"'<Esc>]],opts)
-keymap ("n", [[<leader>"]], [[ciw"<C-R>""<Esc>]],opts)
-keymap ("n", [[<leader>(]], [[ciW(<C-R>")<Esc>F(]],opts)
-keymap ("n", [[<leader>[]], [[ciW[<C-R>"]<Esc>F[]],opts)
-keymap ("n", [[<leader>{]], [[ciW{<C-R>"}<Esc>]],opts)
-keymap ("n", [[<leader>`]], [[ciw`<C-R>"`<Esc>]],opts)
-keymap ("v", [[<leader>']], [[c'<C-R>"'<Esc>]],opts)
-keymap ("v", [[<leader>"]], [[c"<C-R>""<Esc>]],opts)
-keymap ("v", [[<leader>(]], [[c(<C-R>")<Esc>F(]],opts)
-keymap ("v", [[<leader>[]], [[c[<C-R>"]<Esc>F[]],opts)
-keymap ("v", [[<leader>{]], [[c{<C-R>"}<Esc>]],opts)
-keymap ("v", [[<leader>`]], [[c`<C-R>"`<Esc>]],opts)
+keymap("n", [[<leader>']], [[ciw'<C-R>"'<Esc>]], opts)
+keymap("n", [[<leader>"]], [[ciw"<C-R>""<Esc>]], opts)
+keymap("n", [[<leader>(]], [[ciW(<C-R>")<Esc>F(]], opts)
+keymap("n", [[<leader>[]], [[ciW[<C-R>"]<Esc>F[]], opts)
+keymap("n", [[<leader>{]], [[ciW{<C-R>"}<Esc>]], opts)
+keymap("n", [[<leader>`]], [[ciw`<C-R>"`<Esc>]], opts)
+keymap("v", [[<leader>']], [[c'<C-R>"'<Esc>]], opts)
+keymap("v", [[<leader>"]], [[c"<C-R>""<Esc>]], opts)
+keymap("v", [[<leader>(]], [[c(<C-R>")<Esc>F(]], opts)
+keymap("v", [[<leader>[]], [[c[<C-R>"]<Esc>F[]], opts)
+keymap("v", [[<leader>{]], [[c{<C-R>"}<Esc>]], opts)
+keymap("v", [[<leader>`]], [[c`<C-R>"`<Esc>]], opts)
 
 -- Resize Windows
 keymap("n", "<C-Up>", ":resize +2<CR>", opts)

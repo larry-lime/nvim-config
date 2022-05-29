@@ -1,8 +1,8 @@
---     ____  __            _           
+--     ____  __            _
 --    / __ \/ /_  ______ _(_)___  _____
 --   / /_/ / / / / / __ `/ / __ \/ ___/
---  / ____/ / /_/ / /_/ / / / / (__  ) 
--- /_/   /_/\__,_/\__, /_/_/ /_/____/  
+--  / ____/ / /_/ / /_/ / / / / (__  )
+-- /_/   /_/\__,_/\__, /_/_/ /_/____/
 --               /____/
 local fn = vim.fn
 
@@ -38,9 +38,9 @@ packer.init {
 }
 
 return packer.startup(function(use)
-  
+
   -- Core Plugins
-  use "wbthomason/packer.nvim" 
+  use "wbthomason/packer.nvim"
   use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins 
 
@@ -52,19 +52,19 @@ return packer.startup(function(use)
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   use 'preservim/nerdtree' --NERDTree
   use "Pocco81/AutoSave.nvim"
-  use { 'nvim-telescope/telescope.nvim', requires = { {'nvim-lua/plenary.nvim'} } }
+  use { 'nvim-telescope/telescope.nvim', requires = { { 'nvim-lua/plenary.nvim' } } }
   use 'fedepujol/move.nvim'
   use { 'L3MON4D3/LuaSnip' }
-  use {'hrsh7th/nvim-cmp'} 
+  use { 'hrsh7th/nvim-cmp' }
   -- CMP Plugins
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/cmp-cmdline'
-  
+
   -- Snippets
-  use { 'saadparwaiz1/cmp_luasnip' }  
+  use { 'saadparwaiz1/cmp_luasnip' }
   use 'rafamadriz/friendly-snippets'
-  
+
   -- LSP Installer
   use 'neovim/nvim-lspconfig'
   use 'hrsh7th/cmp-nvim-lsp'
@@ -73,13 +73,13 @@ return packer.startup(function(use)
   -- Add Ons
   use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
   use 'https://github.com/github/copilot.vim.git'
-  
+
   -- Git Integration
   use { 'lewis6991/gitsigns.nvim', }
   use {
     'numToStr/Comment.nvim',
     config = function()
-        require('Comment').setup()
+      require('Comment').setup()
     end
   }
   -- Put this at the end after all plugins
