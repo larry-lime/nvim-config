@@ -13,36 +13,11 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +1 lsp/handlers.lua
-badd +1 ~/.config/nvim/lua/user/cmp.lua
-badd +1 temp.py
-badd +1 temp.lua
+badd +87 general.lua
 argglobal
 %argdel
-$argadd lua
-tabnew +setlocal\ bufhidden=wipe
-tabrewind
-edit ~/.config/nvim/lua/user/cmp.lua
-argglobal
-balt lsp/handlers.lua
-setlocal fdm=manual
-setlocal fde=0
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal fen
-silent! normal! zE
-let &fdl = &fdl
-let s:l = 89 - ((25 * winheight(0) + 25) / 50)
-if s:l < 1 | let s:l = 1 | endif
-keepjumps exe s:l
-normal! zt
-keepjumps 89
-normal! 02|
-tabnext
-edit temp.lua
+$argadd general.lua
+edit general.lua
 argglobal
 setlocal fdm=manual
 setlocal fde=0
@@ -54,13 +29,13 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 1 - ((0 * winheight(0) + 25) / 50)
+let s:l = 87 - ((36 * winheight(0) + 25) / 50)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 1
-normal! 014|
-tabnext 2
+keepjumps 87
+normal! 045|
+tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
 endif
@@ -72,6 +47,7 @@ if filereadable(s:sx)
   exe "source " . fnameescape(s:sx)
 endif
 let &g:so = s:so_save | let &g:siso = s:siso_save
+nohlsearch
 doautoall SessionLoadPost
 unlet SessionLoad
 " vim: set ft=vim :

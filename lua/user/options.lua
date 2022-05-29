@@ -1,3 +1,10 @@
+--    ____        __  _                 
+--   / __ \____  / /_(_)___  ____  _____
+--  / / / / __ \/ __/ / __ \/ __ \/ ___/
+-- / /_/ / /_/ / /_/ / /_/ / / / (__  ) 
+-- \____/ .___/\__/_/\____/_/ /_/____/  
+--     /_/
+
 local options = {
   signcolumn = "yes",                      -- always show the sign column, otherwise it would shift the text each time
   cursorline = true,                       -- highlight the current line

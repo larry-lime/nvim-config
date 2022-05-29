@@ -3,7 +3,7 @@ require "user.options"
 require "user.general"
 require "user.cmp"
 require "user.plugins"
-require "user.colorscheme"
+require "user.colors"
 require "user.autopairs"
 require "user.lsp"
 -- Setups

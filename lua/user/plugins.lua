@@ -1,3 +1,9 @@
+--     ____  __            _           
+--    / __ \/ /_  ______ _(_)___  _____
+--   / /_/ / / / / / __ `/ / __ \/ ___/
+--  / ____/ / /_/ / /_/ / / / / (__  ) 
+-- /_/   /_/\__,_/\__, /_/_/ /_/____/  
+--               /____/
 local fn = vim.fn
 
 -- Automatically install packer
@@ -31,47 +37,44 @@ packer.init {
   },
 }
 
--- Install your plugins here
 return packer.startup(function(use)
-  -- My plugins here
-  use "wbthomason/packer.nvim" -- Have packer manage itself
+  
+  -- Core Plugins
+  use "wbthomason/packer.nvim" 
   use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
-  use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
+  use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins 
+
+  -- Colorschemes
   use 'navarasu/onedark.nvim'
-  use 'https://github.com/github/copilot.vim.git'
   use { "ellisonleao/gruvbox.nvim" }
+
+  -- IDE Features
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+  use 'preservim/nerdtree' --NERDTree
   use "Pocco81/AutoSave.nvim"
   use { 'nvim-telescope/telescope.nvim', requires = { {'nvim-lua/plenary.nvim'} } }
+  use 'fedepujol/move.nvim'
+  use { 'L3MON4D3/LuaSnip' }
+  use {'hrsh7th/nvim-cmp'} 
+  -- CMP Plugins
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/cmp-cmdline'
-  use 'preservim/nerdtree' --NERDTree
-  use 'fedepujol/move.nvim'
-  use { 'L3MON4D3/LuaSnip' }
-  use {
-    'hrsh7th/nvim-cmp',
-    config = function ()
-      require'cmp'.setup {
-      snippet = {
-        expand = function(args)
-          require'luasnip'.lsp_expand(args.body)
-        end
-      },
-
-      sources = {
-        { name = 'luasnip' },
-        -- more sources
-      },
-    }
-    end
-  }
+  
+  -- Snippets
   use { 'saadparwaiz1/cmp_luasnip' }  
   use 'rafamadriz/friendly-snippets'
-  use 'hrsh7th/cmp-nvim-lsp'
+  
+  -- LSP Installer
   use 'neovim/nvim-lspconfig'
+  use 'hrsh7th/cmp-nvim-lsp'
   use 'williamboman/nvim-lsp-installer'
+
+  -- Add Ons
   use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
+  use 'https://github.com/github/copilot.vim.git'
+  
+  -- Git Integration
   use { 'lewis6991/gitsigns.nvim', }
   use {
     'numToStr/Comment.nvim',
