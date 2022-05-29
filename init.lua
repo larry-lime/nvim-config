@@ -1,15 +1,16 @@
+-- Source files
 require "user.options"
-require "user.keymaps"
+require "user.general"
 require "user.cmp"
 require "user.plugins"
 require "user.colorscheme"
 require "user.autopairs"
---require "user.comment"
 require "user.lsp"
-require('onedark').setup {
-    style = 'darker'
-}
+-- Setups
+require('Comment').setup()
+require('onedark').setup {style = 'darker'}
 require('onedark').load()
+require('gitsigns').setup()
 require'lspconfig'.pyright.setup{}
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all"
@@ -34,9 +35,8 @@ require'nvim-treesitter.configs'.setup {
     additional_vim_regex_highlighting = false,
   },
 }
-local autosave = require("autosave")
 
-autosave.setup(
+require("autosave").setup(
     {
         enabled = true,
         execution_message = "AutoSave: saved at " .. vim.fn.strftime("%H:%M:%S"),

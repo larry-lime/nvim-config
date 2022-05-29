@@ -43,6 +43,17 @@ vim.opt.shortmess:append "c"
 for k, v in pairs(options) do
   vim.opt[k] = v
 end
+ vim.opt.statusline = ''..
+'%#TablineSel# ' ..
+'Git %#CursorLine# ' ..
+'%f 😊 ' ..
+'%= ' ..
+'%y ' ..
+'%{&fileencoding?&fileencoding:&encoding}' ..
+'[%{&fileformat}] ' ..
+'%#TablineSel# ' ..
+'%p%% ' ..
+'%l/%L ' ..
 
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]

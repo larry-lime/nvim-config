@@ -47,7 +47,7 @@ return packer.startup(function(use)
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/cmp-cmdline'
   use 'preservim/nerdtree' --NERDTree
-  --Snippets
+  use 'fedepujol/move.nvim'
   use { 'L3MON4D3/LuaSnip' }
   use {
     'hrsh7th/nvim-cmp',
@@ -66,18 +66,19 @@ return packer.startup(function(use)
     }
     end
   }
-  use { 'saadparwaiz1/cmp_luasnip' }  use 'rafamadriz/friendly-snippets'
+  use { 'saadparwaiz1/cmp_luasnip' }  
+  use 'rafamadriz/friendly-snippets'
   use 'hrsh7th/cmp-nvim-lsp'
   use 'neovim/nvim-lspconfig'
   use 'williamboman/nvim-lsp-installer'
   use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
+  use { 'lewis6991/gitsigns.nvim', }
   use {
     'numToStr/Comment.nvim',
     config = function()
         require('Comment').setup()
     end
   }
-  -- Automaticall
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
     require("packer").sync()
