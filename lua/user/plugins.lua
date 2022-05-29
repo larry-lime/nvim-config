@@ -37,9 +37,8 @@ return packer.startup(function(use)
   use "wbthomason/packer.nvim" -- Have packer manage itself
   use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
-  --use "kyazdani42/nvim-tree.lua"
   use 'navarasu/onedark.nvim'
-  --use 'https://github.com/github/copilot.vim.git'
+  use 'https://github.com/github/copilot.vim.git'
   use { "ellisonleao/gruvbox.nvim" }
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   use "Pocco81/AutoSave.nvim"
@@ -47,7 +46,7 @@ return packer.startup(function(use)
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/cmp-cmdline'
-  use 'preservim/nerdtree'
+  use 'preservim/nerdtree' --NERDTree
   --Snippets
   use { 'L3MON4D3/LuaSnip' }
   use {
@@ -72,8 +71,13 @@ return packer.startup(function(use)
   use 'neovim/nvim-lspconfig'
   use 'williamboman/nvim-lsp-installer'
   use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
-  use "numToStr/Comment.nvim" -- Easily comment stuff
-  -- Automatically set up your configuration after cloning packer.nvim
+  use {
+    'numToStr/Comment.nvim',
+    config = function()
+        require('Comment').setup()
+    end
+  }
+  -- Automaticall
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
     require("packer").sync()

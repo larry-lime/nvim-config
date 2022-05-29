@@ -11,6 +11,7 @@ local options = {
   writebackup = false,                     -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
   completeopt = { "menuone", "noselect" }, -- mostly just for cmp
   conceallevel = 0,                        -- so that `` is visible in markdown files
+  laststatus = 3,
   fileencoding = "utf-8",                  -- the encoding written to a file
   ignorecase = true,                       -- ignore case in search patterns
   mouse = "a",                             -- allow the mouse to be used in neovim
@@ -33,7 +34,7 @@ local options = {
   termguicolors = true,                    -- set term gui colors (most terminals support this)
   cmdheight = 1,                           -- more space in the neovim command line for displaying messages
   hidden = true,
-  hlsearch = false                        -- highlight all matches on previous search pattern
+  hlsearch = false,                        -- highlight all matches on previous search pattern
   --guifont = "monospace:h17",               -- the font used in graphical neovim applications
 }
 

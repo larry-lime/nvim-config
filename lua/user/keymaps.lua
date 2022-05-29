@@ -28,7 +28,10 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 keymap("n", "<leader>e", ":Lex 30<cr>", opts)
 
 -- Nvim-Tree
-keymap("n", "<leader>nt", ":NvimTreeToggle<cr>", opts)
+keymap("n", "<leader>nt", ":NERDTreeToggle<cr>", opts)
+
+-- Telescope
+keymap("n", "<leader>ff", ":Telescope<cr>", opts)
 
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize +2<CR>", opts)
