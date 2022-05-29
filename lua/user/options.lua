@@ -35,7 +35,6 @@ local options = {
   wrap = false, -- display lines as one long line
   scrolloff = 4, -- is one of my fav
   sidescrolloff = 4,
-  mouse = a,
   splitbelow = true, -- force all horizontal splits to go below current window
   splitright = true, -- force all vertical splits to go to the right of current window
   termguicolors = true, -- set term gui colors (most terminals support this)
@@ -50,18 +49,7 @@ vim.opt.shortmess:append "c"
 for k, v in pairs(options) do
   vim.opt[k] = v
 end
-vim.opt.statusline = '' ..
-    '%#TablineSel# ' ..
-    'Git %#CursorLine# ' ..
-    '%f 😊 ' ..
-    '%= ' ..
-    '%y ' ..
-    '%{&fileencoding?&fileencoding:&encoding}' ..
-    '[%{&fileformat}] ' ..
-    '%#TablineSel# ' ..
-    '%p%% ' ..
-    '%l/%L ' ..
 
-    vim.cmd "set whichwrap+=<,>,[,],h,l"
+vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
 vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work

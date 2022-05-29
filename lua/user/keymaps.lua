@@ -1,8 +1,9 @@
---    ______                           __
---   / ____/__  ____  ___  _________ _/ /
---  / / __/ _ \/ __ \/ _ \/ ___/ __ `/ /
--- / /_/ /  __/ / / /  __/ /  / /_/ / /
--- \____/\___/_/ /_/\___/_/   \__,_/_/
+--     __ __
+--    / //_/__  __  ______ ___  ____ _____  _____
+--   / ,< / _ \/ / / / __ `__ \/ __ `/ __ \/ ___/
+--  / /| /  __/ /_/ / / / / / / /_/ / /_/ (__  )
+-- /_/ |_\___/\__, /_/ /_/ /_/\__,_/ .___/____/
+--           /____/               /_/
 
 -- FUNCTIONS --
 vim.api.nvim_exec(
@@ -34,6 +35,7 @@ endfunction
 
 -- KEYBOARD SHORTCUTS --
 local opts = { noremap = true, silent = true }
+local nopts = { noremap = true, silent = false }
 local term_opts = { silent = true }
 local keymap = vim.api.nvim_set_keymap
 
@@ -120,7 +122,8 @@ keymap("t", "<Esc>", "<C-\\><C-n>", term_opts)
 -- Plugin Mappings
 -- -------------------------------------------------------------------------------
 -- Nvim-Tree
-keymap("n", "<leader>nt", ":NERDTreeToggle<CR>", opts)
+-- keymap("n", "<leader>nt", ":NERDTreeToggle<CR>", opts)
+keymap("n", "<leader>nt", ":NvimTreeToggle<CR>", opts)
 
 -- Telescope
 keymap("n", "<leader>ff", ":Telescope<CR>", opts)
@@ -129,6 +132,32 @@ keymap("n", "<leader>ff", ":Telescope<CR>", opts)
 keymap("n", "]h", ":Gitsigns next_hunk<CR>", opts)
 keymap("n", "[h", ":Gitsigns prev_hunk<CR>", opts)
 keymap("n", "<leader>hp", ":Gitsigns preview_hunk<CR>", opts)
+
+-- Fugitive
+keymap("n", "<leader>gaa", ":G add ", nopts)
+keymap("n", "<leader>gp", ":G push origin ", nopts)
+keymap("n", "<leader>ga%", ":G add % | echo 'Git Add Current File'<CR>", opts)
+keymap("n", "<leader>ga.", ":G add . | echo 'Git Add All Files'<CR>", opts)
+keymap("n", "<leader>gr%", ":G reset % | echo 'Git Reset Current File", opts)
+keymap("n", "<leader>gr.", ":G reset . | echo 'Git Reset All Files'<CR>", opts)
+keymap("n", "<leader>gs", ":G status<CR>", opts)
+keymap("n", "<leader>gc", ":G commit | startinsert<Cr>", opts)
+keymap("n", "<leader>gl", ":G log<CR>", opts)
+keymap("n", "<leader>gb", ":G branch<CR>", opts)
+-- keymap("n","<leader>go",":call Gopen()",nopts)
+
+
+-- nnoremap <leader>gaa :G add
+-- nnoremap <leader>gp :G push origin
+-- nnoremap <silent><leader>ga% :G add % \| echo "Git Add Currrent File"<CR>
+-- nnoremap <silent><leader>ga. :G add . \| echo "Git Add All Files"<CR>
+-- nnoremap <silent><leader>gr% :G reset % \| echo "Git Reset Currrent File"<CR>
+-- nnoremap <silent><leader>gr. :G reset . \| echo "Git Reset All Files"<CR>
+-- nnoremap <silent><leader>gs :G status<CR>
+-- nnoremap <silent><leader>gc :G commit \| startinsert<CR>
+-- nnoremap <silent><leader>gl :G log<CR>
+-- nnoremap <silent><leader>gb :G branch<CR>
+-- nnoremap <silent><leader>go :call Gopen()<CR>
 
 -- Move Nvim
 keymap('n', '<A-j>', ":MoveLine(1)<CR>", opts)

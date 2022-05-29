@@ -13,18 +13,17 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +1 user/lsp/handlers.lua
-badd +27 user/lsp/lsp-installer.lua
-badd +7 term://~/.config/nvim/lua//32524:/usr/bin/zsh
+badd +71 user/plugins.lua
+badd +0 ~/.config/nvim_alt/plug.vim
 argglobal
 %argdel
-edit user/lsp/lsp-installer.lua
+edit user/plugins.lua
 let s:save_splitbelow = &splitbelow
 let s:save_splitright = &splitright
 set splitbelow splitright
 wincmd _ | wincmd |
-split
-1wincmd k
+vsplit
+1wincmd h
 wincmd w
 let &splitbelow = s:save_splitbelow
 let &splitright = s:save_splitright
@@ -35,10 +34,10 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe '1resize ' . ((&lines * 39 + 26) / 53)
-exe '2resize ' . ((&lines * 10 + 26) / 53)
+exe 'vert 1resize ' . ((&columns * 95 + 95) / 190)
+exe 'vert 2resize ' . ((&columns * 94 + 95) / 190)
 argglobal
-balt user/lsp/handlers.lua
+balt user/plugins.lua
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -49,19 +48,19 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 22 - ((17 * winheight(0) + 19) / 39)
+let s:l = 72 - ((24 * winheight(0) + 25) / 50)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 22
-normal! 05|
+keepjumps 72
+normal! 0
 wincmd w
 argglobal
-if bufexists(fnamemodify("term://~/.config/nvim/lua//32524:/usr/bin/zsh", ":p")) | buffer term://~/.config/nvim/lua//32524:/usr/bin/zsh | else | edit term://~/.config/nvim/lua//32524:/usr/bin/zsh | endif
+if bufexists(fnamemodify("~/.config/nvim_alt/plug.vim", ":p")) | buffer ~/.config/nvim_alt/plug.vim | else | edit ~/.config/nvim_alt/plug.vim | endif
 if &buftype ==# 'terminal'
-  silent file term://~/.config/nvim/lua//32524:/usr/bin/zsh
+  silent file ~/.config/nvim_alt/plug.vim
 endif
-balt user/lsp/lsp-installer.lua
+balt user/plugins.lua
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -70,16 +69,17 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-let s:l = 7 - ((6 * winheight(0) + 5) / 10)
+silent! normal! zE
+let &fdl = &fdl
+let s:l = 41 - ((39 * winheight(0) + 25) / 50)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 7
-normal! 032|
+keepjumps 41
+normal! 024|
 wincmd w
-2wincmd w
-exe '1resize ' . ((&lines * 39 + 26) / 53)
-exe '2resize ' . ((&lines * 10 + 26) / 53)
+exe 'vert 1resize ' . ((&columns * 95 + 95) / 190)
+exe 'vert 2resize ' . ((&columns * 94 + 95) / 190)
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf

@@ -42,27 +42,39 @@ return packer.startup(function(use)
   -- Core Plugins
   use "wbthomason/packer.nvim"
   use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
-  use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins 
+  use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
 
   -- Colorschemes
   use 'navarasu/onedark.nvim'
-  use { "ellisonleao/gruvbox.nvim" }
+  use "ellisonleao/gruvbox.nvim"
+  use 'folke/tokyonight.nvim'
+  use { 'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true } }
 
-  -- IDE Features
-  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-  use 'preservim/nerdtree' --NERDTree
-  use "Pocco81/AutoSave.nvim"
-  use { 'nvim-telescope/telescope.nvim', requires = { { 'nvim-lua/plenary.nvim' } } }
-  use 'fedepujol/move.nvim'
-  use { 'L3MON4D3/LuaSnip' }
-  use { 'hrsh7th/nvim-cmp' }
   -- CMP Plugins
+  use { 'hrsh7th/nvim-cmp' }
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/cmp-cmdline'
 
+  -- IDE Features
+  use { 'numToStr/Comment.nvim' }
+  use 'pseewald/vim-anyfold'
+  use 'preservim/tagbar'
+  use "Pocco81/AutoSave.nvim"
+  use 'fedepujol/move.nvim'
+  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+  use { 'nvim-telescope/telescope.nvim', requires = { { 'nvim-lua/plenary.nvim' } } }
+
+
+  -- Filetree
+  use { 'kyazdani42/nvim-tree.lua',
+    requires = { 'kyazdani42/nvim-web-devicons' } }
+  use 'preservim/nerdtree'
+
   -- Snippets
   use { 'saadparwaiz1/cmp_luasnip' }
+  use { 'L3MON4D3/LuaSnip' }
   use 'rafamadriz/friendly-snippets'
 
   -- LSP Installer
@@ -73,15 +85,13 @@ return packer.startup(function(use)
   -- Add Ons
   use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
   use 'https://github.com/github/copilot.vim.git'
+  use 'xiyaowong/nvim-transparent'
 
   -- Git Integration
   use { 'lewis6991/gitsigns.nvim', }
-  use {
-    'numToStr/Comment.nvim',
-    config = function()
-      require('Comment').setup()
-    end
-  }
+  use 'tpope/vim-fugitive'
+  use 'itchyny/vim-gitbranch'
+
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
     require("packer").sync()
