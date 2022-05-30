@@ -6,7 +6,7 @@
 
 local colorscheme = "tokyonight" -- onedark, gruvbox, tokyonight
 if colorscheme == "tokyonight" then
-  vim.g.tokyonight_style = "night" --storm, night, day
+  vim.g.tokyonight_style = "storm" --storm, night, day
   vim.g.tokyonight_dark_sidebar = false
 end
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
