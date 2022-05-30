@@ -48,6 +48,9 @@ return packer.startup(function(use)
   use 'navarasu/onedark.nvim'
   use "ellisonleao/gruvbox.nvim"
   use 'folke/tokyonight.nvim'
+  use { "catppuccin/nvim", as = "catppuccin" }
+
+  -- Lualine
   use { 'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true } }
 
@@ -64,6 +67,11 @@ return packer.startup(function(use)
   use "Pocco81/AutoSave.nvim"
   use 'fedepujol/move.nvim'
 
+  -- Graphical Debugger
+  use 'mfussenegger/nvim-dap'
+  use 'mfussenegger/nvim-dap-python'
+  use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
+
   -- Telescope
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   use { 'nvim-telescope/telescope.nvim', requires = { { 'nvim-lua/plenary.nvim' } } }
@@ -74,7 +82,7 @@ return packer.startup(function(use)
   -- Filetree
   use { 'kyazdani42/nvim-tree.lua',
     requires = { 'kyazdani42/nvim-web-devicons' } }
-  use 'preservim/nerdtree'
+  -- use 'preservim/nerdtree'
 
   -- Snippets
   use { 'saadparwaiz1/cmp_luasnip' }

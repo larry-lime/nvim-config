@@ -16,7 +16,6 @@ function LoadSession(name)
 endfunction
 
 function MakeSession(name)
-    tabdo NERDTreeClose
     let b:sesh = join(["./.sessions/",a:name],"")
     if !isdirectory("./.sessions")
         call mkdir("./.sessions", "p")
@@ -101,10 +100,6 @@ keymap("n", "<S-h>", "^", opts)
 keymap("v", "<S-l>", "g_", opts)
 keymap("v", "<S-h>", "^", opts)
 
--- Stay in indent mode
-keymap("v", "<", "<gv", opts)
-keymap("v", ">", ">gv", opts)
-
 -- TERMINAL BINDINGS --
 
 -- Open Terminal
@@ -131,6 +126,19 @@ keymap("n", "<leader>nt", ":NvimTreeToggle<CR>", opts)
 keymap("n", "<leader>tb", ":TagbarToggle<CR>", opts)
 keymap("n", "<A-t>", ":TagbarOpen<CR>", opts)
 
+
+-- Nvim-Dap
+keymap("n", "<leader>di", ":aboveleft split ~/.config/nvim/dap-instructions.md<CR>", nopts)
+
+keymap("n", "<leader>ds", ":lua require'dap'.continue()<CR>", nopts)
+-- keymap("n", "<leader>ds", ":lua require'dap'.continue()<CR>", nopts)
+keymap("n", "<leader>de", ":lua require'dap'.disconnect()<CR>", nopts)
+keymap("n", "<leader>bp", ":lua require'dap'.toggle_breakpoint()<CR>", nopts)
+keymap("n", "<leader>bc", ":lua require'dap'.clear_breakpoints()<CR>", nopts)
+keymap("n", "<F9>", ":lua require'dap'.step_over()<CR>", nopts)
+keymap("n", "<F10>", ":lua require'dap'.step_into()<CR>", nopts)
+keymap("n", "<F11>", ":lua require'dap'.step_out()<CR>", nopts)
+keymap("n", "<F12>", ":lua require'dap'.step_back()<CR>", nopts)
 
 -- Telescope
 keymap("n", "<leader>tl", ":Telescope<CR>", opts)
