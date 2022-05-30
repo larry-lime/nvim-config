@@ -63,8 +63,12 @@ return packer.startup(function(use)
   use 'preservim/tagbar'
   use "Pocco81/AutoSave.nvim"
   use 'fedepujol/move.nvim'
+
+  -- Telescope
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   use { 'nvim-telescope/telescope.nvim', requires = { { 'nvim-lua/plenary.nvim' } } }
+  use 'gbrlsnchs/telescope-lsp-handlers.nvim'
+  use 'ThePrimeagen/harpoon'
 
 
   -- Filetree

@@ -14,7 +14,8 @@ require('lualine').setup {
     lualine_c = {'filename'},
     lualine_x = {'encoding', 'fileformat', 'filetype'},
     lualine_y = {'progress'},
-    lualine_z = {'location'}
+    lualine_z = {'%l/%L'}
+    -- lualine_z = {'location'}
   },
   inactive_sections = {
     lualine_a = {},
@@ -24,7 +25,15 @@ require('lualine').setup {
     lualine_y = {},
     lualine_z = {}
   },
-  tabline = {},
+  -- tabline = {}
+  tabline = {
+    lualine_a = {'windows'},
+    lualine_b = {},
+    lualine_c = {},
+    lualine_x = {},
+    lualine_y = {},
+    lualine_z = {'tabs'}
+  },
   extensions = {}
 }
 

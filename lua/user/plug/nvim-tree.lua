@@ -26,6 +26,11 @@ require 'nvim-tree'.setup { -- BEGIN_DEFAULT_OPTS
       custom_only = false,
       list = {
         -- user mappings go here
+        { key = 's', action = 'vsplit' },
+        { key = "i", action = "split" },
+        { key = "u", action = "dir_up" },
+        { key = "t", action = "tabnew" },
+        { key = "<C-k>", action = "" },
       },
     },
   },

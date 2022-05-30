@@ -54,7 +54,7 @@ vim.g.maplocalleader = " "
 
 -- Save Sessions
 keymap("n", "<leader>ss", ":call MakeSession('mysession.vim') | tabn<CR>", opts)
-keymap("n", "<leader>sl", ":call LoadSession('mysession.vim')<CR>", opts)
+keymap("n", "<leader>sl", ":call LoadSession('mysession.vim') | NvimTreeOpen<CR>", opts)
 keymap("n", "<leader>qq", ":call ExitVim()<CR>", opts)
 
 -- Buffer Navigation
@@ -122,23 +122,37 @@ keymap("t", "<Esc>", "<C-\\><C-n>", term_opts)
 -- Plugin Mappings
 -- -------------------------------------------------------------------------------
 -- Nvim-Tree
--- keymap("n", "<leader>nt", ":NERDTreeToggle<CR>", opts)
+keymap("n", "<A-n>", ":NvimTreeOpen<CR>", opts)
+keymap("n", "<leader>nf", ":NvimTreeFindFile<CR>", opts)
 keymap("n", "<leader>nt", ":NvimTreeToggle<CR>", opts)
 
+-- Tagbar
+keymap("n", "<leader>tb", ":TagbarToggle<CR>", opts)
+keymap("n", "<A-t>", ":TagbarOpen<CR>", opts)
+
+
 -- Telescope
-keymap("n", "<leader>ff", ":Telescope<CR>", opts)
+keymap("n", "<leader>tl", ":Telescope<CR>", opts)
+keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
+
+keymap("n", "<leader>cl", ":Telescope colorscheme<CR>", opts)
+keymap("n", "<leader>bl", ":Telescope buffers<CR>", opts)
+keymap("n", "<leader>rg", ":Telescope live_grep<CR>", opts)
+keymap("n", "<leader>mp", ":Telescope keymaps<CR>", opts)
 
 -- Gitsigns
 keymap("n", "]h", ":Gitsigns next_hunk<CR>", opts)
 keymap("n", "[h", ":Gitsigns prev_hunk<CR>", opts)
 keymap("n", "<leader>hp", ":Gitsigns preview_hunk<CR>", opts)
+keymap("n", "<leader>gd", ":Gitsigns diffthis<CR>", opts)
+
 
 -- Fugitive
 keymap("n", "<leader>gaa", ":G add ", nopts)
 keymap("n", "<leader>gp", ":G push origin ", nopts)
 keymap("n", "<leader>ga%", ":G add % | echo 'Git Add Current File'<CR>", opts)
 keymap("n", "<leader>ga.", ":G add . | echo 'Git Add All Files'<CR>", opts)
-keymap("n", "<leader>gr%", ":G reset % | echo 'Git Reset Current File", opts)
+keymap("n", "<leader>gr%", ":G reset % | echo 'Git Reset Current File'<CR>", opts)
 keymap("n", "<leader>gr.", ":G reset . | echo 'Git Reset All Files'<CR>", opts)
 keymap("n", "<leader>gs", ":G status<CR>", opts)
 keymap("n", "<leader>gc", ":G commit | startinsert<Cr>", opts)
