@@ -61,11 +61,10 @@ keymap("n", "<leader>oo", ":bd!<CR>", opts)
 keymap("n", "<leader>oa", ":%bd! | e# |bd#<CR>", opts)
 
 -- Open and Close Tabs
-keymap("n", "<leader>tn", ":tabnew<CR>", opts)
-keymap("n", "<leader>tc", ":tabclose<CR>", opts)
+keymap("n", "<C-t>", ":tabnew<CR>", opts)
+keymap("n", "<C-w>", ":tabclose<CR>", opts)
 keymap("n", "<leader>mm", ":tab sb %<CR>", opts)
 keymap("n", "<leader>mx", ":tabclose<CR>", opts)
-keymap("n", "<leader>rn", "*Ncgn", opts)
 keymap("n", "<leader>v", "g_v^", opts)
 
 -- Better window navigation
@@ -112,7 +111,7 @@ keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
 -- Escaping
-keymap("t", "<Esc>", "<C-\\><C-n>", term_opts)
+-- keymap("t", "<Esc>", "<C-\\><C-n>", term_opts)
 
 -- -------------------------------------------------------------------------------
 -- Plugin Mappings
@@ -156,9 +155,9 @@ keymap("n", "<leader>h3", ":lua require('harpoon.ui').nav_file(3)<CR>", opts)
 -- keymap("n", "<leader>hp", ":lua require('harpoon.ui').nav_prev()<CR>", opts)
 -- keymap("n", "<leader>hn", ":lua require('harpoon.ui').nav_next()<CR>", opts)
 
--- Fugitive & Gitsigns
+-- Git Integration
 keymap("n", "<leader>gaa", ":G add ", nopts)
-keymap("n", "<leader>gpo", ":G push origin ", nopts)
+keymap("n", "<leader>gpp", ":G push origin ", nopts)
 keymap("n", "<leader>ga%", ":G add % | echo 'Git Add Current File'<CR>", opts)
 keymap("n", "<leader>ga.", ":G add . | echo 'Git Add All Files'<CR>", opts)
 keymap("n", "<leader>gr%", ":G reset % | echo 'Git Reset Current File'<CR>", opts)
@@ -168,6 +167,7 @@ keymap("n", "<leader>gc", ":G commit | startinsert<Cr>", opts)
 keymap("n", "<leader>gl", ":G log<CR>", opts)
 keymap("n", "<leader>gb", ":G branch<CR>", opts)
 keymap("n", "<leader>gd", ":Gitsigns diffthis<CR>", opts)
+keymap("n", "<leader>lg", ":LazyGit<CR>", opts)
 keymap("n", "]h", ":Gitsigns next_hunk<CR>", opts)
 keymap("n", "[h", ":Gitsigns prev_hunk<CR>", opts)
 keymap("n", "<leader>hp", ":Gitsigns preview_hunk<CR>", opts)

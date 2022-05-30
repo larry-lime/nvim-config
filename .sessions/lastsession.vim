@@ -13,13 +13,11 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +8 ~/.config/nvim/lua/user/plug/nvim-dap.lua
-badd +171 lua/user/keymaps.lua
 argglobal
 %argdel
-edit lua/user/keymaps.lua
 argglobal
-balt ~/.config/nvim/lua/user/plug/nvim-dap.lua
+enew
+file NvimTree_1
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -27,15 +25,7 @@ setlocal fdi=#
 setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
-setlocal fen
-silent! normal! zE
-let &fdl = &fdl
-let s:l = 156 - ((27 * winheight(0) + 25) / 50)
-if s:l < 1 | let s:l = 1 | endif
-keepjumps exe s:l
-normal! zt
-keepjumps 156
-normal! 0
+setlocal nofen
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf

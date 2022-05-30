@@ -9,12 +9,12 @@ require('lualine').setup {
     globalstatus = false,
   },
   sections = {
-    lualine_a = {'mode'},
-    lualine_b = {'branch', 'diff', 'diagnostics' },
+    lualine_a = { 'mode' },
+    lualine_b = { 'branch', 'diff', 'diagnostics' },
     lualine_c = { 'filename' },
     lualine_x = { 'encoding', 'fileformat', 'filetype' },
-    lualine_y = { 'progress' ,'%l/%L'},
-    lualine_z = {}
+    lualine_y = { 'progress' },
+    lualine_z = { '%l/%L' }
   },
   inactive_sections = {
     lualine_a = {},
@@ -26,12 +26,12 @@ require('lualine').setup {
   },
   -- tabline = {}
   tabline = {
-    lualine_a = {'windows'},
+    lualine_a = { 'windows' },
     lualine_b = {},
     lualine_c = {},
-    lualine_x = {'os.date()'},
+    lualine_x = { 'os.date()' },
     lualine_y = {},
-    lualine_z = {'tabs'}
+    lualine_z = { 'tabs' }
   },
   extensions = {}
 }

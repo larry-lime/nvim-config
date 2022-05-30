@@ -45,20 +45,22 @@ return packer.startup(function(use)
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
 
   -- Colorschemes
-  use 'navarasu/onedark.nvim'
+  -- use 'navarasu/onedark.nvim'
   use "ellisonleao/gruvbox.nvim"
   use 'folke/tokyonight.nvim'
   use { "catppuccin/nvim", as = "catppuccin" }
+  use 'ful1e5/onedark.nvim'
 
   -- Lualine
   use { 'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true } }
 
   -- CMP Plugins
-  use { 'hrsh7th/nvim-cmp' }
+  use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/cmp-cmdline'
+  use 'hrsh7th/cmp-nvim-lua'
 
   -- IDE Features
   use { 'numToStr/Comment.nvim' }
@@ -75,18 +77,17 @@ return packer.startup(function(use)
   -- Telescope
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   use { 'nvim-telescope/telescope.nvim', requires = { { 'nvim-lua/plenary.nvim' } } }
+  use 'nvim-telescope/telescope-dap.nvim'
   use 'gbrlsnchs/telescope-lsp-handlers.nvim'
   use 'ThePrimeagen/harpoon'
 
-
   -- Filetree
-  use { 'kyazdani42/nvim-tree.lua',
-    requires = { 'kyazdani42/nvim-web-devicons' } }
+  use { 'kyazdani42/nvim-tree.lua', requires = { 'kyazdani42/nvim-web-devicons' } }
   -- use 'preservim/nerdtree'
 
   -- Snippets
-  use { 'saadparwaiz1/cmp_luasnip' }
-  use { 'L3MON4D3/LuaSnip' }
+  use 'saadparwaiz1/cmp_luasnip'
+  use 'L3MON4D3/LuaSnip'
   use 'rafamadriz/friendly-snippets'
 
   -- LSP Installer
@@ -100,7 +101,8 @@ return packer.startup(function(use)
   use 'xiyaowong/nvim-transparent'
 
   -- Git Integration
-  use { 'lewis6991/gitsigns.nvim', }
+  use 'kdheepak/lazygit.nvim'
+  use 'lewis6991/gitsigns.nvim'
   use 'tpope/vim-fugitive'
   use 'itchyny/vim-gitbranch'
 

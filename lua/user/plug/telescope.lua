@@ -36,3 +36,5 @@ require('telescope').setup {
 }
 require("telescope").load_extension('harpoon')
 require("telescope").load_extension("lsp_handlers")
+-- require('telescope').load_extension('dap')
+-- require('telescope').load_extension('lazygit')
