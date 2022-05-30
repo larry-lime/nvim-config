@@ -13,20 +13,11 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +1 ~/.config/nvim/.gitignore
-badd +7 ~/.config/nvim/lua/user/autocmd.lua
-badd +1 ~/.config/nvim/lua/user/plug/gitsigns.lua
-badd +136 lua/user/keymaps.lua
-badd +39 /mnt/c/Users/larry/nyu/ics/final_project/chat_client_class.py
-badd +1 ~/.config/nvim/lua/user/lsp/handlers.lua
-badd +141 ~/.config/nvim/lua/user/cmp.lua
-badd +5 ~/.config/nvim/lua/user/plug/autosave.lua
-badd +19 ~/.config/nvim/init.lua
+badd +5 lua/user/plug/lualine.lua
+badd +9 lua/user/colors.lua
 argglobal
 %argdel
-tabnew +setlocal\ bufhidden=wipe
-tabrewind
-edit lua/user/keymaps.lua
+edit lua/user/colors.lua
 let s:save_splitbelow = &splitbelow
 let s:save_splitright = &splitright
 set splitbelow splitright
@@ -52,7 +43,7 @@ exe 'vert 3resize ' . ((&columns * 63 + 79) / 158)
 argglobal
 enew
 file NvimTree_2
-balt lua/user/keymaps.lua
+balt lua/user/colors.lua
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -63,7 +54,7 @@ setlocal fdn=20
 setlocal nofen
 wincmd w
 argglobal
-balt ~/.config/nvim/init.lua
+balt lua/user/plug/lualine.lua
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -74,19 +65,17 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 136 - ((20 * winheight(0) + 20) / 41)
+let s:l = 9 - ((8 * winheight(0) + 20) / 41)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 136
-normal! 048|
+keepjumps 9
+normal! 029|
 wincmd w
 argglobal
-if bufexists(fnamemodify("~/.config/nvim/lua/user/lsp/handlers.lua", ":p")) | buffer ~/.config/nvim/lua/user/lsp/handlers.lua | else | edit ~/.config/nvim/lua/user/lsp/handlers.lua | endif
-if &buftype ==# 'terminal'
-  silent file ~/.config/nvim/lua/user/lsp/handlers.lua
-endif
-balt lua/user/keymaps.lua
+enew | setl bt=help
+help tokyonight.nvim-night@en
+balt lua/user/plug/lualine.lua
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -94,50 +83,35 @@ setlocal fdi=#
 setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
-setlocal fen
+setlocal nofen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 58 - ((16 * winheight(0) + 20) / 41)
+let s:l = 130 - ((20 * winheight(0) + 20) / 41)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 58
-normal! 07|
+keepjumps 130
+normal! 028|
 wincmd w
+2wincmd w
 exe 'vert 1resize ' . ((&columns * 30 + 79) / 158)
 exe 'vert 2resize ' . ((&columns * 63 + 79) / 158)
 exe 'vert 3resize ' . ((&columns * 63 + 79) / 158)
-tabnext
-edit ~/.config/nvim/lua/user/plug/autosave.lua
-argglobal
-setlocal fdm=manual
-setlocal fde=0
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal fen
-silent! normal! zE
-let &fdl = &fdl
-let s:l = 5 - ((4 * winheight(0) + 20) / 41)
-if s:l < 1 | let s:l = 1 | endif
-keepjumps exe s:l
-normal! zt
-keepjumps 5
-normal! 029|
-tabnext 2
+tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
 endif
 unlet! s:wipebuf
 set winheight=1 winwidth=20
 let &shortmess = s:shortmess_save
+let &winminheight = s:save_winminheight
+let &winminwidth = s:save_winminwidth
 let s:sx = expand("<sfile>:p:r")."x.vim"
 if filereadable(s:sx)
   exe "source " . fnameescape(s:sx)
 endif
 let &g:so = s:so_save | let &g:siso = s:siso_save
+nohlsearch
 doautoall SessionLoadPost
 unlet SessionLoad
 " vim: set ft=vim :

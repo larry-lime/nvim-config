@@ -62,9 +62,10 @@ keymap("n", "<leader>oo", ":bd!<CR>", opts)
 keymap("n", "<leader>oa", ":%bd! | e# |bd#<CR>", opts)
 
 -- Open and Close Tabs
-keymap("n", "<leader>tn", "tabnew<CR>", opts)
-keymap("n", "<leader>tc", "tabclose<CR>", opts)
-keymap("n", "<leader>tc", "tabclose<CR>", opts)
+keymap("n", "<leader>tn", ":tabnew<CR>", opts)
+keymap("n", "<leader>tc", ":tabclose<CR>", opts)
+keymap("n", "<leader>mm", ":tab sb %<CR>", opts)
+keymap("n", "<leader>mx", ":tabclose<CR>", opts)
 keymap("n", "<leader>rn", "*Ncgn", opts)
 keymap("n", "<leader>v", "g_v^", opts)
 
@@ -134,7 +135,6 @@ keymap("n", "<A-t>", ":TagbarOpen<CR>", opts)
 -- Telescope
 keymap("n", "<leader>tl", ":Telescope<CR>", opts)
 keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
-
 keymap("n", "<leader>cl", ":Telescope colorscheme<CR>", opts)
 keymap("n", "<leader>bl", ":Telescope buffers<CR>", opts)
 keymap("n", "<leader>rg", ":Telescope live_grep<CR>", opts)
