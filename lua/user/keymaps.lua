@@ -53,7 +53,7 @@ vim.g.maplocalleader = " "
 
 -- Save Sessions
 keymap("n", "<leader>ss", ":call MakeSession('mysession.vim') | tabn<CR>", opts)
-keymap("n", "<leader>sl", ":call LoadSession('mysession.vim') | NvimTreeOpen<CR>", opts)
+keymap("n", "<leader>sl", ":call LoadSession('lastsession.vim')<CR>", opts)
 keymap("n", "<leader>qq", ":call ExitVim()<CR>", opts)
 
 -- Buffer Navigation
@@ -131,14 +131,13 @@ keymap("n", "<A-t>", ":TagbarOpen<CR>", opts)
 keymap("n", "<leader>di", ":aboveleft split ~/.config/nvim/dap-instructions.md<CR>", nopts)
 
 keymap("n", "<leader>ds", ":lua require'dap'.continue()<CR>", nopts)
--- keymap("n", "<leader>ds", ":lua require'dap'.continue()<CR>", nopts)
-keymap("n", "<leader>de", ":lua require'dap'.disconnect()<CR>", nopts)
-keymap("n", "<leader>bp", ":lua require'dap'.toggle_breakpoint()<CR>", nopts)
-keymap("n", "<leader>bc", ":lua require'dap'.clear_breakpoints()<CR>", nopts)
-keymap("n", "<F9>", ":lua require'dap'.step_over()<CR>", nopts)
-keymap("n", "<F10>", ":lua require'dap'.step_into()<CR>", nopts)
-keymap("n", "<F11>", ":lua require'dap'.step_out()<CR>", nopts)
-keymap("n", "<F12>", ":lua require'dap'.step_back()<CR>", nopts)
+keymap("n", "<leader>de", ":lua require'dap'.disconnect()<CR>", opts)
+keymap("n", "<leader>.", ":lua require'dap'.toggle_breakpoint()<CR>", opts)
+keymap("n", "<leader>bc", ":lua require'dap'.clear_breakpoints()<CR>", opts)
+keymap("n", "<`>`>", ":lua require'dap'.step_over()<CR>", opts)
+keymap("n", "<F10>", ":lua require'dap'.step_into()<CR>", opts)
+keymap("n", "<F11>", ":lua require'dap'.step_out()<CR>", opts)
+keymap("n", "<F12>", ":lua require'dap'.step_back()<CR>", opts)
 
 -- Telescope
 keymap("n", "<leader>tl", ":Telescope<CR>", opts)
@@ -148,16 +147,18 @@ keymap("n", "<leader>bl", ":Telescope buffers<CR>", opts)
 keymap("n", "<leader>rg", ":Telescope live_grep<CR>", opts)
 keymap("n", "<leader>mp", ":Telescope keymaps<CR>", opts)
 
--- Gitsigns
-keymap("n", "]h", ":Gitsigns next_hunk<CR>", opts)
-keymap("n", "[h", ":Gitsigns prev_hunk<CR>", opts)
-keymap("n", "<leader>hp", ":Gitsigns preview_hunk<CR>", opts)
-keymap("n", "<leader>gd", ":Gitsigns diffthis<CR>", opts)
+-- Harpoon
+keymap("n", "<leader>ha", ":lua require('harpoon.mark').add_file()<CR>", opts)
+keymap("n", "<leader>ht", ":lua require('harpoon.ui').toggle_quick_menu()<CR>", opts)
+keymap("n", "<leader>h1", ":lua require('harpoon.ui').nav_file(1)<CR>", opts)
+keymap("n", "<leader>h2", ":lua require('harpoon.ui').nav_file(2)<CR>", opts)
+keymap("n", "<leader>h3", ":lua require('harpoon.ui').nav_file(3)<CR>", opts)
+-- keymap("n", "<leader>hp", ":lua require('harpoon.ui').nav_prev()<CR>", opts)
+-- keymap("n", "<leader>hn", ":lua require('harpoon.ui').nav_next()<CR>", opts)
 
-
--- Fugitive
+-- Fugitive & Gitsigns
 keymap("n", "<leader>gaa", ":G add ", nopts)
-keymap("n", "<leader>gp", ":G push origin ", nopts)
+keymap("n", "<leader>gpo", ":G push origin ", nopts)
 keymap("n", "<leader>ga%", ":G add % | echo 'Git Add Current File'<CR>", opts)
 keymap("n", "<leader>ga.", ":G add . | echo 'Git Add All Files'<CR>", opts)
 keymap("n", "<leader>gr%", ":G reset % | echo 'Git Reset Current File'<CR>", opts)
@@ -166,20 +167,11 @@ keymap("n", "<leader>gs", ":G status<CR>", opts)
 keymap("n", "<leader>gc", ":G commit | startinsert<Cr>", opts)
 keymap("n", "<leader>gl", ":G log<CR>", opts)
 keymap("n", "<leader>gb", ":G branch<CR>", opts)
+keymap("n", "<leader>gd", ":Gitsigns diffthis<CR>", opts)
+keymap("n", "]h", ":Gitsigns next_hunk<CR>", opts)
+keymap("n", "[h", ":Gitsigns prev_hunk<CR>", opts)
+keymap("n", "<leader>hp", ":Gitsigns preview_hunk<CR>", opts)
 -- keymap("n","<leader>go",":call Gopen()",nopts)
-
-
--- nnoremap <leader>gaa :G add
--- nnoremap <leader>gp :G push origin
--- nnoremap <silent><leader>ga% :G add % \| echo "Git Add Currrent File"<CR>
--- nnoremap <silent><leader>ga. :G add . \| echo "Git Add All Files"<CR>
--- nnoremap <silent><leader>gr% :G reset % \| echo "Git Reset Currrent File"<CR>
--- nnoremap <silent><leader>gr. :G reset . \| echo "Git Reset All Files"<CR>
--- nnoremap <silent><leader>gs :G status<CR>
--- nnoremap <silent><leader>gc :G commit \| startinsert<CR>
--- nnoremap <silent><leader>gl :G log<CR>
--- nnoremap <silent><leader>gb :G branch<CR>
--- nnoremap <silent><leader>go :call Gopen()<CR>
 
 -- Move Nvim
 keymap('n', '<A-j>', ":MoveLine(1)<CR>", opts)

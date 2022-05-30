@@ -1,6 +1,6 @@
 -- Dap Configurations
--- require('dap')
 local dap, dapui = require("dap"), require("dapui")
+dap.defaults.fallback.terminal_win_cmd = '20vsplit new'
 dap.listeners.after.event_initialized["dapui_config"] = function()
   dapui.open()
 end
