@@ -6,7 +6,7 @@ require("user.plugins")
 require("user.colors")
 
 -- Plugins Configs
-require("user.autopairs")
+require("user.plug.autopairs")
 require("user.lsp")
 require("user.plug.nvim-tree")
 require("user.plug.lualine")
