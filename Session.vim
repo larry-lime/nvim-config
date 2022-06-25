@@ -13,10 +13,23 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +1 ~/.config/nvim/.gitignore
+badd +1 .gitignore
+badd +1 ~/.config/nvim/init.lua
+badd +1 ~/.config/nvim/plugin/packer_compiled.lua
+badd +1 ~/.config/nvim/lua/user/colors.lua
+badd +1 ~/.config/nvim/README.md
 argglobal
 %argdel
-edit ~/.config/nvim/.gitignore
+edit ~/.config/nvim/README.md
+let s:save_splitbelow = &splitbelow
+let s:save_splitright = &splitright
+set splitbelow splitright
+wincmd _ | wincmd |
+vsplit
+1wincmd h
+wincmd w
+let &splitbelow = s:save_splitbelow
+let &splitright = s:save_splitright
 wincmd t
 let s:save_winminheight = &winminheight
 let s:save_winminwidth = &winminwidth
@@ -24,7 +37,9 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
+wincmd =
 argglobal
+balt .gitignore
 setlocal fdm=indent
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -38,7 +53,31 @@ if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
 keepjumps 1
-normal! 011|
+normal! 0
+wincmd w
+argglobal
+if bufexists(fnamemodify("~/.config/nvim/lua/user/colors.lua", ":p")) | buffer ~/.config/nvim/lua/user/colors.lua | else | edit ~/.config/nvim/lua/user/colors.lua | endif
+if &buftype ==# 'terminal'
+  silent file ~/.config/nvim/lua/user/colors.lua
+endif
+balt ~/.config/nvim/plugin/packer_compiled.lua
+setlocal fdm=indent
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=99
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+let s:l = 1 - ((0 * winheight(0) + 24) / 48)
+if s:l < 1 | let s:l = 1 | endif
+keepjumps exe s:l
+normal! zt
+keepjumps 1
+normal! 0
+wincmd w
+2wincmd w
+wincmd =
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
