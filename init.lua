@@ -23,5 +23,4 @@ require("user.plug.telescope")
 require("user.plug.autosave")
 require('user.plug.toggleterm')
 require("user.plug.nvim-dap")
-
--- require("user.plug.copilot")
+require("user.plug.copilot")

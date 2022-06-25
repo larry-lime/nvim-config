@@ -79,16 +79,6 @@ return packer.startup(function(use)
   use { "tpope/vim-obsession" }
   use { "zbirenbaum/copilot.lua", }
   use { "zbirenbaum/copilot-cmp", module = "copilot_cmp", }
-  -- TODO figure out why this doesn't work
-  -- use {
-  --   "zbirenbaum/copilot.lua",
-  --   event = { "VimEnter" },
-  --   config = function()
-  --     vim.defer_fn(function()
-  --       require("user.plug.copilot")
-  --     end, 100)
-  --   end,
-  -- }
 
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then

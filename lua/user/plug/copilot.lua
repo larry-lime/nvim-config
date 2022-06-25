@@ -5,6 +5,6 @@ require("copilot").setup {
     -- method = "getPanelCompletions",
   },
   panel = {
-    enabled = true,
+    enabled = false,
   }
 }
