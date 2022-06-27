@@ -55,13 +55,11 @@ require('telescope').setup {
   },
   pickers = {
     -- Default configuration for builtin pickers goes here:
-    -- picker_name = {
     spell_suggest = {
       layout_strategy = 'cursor',
       layout_config = {
-        height = 0.4,
         width = 0.2,
-        prompt_position = "bottom"
+        height = 0.3,
       }
     },
     --   picker_config_key = value,
@@ -78,39 +76,11 @@ require('telescope').setup {
     ['ui-select'] = {
       require("telescope.themes").get_dropdown {}
     },
-    ['lsp_handlers'] = {
-      disable = {},
-      location = {
-        telescope = {},
-        no_results_message = 'No references found',
-      },
-      symbol = {
-        telescope = {},
-        no_results_message = 'No symbols found',
-      },
-      call_hierarchy = {
-        telescope = {},
-        no_results_message = 'No calls found',
-      },
-      code_action = {
-        telescope = {},
-        no_results_message = 'No code actions available',
-        prefix = '',
-      }
-    }
   }
 }
 
-require("telescope").load_extension("lsp_handlers")
 require("telescope").load_extension("ui-select")
 require("telescope").load_extension("refactoring")
 require("telescope").load_extension('harpoon')
+-- require("telescope").load_extension("lsp_handlers")
 -- require('telescope').load_extension('dap')
--- remap to open the Telescope refactoring menu in visual mode
-
-vim.api.nvim_set_keymap(
-  "v",
-  "<leader>rr",
-  "<Esc><cmd>lua require('telescope').extensions.refactoring.refactors()<CR>",
-  { noremap = true }
-)
