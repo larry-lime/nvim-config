@@ -7,7 +7,7 @@ All the essential configurations needed to run Neovime like an IDE. None of the 
 1. [Installation](#installation)
 2. [Terminal](#terminal)
 3. [Keybindings](#keybindings)
-4. [Plugins](#plugins)
+5. [Plugins](#plugins)
     - [IDE Features](#ide-features)
     - [Language Support](#language-support)
     - [Git Integration](#git-integration)
@@ -56,14 +56,12 @@ Packer is my plugin manager
 ### Themes
 - Onedark
 - Onehalf Light/Dark
-
 ### Aesthetics
 - Nvim-Transparent -> Transparent Background
 - Nerdtree Syntax Highlighting -> Syntax Highlighting for NERDTree
 - Coc-FZF -> FZF Preview Window for Coc 
 - Devicons -> Nerdfont Icons for Vim
 
-    
 ### Add Ons
 - Vimwiki -> Personal Wiki
 - Github Copilot -> Github's AI Autocomplete

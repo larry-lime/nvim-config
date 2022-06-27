@@ -16,20 +16,20 @@ lsp_installer.on_server_ready(function(server)
     opts = vim.tbl_deep_extend("force", pyright_opts, opts)
   end
 
+  -- Reinstall this. It was deleted in an update
+  if server.name == "sourcery" then
+    local sourcery_opts = require("user.lsp.settings.sourcery")
+    opts = vim.tbl_deep_extend("force", sourcery_opts, opts)
+  end
+
   if server.name == "sumneko_lua" then
     local sumneko_lua_opts = require("user.lsp.settings.sumneko_lua")
     opts = vim.tbl_deep_extend("force", sumneko_lua_opts, opts)
   end
 
-
   if server.name == "html" then
     local html_opts = require("user.lsp.settings.html")
     opts = vim.tbl_deep_extend("force", html_opts, opts)
-  end
-
-  if server.name == "sourcery" then
-    local sourcery_opts = require("user.lsp.settings.sourcery")
-    opts = vim.tbl_deep_extend("force", sourcery_opts, opts)
   end
 
   if server.name == "bashls" then
