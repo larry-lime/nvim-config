@@ -57,6 +57,15 @@ function FocusUpToggle()
         vnoremap ( ^
     endif
 endfunction
+
+augroup filetype_vimwiki
+    autocmd!
+    autocmd BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
+augroup END
+
+let g:vimwiki_list = [{'path': '~/vimwiki/',
+          \ 'syntax': 'markdown', 'ext': '.md'}]
+let g:conceallevel = 2
 ]] , true)
 
 -- KEYBOARD SHORTCUTS --
@@ -73,6 +82,9 @@ vim.g.maplocalleader = " "
 keymap("n", "<leader>ss", ":Obsession<CR>", opts)
 keymap("n", "<leader>sl", ":source Session.vim<CR>", opts)
 keymap("n", "<leader>qq", ":qa!<CR>", opts)
+
+-- Vimwiki
+keymap("n", "<leader>ls", ":VimwikiToggleListItem<CR>", opts)
 
 -- Copy paste
 keymap("v", "<C-c>", '"+y', opts)
@@ -139,7 +151,8 @@ keymap("v", "-", ":call Jump_middle()<CR>", opts)
 -- Renaming words
 keymap("n", "<leader>rn", "*Ncgn", opts)
 
--- TERMINAL BINDINGS --
+-- Package Manager
+keymap("n", "<leader>pu", ":PackerUpdate<CR>", opts)
 
 -- Navigation
 keymap("t", "<C-\\>", "<C-\\><C-N>", opts)
@@ -153,6 +166,12 @@ keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", opts)
 keymap("n", "<A-n>", ":NvimTreeOpen<CR>", opts)
 keymap("n", "<leader>nf", ":NvimTreeFindFile<CR>", opts)
 keymap("n", "<leader>nt", ":NvimTreeToggle<CR>", opts)
+
+-- Copilot
+keymap("n", "<leader>ce", ":Copilot enable<CR>", opts)
+keymap("n", "<leader>cd", ":Copilot disable<CR>", opts)
+keymap("n", "<leader>cp", ":Copilot panel<CR>", opts)
+keymap("n", "<leader>cs", ":echo g:copilot#Enabled()<CR>", opts)
 
 -- Tagbar
 keymap("n", "<leader>tb", ":TagbarToggle<CR>", opts)
@@ -180,6 +199,10 @@ keymap("n", "<leader>gr.", ":G reset . | echo 'Git Reset All Files'<CR>", opts)
 keymap("n", "<leader>gc", ":G commit | startinsert<Cr>", opts)
 keymap("n", "<leader>gl", ":G log<CR>", opts)
 keymap("n", "<leader>gb", ":G branch | resize -20<CR>", opts)
+
+-- REFACTOR
+keymap("v", "<leader>rf", ":lua require('telescope').extensions.refactoring.refactors()<CR>", opts)
+keymap("n", "<leader>rf", ":lua require('telescope').extensions.refactoring.refactors()<CR>", opts)
 
 -- TELESCOPE
 keymap("n", "<leader>tl", ":Telescope<CR>", opts)
