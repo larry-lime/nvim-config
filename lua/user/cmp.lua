@@ -120,15 +120,15 @@ cmp.setup {
       -- Kind icons
       vim_item.kind = kind_icons[vim_item.kind]
 
-      if entry.source.name == "copilot" then
-        vim_item.kind = ""
-        vim_item.kind_hl_group = "CmpItemKindCopilot"
-      end
+      -- if entry.source.name == "copilot" then
+      --   vim_item.kind = ""
+      --   vim_item.kind_hl_group = "CmpItemKindCopilot"
+      -- end
 
       vim_item.menu = ({
         nvim_lua = "[NVIM LUA]",
         nvim_lsp = "[LSP]",
-        copilot = "[COPILOT]",
+        -- copilot = "[COPILOT]",
         luasnip = "[Snippet]",
         buffer = "[Buffer]",
         path = "[Path]",
@@ -139,7 +139,7 @@ cmp.setup {
   sources = {
     { name = "nvim_lua", group_index = 2},
     { name = "nvim_lsp", group_index = 2},
-    { name = "copilot", group_index = 2},
+    -- { name = "copilot", group_index = 2},
     { name = "luasnip", group_index = 2},
     { name = "buffer", group_index = 2},
     { name = "path", group_index = 2},
