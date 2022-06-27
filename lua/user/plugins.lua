@@ -21,7 +21,6 @@ if fn.empty(fn.glob(install_path)) > 0 then
   vim.cmd [[packadd packer.nvim]]
 end
 
-
 -- Use a protected call so we don't error out on first use
 local status_ok, packer = pcall(require, "packer")
 if not status_ok then
@@ -61,7 +60,6 @@ return packer.startup(function(use)
   use { "mfussenegger/nvim-dap-python" }
   use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
   use { "nvim-telescope/telescope.nvim", requires = { { "nvim-lua/plenary.nvim" } } }
-  use { "gbrlsnchs/telescope-lsp-handlers.nvim" }
   use { "nvim-telescope/telescope-ui-select.nvim" }
   use { "ThePrimeagen/harpoon" }
   use { "ThePrimeagen/refactoring.nvim", requires = { { "nvim-lua/plenary.nvim" }, { "nvim-treesitter/nvim-treesitter" } } }
@@ -77,8 +75,11 @@ return packer.startup(function(use)
   use { "lewis6991/gitsigns.nvim" }
   use { "tpope/vim-fugitive" }
   use { "tpope/vim-obsession" }
-  use { "zbirenbaum/copilot.lua", }
-  use { "zbirenbaum/copilot-cmp", module = "copilot_cmp", }
+  use { "vimwiki/vimwiki"}
+  use { "github/copilot.vim"}
+  -- use { "zbirenbaum/copilot.lua", }
+  -- use { "zbirenbaum/copilot-cmp", module = "copilot_cmp", }
+  -- use { "gbrlsnchs/telescope-lsp-handlers.nvim" }
 
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
