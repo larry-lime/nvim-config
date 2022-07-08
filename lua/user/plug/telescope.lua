@@ -80,7 +80,5 @@ require('telescope').setup {
 }
 
 require("telescope").load_extension("ui-select")
-require("telescope").load_extension("refactoring")
 require("telescope").load_extension('harpoon')
--- require("telescope").load_extension("lsp_handlers")
 -- require('telescope').load_extension('dap')

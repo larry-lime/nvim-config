@@ -9,7 +9,6 @@
 local options = {
   signcolumn = "yes", -- always show the sign column, otherwise it would shift the text each time
   cursorline = true, -- highlight the current line
-  -- clipboard = "unnamedplus", -- allows neovim to access the system clipboard
   tabstop = 2, -- insert 2 spaces for a tab
   shiftwidth = 2, -- the number of spaces inserted for each indentatioN
   relativenumber = true, -- set relative numbered lines
@@ -29,7 +28,7 @@ local options = {
   showmode = false, -- we don't need to see things like -- INSERT -- anymore
   showtabline = 2, -- always show tabs
   smartcase = true, -- smart case
-  winbar = '%=%m%f',
+  winbar = '%=%m%t',
   smartindent = true, -- make indenting smarter again
   swapfile = false, -- creates a swapfile
   timeoutlen = 1000, -- time to wait for a mapped sequence to complete (in milliseconds)
@@ -45,6 +44,7 @@ local options = {
   cmdheight = 1, -- more space in the neovim command line for displaying messages
   hidden = true,
   hlsearch = false, -- highlight all matches on previous search pattern
+  -- clipboard = "unnamedplus", -- allows neovim to access the system clipboard
 }
 
 vim.opt.shortmess:append "c"

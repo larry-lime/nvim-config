@@ -29,14 +29,32 @@ if has('wsl')
           \ }
 endif
 
+let g:focusup_py = 0
+function FocusUpToggleNum()
+    if (g:focusup_py == 0)
+        let g:focusup_py = 1
+        let g:goyo_width = 90
+        :Goyo
+        set nu | set rnu| set winbar=
+    else
+        let g:focusup_py = 0
+        let g:goyo_width = 80
+        :Goyo
+        set nu | set rnu | set winbar=%=%m%f
+    endif
+endfunction
+
 let g:focusup_md = 0
 function FocusUpToggle()
     if (g:focusup_md == 0)
         let g:focusup_md = 1
         :Goyo
-        set wrap | set linebreak | set winbar=
+        :Gitsigns toggle_signs
+        set wrap | set linebreak | set winbar= | set bri
         nnoremap j gj
         nnoremap k gk
+        vnoremap j gj
+        vnoremap k gk
         nnoremap A g$a
         nnoremap I g^i
         nnoremap ( g^
@@ -46,7 +64,8 @@ function FocusUpToggle()
     else
         let g:focusup_md = 0
         :Goyo
-        set nowrap | set linebreak | set winbar="%=%m%f",
+        :Gitsigns toggle_signs
+        set nowrap | set nolinebreak | set winbar="%=%m%f" | set nobri
         unmap j
         unmap k
         unmap A
@@ -58,16 +77,11 @@ function FocusUpToggle()
     endif
 endfunction
 
-augroup filetype_vimwiki
-    autocmd!
-    autocmd BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
-augroup END
-
 let g:vimwiki_list = [{'path': '~/vimwiki/',
           \ 'syntax': 'markdown', 'ext': '.md'}]
-let g:conceallevel = 2
 ]] , true)
 
+-- TODO Move all the keymaps for specific plugins into the plugins files
 -- KEYBOARD SHORTCUTS --
 local opts = { noremap = true, silent = true }
 local nopts = { noremap = true, silent = false }
@@ -85,12 +99,14 @@ keymap("n", "<leader>qq", ":qa!<CR>", opts)
 
 -- Vimwiki
 keymap("n", "<leader>ls", ":VimwikiToggleListItem<CR>", opts)
+keymap("v", "<leader>ls", ":VimwikiToggleListItem<CR>", opts)
 
 -- Copy paste
-keymap("v", "<C-c>", '"+y', opts)
+keymap("v", "<C-C>", '"+y', opts)
+keymap("n", "<C-C>", '"+yiw', opts)
 
 -- Focus Up Mode
-keymap("n", "<leader>z", ":call FocusUpToggle()<CR>", opts)
+keymap("n", "<leader>z", ":call FocusUpToggleNum()<CR>", opts)
 
 -- Buffers
 keymap("n", "<C-s>", "<C-^>", opts)
@@ -98,6 +114,7 @@ keymap("n", "]b", ":bnext<CR>", opts)
 keymap("n", "[b", ":bprevious<CR>", opts)
 keymap("n", "<leader>oo", ":bd!<CR>", opts)
 keymap("n", "<leader>oa", ":%bd! | e# |bd#<CR>", opts)
+keymap("n", "<leader>x", ":q<CR>", opts)
 
 -- Tabs
 keymap("n", "<C-t>", ":tabnew<CR>", opts)
@@ -106,11 +123,15 @@ keymap("n", "<leader>mm", ":tabnew %<CR>", opts)
 keymap("n", "<leader>mx", ":tabclose<CR>", opts)
 
 -- Tab Navigation
-keymap("n", "<leader><F1>", "1gt", opts)
-keymap("n", "<leader><F2>", "2gt", opts)
-keymap("n", "<leader><F3>", "3gt", opts)
-keymap("n", "<leader><F4>", "4gt", opts)
-keymap("n", "<leader><F5>", "5gt", opts)
+keymap("n", "<M-1>", "1gt", opts)
+keymap("n", "<M-2>", "2gt", opts)
+keymap("n", "<M-3>", "3gt", opts)
+keymap("n", "<M-4>", "4gt", opts)
+keymap("n", "<M-5>", "5gt", opts)
+
+-- Splits
+keymap("n", "<leader>vs", ":vs<CR>", opts)
+keymap("n", "<leader>sp", ":split<CR>", opts)
 
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
@@ -119,7 +140,7 @@ keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
 -- Surround Quotes
-keymap("n", "<leader>v", "g_<C-v>^", opts)
+keymap("n", "<M-v>", "g_<C-v>^", opts)
 keymap("n", [[<leader>']], [[ciw'<C-R>"'<Esc>]], opts)
 keymap("n", [[<leader>"]], [[ciw"<C-R>""<Esc>]], opts)
 keymap("n", [[<leader>(]], [[ciW(<C-R>")<Esc>F(]], opts)
@@ -156,16 +177,16 @@ keymap("n", "<leader>pu", ":PackerUpdate<CR>", opts)
 
 -- Navigation
 keymap("t", "<C-\\>", "<C-\\><C-N>", opts)
-keymap("t", "<Esc>", "<Esc>", opts)
+keymap("t", "<Esc>", "<C-\\><C-N>", opts)
 keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", opts)
 keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", opts)
 keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", opts)
 keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", opts)
 
 -- Nvim-Tree
-keymap("n", "<A-n>", ":NvimTreeOpen<CR>", opts)
-keymap("n", "<leader>nf", ":NvimTreeFindFile<CR>", opts)
 keymap("n", "<leader>nt", ":NvimTreeToggle<CR>", opts)
+keymap("n", "<leader>nf", ":NvimTreeFindFile<CR>", opts)
+keymap("n", "<leader>n<leader>t", ":NvimTreeOpen<CR>", opts)
 
 -- Copilot
 keymap("n", "<leader>ce", ":Copilot enable<CR>", opts)
@@ -174,10 +195,10 @@ keymap("n", "<leader>cp", ":Copilot panel<CR>", opts)
 keymap("n", "<leader>cs", ":echo g:copilot#Enabled()<CR>", opts)
 
 -- Tagbar
-keymap("n", "<leader>tb", ":TagbarToggle<CR>", opts)
-keymap("n", "<A-t>", ":TagbarOpen['j']<CR>", opts)
-keymap("n", "]t", ":TagbarJumpNext<CR>", opts)
-keymap("n", "[t", ":TagbarJumpPrev<CR>", opts)
+-- keymap("n", "<leader>tb", ":TagbarToggle<CR>", opts)
+-- keymap("n", "]t", ":TagbarJumpNext<CR>", opts)
+-- keymap("n", "[t", ":TagbarJumpPrev<CR>", opts)
+-- keymap("n", "<leader>t<leader>b", ":TagbarOpen['j']<CR>", opts)
 
 -- Nvim-Dap
 keymap("n", "<leader>ds", ":lua require'dap'.continue()<CR>", nopts)
@@ -201,8 +222,18 @@ keymap("n", "<leader>gl", ":G log<CR>", opts)
 keymap("n", "<leader>gb", ":G branch | resize -20<CR>", opts)
 
 -- REFACTOR
-keymap("v", "<leader>rf", ":lua require('telescope').extensions.refactoring.refactors()<CR>", opts)
-keymap("n", "<leader>rf", ":lua require('telescope').extensions.refactoring.refactors()<CR>", opts)
+-- keymap("v", "<leader>rr", ":lua require('telescope').extensions.refactoring.refactors()<CR>", opts)
+keymap("v", "<leader>re", ":lua require('refactoring').refactor('Extract Function')<CR>", opts)
+keymap("v", "<leader>rf", ":lua require('refactoring').refactor('Extract Function To File')<CR>", opts)
+keymap("v", "<leader>rv", ":lua require('refactoring').refactor('Extract Variable')<CR>", opts)
+keymap("v", "<leader>ri", ":lua require('refactoring').refactor('Inline Variable')<CR>", opts)
+
+-- Extract block doesn't need visual mode
+keymap("n", "<leader>rb", ":lua require('refactoring').refactor('Extract Block')<CR>", opts)
+keymap("n", "<leader>rbf", ":lua require('refactoring').refactor('Extract Block To File')<CR>", opts)
+
+-- Inline variable can also pick up the identifier currently under the cursor without visual mode
+-- keymap("n", "<leader>ri", ":lua require('refactoring').refactor('Inline Variable')<CR>", opts)
 
 -- TELESCOPE
 keymap("n", "<leader>tl", ":Telescope<CR>", opts)
@@ -213,7 +244,7 @@ keymap("n", "<leader>bl", ":Telescope buffers<CR>", opts)
 keymap("n", "<leader>rg", ":Telescope live_grep<CR>", opts)
 keymap("n", "<leader>jl", ":Telescope jumplist<CR>", opts)
 keymap("n", "<leader>mp", ":Telescope keymaps<CR>", opts)
-keymap("n", "<leader>sp", ":Telescope spell_suggest<CR>", opts)
+keymap("n", "<leader>sc", ":Telescope spell_suggest<CR>", opts)
 keymap("n", "<leader>td", ":lua require('telescope.builtin').grep_string({prompt_title='TODO List',search='TODO'})<CR>", opts)
 keymap("n", "<leader>rs", ":lua require('telescope.builtin').resume()<CR>", opts)
 keymap("n", "<leader>gs", ":Telescope git_status<CR>", opts)

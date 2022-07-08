@@ -37,10 +37,13 @@ packer.init {
 }
 
 return packer.startup(function(use)
+  -- Core Plugins
   use { "wbthomason/packer.nvim" }
   use { "nvim-lua/popup.nvim" }
   use { "nvim-lua/plenary.nvim" }
   use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
+
+  -- Colorschemes
   use { "ellisonleao/gruvbox.nvim" }
   use { "folke/tokyonight.nvim" }
   use { "catppuccin/nvim", as = "catppuccin" }
@@ -60,6 +63,7 @@ return packer.startup(function(use)
   use { "mfussenegger/nvim-dap-python" }
   use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
   use { "nvim-telescope/telescope.nvim", requires = { { "nvim-lua/plenary.nvim" } } }
+  -- use { "pseewald/vim-anyfold" }
   use { "nvim-telescope/telescope-ui-select.nvim" }
   use { "ThePrimeagen/harpoon" }
   use { "ThePrimeagen/refactoring.nvim", requires = { { "nvim-lua/plenary.nvim" }, { "nvim-treesitter/nvim-treesitter" } } }
@@ -77,9 +81,7 @@ return packer.startup(function(use)
   use { "tpope/vim-obsession" }
   use { "vimwiki/vimwiki"}
   use { "github/copilot.vim"}
-  -- use { "zbirenbaum/copilot.lua", }
-  -- use { "zbirenbaum/copilot-cmp", module = "copilot_cmp", }
-  -- use { "gbrlsnchs/telescope-lsp-handlers.nvim" }
+  use { "psf/black", branch = "stable" }
 
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then

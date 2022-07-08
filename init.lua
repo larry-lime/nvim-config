@@ -11,6 +11,7 @@ require("user.keymaps")
 require("user.cmp")
 require("user.colors")
 require("user.lsp")
+require("user.autocmd")
 
 -- Plugins Configs
 require("user.plug.gitsigns")
@@ -25,3 +26,4 @@ require('user.plug.toggleterm')
 require("user.plug.nvim-dap")
 require("user.plug.luasnip")
 require("user.plug.copilot")
+require("user.plug.tagbar")
