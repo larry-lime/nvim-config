@@ -52,6 +52,31 @@ lsp_installer.on_server_ready(function(server)
     opts = vim.tbl_deep_extend("force", zk_opts, opts)
   end
 
+  if server.name == "gopls" then
+    local gopls_opts = require("user.lsp.settings.gopls")
+    opts = vim.tbl_deep_extend("force", gopls_opts, opts)
+  end
+
+  if server.name == "tsserver" then
+    local tsserver_opts = require("user.lsp.settings.tsserver")
+    opts = vim.tbl_deep_extend("force", tsserver_opts, opts)
+  end
+
+  if server.name == "eslint" then
+    local eslint_opts = require("user.lsp.settings.eslint")
+    opts = vim.tbl_deep_extend("force", eslint_opts, opts)
+  end
+
+  if server.name == "rust_analyzer" then
+    local rust_analyzer_opts = require("user.lsp.settings.rust_analyzer")
+    opts = vim.tbl_deep_extend("force", rust_analyzer_opts, opts)
+  end
+
+  if server.name == "rome" then
+    local rome_opts = require("user.lsp.settings.rome")
+    opts = vim.tbl_deep_extend("force", rome_opts, opts)
+  end
+
   -- This setup() function is exactly the same as lspconfig's setup function.
   -- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
   server:setup(opts)
