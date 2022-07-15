@@ -56,7 +56,6 @@ return packer.startup(function(use)
   use { "numToStr/Comment.nvim" }
   use { "preservim/tagbar" }
   use { "kyazdani42/nvim-tree.lua", requires = { "kyazdani42/nvim-web-devicons" } }
-  use { "pseewald/vim-anyfold" }
   use { "fedepujol/move.nvim" }
   use { "windwp/nvim-autopairs" }
 
@@ -64,8 +63,7 @@ return packer.startup(function(use)
   use { "neovim/nvim-lspconfig" }
   use { "hrsh7th/cmp-nvim-lsp" }
   use { "williamboman/nvim-lsp-installer" }
-  -- use { "github/copilot.vim" }
-  -- use {'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'}
+  use { "github/copilot.vim" }
 
   -- CMP
   use { "hrsh7th/nvim-cmp" }
@@ -98,6 +96,7 @@ return packer.startup(function(use)
   use { "psf/black", branch = "stable" }
   use { "lukas-reineke/indent-blankline.nvim" }
   use { "norcalli/nvim-colorizer.lua" }
+  use { "j-hui/fidget.nvim" }
 
   -- Debugger
   use { "mfussenegger/nvim-dap" }

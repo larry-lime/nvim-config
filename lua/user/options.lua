@@ -19,8 +19,8 @@ local options = {
   completeopt = { "menuone", "noselect" }, -- mostly just for cmp
   conceallevel = 0, -- so that `` is visible in markdown files
   laststatus = 0,
-  foldmethod = "indent",
   foldlevel = 99,
+  foldmethod = "indent",
   fileencoding = "utf-8", -- the encoding written to a file
   ignorecase = true, -- ignore case in search patterns
   mouse = "a", -- allow the mouse to be used in neovim
@@ -44,7 +44,6 @@ local options = {
   cmdheight = 1, -- more space in the neovim command line for displaying messages
   hidden = true,
   hlsearch = false, -- highlight all matches on previous search pattern
-  -- clipboard = "unnamedplus", -- allows neovim to access the system clipboard
 }
 
 vim.opt.shortmess:append "c"

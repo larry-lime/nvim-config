@@ -122,12 +122,12 @@ keymap("n", "<C-w>", ":tabclose<CR>", opts)
 keymap("n", "<leader>mm", ":tabnew %<CR>", opts)
 keymap("n", "<leader>mx", ":tabclose<CR>", opts)
 
--- Tab Navigation
-keymap("n", "<M-1>", "1gt", opts)
-keymap("n", "<M-2>", "2gt", opts)
-keymap("n", "<M-3>", "3gt", opts)
-keymap("n", "<M-4>", "4gt", opts)
-keymap("n", "<M-5>", "5gt", opts)
+-- -- Tab Navigation
+-- keymap("n", "<M-1>", "1gt", opts)
+-- keymap("n", "<M-2>", "2gt", opts)
+-- keymap("n", "<M-3>", "3gt", opts)
+-- keymap("n", "<M-4>", "4gt", opts)
+-- keymap("n", "<M-5>", "5gt", opts)
 
 -- Splits
 keymap("n", "<leader>vs", ":vs<CR>", opts)
@@ -177,7 +177,7 @@ keymap("n", "<leader>pu", ":PackerUpdate<CR>", opts)
 
 -- Navigation
 keymap("t", "<C-\\>", "<C-\\><C-N>", opts)
-keymap("t", "<Esc>", "<C-\\><C-N>", opts)
+-- keymap("t", "<Esc>", "<C-\\><C-N>", opts)
 keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", opts)
 keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", opts)
 keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", opts)

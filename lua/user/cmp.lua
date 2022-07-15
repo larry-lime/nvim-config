@@ -128,10 +128,11 @@ cmp.setup {
       vim_item.menu = ({
         nvim_lua = "[NVIM LUA]",
         nvim_lsp = "[LSP]",
-        -- copilot = "[COPILOT]",
+        -- cmp_tabnine = "[TN]",
         luasnip = "[Snippet]",
         buffer = "[Buffer]",
         path = "[Path]",
+        -- copilot = "[COPILOT]",
       })[entry.source.name]
       return vim_item
     end,
@@ -139,7 +140,7 @@ cmp.setup {
   sources = {
     { name = "nvim_lua", group_index = 2},
     { name = "nvim_lsp", group_index = 2},
-    -- { name = "copilot", group_index = 2},
+    -- { name = "cmp_tabnine", group_index = 2},
     { name = "luasnip", group_index = 2},
     { name = "buffer", group_index = 2},
     { name = "path", group_index = 2},
