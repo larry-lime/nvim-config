@@ -8,4 +8,4 @@ local opts = { noremap = true, silent = true }
 keymap("n", "<leader>tb", ":TagbarToggle<CR>", opts)
 keymap("n", "]t", ":TagbarJumpNext<CR>", opts)
 keymap("n", "[t", ":TagbarJumpPrev<CR>", opts)
-keymap("n", "<leader>t<leader>b", ":TagbarOpen['j']<CR>", opts)
+keymap("n", "<leader>tf", ":TagbarOpen['j']<CR>", opts)
