@@ -45,25 +45,29 @@ return packer.startup(function(use)
   use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
 
   -- Colorschemes
+  use { "ful1e5/onedark.nvim" }
   use { "ellisonleao/gruvbox.nvim" }
   use { "folke/tokyonight.nvim" }
   use { "catppuccin/nvim", as = "catppuccin" }
-  use { "ful1e5/onedark.nvim" }
 
   -- IDE Features
   use { "nvim-lualine/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons", opt = true } }
-  use { "akinsho/toggleterm.nvim", tag = "v1.*" }
   use { "numToStr/Comment.nvim" }
-  use { "preservim/tagbar" }
   use { "kyazdani42/nvim-tree.lua", requires = { "kyazdani42/nvim-web-devicons" } }
-  use { "fedepujol/move.nvim" }
   use { "windwp/nvim-autopairs" }
+  use { "akinsho/toggleterm.nvim", tag = "v1.*" }
+  use { 'simrat39/symbols-outline.nvim' }
+  use { "fedepujol/move.nvim" }
 
   -- LSP
   use { "neovim/nvim-lspconfig" }
   use { "hrsh7th/cmp-nvim-lsp" }
   use { "williamboman/nvim-lsp-installer" }
   use { "github/copilot.vim" }
+  use { 'jose-elias-alvarez/null-ls.nvim' }
+  -- TODO set this up. I'll have to reconfigure my entire LSP setup
+  use { "lukas-reineke/lsp-format.nvim" }
+  use { "sbdchd/neoformat" }
 
   -- CMP
   use { "hrsh7th/nvim-cmp" }
@@ -79,7 +83,7 @@ return packer.startup(function(use)
 
   -- Git
   use { "lewis6991/gitsigns.nvim" }
-  -- use { "tpope/vim-fugitive" }
+  use { "tpope/vim-fugitive" }
 
   -- Telescope
   use { "nvim-telescope/telescope.nvim", requires = { { "nvim-lua/plenary.nvim" } } }
@@ -88,20 +92,29 @@ return packer.startup(function(use)
   use { "ThePrimeagen/refactoring.nvim",
     requires = { { "nvim-lua/plenary.nvim" }, { "nvim-treesitter/nvim-treesitter" } } }
 
-  -- Additional Features
-  use { "Pocco81/AutoSave.nvim" }
-  use { "junegunn/goyo.vim" }
+  -- Add-Ons
+  use { 'stevearc/aerial.nvim' }
   use { "tpope/vim-obsession" }
-  use { "vimwiki/vimwiki" }
-  use { "psf/black", branch = "stable" }
   use { "lukas-reineke/indent-blankline.nvim" }
+  use { 'abecodes/tabout.nvim' }
   use { "norcalli/nvim-colorizer.lua" }
-  use { "j-hui/fidget.nvim" }
+  use { "Pocco81/AutoSave.nvim" }
 
+  -- New Plugins
+  use { 'stevearc/dressing.nvim' }
+  use { "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" }
   -- Debugger
-  use { "mfussenegger/nvim-dap" }
-  use { "mfussenegger/nvim-dap-python" }
-  use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
+  -- use { "vimwiki/vimwiki" }
+  -- use { "mfussenegger/nvim-dap" }
+  -- use { "mfussenegger/nvim-dap-python" }
+  -- use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
+
+  -- Plugin Graveyard
+  -- use { "junegunn/goyo.vim" }
+  -- use { "lewis6991/impatient.nvim" }
+  -- use { "preservim/tagbar" }
+  -- use { "j-hui/fidget.nvim" }
+
 
   if PACKER_BOOTSTRAP then
     require("packer").sync()
