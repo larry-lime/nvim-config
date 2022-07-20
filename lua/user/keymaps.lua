@@ -115,8 +115,10 @@ keymap("n", "[b", ":bprevious<CR>", opts)
 keymap("n", "<leader>oo", ":bd!<CR>", opts)
 keymap("n", "<leader>oa", ":%bd! | e# |bd#<CR>", opts)
 keymap("n", "<leader>x", ":q<CR>", opts)
+keymap("n", "<leader>a", "GVgg", opts)
 
 -- Tabs
+-- TODO think about writing a function that toggles zoom
 keymap("n", "<C-t>", ":tabnew<CR>", opts)
 keymap("n", "<C-w>", ":tabclose<CR>", opts)
 keymap("n", "<leader>mm", ":tabnew %<CR>", opts)
@@ -194,11 +196,12 @@ keymap("n", "<leader>cd", ":Copilot disable<CR>", opts)
 keymap("n", "<leader>cp", ":Copilot panel<CR>", opts)
 keymap("n", "<leader>cs", ":echo g:copilot#Enabled()<CR>", opts)
 
--- Tagbar
--- keymap("n", "<leader>tb", ":TagbarToggle<CR>", opts)
--- keymap("n", "]t", ":TagbarJumpNext<CR>", opts)
--- keymap("n", "[t", ":TagbarJumpPrev<CR>", opts)
--- keymap("n", "<leader>t<leader>b", ":TagbarOpen['j']<CR>", opts)
+-- Symbols Outline
+keymap("n", "<leader>tb", ":AerialToggle! right<CR>", opts)
+keymap("n", "<leader>tf", ":AerialOpen<CR>", opts)
+keymap("n", "<leader>nv", ":AerialOpen float<CR>", opts)
+keymap("n", "]t", ":AerialNext<CR>", opts)
+keymap("n", "[t", ":AerialPrev<CR>", opts)
 
 -- Nvim-Dap
 keymap("n", "<leader>ds", ":lua require'dap'.continue()<CR>", nopts)
@@ -220,9 +223,9 @@ keymap("n", "<leader>gr.", ":G reset . | echo 'Git Reset All Files'<CR>", opts)
 keymap("n", "<leader>gc", ":G commit | startinsert<Cr>", opts)
 keymap("n", "<leader>gl", ":G log<CR>", opts)
 keymap("n", "<leader>gb", ":G branch | resize -20<CR>", opts)
+keymap("n", "<leader>gs", ":G status<CR>", opts)
 
 -- REFACTOR
--- keymap("v", "<leader>rr", ":lua require('telescope').extensions.refactoring.refactors()<CR>", opts)
 keymap("v", "<leader>re", ":lua require('refactoring').refactor('Extract Function')<CR>", opts)
 keymap("v", "<leader>rf", ":lua require('refactoring').refactor('Extract Function To File')<CR>", opts)
 keymap("v", "<leader>rv", ":lua require('refactoring').refactor('Extract Variable')<CR>", opts)
@@ -231,9 +234,6 @@ keymap("v", "<leader>ri", ":lua require('refactoring').refactor('Inline Variable
 -- Extract block doesn't need visual mode
 keymap("n", "<leader>rb", ":lua require('refactoring').refactor('Extract Block')<CR>", opts)
 keymap("n", "<leader>rbf", ":lua require('refactoring').refactor('Extract Block To File')<CR>", opts)
-
--- Inline variable can also pick up the identifier currently under the cursor without visual mode
--- keymap("n", "<leader>ri", ":lua require('refactoring').refactor('Inline Variable')<CR>", opts)
 
 -- TELESCOPE
 keymap("n", "<leader>tl", ":Telescope<CR>", opts)
@@ -245,13 +245,13 @@ keymap("n", "<leader>rg", ":Telescope live_grep<CR>", opts)
 keymap("n", "<leader>jl", ":Telescope jumplist<CR>", opts)
 keymap("n", "<leader>mp", ":Telescope keymaps<CR>", opts)
 keymap("n", "<leader>sc", ":Telescope spell_suggest<CR>", opts)
+keymap("n", "<leader>hl", ":Telescope help_tags<CR>", opts)
 keymap("n", "<leader>td", ":lua require('telescope.builtin').grep_string({prompt_title='TODO List',search='TODO'})<CR>", opts)
 keymap("n", "<leader>rs", ":lua require('telescope.builtin').resume()<CR>", opts)
-keymap("n", "<leader>gs", ":Telescope git_status<CR>", opts)
 
 -- Harpoon
 keymap("n", "<leader>=", ":lua require('harpoon.ui').toggle_quick_menu()<CR>", opts)
-keymap("n", "<leader>a", ":echo 'File added to harpoon' |lua require('harpoon.mark').add_file()<CR>", opts)
+keymap("n", "<leader>ha", ":echo 'File added to harpoon' |lua require('harpoon.mark').add_file()<CR>", opts)
 keymap("n", "<leader>1", ":echo 'Nav File 1'| lua require('harpoon.ui').nav_file(1)<CR>", opts)
 keymap("n", "<leader>2", ":echo 'Nav File 2'|lua require('harpoon.ui').nav_file(2)<CR>", opts)
 keymap("n", "<leader>3", ":echo 'Nav File 3'|lua require('harpoon.ui').nav_file(3)<CR>", opts)
@@ -263,10 +263,10 @@ keymap("n", "<leader>6", ":echo 'Nav File 6'|lua require('harpoon.ui').nav_file(
 keymap("n", "]h", ":Gitsigns next_hunk<CR>", opts)
 keymap("n", "[h", ":Gitsigns prev_hunk<CR>", opts)
 keymap("n", "<leader>hp", ":Gitsigns preview_hunk<CR>", opts)
-keymap("n", "<leader>ha", ":Gitsigns stage_hunk<CR>", opts)
 keymap("n", "<leader>hu", ":Gitsigns undo_stage_hunk<CR>", opts)
 keymap("n", "<leader>hr", ":Gitsigns reset_hunk<CR>", opts)
 keymap("n", "<leader>gd", ":Gitsigns diffthis<CR>", opts)
+-- keymap("n", "<leader>ha", ":Gitsigns stage_hunk<CR>", opts)
 
 -- Open Github
 keymap("n", "<leader>go", ":call Gopen()<CR>", opts)

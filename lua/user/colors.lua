@@ -12,7 +12,7 @@ end
 
 if colorscheme == "tokyonight" then
   vim.g.tokyonight_style = "storm" --storm, night, day
-  vim.g.tokyonight_dark_sidebar = false
+  vim.g.tokyonight_dark_sidebar = true
 end
 
 if colorscheme == "gruvbox" then
@@ -26,8 +26,8 @@ if colorscheme == "onedark" then
     hide_inactive_statusline = true,
     dark_sidebar = false,
     dark_float = false,
+    transparent = false,
     transparent_sidebar = false,
-    transparent = false
   })
 end
 

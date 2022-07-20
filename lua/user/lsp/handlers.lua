@@ -53,7 +53,7 @@ local function lsp_keymaps(bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action({apply=true})<CR>", opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
-  vim.cmd [[ command! Format execute 'lua vim.lsp.buf.format {async = true}' ]]
+  -- vim.cmd [[ command! Format execute 'lua vim.lsp.buf.format {async = true}' ]]
   vim.cmd [[ command! LspServerConfig execute 'vert h lspconfig-server-configurations' ]]
 end
 

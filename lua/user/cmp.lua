@@ -71,8 +71,11 @@ cmp.setup {
     documentation = cmp.config.window.bordered(),
   },
   mapping = {
-    ["<C-k>"] = cmp.mapping.select_prev_item(),
-    ["<C-j>"] = cmp.mapping.select_next_item(),
+    -- TODO add copilot here and have it trigger only by keypress
+    ['<C-s>'] = cmp.mapping.complete({
+      config = {
+        sources = { { name = 'luasnip' } } }
+    }),
     ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
     ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
     ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
@@ -83,6 +86,8 @@ cmp.setup {
     },
     -- Accept currently selected item. If none selected, `select` first item.
     -- Set `select` to `false` to only confirm explicitly selected items.
+    -- ["<C-k>"] = cmp.mapping.select_prev_item(),
+    -- ["<C-j>"] = cmp.mapping.select_next_item(),
     ["<CR>"] = cmp.mapping.confirm { select = true },
     ["<Tab>"] = cmp.mapping(function(fallback)
 
@@ -128,22 +133,23 @@ cmp.setup {
       vim_item.menu = ({
         nvim_lua = "[NVIM LUA]",
         nvim_lsp = "[LSP]",
-        -- cmp_tabnine = "[TN]",
         luasnip = "[Snippet]",
         buffer = "[Buffer]",
         path = "[Path]",
         -- copilot = "[COPILOT]",
+        -- cmp_tabnine = "[TN]",
       })[entry.source.name]
       return vim_item
     end,
   },
   sources = {
-    { name = "nvim_lua", group_index = 2},
-    { name = "nvim_lsp", group_index = 2},
+    { name = "nvim_lua", group_index = 2 },
+    { name = "nvim_lsp", group_index = 2 },
+    { name = "luasnip", group_index = 2 },
+    { name = "buffer", group_index = 2 },
+    { name = "path", group_index = 2 },
+    -- { name = "copilot", group_index = 2 },
     -- { name = "cmp_tabnine", group_index = 2},
-    { name = "luasnip", group_index = 2},
-    { name = "buffer", group_index = 2},
-    { name = "path", group_index = 2},
   },
   confirm_opts = {
     behavior = cmp.ConfirmBehavior.Replace,

@@ -1,3 +1,4 @@
+-- TODO have treesitter tread ABI just like json files
 require 'nvim-treesitter.configs'.setup {
 
   -- A list of parser names, or "all"

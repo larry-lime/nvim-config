@@ -1,15 +1,12 @@
--- local api = vim.api
---
--- -- windows to close with "q"
--- api.nvim_create_autocmd(
---   "FileType",
---   { pattern = { "help", "startuptime", "qf", "lspinfo" }, command = [[nnoremap <buffer><silent> q :close<CR>]] }
--- )
--- api.nvim_create_autocmd("FileType", { pattern = "*.py", command = [[command Format Black]] })
-vim.api.nvim_exec([[
-augroup filetype_vimwiki
-    autocmd!
-    autocmd BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
-    autocmd FileType vimwiki nnoremap <silent> <leader>z :call FocusUpToggle()<CR>
-augroup END
-]], true)
+local api = vim.api
+
+local defaults = api.nvim_create_augroup("defaults", { clear = true })
+api.nvim_create_autocmd(
+  { "Filetype" },
+  { pattern = { "*" }, command = "command! Format execute 'lua vim.lsp.buf.format {async = true}'", group = defaults }
+)
+api.nvim_create_autocmd(
+  { "Filetype" },
+  { pattern = { "javascript", "typescript", "solidity", "python" }, command = "command! Format execute 'Neoformat'",
+    group = defaults }
+)
