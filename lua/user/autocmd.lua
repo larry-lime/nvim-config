@@ -7,6 +7,7 @@ api.nvim_create_autocmd(
 )
 api.nvim_create_autocmd(
   { "Filetype" },
-  { pattern = { "javascript", "typescript", "solidity", "python" }, command = "command! Format execute 'Neoformat'",
+  { pattern = { "javascript", "typescript", "solidity"}, command = "command! Format execute 'Prettier'",
+
     group = defaults }
 )
