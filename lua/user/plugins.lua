@@ -63,11 +63,11 @@ return packer.startup(function(use)
   use { "neovim/nvim-lspconfig" }
   use { "hrsh7th/cmp-nvim-lsp" }
   use { "williamboman/nvim-lsp-installer" }
-  use { "github/copilot.vim" }
   use { 'jose-elias-alvarez/null-ls.nvim' }
+  use { 'MunifTanjim/prettier.nvim' }
+  -- use { "sbdchd/neoformat" }
   -- TODO set this up. I'll have to reconfigure my entire LSP setup
-  use { "lukas-reineke/lsp-format.nvim" }
-  use { "sbdchd/neoformat" }
+  -- use { "lukas-reineke/lsp-format.nvim" }
 
   -- CMP
   use { "hrsh7th/nvim-cmp" }
@@ -95,21 +95,25 @@ return packer.startup(function(use)
   -- Add-Ons
   use { 'stevearc/aerial.nvim' }
   use { "tpope/vim-obsession" }
-  use { "lukas-reineke/indent-blankline.nvim" }
   use { 'abecodes/tabout.nvim' }
-  use { "norcalli/nvim-colorizer.lua" }
   use { "Pocco81/AutoSave.nvim" }
+  -- use { "lukas-reineke/indent-blankline.nvim" }
 
-  -- New Plugins
-  use { 'stevearc/dressing.nvim' }
-  use { "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" }
   -- Debugger
   -- use { "vimwiki/vimwiki" }
   -- use { "mfussenegger/nvim-dap" }
   -- use { "mfussenegger/nvim-dap-python" }
   -- use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
 
+  -- New Plugins
+  -- use { "norcalli/nvim-colorizer.lua" }
+  -- use { "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" }
+  -- TODO set this up
+  -- use { "SmiteshP/nvim-navic", requires = "neovim/nvim-lspconfig" }
+
   -- Plugin Graveyard
+  -- use { "github/copilot.vim" }
+  -- use { 'stevearc/dressing.nvim' }
   -- use { "junegunn/goyo.vim" }
   -- use { "lewis6991/impatient.nvim" }
   -- use { "preservim/tagbar" }
