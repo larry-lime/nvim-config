@@ -8,77 +8,18 @@
 -- TODO Convert all these functions to Lua
 vim.api.nvim_exec(
   [[
-
-function Jump_middle()
-  execute "normal ^"
-  let b:column = col('.')
-  let b:loc = (virtcol('$') + b:column)/2
-  call cursor(0, b:loc)
-endfunction
-
 if has('wsl')
     let g:clipboard = {
-          \   'name': 'wslclipboard',
-          \   'copy': {
-          \      '+': '/mnt/c/Users/larry/scoop/apps/neovim/0.6.1/bin/win32yank.exe -i --crlf',
-          \    },
-          \   'paste': {
-          \      '+': '/mnt/c/Users/larry/scoop/apps/neovim/0.6.1/bin/win32yank.exe -i --crlf',
-          \   },
-          \   'cache_enabled': 1,
-          \ }
+      \   'name': 'wslclipboard',
+      \   'copy': {
+      \      '+': '/mnt/c/Users/larry/scoop/apps/neovim/0.6.1/bin/win32yank.exe -i --crlf',
+      \    },
+      \   'paste': {
+      \      '+': '/mnt/c/Users/larry/scoop/apps/neovim/0.6.1/bin/win32yank.exe -i --crlf',
+      \   },
+      \   'cache_enabled': 1,
+      \ }
 endif
-
-let g:focusup_py = 0
-function FocusUpToggleNum()
-    if (g:focusup_py == 0)
-        let g:focusup_py = 1
-        let g:goyo_width = 90
-        :Goyo
-        set nu | set rnu| set winbar=
-    else
-        let g:focusup_py = 0
-        let g:goyo_width = 80
-        :Goyo
-        set nu | set rnu | set winbar=%=%m%f
-    endif
-endfunction
-
-let g:focusup_md = 0
-function FocusUpToggle()
-    if (g:focusup_md == 0)
-        let g:focusup_md = 1
-        :Goyo
-        :Gitsigns toggle_signs
-        set wrap | set linebreak | set winbar= | set bri
-        nnoremap j gj
-        nnoremap k gk
-        vnoremap j gj
-        vnoremap k gk
-        nnoremap A g$a
-        nnoremap I g^i
-        nnoremap ( g^
-        nnoremap ) g$
-        vnoremap ( g^
-        vnoremap ) g$
-    else
-        let g:focusup_md = 0
-        :Goyo
-        :Gitsigns toggle_signs
-        set nowrap | set nolinebreak | set winbar="%=%m%f" | set nobri
-        unmap j
-        unmap k
-        unmap A
-        unmap I
-        nnoremap ) g_
-        nnoremap ( ^
-        vnoremap ) g_
-        vnoremap ( ^
-    endif
-endfunction
-
-let g:vimwiki_list = [{'path': '~/vimwiki/',
-          \ 'syntax': 'markdown', 'ext': '.md'}]
 ]] , true)
 
 -- TODO Move all the keymaps for specific plugins into the plugins files
@@ -97,16 +38,9 @@ keymap("n", "<leader>ss", ":Obsession<CR>", opts)
 keymap("n", "<leader>sl", ":source Session.vim<CR>", opts)
 keymap("n", "<leader>qq", ":qa!<CR>", opts)
 
--- Vimwiki
-keymap("n", "<leader>ls", ":VimwikiToggleListItem<CR>", opts)
-keymap("v", "<leader>ls", ":VimwikiToggleListItem<CR>", opts)
-
 -- Copy paste
 keymap("v", "<C-C>", '"+y', opts)
 keymap("n", "<C-C>", '"+yiw', opts)
-
--- Focus Up Mode
-keymap("n", "<leader>z", ":call FocusUpToggleNum()<CR>", opts)
 
 -- Buffers
 keymap("n", "<C-s>", "<C-^>", opts)
@@ -124,12 +58,8 @@ keymap("n", "<C-w>", ":tabclose<CR>", opts)
 keymap("n", "<leader>mm", ":tabnew %<CR>", opts)
 keymap("n", "<leader>mx", ":tabclose<CR>", opts)
 
--- -- Tab Navigation
--- keymap("n", "<M-1>", "1gt", opts)
--- keymap("n", "<M-2>", "2gt", opts)
--- keymap("n", "<M-3>", "3gt", opts)
--- keymap("n", "<M-4>", "4gt", opts)
--- keymap("n", "<M-5>", "5gt", opts)
+-- Line Navigation
+keymap("i", "<M-Enter>", "<Esc>o", opts)
 
 -- Splits
 keymap("n", "<leader>vs", ":vs<CR>", opts)
@@ -196,7 +126,7 @@ keymap("n", "<leader>cd", ":Copilot disable<CR>", opts)
 keymap("n", "<leader>cp", ":Copilot panel<CR>", opts)
 keymap("n", "<leader>cs", ":echo g:copilot#Enabled()<CR>", opts)
 
--- Symbols Outline
+-- Aerial
 keymap("n", "<leader>tb", ":AerialToggle! right<CR>", opts)
 keymap("n", "<leader>tf", ":AerialOpen<CR>", opts)
 keymap("n", "<leader>nv", ":AerialOpen float<CR>", opts)
@@ -230,8 +160,6 @@ keymap("v", "<leader>re", ":lua require('refactoring').refactor('Extract Functio
 keymap("v", "<leader>rf", ":lua require('refactoring').refactor('Extract Function To File')<CR>", opts)
 keymap("v", "<leader>rv", ":lua require('refactoring').refactor('Extract Variable')<CR>", opts)
 keymap("v", "<leader>ri", ":lua require('refactoring').refactor('Inline Variable')<CR>", opts)
-
--- Extract block doesn't need visual mode
 keymap("n", "<leader>rb", ":lua require('refactoring').refactor('Extract Block')<CR>", opts)
 keymap("n", "<leader>rbf", ":lua require('refactoring').refactor('Extract Block To File')<CR>", opts)
 
@@ -268,9 +196,6 @@ keymap("n", "<leader>hr", ":Gitsigns reset_hunk<CR>", opts)
 keymap("n", "<leader>gd", ":Gitsigns diffthis<CR>", opts)
 -- keymap("n", "<leader>ha", ":Gitsigns stage_hunk<CR>", opts)
 
--- Open Github
-keymap("n", "<leader>go", ":call Gopen()<CR>", opts)
-
 -- Move Nvim
 keymap('n', '<A-j>', ":MoveLine(1)<CR>", opts)
 keymap('n', '<A-k>', ":MoveLine(-1)<CR>", opts)
@@ -280,3 +205,6 @@ keymap('n', '<A-l>', ":MoveHChar(1)<CR>", opts)
 keymap('n', '<A-h>', ":MoveHChar(-1)<CR>", opts)
 keymap('v', '<A-l>', ":MoveHBlock(1)<CR>", opts)
 keymap('v', '<A-h>', ":MoveHBlock(-1)<CR>", opts)
+
+-- Trouble
+keymap('n', '<leader>T', ":Trouble<CR>", opts)
