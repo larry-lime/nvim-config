@@ -4,7 +4,7 @@
 -- / /___/ /_/ / / /_/ / /  (__  )
 -- \____/\____/_/\____/_/  /____/
 
-local colorscheme = "onedark" -- onedark, gruvbox, tokyonight, catppuccin
+local colorscheme = "tokyonight" -- onedark, gruvbox, tokyonight, catppuccin
 
 if colorscheme == "catppuccin" then
   vim.g.catppuccin_flavour = "macchiato" -- latte, frappe, macchiato, mocha
