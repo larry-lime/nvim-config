@@ -82,10 +82,14 @@ lsp_installer.on_server_ready(function(server)
     opts = vim.tbl_deep_extend("force", solang_opts, opts)
   end
 
-
   if server.name == "solc" then
     local solc_opts = require("user.lsp.settings.solc")
     opts = vim.tbl_deep_extend("force", solc_opts, opts)
+  end
+
+  if server.name == "solidity_ls" then
+    local solidity_ls_opts = require("user.lsp.settings.solidity_ls")
+    opts = vim.tbl_deep_extend("force", solidity_ls_opts, opts)
   end
 
   -- if server.name == "emmet_ls" then

@@ -43,6 +43,17 @@ Packer is my plugin manager
 - Vim-Move -> Shifting Text Tool
 
 ### Language Support
+
+```python
+def func(arr):
+    for i in arr:
+        print(i)
+    return arr
+
+if __name__ == "__main__":
+    func([1,2,3,4,5])
+```
+
 - Coc-nvim -> LSP
 - Polygot -> Better Syntax Highlighting
 - Vim-Json -> JSON Support

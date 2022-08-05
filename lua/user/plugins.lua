@@ -65,6 +65,7 @@ return packer.startup(function(use)
   use { "williamboman/nvim-lsp-installer" }
   use { 'jose-elias-alvarez/null-ls.nvim' }
   use { 'MunifTanjim/prettier.nvim' }
+  use { 'psf/black' }
   -- use { "sbdchd/neoformat" }
   -- TODO set this up. I'll have to reconfigure my entire LSP setup
   -- use { "lukas-reineke/lsp-format.nvim" }
@@ -94,6 +95,7 @@ return packer.startup(function(use)
 
   -- Add-Ons
   use { 'stevearc/aerial.nvim' }
+  use { "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" }
   use { "tpope/vim-obsession" }
   use { 'abecodes/tabout.nvim' }
   use { "Pocco81/AutoSave.nvim" }
@@ -102,12 +104,12 @@ return packer.startup(function(use)
   -- Debugger
   -- use { "vimwiki/vimwiki" }
   -- use { "mfussenegger/nvim-dap" }
-  -- use { "mfussenegger/nvim-dap-python" }
   -- use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
+  -- use { "mfussenegger/nvim-dap-python" }
+  -- use { "mxsdev/nvim-dap-vscode-js", requires = { "mfussenegger/nvim-dap" } }
 
   -- New Plugins
   -- use { "norcalli/nvim-colorizer.lua" }
-  -- use { "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" }
   -- TODO set this up
   -- use { "SmiteshP/nvim-navic", requires = "neovim/nvim-lspconfig" }
 
@@ -116,9 +118,6 @@ return packer.startup(function(use)
   -- use { 'stevearc/dressing.nvim' }
   -- use { "junegunn/goyo.vim" }
   -- use { "lewis6991/impatient.nvim" }
-  -- use { "preservim/tagbar" }
-  -- use { "j-hui/fidget.nvim" }
-
 
   if PACKER_BOOTSTRAP then
     require("packer").sync()

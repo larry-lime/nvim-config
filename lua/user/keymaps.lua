@@ -60,6 +60,8 @@ keymap("n", "<leader>mx", ":tabclose<CR>", opts)
 
 -- Line Navigation
 keymap("i", "<M-Enter>", "<Esc>o", opts)
+keymap("i", "<M-l>", "<Esc>A", opts)
+keymap("i", "<M-h>", "<Esc>I", opts)
 
 -- Splits
 keymap("n", "<leader>vs", ":vs<CR>", opts)
@@ -102,7 +104,8 @@ keymap("n", "-", ":call Jump_middle()<CR>", opts)
 keymap("v", "-", ":call Jump_middle()<CR>", opts)
 
 -- Renaming words
-keymap("n", "<leader>rn", "*Ncgn", opts)
+-- keymap("n", "<leader>rn", "*Ncgn", opts)
+keymap("n", "<leader>rn", 'yiw:%s/<C-r>"/', nopts)
 
 -- Package Manager
 keymap("n", "<leader>pu", ":PackerUpdate<CR>", opts)
@@ -134,14 +137,14 @@ keymap("n", "]t", ":AerialNext<CR>", opts)
 keymap("n", "[t", ":AerialPrev<CR>", opts)
 
 -- Nvim-Dap
-keymap("n", "<leader>ds", ":lua require'dap'.continue()<CR>", nopts)
-keymap("n", "<leader>de", ":lua require'dap'.disconnect()<CR>", opts)
-keymap("n", "<leader>.", ":lua require'dap'.toggle_breakpoint()<CR>", opts)
-keymap("n", "<leader>bc", ":lua require'dap'.clear_breakpoints()<CR>", opts)
-keymap("n", "<`>`>", ":lua require'dap'.step_over()<CR>", opts)
-keymap("n", "<F10>", ":lua require'dap'.step_into()<CR>", opts)
-keymap("n", "<F11>", ":lua require'dap'.step_out()<CR>", opts)
-keymap("n", "<F12>", ":lua require'dap'.step_back()<CR>", opts)
+-- keymap("n", "<leader>ds", ":lua require'dap'.continue()<CR>", nopts)
+-- keymap("n", "<leader>de", ":lua require'dap'.disconnect()<CR>", opts)
+-- keymap("n", "<leader>.", ":lua require'dap'.toggle_breakpoint()<CR>", opts)
+-- keymap("n", "<leader>bc", ":lua require'dap'.clear_breakpoints()<CR>", opts)
+-- keymap("n", "<`>`>", ":lua require'dap'.step_over()<CR>", opts)
+-- keymap("n", "<F10>", ":lua require'dap'.step_into()<CR>", opts)
+-- keymap("n", "<F11>", ":lua require'dap'.step_out()<CR>", opts)
+-- keymap("n", "<F12>", ":lua require'dap'.step_back()<CR>", opts)
 
 -- FUGITIVE
 keymap("n", "<leader>gaa", ":G add ", nopts)
