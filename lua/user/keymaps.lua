@@ -49,7 +49,7 @@ keymap("n", "[b", ":bprevious<CR>", opts)
 keymap("n", "<leader>oo", ":bd!<CR>", opts)
 keymap("n", "<leader>oa", ":%bd! | e# |bd#<CR>", opts)
 keymap("n", "<leader>x", ":q<CR>", opts)
-keymap("n", "<leader>a", "GVgg", opts)
+keymap("n", "<A-a>", "GVgg", opts)
 
 -- Tabs
 -- TODO think about writing a function that toggles zoom
@@ -182,7 +182,7 @@ keymap("n", "<leader>rs", ":lua require('telescope.builtin').resume()<CR>", opts
 
 -- Harpoon
 keymap("n", "<leader>=", ":lua require('harpoon.ui').toggle_quick_menu()<CR>", opts)
-keymap("n", "<leader>ha", ":echo 'File added to harpoon' |lua require('harpoon.mark').add_file()<CR>", opts)
+keymap("n", "<leader>a", ":echo 'File added to harpoon' |lua require('harpoon.mark').add_file()<CR>", opts)
 keymap("n", "<leader>1", ":echo 'Nav File 1'| lua require('harpoon.ui').nav_file(1)<CR>", opts)
 keymap("n", "<leader>2", ":echo 'Nav File 2'|lua require('harpoon.ui').nav_file(2)<CR>", opts)
 keymap("n", "<leader>3", ":echo 'Nav File 3'|lua require('harpoon.ui').nav_file(3)<CR>", opts)
@@ -197,7 +197,7 @@ keymap("n", "<leader>hp", ":Gitsigns preview_hunk<CR>", opts)
 keymap("n", "<leader>hu", ":Gitsigns undo_stage_hunk<CR>", opts)
 keymap("n", "<leader>hr", ":Gitsigns reset_hunk<CR>", opts)
 keymap("n", "<leader>gd", ":Gitsigns diffthis<CR>", opts)
--- keymap("n", "<leader>ha", ":Gitsigns stage_hunk<CR>", opts)
+keymap("n", "<leader>ha", ":Gitsigns stage_hunk<CR>", opts)
 
 -- Move Nvim
 keymap('n', '<A-j>', ":MoveLine(1)<CR>", opts)

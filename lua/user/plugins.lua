@@ -66,9 +66,6 @@ return packer.startup(function(use)
   use { 'jose-elias-alvarez/null-ls.nvim' }
   use { 'MunifTanjim/prettier.nvim' }
   use { 'psf/black' }
-  -- use { "sbdchd/neoformat" }
-  -- TODO set this up. I'll have to reconfigure my entire LSP setup
-  -- use { "lukas-reineke/lsp-format.nvim" }
 
   -- CMP
   use { "hrsh7th/nvim-cmp" }
@@ -114,6 +111,7 @@ return packer.startup(function(use)
   -- use { "SmiteshP/nvim-navic", requires = "neovim/nvim-lspconfig" }
 
   -- Plugin Graveyard
+  -- use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
   -- use { "github/copilot.vim" }
   -- use { 'stevearc/dressing.nvim' }
   -- use { "junegunn/goyo.vim" }
