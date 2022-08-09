@@ -23,6 +23,14 @@ api.nvim_create_autocmd(
   { pattern = { "python" }, command = "command! Format execute 'Black'",
     group = formatter }
 )
+
+api.nvim_create_autocmd(
+  { "BufNewFile", "BufFilePre", "BufRead" },
+  { pattern = { "*.conf" }, command = "set filetype=tmux",
+    group = commands }
+)
+
+-- vim.api.nvim_exec("autocmd BufNewFile,BufFilePre,BufRead *.conf set filetype=tmux",true)
 -- Language Specific Commands
 -- api.nvim_create_autocmd(
 --   { "Filetype" },
