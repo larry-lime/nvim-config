@@ -6,6 +6,7 @@
 --           /____/               /_/
 
 -- TODO Convert all these functions to Lua
+M = {}
 vim.api.nvim_exec(
   [[
 if has('wsl')
@@ -50,6 +51,9 @@ keymap("n", "<leader>oo", ":bd!<CR>", opts)
 keymap("n", "<leader>oa", ":%bd! | e# |bd#<CR>", opts)
 keymap("n", "<leader>x", ":q<CR>", opts)
 keymap("n", "<A-a>", "GVgg", opts)
+
+-- Format
+-- keymap("n", "<leader>F", "<cmd>Format<CR>", opts)
 
 -- Tabs
 -- TODO think about writing a function that toggles zoom
@@ -211,3 +215,19 @@ keymap('v', '<A-h>', ":MoveHBlock(-1)<CR>", opts)
 
 -- Trouble
 keymap('n', '<leader>T', ":Trouble<CR>", opts)
+
+M.show_documentation = function()
+  local filetype = vim.bo.filetype
+  if vim.tbl_contains({ "vim", "help" }, filetype) then
+    vim.cmd("h " .. vim.fn.expand "<cword>")
+  elseif vim.tbl_contains({ "man" }, filetype) then
+    vim.cmd("Man " .. vim.fn.expand "<cword>")
+  elseif vim.fn.expand "%:t" == "Cargo.toml" then
+    require("crates").show_popup()
+  else
+    vim.lsp.buf.hover()
+  end
+end
+vim.api.nvim_set_keymap("n", "K", "<cmd>silent lua require('user.keymaps').show_documentation()<CR>", opts)
+
+return M

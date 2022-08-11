@@ -64,7 +64,6 @@ return packer.startup(function(use)
   use { "hrsh7th/cmp-nvim-lsp" }
   use { "williamboman/nvim-lsp-installer" }
   use { 'jose-elias-alvarez/null-ls.nvim' }
-  use { 'MunifTanjim/prettier.nvim' }
   use { 'psf/black' }
 
   -- CMP
@@ -92,10 +91,10 @@ return packer.startup(function(use)
 
   -- Add-Ons
   use { 'stevearc/aerial.nvim' }
-  use { "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" }
   use { "tpope/vim-obsession" }
   use { 'abecodes/tabout.nvim' }
   use { "Pocco81/AutoSave.nvim" }
+  -- use { "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" }
   -- use { "lukas-reineke/indent-blankline.nvim" }
 
   -- Debugger
@@ -111,6 +110,7 @@ return packer.startup(function(use)
   -- use { "SmiteshP/nvim-navic", requires = "neovim/nvim-lspconfig" }
 
   -- Plugin Graveyard
+  -- use { 'MunifTanjim/prettier.nvim' }
   -- use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
   -- use { "github/copilot.vim" }
   -- use { 'stevearc/dressing.nvim' }

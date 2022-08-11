@@ -8,7 +8,6 @@ prettier.setup({
   filetypes = {
     "css",
     "graphql",
-    "html",
     "javascript",
     "javascriptreact",
     "json",

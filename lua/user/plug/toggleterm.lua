@@ -46,20 +46,6 @@ local term_3 = Terminal:new({
   direction = "horizontal",
 })
 
-local lazygit = Terminal:new({
-  cmd = "lazygit",
-  hidden = true,
-  direction = "float",
-  start_in_insert = true,
-  float_opts = {
-    border = "curved",
-  },
-})
-
-function Lazygit()
-  lazygit:toggle()
-end
-
 function Term_toggle_1()
   term_1:toggle()
 end
@@ -83,9 +69,6 @@ end
 function Ipython_toggle_v()
   ipython_v:toggle()
 end
-
--- LazyGit
-vim.api.nvim_set_keymap("n", "<leader>lg", "<cmd>lua Lazygit()<CR>", { noremap = true, silent = true }) -- Float
 
 -- Terminal
 vim.api.nvim_set_keymap("n", "<A-1>", "<cmd>lua Term_toggle_1()<CR>", { noremap = true, silent = true })

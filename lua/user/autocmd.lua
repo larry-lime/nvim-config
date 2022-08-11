@@ -7,20 +7,22 @@ local commands = api.nvim_create_augroup("commands", { clear = true })
 -- LSP Formatter
 api.nvim_create_autocmd(
   { "Filetype" },
-  { pattern = { "*" }, command = "command! Format execute 'lua vim.lsp.buf.format {async = true}'", group = formatter }
+  { pattern = { "*" }, command = "nnoremap <leader>F <cmd>execute 'lua vim.lsp.buf.format {async = true}'<CR>",
+    group = formatter }
 )
 
 -- Prettier
 api.nvim_create_autocmd(
   { "Filetype" },
-  { pattern = { "javascript", "typescript", "solidity" }, command = "command! Format execute 'Prettier'",
+  { pattern = { "javascript", "typescript", "solidity", "html" },
+    command = "nnoremap <silent><leader>F :silent !prettier --write %<CR>",
     group = formatter }
 )
 
 -- Black
 api.nvim_create_autocmd(
   { "Filetype" },
-  { pattern = { "python" }, command = "command! Format execute 'Black'",
+  { pattern = { "python" }, command = "nnoremap <leader>F execute 'Black'",
     group = formatter }
 )
 
@@ -30,6 +32,11 @@ api.nvim_create_autocmd(
     group = commands }
 )
 
+api.nvim_create_autocmd(
+  { "Filetype" },
+  { pattern = { "solidity" }, command = "setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4",
+    group = commands }
+)
 -- vim.api.nvim_exec("autocmd BufNewFile,BufFilePre,BufRead *.conf set filetype=tmux",true)
 -- Language Specific Commands
 -- api.nvim_create_autocmd(
