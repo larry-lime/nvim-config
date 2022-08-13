@@ -94,8 +94,18 @@ return packer.startup(function(use)
   use { "tpope/vim-obsession" }
   use { 'abecodes/tabout.nvim' }
   use { "Pocco81/AutoSave.nvim" }
-  -- use { "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" }
-  -- use { "lukas-reineke/indent-blankline.nvim" }
+  use { "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" }
+  use { 'sohkai/syntastic-local-solhint' }
+  use { "lukas-reineke/indent-blankline.nvim" }
+  --   use {
+  --   'rmagatti/auto-session',
+  --   config = function()
+  --     require("auto-session").setup {
+  --       log_level = "error",
+  --       auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/"},
+  --     }
+  --   end
+  -- }
 
   -- Debugger
   -- use { "vimwiki/vimwiki" }
