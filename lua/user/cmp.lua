@@ -104,11 +104,11 @@ cmp.setup {
       end
     end, { "i", "s", }
     ),
-    ["<C-n>"] = cmp.mapping(function()
+    ["<A-n>"] = cmp.mapping(function()
       if luasnip.jumpable(1) then luasnip.jump(1) end
     end
     ),
-    ["<C-p>"] = cmp.mapping(function()
+    ["<A-p>"] = cmp.mapping(function()
       if luasnip.jumpable(-1) then luasnip.jump(-1) end
     end
     )
