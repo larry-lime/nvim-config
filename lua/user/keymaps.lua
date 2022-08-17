@@ -21,6 +21,28 @@ if has('wsl')
       \   'cache_enabled': 1,
       \ }
 endif
+let g:focusup_py = 0
+function FocusUpToggle()
+    if (g:focusup_py == 0)
+        let g:focusup_py = 1
+        set laststatus=0 | set showtabline=0
+        set wrap | set nornu | set nonu
+        set linebreak | set breakindent
+        map k gk
+        map j gj
+        unmap )
+        unmap (
+    else
+        let g:focusup_py = 0
+        set laststatus=3 | set showtabline=3
+        set nowrap | set rnu | set nu
+        set nolinebreak | set nobreakindent
+        unmap k
+        unmap j
+        map ) g_
+        map ( ^
+    endif
+endfunction
 ]] , true)
 
 -- TODO Move all the keymaps for specific plugins into the plugins files
