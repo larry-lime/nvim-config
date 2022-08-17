@@ -50,6 +50,7 @@ endfunction
 local opts = { noremap = true, silent = true }
 local nopts = { noremap = true, silent = false }
 local keymap = vim.api.nvim_set_keymap
+local jump_opt = { noremap = false, silent = true }
 
 --Set Leader Key
 keymap("", "<Space>", "<Nop>", opts)
@@ -73,6 +74,7 @@ keymap("n", "<leader>oo", ":bd!<CR>", opts)
 keymap("n", "<leader>oa", ":%bd! | e# |bd#<CR>", opts)
 keymap("n", "<leader>x", ":q<CR>", opts)
 keymap("n", "<A-a>", "GVgg", opts)
+keymap("n", "<leader>H", "<cmd>call FocusUpToggle()<CR>", opts)
 
 -- Format
 -- keymap("n", "<leader>F", "<cmd>Format<CR>", opts)
