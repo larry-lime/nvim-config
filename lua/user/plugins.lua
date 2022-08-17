@@ -94,7 +94,6 @@ return packer.startup(function(use)
   use { 'abecodes/tabout.nvim' }
   use { "Pocco81/AutoSave.nvim" }
   use { "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" }
-  use { 'sohkai/syntastic-local-solhint' }
   use { "lukas-reineke/indent-blankline.nvim" }
   --   use {
   --   'rmagatti/auto-session',
@@ -121,7 +120,7 @@ return packer.startup(function(use)
   -- Plugin Graveyard
   -- use { 'MunifTanjim/prettier.nvim' }
   -- use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
-  -- use { "github/copilot.vim" }
+  use { "github/copilot.vim" }
   -- use { 'stevearc/dressing.nvim' }
   -- use { "junegunn/goyo.vim" }
   -- use { "lewis6991/impatient.nvim" }

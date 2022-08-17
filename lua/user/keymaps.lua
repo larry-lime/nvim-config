@@ -109,7 +109,6 @@ keymap("n", [[<leader>(]], [[ciW(<C-R>")<Esc>F(]], opts)
 keymap("n", [[<leader>[]], [[ciW[<C-R>"]<Esc>F[]], opts)
 keymap("n", [[<leader>{]], [[ciW{<C-R>"}<Esc>]], opts)
 keymap("n", [[<leader>`]], [[ciw`<C-R>"`<Esc>]], opts)
-
 keymap("v", [[<leader>']], [[c'<C-R>"'<Esc>]], opts)
 keymap("v", [[<leader>"]], [[c"<C-R>""<Esc>]], opts)
 keymap("v", [[<leader>(]], [[c(<C-R>")<Esc>F(]], opts)
@@ -237,8 +236,12 @@ keymap('n', '<A-h>', ":MoveHChar(-1)<CR>", opts)
 keymap('v', '<A-l>', ":MoveHBlock(1)<CR>", opts)
 keymap('v', '<A-h>', ":MoveHBlock(-1)<CR>", opts)
 
+-- Skip snippet part
+keymap('s', '<C-n>', "<BS>i<A-n>", jump_opt)
+
 -- Trouble
 keymap('n', '<leader>T', ":Trouble<CR>", opts)
+
 
 M.show_documentation = function()
   local filetype = vim.bo.filetype

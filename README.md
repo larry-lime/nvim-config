@@ -16,7 +16,7 @@ All the essential configurations needed to run Neovime like an IDE. None of the 
     - [Add-Ons](#add-ons)
 
 ## Installation
-Clone this repo to your `~/.config` directory and add rename it to `nvim` to use it as your Neovim config. If you have another folder names `nvim` in your `~/.config/` make sure you move or rename it to something like `nvim.old`.
+Clone this repo to your `~/.config` directory and add rename it to `nvim` to use it as your Neovim config. If you have another folder names `nvim` in your `~/.config/` make sure you move or rename it to something like (((`nvim.old`.)))
 ```
 git clone https://github.com/larry-lime/nvim-config-lua.git
 ```
