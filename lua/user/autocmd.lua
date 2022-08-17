@@ -7,7 +7,7 @@ local commands = api.nvim_create_augroup("commands", { clear = true })
 -- LSP Formatter
 api.nvim_create_autocmd(
   { "Filetype" },
-  { pattern = { "*" }, command = "nnoremap <leader>F <cmd>execute 'lua vim.lsp.buf.format {async = true}'<CR>",
+  { pattern = { "lua" }, command = "nnoremap <leader>F <cmd>execute 'lua vim.lsp.buf.format {async = true}'<CR>",
     group = formatter }
 )
 
@@ -22,7 +22,7 @@ api.nvim_create_autocmd(
 -- Black
 api.nvim_create_autocmd(
   { "Filetype" },
-  { pattern = { "python" }, command = "nnoremap <leader>F execute 'Black'",
+  { pattern = { "python" }, command = "nnoremap <silent><leader>F :silent !black %<CR>",
     group = formatter }
 )
 
