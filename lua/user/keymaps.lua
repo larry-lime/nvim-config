@@ -21,10 +21,22 @@ if has('wsl')
       \   'cache_enabled': 1,
       \ }
 endif
-let g:focusup_py = 0
+
+let g:focusModeNum = 0
+function FocusUpNumToggle()
+    if (g:focusModeNum == 0)
+        let g:focusModeNum = 1
+        set showtabline=0 | set winbar =
+    else
+        let g:focusModeNum = 0
+        set showtabline=3 | set winbar=%=%m%t
+    endif
+endfunction
+
+let g:focusMode = 0
 function FocusUpToggle()
-    if (g:focusup_py == 0)
-        let g:focusup_py = 1
+    if (g:focusMode == 0)
+        let g:focusMode = 1
         set laststatus=0 | set showtabline=0
         set wrap | set nornu | set nonu
         set linebreak | set breakindent
@@ -33,7 +45,7 @@ function FocusUpToggle()
         unmap )
         unmap (
     else
-        let g:focusup_py = 0
+        let g:focusMode = 0
         set laststatus=3 | set showtabline=3
         set nowrap | set rnu | set nu
         set nolinebreak | set nobreakindent
@@ -74,7 +86,7 @@ keymap("n", "<leader>oo", ":bd!<CR>", opts)
 keymap("n", "<leader>oa", ":%bd! | e# |bd#<CR>", opts)
 keymap("n", "<leader>x", ":q<CR>", opts)
 keymap("n", "<A-a>", "GVgg", opts)
-keymap("n", "<leader>H", "<cmd>call FocusUpToggle()<CR>", opts)
+keymap("n", "<leader>H", "<cmd>call FocusUpNumToggle()<CR>", opts)
 
 -- Format
 -- keymap("n", "<leader>F", "<cmd>Format<CR>", opts)
@@ -242,6 +254,8 @@ keymap('s', '<C-n>', "<BS>i<A-n>", jump_opt)
 -- Trouble
 keymap('n', '<leader>T', ":Trouble<CR>", opts)
 
+-- NeoZoom
+keymap('n', '<leader>z', ":NeoZoomToggle<CR>", opts)
 
 M.show_documentation = function()
   local filetype = vim.bo.filetype

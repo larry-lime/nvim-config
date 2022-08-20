@@ -60,6 +60,11 @@ local kind_icons = {
 }
 -- find more here: https://www.nerdfonts.com/cheat-sheet
 
+vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
+-- vim.api.nvim_set_hl(0, "CmpItemKindTabnine", { fg = "#CA42F0" })
+-- vim.api.nvim_set_hl(0, "CmpItemKindEmoji", { fg = "#FDE030" })
+-- vim.api.nvim_set_hl(0, "CmpItemKindCrate", { fg = "#F64D00" })
+
 cmp.setup {
   snippet = {
     expand = function(args)
@@ -77,6 +82,21 @@ cmp.setup {
         sources = { { name = 'luasnip' } }
       }
     }),
+    ['<C-c>'] = cmp.mapping.complete({
+      config = {
+        sources = { { name = 'copilot' } }
+      }
+    }),
+    -- ['<C-l>'] = cmp.mapping.complete({
+    --   config = {
+    --     sources = { { name = 'nvim_lsp' } }
+    --   }
+    -- }),
+    -- ['<C-n>'] = cmp.mapping.complete({
+    --   config = {
+    --     sources = { { name = 'cmp_tabnine' } }
+    --   }
+    -- }),
     ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
     ["<C-y>"] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
     ["<C-e>"] = cmp.mapping {
@@ -119,9 +139,14 @@ cmp.setup {
       -- Kind icons
       vim_item.kind = kind_icons[vim_item.kind]
 
-      -- if entry.source.name == "copilot" then
-      --   vim_item.kind = ""
-      --   vim_item.kind_hl_group = "CmpItemKindCopilot"
+      if entry.source.name == "copilot" then
+        vim_item.kind = ""
+        vim_item.kind_hl_group = "CmpItemKindCopilot"
+      end
+
+      -- if entry.source.name == "cmp_tabnine" then
+      --   vim_item.kind = "פּ"
+      --   vim_item.kind_hl_group = "CmpItemKindTabnine"
       -- end
 
       vim_item.menu = ({
@@ -130,7 +155,7 @@ cmp.setup {
         luasnip = "[Snippet]",
         buffer = "[Buffer]",
         path = "[Path]",
-        -- copilot = "[COPILOT]",
+        copilot = "[COPILOT]",
         -- cmp_tabnine = "[TN]",
       })[entry.source.name]
       return vim_item
@@ -143,7 +168,7 @@ cmp.setup {
     { name = "buffer", group_index = 2 },
     { name = "path", group_index = 2 },
     -- { name = "copilot", group_index = 2 },
-    -- { name = "cmp_tabnine", group_index = 2},
+    -- { name = "cmp_tabnine", group_index = 2 },
   },
   confirm_opts = {
     behavior = cmp.ConfirmBehavior.Replace,

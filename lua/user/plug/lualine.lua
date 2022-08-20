@@ -31,5 +31,9 @@ require('lualine').setup {
       -- {'buffers', mode=0}
     }
   },
+      -- require('lualine').hide({
+      --   place = {'statusline', 'tabline', 'winbar'}, -- The segmentthis change applies to.
+      --   unhide = false,  -- whether to reenable lualine again/
+      -- })
   extensions = {}
 }

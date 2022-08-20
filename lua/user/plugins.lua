@@ -63,6 +63,9 @@ return packer.startup(function(use)
   use { "neovim/nvim-lspconfig" }
   use { "hrsh7th/cmp-nvim-lsp" }
   use { "williamboman/nvim-lsp-installer" }
+  use { "zbirenbaum/copilot.lua", }
+  use { "zbirenbaum/copilot-cmp" }
+  -- use { 'tzachar/cmp-tabnine' }
   -- use { 'jose-elias-alvarez/null-ls.nvim' }
 
   -- CMP
@@ -93,17 +96,9 @@ return packer.startup(function(use)
   use { "tpope/vim-obsession" }
   use { 'abecodes/tabout.nvim' }
   use { "Pocco81/AutoSave.nvim" }
-  use { "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" }
+  use { "nyngwang/NeoZoom.lua" }
   use { "lukas-reineke/indent-blankline.nvim" }
-  --   use {
-  --   'rmagatti/auto-session',
-  --   config = function()
-  --     require("auto-session").setup {
-  --       log_level = "error",
-  --       auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/"},
-  --     }
-  --   end
-  -- }
+  -- use { "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" }
 
   -- Debugger
   -- use { "vimwiki/vimwiki" }
@@ -120,7 +115,7 @@ return packer.startup(function(use)
   -- Plugin Graveyard
   -- use { 'MunifTanjim/prettier.nvim' }
   -- use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
-  use { "github/copilot.vim" }
+  -- use { "github/copilot.vim" }
   -- use { 'stevearc/dressing.nvim' }
   -- use { "junegunn/goyo.vim" }
   -- use { "lewis6991/impatient.nvim" }

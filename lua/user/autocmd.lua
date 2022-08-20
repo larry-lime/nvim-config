@@ -1,7 +1,7 @@
 local api = vim.api
-
 local formatter = api.nvim_create_augroup("formatter", { clear = true })
 local commands = api.nvim_create_augroup("commands", { clear = true })
+
 
 -- Formatters
 -- LSP Formatter
@@ -24,6 +24,18 @@ api.nvim_create_autocmd(
   { "Filetype" },
   { pattern = { "python" }, command = "nnoremap <silent><leader>F :silent !black %<CR>",
     group = formatter }
+)
+
+api.nvim_create_autocmd(
+  { "BufNewFile", "BufFilePre", "BufRead" },
+  { pattern = { "*.conf" }, command = "set filetype=tmux",
+    group = commands }
+)
+
+api.nvim_create_autocmd(
+  { "VimResized" },
+  { pattern = { "*" }, command = "wincmd =",
+    group = commands }
 )
 
 api.nvim_create_autocmd(
