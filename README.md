@@ -77,4 +77,3 @@ if __name__ == "__main__":
 - Vimwiki -> Personal Wiki
 - Github Copilot -> Github's AI Autocomplete
 - Goyo
-
