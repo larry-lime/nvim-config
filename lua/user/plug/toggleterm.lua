@@ -71,7 +71,7 @@ function Ipython_toggle_v()
 end
 
 -- Terminal
-vim.api.nvim_set_keymap("n", "<A-1>", "<cmd>lua Term_toggle_1()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<A-1>", "<cmd>silent lua Term_toggle_1()<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("t", "<A-1>", "<C-\\><C-n><cmd>lua Term_toggle_1()<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<A-2>", "<cmd>lua Term_toggle_2()<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("t", "<A-2>", "<C-\\><C-n><cmd>lua Term_toggle_2()<CR>", { noremap = true, silent = true })

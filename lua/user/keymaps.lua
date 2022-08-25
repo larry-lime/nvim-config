@@ -33,6 +33,15 @@ function FocusUpNumToggle()
     endif
 endfunction
 
+let g:orgSpaceState = 0
+function OrgSpace(opt)
+    if (g:orgSpaceState == 0)
+        let g:orgSpaceState = 1
+        NeorgStart silent=true
+    endif
+    silent! execute a:opt
+endfunction
+
 let g:focusMode = 0
 function FocusUpToggle()
     if (g:focusMode == 0)
@@ -256,6 +265,15 @@ keymap('n', '<leader>T', ":Trouble<CR>", opts)
 
 -- NeoZoom
 keymap('n', '<leader>z', ":NeoZoomToggle<CR>", opts)
+
+-- Markdown Preview
+keymap('n', '<leader>M', ":MarkdownPreviewToggle<CR>", opts)
+
+-- Neorg
+keymap('n', '<leader>N', ":call OrgSpace('Neorg')<CR>", opts)
+-- keymap('n', '<leader>W', ":call OrgSpace('Neorg workspace')<CR>", opts)
+-- keymap('n', '<leader>A', ":call OrgSpace('Neorg gtd capture')<CR>", opts)
+-- keymap('n', '<leader>V', ":call OrgSpace('Neorg gtd views')<CR>", opts)
 
 M.show_documentation = function()
   local filetype = vim.bo.filetype

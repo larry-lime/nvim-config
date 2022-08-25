@@ -87,11 +87,6 @@ cmp.setup {
         sources = { { name = 'copilot' } }
       }
     }),
-    -- ['<C-l>'] = cmp.mapping.complete({
-    --   config = {
-    --     sources = { { name = 'nvim_lsp' } }
-    --   }
-    -- }),
     -- ['<C-n>'] = cmp.mapping.complete({
     --   config = {
     --     sources = { { name = 'cmp_tabnine' } }
@@ -156,6 +151,7 @@ cmp.setup {
         buffer = "[Buffer]",
         path = "[Path]",
         copilot = "[COPILOT]",
+        -- neorg = "[NEORG]",
         -- cmp_tabnine = "[TN]",
       })[entry.source.name]
       return vim_item
@@ -167,6 +163,7 @@ cmp.setup {
     { name = "luasnip", group_index = 2 },
     { name = "buffer", group_index = 2 },
     { name = "path", group_index = 2 },
+    { name = "neorg", group_index = 2 },
     -- { name = "copilot", group_index = 2 },
     -- { name = "cmp_tabnine", group_index = 2 },
   },

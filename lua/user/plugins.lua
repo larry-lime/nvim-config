@@ -48,7 +48,6 @@ return packer.startup(function(use)
   use { "ful1e5/onedark.nvim" }
   use { "ellisonleao/gruvbox.nvim" }
   use { "folke/tokyonight.nvim" }
-  use { "catppuccin/nvim", as = "catppuccin" }
 
   -- IDE Features
   use { "nvim-lualine/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons", opt = true } }
@@ -65,8 +64,6 @@ return packer.startup(function(use)
   use { "williamboman/nvim-lsp-installer" }
   use { "zbirenbaum/copilot.lua", }
   use { "zbirenbaum/copilot-cmp" }
-  -- use { 'tzachar/cmp-tabnine' }
-  -- use { 'jose-elias-alvarez/null-ls.nvim' }
 
   -- CMP
   use { "hrsh7th/nvim-cmp" }
@@ -93,12 +90,18 @@ return packer.startup(function(use)
 
   -- Add-Ons
   use { 'stevearc/aerial.nvim' }
-  use { "tpope/vim-obsession" }
   use { 'abecodes/tabout.nvim' }
   use { "Pocco81/AutoSave.nvim" }
   use { "nyngwang/NeoZoom.lua" }
   use { "lukas-reineke/indent-blankline.nvim" }
-  -- use { "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" }
+  use { "nvim-neorg/neorg", requires = "wbthomason/packer.nvim" }
+  use { "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" }
+  use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install",
+    setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
+  use { "tpope/vim-obsession" }
+
+  -- Trying Out
+  -- use { 'rmagatti/auto-session' }
 
   -- Debugger
   -- use { "vimwiki/vimwiki" }
@@ -107,18 +110,10 @@ return packer.startup(function(use)
   -- use { "mfussenegger/nvim-dap-python" }
   -- use { "mxsdev/nvim-dap-vscode-js", requires = { "mfussenegger/nvim-dap" } }
 
-  -- New Plugins
-  -- use { "norcalli/nvim-colorizer.lua" }
-  -- TODO set this up
-  -- use { "SmiteshP/nvim-navic", requires = "neovim/nvim-lspconfig" }
-
   -- Plugin Graveyard
-  -- use { 'MunifTanjim/prettier.nvim' }
+  -- use { "catppuccin/nvim", as = "catppuccin" }
   -- use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
   -- use { "github/copilot.vim" }
-  -- use { 'stevearc/dressing.nvim' }
-  -- use { "junegunn/goyo.vim" }
-  -- use { "lewis6991/impatient.nvim" }
 
   if PACKER_BOOTSTRAP then
     require("packer").sync()
