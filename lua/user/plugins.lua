@@ -42,12 +42,13 @@ return packer.startup(function(use)
   use { "wbthomason/packer.nvim" }
   use { "nvim-lua/popup.nvim" }
   use { "nvim-lua/plenary.nvim" }
-  use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
+  use { "nvim-treesitter/nvim-treesitter"}
 
   -- Colorschemes
   use { "ful1e5/onedark.nvim" }
   use { "ellisonleao/gruvbox.nvim" }
   use { "folke/tokyonight.nvim" }
+  use { "kyazdani42/nvim-web-devicons" }
 
   -- IDE Features
   use { "nvim-lualine/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons", opt = true } }
