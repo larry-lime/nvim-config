@@ -28,7 +28,7 @@ local options = {
   showmode = false, -- we don't need to see things like -- INSERT -- anymore
   showtabline = 2, -- always show tabs
   smartcase = true, -- smart case
-  winbar = '%=%m%t',
+  -- winbar = '%=%m%t',
   smartindent = true, -- make indenting smarter again
   swapfile = false, -- creates a swapfile
   timeoutlen = 1000, -- time to wait for a mapped sequence to complete (in milliseconds)

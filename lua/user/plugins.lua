@@ -64,6 +64,7 @@ return packer.startup(function(use)
   use { "hrsh7th/cmp-nvim-lsp" }
   use { "williamboman/nvim-lsp-installer" }
   use { "zbirenbaum/copilot.lua", }
+  -- use { "github/copilot.vim" }
   use { "zbirenbaum/copilot-cmp" }
 
   -- CMP
@@ -92,7 +93,7 @@ return packer.startup(function(use)
   -- Add-Ons
   use { 'stevearc/aerial.nvim' }
   use { 'abecodes/tabout.nvim' }
-  use { "Pocco81/AutoSave.nvim" }
+  use { "Pocco81/auto-save.nvim" }
   use { "nyngwang/NeoZoom.lua" }
   use { "lukas-reineke/indent-blankline.nvim" }
   use { "nvim-neorg/neorg", requires = "wbthomason/packer.nvim" }
@@ -100,9 +101,6 @@ return packer.startup(function(use)
   use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install",
     setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
   use { "tpope/vim-obsession" }
-
-  -- Trying Out
-  -- use { 'rmagatti/auto-session' }
 
   -- Debugger
   -- use { "vimwiki/vimwiki" }
@@ -114,7 +112,6 @@ return packer.startup(function(use)
   -- Plugin Graveyard
   -- use { "catppuccin/nvim", as = "catppuccin" }
   -- use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
-  -- use { "github/copilot.vim" }
 
   if PACKER_BOOTSTRAP then
     require("packer").sync()

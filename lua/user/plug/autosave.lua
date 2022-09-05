@@ -1,4 +1,4 @@
-require("autosave").setup(
+require("auto-save").setup(
   {
     enabled = true,
       events = { "InsertLeave", "TextChanged  "}, -- :help events
