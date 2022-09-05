@@ -94,7 +94,7 @@ keymap("n", "[b", ":bprevious<CR>", opts)
 keymap("n", "<leader>oo", ":bd!<CR>", opts)
 keymap("n", "<leader>oa", ":%bd! | e# |bd#<CR>", opts)
 keymap("n", "<leader>x", ":q<CR>", opts)
-keymap("n", "<A-a>", "GVgg", opts)
+keymap("n", "<leader>A", "GVgg", opts)
 keymap("n", "<leader>H", "<cmd>call FocusUpNumToggle()<CR>", opts)
 
 -- Format

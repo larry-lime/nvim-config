@@ -10,18 +10,17 @@ require('neorg').setup {
     ["core.norg.dirman"] = {
       config = {
         workspaces = {
-          work = "~/todo/",
+          work = "~/tasks/",
         },
         default_workspace = "work",
         open_last_workspace = false
       }
     },
-    -- ["core.gtd.base"] = {
-    --   config = {
-    --     workspace = "work",
-    --   }
-    -- },
+    ["core.gtd.base"] = {
+      config = {
+        workspace = "work",
+      }
+    },
     ["core.integrations.nvim-cmp"] = {},
-    ["core.integrations.telescope"] = {}
   }
 }

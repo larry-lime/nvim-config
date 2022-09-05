@@ -48,7 +48,7 @@ require 'nvim-tree'.setup { -- BEGIN_DEFAULT_OPTS
       symlink_arrow = " ➛ ",
       show = {
         file = true,
-        folder = true,
+        folder = false,
         folder_arrow = true,
         git = true,
       },
@@ -93,7 +93,7 @@ require 'nvim-tree'.setup { -- BEGIN_DEFAULT_OPTS
     args = {},
   },
   diagnostics = {
-    enable = true,
+    enable = false,
     show_on_dirs = false,
     icons = {
       hint = "",
@@ -109,6 +109,7 @@ require 'nvim-tree'.setup { -- BEGIN_DEFAULT_OPTS
   },
   git = {
     enable = true,
+    show_on_dirs = false,
     ignore = true,
     timeout = 400,
   },
