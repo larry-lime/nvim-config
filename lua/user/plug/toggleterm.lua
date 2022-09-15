@@ -16,13 +16,13 @@ local Terminal = require('toggleterm.terminal').Terminal
 
 local ipython_h = Terminal:new({
   hidden = true,
-  cmd = "ipython",
+  cmd = "python3 -m IPython",
   direction = "horizontal",
 })
 
 local ipython_v = Terminal:new({
   hidden = true,
-  cmd = "ipython",
+  cmd = "python3 -m IPython",
   direction = "vertical",
 })
 

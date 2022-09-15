@@ -76,17 +76,16 @@ cmp.setup {
     documentation = cmp.config.window.bordered(),
   },
   mapping = {
-    -- TODO add copilot here and have it trigger only by keypress
     ['<C-s>'] = cmp.mapping.complete({
       config = {
         sources = { { name = 'luasnip' } }
       }
     }),
-    ['<C-c>'] = cmp.mapping.complete({
-      config = {
-        sources = { { name = 'copilot' } }
-      }
-    }),
+    -- ['<C-c>'] = cmp.mapping.complete({
+    --   config = {
+    --     sources = { { name = 'copilot' } }
+    --   }
+    -- }),
     -- ['<C-n>'] = cmp.mapping.complete({
     --   config = {
     --     sources = { { name = 'cmp_tabnine' } }
@@ -150,7 +149,7 @@ cmp.setup {
         luasnip = "[Snippet]",
         buffer = "[Buffer]",
         path = "[Path]",
-        copilot = "[COPILOT]",
+        -- copilot = "[COPILOT]",
         -- neorg = "[NEORG]",
         -- cmp_tabnine = "[TN]",
       })[entry.source.name]
@@ -163,8 +162,8 @@ cmp.setup {
     { name = "luasnip", group_index = 2 },
     { name = "buffer", group_index = 2 },
     { name = "path", group_index = 2 },
-    { name = "neorg", group_index = 2 },
     -- { name = "copilot", group_index = 2 },
+    -- { name = "neorg", group_index = 2 },
     -- { name = "cmp_tabnine", group_index = 2 },
   },
   confirm_opts = {

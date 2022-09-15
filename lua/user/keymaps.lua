@@ -27,9 +27,11 @@ function FocusUpNumToggle()
     if (g:focusModeNum == 0)
         let g:focusModeNum = 1
         set showtabline=0 | set winbar =
+        set showtabline=0
     else
         let g:focusModeNum = 0
         set showtabline=3 | set winbar=%=%m%t
+        set showtabline=3
     endif
 endfunction
 

@@ -42,7 +42,7 @@ return packer.startup(function(use)
   use { "wbthomason/packer.nvim" }
   use { "nvim-lua/popup.nvim" }
   use { "nvim-lua/plenary.nvim" }
-  use { "nvim-treesitter/nvim-treesitter"}
+  use { "nvim-treesitter/nvim-treesitter" }
 
   -- Colorschemes
   use { "ful1e5/onedark.nvim" }
@@ -63,9 +63,24 @@ return packer.startup(function(use)
   use { "neovim/nvim-lspconfig" }
   use { "hrsh7th/cmp-nvim-lsp" }
   use { "williamboman/nvim-lsp-installer" }
-  use { "zbirenbaum/copilot.lua", }
-  -- use { "github/copilot.vim" }
-  use { "zbirenbaum/copilot-cmp" }
+  use { "github/copilot.vim" }
+  -- TODO fix this
+  -- use {
+  --   "zbirenbaum/copilot.lua",
+  --   event = { "VimEnter" },
+  --   config = function()
+  --     vim.defer_fn(function()
+  --       require("user.plug.copilot_lua")
+  --     end, 100)
+  --   end,
+  -- }
+  -- use {
+  --   "zbirenbaum/copilot-cmp",
+  --   after = { "copilot.lua" },
+  --   config = function()
+  --     require("copilot_cmp").setup()
+  --   end
+  -- }
 
   -- CMP
   use { "hrsh7th/nvim-cmp" }
