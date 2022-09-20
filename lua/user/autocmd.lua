@@ -23,6 +23,17 @@ api.nvim_create_autocmd(
   { pattern = { "python" }, command = "nnoremap <silent><leader>F :silent !python3 -m black %<CR>", group = formatter }
 )
 
+-- MdEval
+api.nvim_create_autocmd(
+  { "Filetype" },
+  { pattern = { "markdown" }, command = "nnoremap <F5> :MdEval<CR>", group = formatter }
+)
+
+api.nvim_create_autocmd(
+  { "Filetype" },
+  { pattern = { "markdown" }, command = "nnoremap <F4> :MdEvalClean<CR>", group = formatter }
+)
+
 api.nvim_create_autocmd(
   { "BufNewFile", "BufFilePre", "BufRead" },
   { pattern = { "*.conf" }, command = "set filetype=tmux",
