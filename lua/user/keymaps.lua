@@ -98,9 +98,10 @@ keymap("n", "<leader>oa", ":%bd! | e# |bd#<CR>", opts)
 keymap("n", "<leader>x", ":q<CR>", opts)
 keymap("n", "<leader>A", "GVgg", opts)
 keymap("n", "<leader>H", "<cmd>call FocusUpNumToggle()<CR>", opts)
+keymap("n", "<leader>Z", "<cmd>call FocusUpToggle()<CR>", opts)
 
 -- Format
--- keymap("n", "<leader>F", "<cmd>Format<CR>", opts)
+keymap("n", "<leader>F", "<cmd>Format<CR>", opts)
 
 -- Tabs
 -- TODO think about writing a function that toggles zoom
@@ -187,14 +188,14 @@ keymap("n", "]t", ":AerialNext<CR>", opts)
 keymap("n", "[t", ":AerialPrev<CR>", opts)
 
 -- Nvim-Dap
--- keymap("n", "<leader>ds", ":lua require'dap'.continue()<CR>", nopts)
--- keymap("n", "<leader>de", ":lua require'dap'.disconnect()<CR>", opts)
--- keymap("n", "<leader>.", ":lua require'dap'.toggle_breakpoint()<CR>", opts)
--- keymap("n", "<leader>bc", ":lua require'dap'.clear_breakpoints()<CR>", opts)
--- keymap("n", "<`>`>", ":lua require'dap'.step_over()<CR>", opts)
--- keymap("n", "<F10>", ":lua require'dap'.step_into()<CR>", opts)
--- keymap("n", "<F11>", ":lua require'dap'.step_out()<CR>", opts)
--- keymap("n", "<F12>", ":lua require'dap'.step_back()<CR>", opts)
+keymap("n", "<leader>ds", ":lua require'dap'.continue()<CR>", nopts)
+keymap("n", "<leader>de", ":lua require'dap'.disconnect()<CR>", opts)
+keymap("n", "<leader>.", ":lua require'dap'.toggle_breakpoint()<CR>", opts)
+keymap("n", "<leader>bc", ":lua require'dap'.clear_breakpoints()<CR>", opts)
+keymap("n", "<`>`>", ":lua require'dap'.step_over()<CR>", opts)
+keymap("n", "<F10>", ":lua require'dap'.step_into()<CR>", opts)
+keymap("n", "<F11>", ":lua require'dap'.step_out()<CR>", opts)
+keymap("n", "<F12>", ":lua require'dap'.step_back()<CR>", opts)
 
 -- FUGITIVE
 keymap("n", "<leader>gaa", ":G add ", nopts)
@@ -227,7 +228,8 @@ keymap("n", "<leader>jl", ":Telescope jumplist<CR>", opts)
 keymap("n", "<leader>mp", ":Telescope keymaps<CR>", opts)
 keymap("n", "<leader>sc", ":Telescope spell_suggest<CR>", opts)
 keymap("n", "<leader>hl", ":Telescope help_tags<CR>", opts)
-keymap("n", "<leader>td", ":lua require('telescope.builtin').grep_string({prompt_title='TODO List',search='TODO'})<CR>", opts)
+keymap("n", "<leader>td", ":lua require('telescope.builtin').grep_string({prompt_title='TODO List',search='TODO'})<CR>",
+  opts)
 keymap("n", "<leader>rs", ":lua require('telescope.builtin').resume()<CR>", opts)
 
 -- Harpoon
@@ -271,8 +273,12 @@ keymap('n', '<leader>z', ":NeoZoomToggle<CR>", opts)
 -- Markdown Preview
 keymap('n', '<leader>M', ":MarkdownPreviewToggle<CR>", opts)
 
+-- Mdeval
+keymap('n', '<leader>md', ":MdEval<CR>", opts)
+keymap('n', '<leader>mc', ":MdEvalClean<CR>", opts)
+
 -- Neorg
-keymap('n', '<leader>N', ":call OrgSpace('Neorg')<CR>", opts)
+-- keymap('n', '<leader>N', ":call OrgSpace('Neorg')<CR>", opts)
 -- keymap('n', '<leader>W', ":call OrgSpace('Neorg workspace')<CR>", opts)
 -- keymap('n', '<leader>A', ":call OrgSpace('Neorg gtd capture')<CR>", opts)
 -- keymap('n', '<leader>V', ":call OrgSpace('Neorg gtd views')<CR>", opts)

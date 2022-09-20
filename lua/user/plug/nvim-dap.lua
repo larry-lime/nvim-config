@@ -18,7 +18,7 @@ vim.fn.sign_define('DapBreakpoint', { text = '⭕', texthl = '', linehl = '', nu
 
 -- Python Debugger
 require("dap-python").setup("~/.virtualenvs/debugpy/bin/python") -- Only require this if I enter into a python file
-require("dap-vscode-js").setup({ adapters = { 'pwa-node' } })
+-- require("dap-vscode-js").setup({ adapters = { 'pwa-node' } })
 
 -- dap.adapters['pwa-node'] = {
 --   type = 'server',
@@ -34,23 +34,23 @@ require("dap-vscode-js").setup({ adapters = { 'pwa-node' } })
 --   }
 -- }
 
-dap.adapters.node2 = {
-  type = 'executable',
-  command = 'node',
-  args = { os.getenv('HOME') .. '/dev/microsoft/vscode-node-debug2/out/src/nodeDebug.js' },
-}
-dap.configurations.javascript = {
-  {
-    name = 'Launch',
-    type = 'node2',
-    request = 'launch',
-    program = '${file}',
-    -- cwd = vim.fn.getcwd(),
-    -- sourceMaps = true,
-    -- protocol = 'inspector',
-    -- console = 'integratedTerminal',
-  }
-}
+-- dap.adapters.node2 = {
+--   type = 'executable',
+--   command = 'node',
+--   args = { os.getenv('HOME') .. '/dev/microsoft/vscode-node-debug2/out/src/nodeDebug.js' },
+-- }
+-- dap.configurations.javascript = {
+--   {
+--     name = 'Launch',
+--     type = 'node2',
+--     request = 'launch',
+--     program = '${file}',
+--     cwd = vim.fn.getcwd(),
+--     sourceMaps = true,
+--     protocol = 'inspector',
+--     console = 'integratedTerminal',
+--   }
+-- }
 
 -- Dap UI
 dapui.setup({})

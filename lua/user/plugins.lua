@@ -64,23 +64,6 @@ return packer.startup(function(use)
   use { "hrsh7th/cmp-nvim-lsp" }
   use { "williamboman/nvim-lsp-installer" }
   use { "github/copilot.vim" }
-  -- TODO fix this
-  -- use {
-  --   "zbirenbaum/copilot.lua",
-  --   event = { "VimEnter" },
-  --   config = function()
-  --     vim.defer_fn(function()
-  --       require("user.plug.copilot_lua")
-  --     end, 100)
-  --   end,
-  -- }
-  -- use {
-  --   "zbirenbaum/copilot-cmp",
-  --   after = { "copilot.lua" },
-  --   config = function()
-  --     require("copilot_cmp").setup()
-  --   end
-  -- }
 
   -- CMP
   use { "hrsh7th/nvim-cmp" }
@@ -107,6 +90,7 @@ return packer.startup(function(use)
 
   -- Add-Ons
   use { 'stevearc/aerial.nvim' }
+  use { 'jubnzv/mdeval.nvim' }
   use { 'abecodes/tabout.nvim' }
   use { "Pocco81/auto-save.nvim" }
   use { "nyngwang/NeoZoom.lua" }
@@ -119,9 +103,9 @@ return packer.startup(function(use)
 
   -- Debugger
   -- use { "vimwiki/vimwiki" }
-  -- use { "mfussenegger/nvim-dap" }
-  -- use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
-  -- use { "mfussenegger/nvim-dap-python" }
+  use { "mfussenegger/nvim-dap" }
+  use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
+  use { "mfussenegger/nvim-dap-python" }
   -- use { "mxsdev/nvim-dap-vscode-js", requires = { "mfussenegger/nvim-dap" } }
 
   -- Plugin Graveyard
