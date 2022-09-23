@@ -46,6 +46,7 @@ return packer.startup(function(use)
 
   -- Colorschemes
   use { "ful1e5/onedark.nvim" }
+  use { "catppuccin/nvim", as = "catppuccin" }
   use { "ellisonleao/gruvbox.nvim" }
   use { "folke/tokyonight.nvim" }
   use { "kyazdani42/nvim-web-devicons" }
@@ -90,27 +91,28 @@ return packer.startup(function(use)
 
   -- Add-Ons
   use { 'stevearc/aerial.nvim' }
+  use "stevearc/dressing.nvim"
   use { 'jubnzv/mdeval.nvim' }
+  use "windwp/nvim-spectre"
   use { 'abecodes/tabout.nvim' }
   use { "Pocco81/auto-save.nvim" }
   use { "nyngwang/NeoZoom.lua" }
   use { "lukas-reineke/indent-blankline.nvim" }
-  use { "nvim-neorg/neorg", requires = "wbthomason/packer.nvim" }
   use { "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" }
   use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install",
     setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
   use { "tpope/vim-obsession" }
 
   -- Debugger
-  -- use { "vimwiki/vimwiki" }
   use { "mfussenegger/nvim-dap" }
   use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
-  use { "mfussenegger/nvim-dap-python" }
+  -- use { "mfussenegger/nvim-dap-python" }
   -- use { "mxsdev/nvim-dap-vscode-js", requires = { "mfussenegger/nvim-dap" } }
 
   -- Plugin Graveyard
-  -- use { "catppuccin/nvim", as = "catppuccin" }
   -- use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
+  -- use { "nvim-neorg/neorg", requires = "wbthomason/packer.nvim" }
+  -- use { "vimwiki/vimwiki" }
 
   if PACKER_BOOTSTRAP then
     require("packer").sync()

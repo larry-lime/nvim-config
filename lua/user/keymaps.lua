@@ -158,9 +158,6 @@ keymap("v", "-", ":call Jump_middle()<CR>", opts)
 -- keymap("n", "<leader>rn", "*Ncgn", opts)
 keymap("n", "<leader>rn", 'yiw:%s/<C-r>"/', nopts)
 
--- Package Manager
-keymap("n", "<leader>pu", ":PackerUpdate<CR>", opts)
-
 -- Navigation
 keymap("t", "<C-\\>", "<C-\\><C-N>", opts)
 -- keymap("t", "<Esc>", "<C-\\><C-N>", opts)
@@ -189,12 +186,13 @@ keymap("n", "[t", ":AerialPrev<CR>", opts)
 
 -- Nvim-Dap
 keymap("n", "<leader>ds", ":lua require'dap'.continue()<CR>", nopts)
+keymap("n", "<S-<F5>>", ":lua require'dap'.continue()<CR>", nopts)
 keymap("n", "<leader>de", ":lua require'dap'.disconnect()<CR>", opts)
 keymap("n", "<leader>.", ":lua require'dap'.toggle_breakpoint()<CR>", opts)
 keymap("n", "<leader>bc", ":lua require'dap'.clear_breakpoints()<CR>", opts)
 keymap("n", "<F5>", ":lua require'dap'.continue()<CR>", nopts)
-keymap("n", "<F9>", ":lua require'dap'.step_over()<CR>", opts)
-keymap("n", "<F10>", ":lua require'dap'.step_into()<CR>", opts)
+keymap("n", "<F9>", ":lua require'dap'.step_into()<CR>", opts)
+keymap("n", "<F10>", ":lua require'dap'.step_over()<CR>", opts)
 keymap("n", "<F11>", ":lua require'dap'.step_out()<CR>", opts)
 keymap("n", "<F12>", ":lua require'dap'.step_back()<CR>", opts)
 
@@ -262,6 +260,9 @@ keymap('n', '<A-h>', ":MoveHChar(-1)<CR>", opts)
 keymap('v', '<A-l>', ":MoveHBlock(1)<CR>", opts)
 keymap('v', '<A-h>', ":MoveHBlock(-1)<CR>", opts)
 
+-- ToggleTerm
+-- keymap('n', '<leader><F5>', ":1TermExec cmd='run %'<CR>", opts)
+
 -- Skip snippet part
 keymap('s', '<C-n>', "<BS>i<A-n>", jump_opt)
 
@@ -277,6 +278,24 @@ keymap('n', '<leader>M', ":MarkdownPreviewToggle<CR>", opts)
 -- Mdeval
 keymap('n', '<leader>md', ":MdEval<CR>", opts)
 keymap('n', '<leader>mc', ":MdEvalClean<CR>", opts)
+
+-- Toggle Term
+
+-- Shell
+keymap("n", "<M-1>", ":silent lua Term_toggle_1()<CR>", opts)
+keymap("t", "<M-1>", "<C-\\><C-n>:lua Term_toggle_1()<CR>", opts)
+keymap("n", "<M-2>", ":lua Term_toggle_2()<CR>", opts)
+keymap("t", "<M-2>", "<C-\\><C-n>:lua Term_toggle_2()<CR>", opts)
+keymap("n", "<M-3>", ":lua Term_toggle_3()<CR>", opts)
+keymap("t", "<M-3>", "<C-\\><C-n>:lua Term_toggle_3()<CR>", opts)
+
+-- Ipython
+keymap("n", "<M-p>", ":silent lua Ipython_toggle_h()<CR>", { noremap = true, silent = true }) -- Horizontal
+keymap("t", "<M-p>", "<C-\\><C-n>:lua Ipython_toggle_h()<CR>", { noremap = true, silent = true })
+keymap("n", "<leader>p1", ":1TermExec cmd='run %' go_back=0<CR>", { noremap = true, silent = true })
+keymap("n", "<M-P>", ":lua Ipython_toggle_v()<CR>", { noremap = true, silent = true })
+keymap("t", "<M-P>", "<C-\\><C-n>:lua Ipython_toggle_v()<CR>", { noremap = true, silent = true })
+keymap("n", "<leader>p2", ":2TermExec cmd='run %' go_back=0<CR>", { noremap = true, silent = true })
 
 -- Neorg
 -- keymap('n', '<leader>N', ":call OrgSpace('Neorg')<CR>", opts)

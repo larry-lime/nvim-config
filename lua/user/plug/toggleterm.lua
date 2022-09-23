@@ -9,20 +9,26 @@ require 'toggleterm'.setup {
     elseif term.direction == "vertical" then
       return 70
     end
-  end
+  end,
+  winbar = {
+    enabled = false,
+    name_formatter = function(term) --  term: Terminal
+      return term.name
+    end
+  }
 }
 
 local Terminal = require('toggleterm.terminal').Terminal
 
 local ipython_h = Terminal:new({
   hidden = true,
-  cmd = "python3 -m IPython",
+  cmd = "ipython --no-banner",
   direction = "horizontal",
 })
 
 local ipython_v = Terminal:new({
   hidden = true,
-  cmd = "python3 -m IPython",
+  cmd = "ipython --no-banner",
   direction = "vertical",
 })
 
@@ -69,22 +75,3 @@ end
 function Ipython_toggle_v()
   ipython_v:toggle()
 end
-
--- Terminal
-vim.api.nvim_set_keymap("n", "<A-1>", "<cmd>silent lua Term_toggle_1()<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("t", "<A-1>", "<C-\\><C-n><cmd>lua Term_toggle_1()<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<A-2>", "<cmd>lua Term_toggle_2()<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("t", "<A-2>", "<C-\\><C-n><cmd>lua Term_toggle_2()<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<A-3>", "<cmd>lua Term_toggle_3()<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("t", "<A-3>", "<C-\\><C-n><cmd>lua Term_toggle_3()<CR>", { noremap = true, silent = true })
-
-vim.api.nvim_set_keymap("n", "<A-T>", "<cmd>lua Term_toggle_v()<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("t", "<A-T>", "<C-\\><C-n><cmd>lua Term_toggle_v()<CR>", { noremap = true, silent = true })
-
--- Ipython
-vim.api.nvim_set_keymap("n", "<A-p>", "<cmd>lua Ipython_toggle_h()<CR>", { noremap = true, silent = true }) -- Horizontal
-vim.api.nvim_set_keymap("t", "<A-p>", "<C-\\><C-n><cmd>lua Ipython_toggle_h()<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<leader>p1", "<cmd>1TermExec cmd='run %' go_back=0<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<A-P>", "<cmd>lua Ipython_toggle_v()<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("t", "<A-P>", "<C-\\><C-n><cmd>lua Ipython_toggle_v()<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<leader>p2", "<cmd>2TermExec cmd='run %' go_back=0<CR>", { noremap = true, silent = true })
