@@ -12,6 +12,7 @@ require("user.cmp")
 require("user.colors")
 require("user.lsp")
 require("user.autocmd")
+require("user.functions")
 
 -- Plugins Configs
 require("user.plug.gitsigns")

@@ -13,7 +13,7 @@ api.nvim_create_autocmd(
 api.nvim_create_autocmd(
   { "Filetype" },
   { pattern = { "javascript", "typescript", "solidity", "yaml" },
-    command = "nnoremap <silent><leader>F :silent !prettier --write %<CR>",
+    command = "nnoremap <silent><leader>F :silent !npx prettier --write %<CR>",
     group = formatter }
 )
 

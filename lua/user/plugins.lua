@@ -91,9 +91,8 @@ return packer.startup(function(use)
 
   -- Add-Ons
   use { 'stevearc/aerial.nvim' }
-  use "stevearc/dressing.nvim"
   use { 'jubnzv/mdeval.nvim' }
-  use "windwp/nvim-spectre"
+  use { "windwp/nvim-spectre" }
   use { 'abecodes/tabout.nvim' }
   use { "Pocco81/auto-save.nvim" }
   use { "nyngwang/NeoZoom.lua" }
@@ -102,6 +101,14 @@ return packer.startup(function(use)
   use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install",
     setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
   use { "tpope/vim-obsession" }
+  use {
+    'phaazon/hop.nvim',
+    branch = 'v2', -- optional but strongly recommended
+    config = function()
+      -- you can configure Hop the way you like here; see :h hop-config
+      require 'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+    end
+  }
 
   -- Debugger
   use { "mfussenegger/nvim-dap" }
@@ -110,6 +117,8 @@ return packer.startup(function(use)
   -- use { "mxsdev/nvim-dap-vscode-js", requires = { "mfussenegger/nvim-dap" } }
 
   -- Plugin Graveyard
+  -- use "stevearc/dressing.nvim"
+  -- use {'karb94/neoscroll.nvim'}
   -- use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
   -- use { "nvim-neorg/neorg", requires = "wbthomason/packer.nvim" }
   -- use { "vimwiki/vimwiki" }

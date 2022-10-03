@@ -9,6 +9,7 @@ if not dap_ui_status_ok then
   return
 end
 
+-- Python Config
 dap.adapters.python = {
   type = 'executable';
   command = '/Users/lawrencelim/.virtualenvs/debugpy/bin/python';
@@ -18,12 +19,11 @@ dap.adapters.python = {
 dap.configurations.python = {
   {
     -- The first three options are required by nvim-dap
-    type = 'python'; -- the type here established the link to the adapter definition: `dap.adapters.python`
+    type = 'python';
     request = 'launch';
     name = "Launch file";
 
     -- Options below are for debugpy, see https://github.com/microsoft/debugpy/wiki/Debug-configuration-settings for supported options
-
     program = "${file}"; -- This configuration will launch the current file if used.
     pythonPath = function()
       -- debugpy supports launching an application with a different interpreter then the one used to launch debugpy itself.
@@ -41,6 +41,26 @@ dap.configurations.python = {
   },
 }
 
+dap.adapters.node2 = {
+  type = 'executable',
+  command = 'node',
+  args = { os.getenv('HOME') .. '/dev/microsoft/vscode-node-debug2/out/src/nodeDebug.js' },
+}
+
+dap.configurations.javascript = {
+  {
+    type = 'node2',
+    request = 'launch',
+    name = 'Launch',
+    program = '${file}',
+    cwd = vim.fn.getcwd(),
+    sourceMaps = true,
+    protocol = 'inspector',
+    console = 'integratedTerminal',
+  }
+}
+
+
 -- Only starts the dapui if there is an exception or breakpoint
 dap.listeners.after.event_stopped["dap.run_to_cursor"] = function()
   dapui.open()
@@ -53,7 +73,6 @@ dap.listeners.before.event_exited["dapui_config"] = function()
 end
 
 -- Enable running with and without debugging
-
 local icons = require("user.icons")
 
 vim.fn.sign_define("DapBreakpoint", { text = icons.ui.Bug, texthl = "DiagnosticSignError", linehl = "", numhl = "" })

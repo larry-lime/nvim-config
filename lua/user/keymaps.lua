@@ -44,9 +44,11 @@ function OrgSpace(opt)
     silent! execute a:opt
 endfunction
 
+" Find a way to jump back to OG after a new one is closed
 let g:focusMode = 0
 function FocusUpToggle()
     if (g:focusMode == 0)
+        tabnew %
         let g:focusMode = 1
         set laststatus=0 | set showtabline=0
         set wrap | set nornu | set nonu
@@ -56,6 +58,7 @@ function FocusUpToggle()
         unmap )
         unmap (
     else
+        q
         let g:focusMode = 0
         set laststatus=3 | set showtabline=3
         set nowrap | set rnu | set nu
@@ -103,12 +106,12 @@ keymap("n", "<leader>Z", "<cmd>call FocusUpToggle()<CR>", opts)
 -- Format
 keymap("n", "<leader>F", "<cmd>Format<CR>", opts)
 
+-- Backspace
+keymap("i", "<M-BS>", "<C-W>", opts)
+
 -- Tabs
--- TODO think about writing a function that toggles zoom
 keymap("n", "<C-t>", ":tabnew<CR>", opts)
 keymap("n", "<C-w>", ":tabclose<CR>", opts)
-keymap("n", "<leader>mm", ":tabnew %<CR>", opts)
-keymap("n", "<leader>mx", ":tabclose<CR>", opts)
 
 -- Line Navigation
 keymap("i", "<M-Enter>", "<Esc>o", opts)
@@ -160,6 +163,7 @@ keymap("n", "<leader>rn", 'yiw:%s/<C-r>"/', nopts)
 
 -- Navigation
 keymap("t", "<C-\\>", "<C-\\><C-N>", opts)
+keymap("n", "<leader>of", ":silent !open . -a finder<CR>", opts)
 -- keymap("t", "<Esc>", "<C-\\><C-N>", opts)
 keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", opts)
 keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", opts)
@@ -185,8 +189,8 @@ keymap("n", "]t", ":AerialNext<CR>", opts)
 keymap("n", "[t", ":AerialPrev<CR>", opts)
 
 -- Nvim-Dap
-keymap("n", "<leader>ds", ":lua require'dap'.continue()<CR>", nopts)
-keymap("n", "<S-<F5>>", ":lua require'dap'.continue()<CR>", nopts)
+keymap("n", "<leader>ds", ":silent lua require'dap'.continue()<CR>", opts)
+keymap("n", "<F5>", ":silent lua require'dap'.continue()<CR>", opts)
 keymap("n", "<leader>de", ":lua require'dap'.disconnect()<CR>", opts)
 keymap("n", "<leader>.", ":lua require'dap'.toggle_breakpoint()<CR>", opts)
 keymap("n", "<leader>bc", ":lua require'dap'.clear_breakpoints()<CR>", opts)
@@ -261,7 +265,7 @@ keymap('v', '<A-l>', ":MoveHBlock(1)<CR>", opts)
 keymap('v', '<A-h>', ":MoveHBlock(-1)<CR>", opts)
 
 -- ToggleTerm
--- keymap('n', '<leader><F5>', ":1TermExec cmd='run %'<CR>", opts)
+keymap('n', '<leader><F5>', ":lua require'user.functions'.run_file()<CR>", opts)
 
 -- Skip snippet part
 keymap('s', '<C-n>', "<BS>i<A-n>", jump_opt)
@@ -290,18 +294,12 @@ keymap("n", "<M-3>", ":lua Term_toggle_3()<CR>", opts)
 keymap("t", "<M-3>", "<C-\\><C-n>:lua Term_toggle_3()<CR>", opts)
 
 -- Ipython
-keymap("n", "<M-p>", ":silent lua Ipython_toggle_h()<CR>", { noremap = true, silent = true }) -- Horizontal
-keymap("t", "<M-p>", "<C-\\><C-n>:lua Ipython_toggle_h()<CR>", { noremap = true, silent = true })
-keymap("n", "<leader>p1", ":1TermExec cmd='run %' go_back=0<CR>", { noremap = true, silent = true })
-keymap("n", "<M-P>", ":lua Ipython_toggle_v()<CR>", { noremap = true, silent = true })
-keymap("t", "<M-P>", "<C-\\><C-n>:lua Ipython_toggle_v()<CR>", { noremap = true, silent = true })
-keymap("n", "<leader>p2", ":2TermExec cmd='run %' go_back=0<CR>", { noremap = true, silent = true })
-
--- Neorg
--- keymap('n', '<leader>N', ":call OrgSpace('Neorg')<CR>", opts)
--- keymap('n', '<leader>W', ":call OrgSpace('Neorg workspace')<CR>", opts)
--- keymap('n', '<leader>A', ":call OrgSpace('Neorg gtd capture')<CR>", opts)
--- keymap('n', '<leader>V', ":call OrgSpace('Neorg gtd views')<CR>", opts)
+keymap("n", "<M-p>", ":silent lua Ipython_toggle_h()<CR>", opts)
+keymap("t", "<M-p>", "<C-\\><C-n>:lua Ipython_toggle_h()<CR>", opts)
+keymap("n", "<leader>p1", ":1TermExec cmd='run %' go_back=0<CR>", opts)
+keymap("n", "<M-P>", ":silent lua Ipython_toggle_v()<CR>", opts)
+keymap("t", "<M-P>", "<C-\\><C-n>:lua Ipython_toggle_v()<CR>", opts)
+keymap("n", "<leader>p2", ":2TermExec cmd='run %' go_back=0<CR>", opts)
 
 M.show_documentation = function()
   local filetype = vim.bo.filetype
@@ -315,6 +313,8 @@ M.show_documentation = function()
     vim.lsp.buf.hover()
   end
 end
+
 vim.api.nvim_set_keymap("n", "K", "<cmd>silent lua require('user.keymaps').show_documentation()<CR>", opts)
+
 
 return M

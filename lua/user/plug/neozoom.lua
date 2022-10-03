@@ -2,8 +2,4 @@ require('neo-zoom').setup { -- use the defaults or UNCOMMENT and change any one 
   width_ratio = 1,
   height_ratio = 1,
   border = 'single',
-  -- exclude_filetype = {
-  --   'fzf', 'qf', 'dashboard'
-  -- }
 }
--- Code bubble sort
