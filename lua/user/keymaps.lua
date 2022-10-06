@@ -26,7 +26,7 @@ let g:focusModeNum = 0
 function FocusUpNumToggle()
     if (g:focusModeNum == 0)
         let g:focusModeNum = 1
-        set showtabline=0 | set winbar =
+        set showtabline=0 | set winbar=
         set showtabline=0
     else
         let g:focusModeNum = 0
@@ -51,6 +51,8 @@ function FocusUpToggle()
         tabnew %
         let g:focusMode = 1
         set laststatus=0 | set showtabline=0
+        set winbar=
+        lua vim.o.ch = 0
         set wrap | set nornu | set nonu
         set linebreak | set breakindent
         map k gk
@@ -62,6 +64,8 @@ function FocusUpToggle()
         let g:focusMode = 0
         set laststatus=3 | set showtabline=3
         set nowrap | set rnu | set nu
+        set winbar=%=%m%t
+        lua vim.o.ch = 1
         set nolinebreak | set nobreakindent
         unmap k
         unmap j
