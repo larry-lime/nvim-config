@@ -90,10 +90,12 @@ return packer.startup(function(use)
     requires = { { "nvim-lua/plenary.nvim" }, { "nvim-treesitter/nvim-treesitter" } } }
 
   -- Add-Ons
+
   use {
     "realprogrammersusevim/md-to-html.nvim",
     cmd = MarkdownToHtml
   }
+  use { 'norcalli/nvim-colorizer.lua' }
   use { 'stevearc/aerial.nvim' }
   use { 'jubnzv/mdeval.nvim' }
   use { "windwp/nvim-spectre" }
@@ -105,14 +107,7 @@ return packer.startup(function(use)
   use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install",
     setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
   use { "tpope/vim-obsession" }
-  use {
-    'phaazon/hop.nvim',
-    branch = 'v2', -- optional but strongly recommended
-    config = function()
-      -- you can configure Hop the way you like here; see :h hop-config
-      require 'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
-    end
-  }
+  use { 'phaazon/hop.nvim', branch = 'v2' }
 
   -- Debugger
   use { "mfussenegger/nvim-dap" }
