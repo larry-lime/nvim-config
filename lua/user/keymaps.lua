@@ -168,6 +168,8 @@ keymap("n", "<leader>rn", 'yiw:%s/<C-r>"/', nopts)
 -- Navigation
 keymap("t", "<C-\\>", "<C-\\><C-N>", opts)
 keymap("n", "<leader>of", ":silent !open . -a finder<CR>", opts)
+keymap("n", "<leader>op", ":silent !open %<CR>", opts)
+keymap("n", "<leader>dw", ":silent !open ~/Downloads/ -a finder<CR>", opts)
 -- keymap("t", "<Esc>", "<C-\\><C-N>", opts)
 keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", opts)
 keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", opts)
@@ -269,7 +271,8 @@ keymap('v', '<A-l>', ":MoveHBlock(1)<CR>", opts)
 keymap('v', '<A-h>', ":MoveHBlock(-1)<CR>", opts)
 
 -- ToggleTerm
-keymap('n', '<leader><F5>', ":lua require'user.functions'.run_file()<CR>", opts)
+keymap('n', '<leader>p1', ":lua require'user.functions'.run_file()<CR>", opts)
+keymap('n', '<leader>pd', ":lua require'user.functions'.close_python()<CR>", opts)
 
 -- Skip snippet part
 keymap('s', '<C-n>', "<BS>i<A-n>", jump_opt)
@@ -287,8 +290,6 @@ keymap('n', '<leader>M', ":MarkdownPreviewToggle<CR>", opts)
 keymap('n', '<leader>md', ":MdEval<CR>", opts)
 keymap('n', '<leader>mc', ":MdEvalClean<CR>", opts)
 
--- Toggle Term
-
 -- Shell
 keymap("n", "<M-1>", ":silent lua Term_toggle_1()<CR>", opts)
 keymap("t", "<M-1>", "<C-\\><C-n>:lua Term_toggle_1()<CR>", opts)
@@ -298,12 +299,13 @@ keymap("n", "<M-3>", ":lua Term_toggle_3()<CR>", opts)
 keymap("t", "<M-3>", "<C-\\><C-n>:lua Term_toggle_3()<CR>", opts)
 
 -- Ipython
-keymap("n", "<M-p>", ":silent lua Ipython_toggle_h()<CR>", opts)
-keymap("t", "<M-p>", "<C-\\><C-n>:lua Ipython_toggle_h()<CR>", opts)
-keymap("n", "<leader>p1", ":1TermExec cmd='run %' go_back=0<CR>", opts)
-keymap("n", "<M-P>", ":silent lua Ipython_toggle_v()<CR>", opts)
-keymap("t", "<M-P>", "<C-\\><C-n>:lua Ipython_toggle_v()<CR>", opts)
-keymap("n", "<leader>p2", ":2TermExec cmd='run %' go_back=0<CR>", opts)
+keymap("n", "<M-p>", ":silent lua require'user.functions'.open_python(Ipython_toggle_h)<CR>", opts)
+keymap("t", "<M-p>", "<C-\\><C-n>:lua require'user.functions'.open_python(Ipython_toggle_h)<CR>", opts)
+-- keymap("n", "<leader>p1", ":1TermExec cmd='run %' go_back=0<CR>", opts)
+-- keymap("n", "<leader>p2", ":2TermExec cmd='run %' go_back=0<CR>", opts)
+
+-- Nvim Spectre
+keymap("n", "<leader>S", ":lua require('spectre').open()<CR>", opts)
 
 M.show_documentation = function()
   local filetype = vim.bo.filetype
@@ -319,6 +321,5 @@ M.show_documentation = function()
 end
 
 vim.api.nvim_set_keymap("n", "K", "<cmd>silent lua require('user.keymaps').show_documentation()<CR>", opts)
-
 
 return M

@@ -23,7 +23,6 @@ lsp_installer.on_server_ready(function(server)
   end
 
   -- Shell
-
   if server.name == "bashls" then
     local bashls_opts = require("user.lsp.settings.bashls")
     opts = vim.tbl_deep_extend("force", bashls_opts, opts)

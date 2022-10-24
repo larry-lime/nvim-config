@@ -90,7 +90,6 @@ return packer.startup(function(use)
     requires = { { "nvim-lua/plenary.nvim" }, { "nvim-treesitter/nvim-treesitter" } } }
 
   -- Add-Ons
-
   use {
     "realprogrammersusevim/md-to-html.nvim",
     cmd = MarkdownToHtml

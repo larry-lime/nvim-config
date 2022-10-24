@@ -1,21 +1,36 @@
 M = {}
 
--- Open IPython
+local opts = { noremap = true, silent = true }
+local keymap = vim.api.nvim_set_keymap
+local execute = vim.api.nvim_exec
+
+M.close_python = function() -- This is not working because of a weird autosave issue
+  vim.g.ipython_open = false
+  execute(":silent 1TermExec cmd='exit' go_back=0<CR>", true)
+  keymap('n', '<leader>p1', ":lua require'user.functions'.run_file()<CR>", opts)
+end
+
 vim.g.ipython_open = false
-M.open_python = function(func_name)
-  vim.g.ipython_open = not vim.g.ipython_open
+
+  M.open_python = function(func_name)
+  vim.g.ipython_open = true
+  keymap("n", "<leader>p1", ":1TermExec cmd='run %' go_back=0<CR>", opts) -- Remamps <leader>p1 to run the file in the runnig ipython terminal
   func_name()
 end
+
+-- M.toggle_ipython = function() -- Needed so the cursor doesn't jump
 
 -- Run File
 M.run_file = function()
   local filetype = vim.bo.filetype
   if filetype == 'python' then
     if vim.g.ipython_open == false then
-      M.open_python(Ipython_spawn)
+      M.open_python(Ipython_spawn) -- Starts a new python terminal
+      execute(":silent 1TermExec cmd='run %' go_back=0<CR>", true) -- Runs the file
+      keymap("n", "<leader>p1", ":1TermExec cmd='run %' go_back=0<CR>", opts) -- Remamps <leader>p1 to run the file in the runnig ipython terminal
+      vim.g.ipython_open = true
     end
-    vim.api.nvim_exec(":silent 1TermExec cmd='run %' go_back=0<CR>", true)
-    vim.g.ipython_open = true
   end
 end
+
 return M

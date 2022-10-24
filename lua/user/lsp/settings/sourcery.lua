@@ -8,7 +8,7 @@ return {
       filetypes = {'python'},
       single_file_support = true,
       token = 'user_t3_0QDCtej6yVfc3hdBu9eVkEVY7HcgL6J8IolTUZH_pb4zkavmHqWqOT5Y',
-      extension_version = 'vim_lsp',
       editor_version = 'vim',
+      extension_version = 'vim_lsp',
   }
 }

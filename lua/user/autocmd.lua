@@ -2,11 +2,6 @@ local api = vim.api
 local formatter = api.nvim_create_augroup("formatter", { clear = true })
 local commands = api.nvim_create_augroup("commands", { clear = true })
 
-api.nvim_create_autocmd({ "BufWritePre" }, {
-  pattern = { "*" },
-  command = [[%s/\s\+$//e]],
-})
-
 -- LSP Formatter
 api.nvim_create_autocmd(
   { "Filetype" },
@@ -17,7 +12,7 @@ api.nvim_create_autocmd(
 -- Prettier
 api.nvim_create_autocmd(
   { "Filetype" },
-  { pattern = { "javascript", "typescript", "solidity", "yaml", "css", "scss"},
+  { pattern = { "javascript", "typescript", "solidity", "yaml", "css", "scss" },
     command = "nnoremap <silent><leader>F :silent !npx prettier --write %<CR>",
     group = formatter }
 )
