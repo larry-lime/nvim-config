@@ -14,7 +14,12 @@ vim.g.ipython_open = false
 
 M.open_python = function(func_name)
   vim.g.ipython_open = true
-  keymap("n", "<leader>p1", ":1TermExec cmd='run %' go_back=0<CR>", opts) -- Remamps <leader>p1 to run the file in the runnig ipython terminal
+  if func_name == Ipython_spawn_h then
+    keymap("n", "<leader>p1", ":1TermExec cmd='run %' go_back=0<CR>", opts) -- Remamps <leader>p1 to run the file in the runnig ipython terminal
+  end
+  if func_name == Ipython_spawn_v then
+    keymap("n", "<leader>p2", ":2TermExec cmd='run %' go_back=0<CR>", opts) -- Remamps <leader>p1 to run the file in the runnig ipython terminal
+  end
   func_name()
 end
 
