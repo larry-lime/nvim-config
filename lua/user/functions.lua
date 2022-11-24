@@ -26,6 +26,7 @@ end
 -- M.toggle_ipython = function() -- Needed so the cursor doesn't jump
 
 -- Run File
+-- FIXME: Not working when terminal is opened first and then p1/p2 is ran
 M.run_file = function(arg) -- TODO have this take arguments
   local filetype = vim.bo.filetype
   if filetype == 'python' then
