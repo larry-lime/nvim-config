@@ -72,8 +72,12 @@ function Ipython_toggle_h()
   ipython_h:toggle()
 end
 
-function Ipython_spawn()
+function Ipython_spawn_h()
   ipython_h:spawn()
+end
+
+function Ipython_spawn_v()
+  ipython_v:spawn()
 end
 
 function Ipython_toggle_v()

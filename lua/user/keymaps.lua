@@ -271,7 +271,8 @@ keymap('v', '<A-l>', ":MoveHBlock(1)<CR>", opts)
 keymap('v', '<A-h>', ":MoveHBlock(-1)<CR>", opts)
 
 -- ToggleTerm
-keymap('n', '<leader>p1', ":lua require'user.functions'.run_file()<CR>", opts)
+keymap('n', '<leader>p1', ":lua require'user.functions'.run_file(1)<CR>", opts)
+keymap('n', '<leader>p2', ":lua require'user.functions'.run_file(2)<CR>", opts)
 keymap('n', '<leader>pd', ":lua require'user.functions'.close_python()<CR>", opts)
 
 -- Skip snippet part
@@ -301,6 +302,8 @@ keymap("t", "<M-3>", "<C-\\><C-n>:lua Term_toggle_3()<CR>", opts)
 -- Ipython
 keymap("n", "<M-p>", ":silent lua require'user.functions'.open_python(Ipython_toggle_h)<CR>", opts)
 keymap("t", "<M-p>", "<C-\\><C-n>:lua require'user.functions'.open_python(Ipython_toggle_h)<CR>", opts)
+keymap("n", "<M-P>", ":silent lua require'user.functions'.open_python(Ipython_toggle_v)<CR>", opts)
+keymap("t", "<M-P>", "<C-\\><C-n>:lua require'user.functions'.open_python(Ipython_toggle_v)<CR>", opts)
 -- keymap("n", "<leader>p1", ":1TermExec cmd='run %' go_back=0<CR>", opts)
 -- keymap("n", "<leader>p2", ":2TermExec cmd='run %' go_back=0<CR>", opts)
 
