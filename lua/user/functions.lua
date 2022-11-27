@@ -1,5 +1,6 @@
 M = {}
 
+-- TODO: Figure out how to detect if a given terminal is open or now
 local opts = { noremap = true, silent = true }
 local keymap = vim.api.nvim_set_keymap
 local execute = vim.api.nvim_exec
