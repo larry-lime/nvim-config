@@ -98,7 +98,9 @@ return packer.startup(function(use)
     "realprogrammersusevim/md-to-html.nvim",
     cmd = MarkdownToHtml
   }
+  use { "nacro90/numb.nvim" }
   use { 'norcalli/nvim-colorizer.lua' }
+  use { "andymass/vim-matchup" }
   use { 'stevearc/aerial.nvim' }
   use { 'jubnzv/mdeval.nvim' }
   use { "windwp/nvim-spectre" }
@@ -106,6 +108,7 @@ return packer.startup(function(use)
   use { "Pocco81/auto-save.nvim" }
   use { "nyngwang/NeoZoom.lua" }
   use { "lukas-reineke/indent-blankline.nvim" }
+  use { "nvim-colortils/colortils.nvim" }
   use { "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" }
   use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install",
     setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })

@@ -94,6 +94,7 @@ keymap("n", "<leader>qq", ":qa!<CR>", opts)
 
 -- Reload File
 keymap("n", "<leader>R", ":e!<CR>", opts)
+keymap("n", "<leader>I", ":so | PackerInstall<CR>", opts)
 
 -- Copy paste
 keymap("v", "<C-C>", '"+y', opts)
@@ -244,7 +245,9 @@ keymap("n", "<leader>hl", ":Telescope help_tags<CR>", opts)
 keymap("n", "<leader>td", ":lua require('telescope.builtin').grep_string({prompt_title='TODOs',search='TODO'})<CR>", opts)
 keymap("n", "<leader>fx", ":lua require('telescope.builtin').grep_string({prompt_title='FIXMEs',search='FIXME:'})<CR>", opts)
 keymap("n", "<leader>ne", ":lua require('telescope.builtin').grep_string({prompt_title='NOTEs',search='NOTE:'})<CR>", opts)
-keymap("n", "<leader>rs", ":lua require('telescope.builtin').resume()<CR>", opts)
+
+-- Colortils
+keymap("n", "<leader>P", ":Colortils picker<CR>", opts)
 
 -- Harpoon
 keymap("n", "<leader>=", ":lua require('harpoon.ui').toggle_quick_menu()<CR>", opts)

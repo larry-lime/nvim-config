@@ -6,7 +6,6 @@ end
 hop.setup()
 --
 -- TODO Move all the keymaps for specific plugins into the plugins files
--- KEYBOARD SHORTCUTS --
 local opts = { noremap = true, silent = true }
 local keymap = vim.api.nvim_set_keymap
 
