@@ -189,10 +189,11 @@ keymap("n", "<leader>cs", ":echo g:copilot#Enabled()<CR>", opts)
 
 -- Aerial
 keymap("n", "<leader>tb", ":AerialToggle! right<CR>", opts)
-keymap("n", "<leader>tf", ":AerialOpen<CR>", opts)
+-- keymap("n", "<leader>tb", ":SymbolsOutline<CR>", opts)
+-- keymap("n", "<leader>tf", ":AerialOpen<CR>", opts)
 keymap("n", "<leader>nv", ":AerialOpen float<CR>", opts)
-keymap("n", "]t", ":AerialNext<CR>", opts)
-keymap("n", "[t", ":AerialPrev<CR>", opts)
+keymap("n", "]f", ":AerialNext<CR>", opts)
+keymap("n", "[f", ":AerialPrev<CR>", opts)
 
 -- Nvim-Dap
 keymap("n", "<leader>ds", ":silent lua require'dap'.continue()<CR>", opts)

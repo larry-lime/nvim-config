@@ -62,6 +62,10 @@ return packer.startup(function(use)
 
   -- LSP
   use { "neovim/nvim-lspconfig" }
+  use {
+    "SmiteshP/nvim-navic",
+    requires = "neovim/nvim-lspconfig"
+  }
   use { "hrsh7th/cmp-nvim-lsp" }
   use { "williamboman/nvim-lsp-installer" }
   use { "github/copilot.vim" }
