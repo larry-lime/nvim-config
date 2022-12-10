@@ -17,6 +17,13 @@ api.nvim_create_autocmd(
     group = formatter }
 )
 
+api.nvim_create_autocmd(
+  { "Filetype" },
+  { pattern = { "csv" },
+    command = "set foldmethod=manual",
+    group = formatter }
+)
+
 -- Black
 api.nvim_create_autocmd(
   { "Filetype" },
