@@ -92,6 +92,9 @@ keymap("n", "<leader>ss", ":Obsession<CR>", opts)
 keymap("n", "<leader>sl", ":source Session.vim<CR>", opts)
 keymap("n", "<leader>qq", ":qa!<CR>", opts)
 
+-- Reload File
+keymap("n", "<leader>R", ":e!<CR>", opts)
+
 -- Copy paste
 keymap("v", "<C-C>", '"+y', opts)
 keymap("n", "<C-C>", '"+yiw', opts)
