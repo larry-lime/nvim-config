@@ -98,7 +98,6 @@ return packer.startup(function(use)
     "realprogrammersusevim/md-to-html.nvim",
     cmd = MarkdownToHtml
   }
-  use { "nacro90/numb.nvim" }
   use { 'norcalli/nvim-colorizer.lua' }
   use { "andymass/vim-matchup" }
   use { 'stevearc/aerial.nvim' }
@@ -122,6 +121,7 @@ return packer.startup(function(use)
   -- use { "mxsdev/nvim-dap-vscode-js", requires = { "mfussenegger/nvim-dap" } }
 
   -- Plugin Graveyard
+  -- use { "nacro90/numb.nvim" }
   -- use "stevearc/dressing.nvim"
   -- use {'karb94/neoscroll.nvim'}
   -- use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
