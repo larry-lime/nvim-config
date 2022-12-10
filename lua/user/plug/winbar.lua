@@ -111,7 +111,8 @@ M.get_winbar = function()
 
   if num_tabs > 1 and not f.isempty(value) then
     local tabpage_number = tostring(vim.api.nvim_tabpage_get_number(0))
-    value = value .. "%=" .. tabpage_number .. "/" .. tostring(num_tabs)
+    -- value = value .. "%=" .. tabpage_number .. "/" .. tostring(num_tabs)
+    value = value .. "%=" .. tabpage_number
   end
 
   local status_ok, _ = pcall(vim.api.nvim_set_option_value, "winbar", value, { scope = "local" })

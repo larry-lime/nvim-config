@@ -26,7 +26,7 @@ api.nvim_create_autocmd(
 
 api.nvim_create_autocmd(
   { "Filetype" },
-  { pattern = { "css", "html", "scss" },
+  { pattern = { "css", "html", "scss","lua" },
     command = "ColorizerAttachToBuffer",
     group = formatter }
 )
