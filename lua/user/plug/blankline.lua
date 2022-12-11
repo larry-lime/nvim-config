@@ -8,7 +8,7 @@ require("indent_blankline").setup {
   show_current_context_start = false,
   show_end_of_line = true,
   space_char_blankline = " ",
-  buftype_exclude = { "terminal" },
+  buftype_exclude = { "terminal","NvimTree" },
   context_patterns = {
     "class", "return", "function", "method", "^if", "^while", "jsx_element", "^for", "^object",
     "^table", "block", "arguments", "if_statement", "else_clause", "jsx_element",

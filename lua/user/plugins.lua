@@ -52,6 +52,7 @@ return packer.startup(function(use)
   use { "kyazdani42/nvim-web-devicons" }
 
   -- IDE Features
+  use { 'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons' }
   use { "nvim-lualine/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons", opt = true } }
   use { "numToStr/Comment.nvim" }
   use { "kyazdani42/nvim-tree.lua", requires = { "kyazdani42/nvim-web-devicons" } }
@@ -69,6 +70,7 @@ return packer.startup(function(use)
   use { "hrsh7th/cmp-nvim-lsp" }
   use { "williamboman/nvim-lsp-installer" }
   use { "github/copilot.vim" }
+  use { "RRethy/vim-illuminate" }
 
   -- CMP
   use { "hrsh7th/nvim-cmp" }

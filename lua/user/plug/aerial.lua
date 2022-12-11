@@ -41,7 +41,7 @@ require('aerial').setup {
     ["zM"] = "actions.tree_close_all",
     ["zx"] = "actions.tree_sync_folds",
     ["zX"] = "actions.tree_sync_folds",
-    lazy_load = false,
-    filter_kind = false,
   },
+  lazy_load = false,
+  filter_kind = false,
 }

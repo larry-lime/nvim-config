@@ -95,18 +95,20 @@ keymap("n", "<leader>qq", ":qa!<CR>", opts)
 -- Reload File
 keymap("n", "<leader>R", ":e!<CR>", opts)
 keymap("n", "<leader>I", ":so | PackerInstall<CR>", opts)
+keymap("n", "<leader>I", ":so | PackerUpdate<CR>", opts)
 
 -- Copy paste
 keymap("v", "<C-C>", '"+y', opts)
 keymap("n", "<C-C>", '"+yiw', opts)
 
--- Buffers
+-- Tabs and Buffers
 keymap("n", "<C-s>", "<C-^>", opts)
 keymap("n", "]b", ":bnext<CR>", opts)
 keymap("n", "[b", ":bprevious<CR>", opts)
 keymap("n", "<leader>oo", ":bd!<CR>", opts)
 keymap("n", "<leader>oa", ":%bd! | e# |bd#<CR>", opts)
 keymap("n", "<leader>x", ":q<CR>", opts)
+keymap("n", "<C-x>", ":bd!<CR>", opts)
 keymap("n", "<leader>A", "GVgg", opts)
 keymap("n", "<leader>H", "<cmd>call FocusUpNumToggle()<CR>", opts)
 keymap("n", "<leader>Z", "<cmd>call FocusUpToggle()<CR>", opts)

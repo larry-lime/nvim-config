@@ -1,4 +1,4 @@
-require 'nvim-tree'.setup { -- BEGIN_DEFAULT_OPTS
+require 'nvim-tree'.setup {
   auto_reload_on_write = true,
   create_in_closed_folder = false,
   disable_netrw = true,
@@ -34,7 +34,7 @@ require 'nvim-tree'.setup { -- BEGIN_DEFAULT_OPTS
     highlight_opened_files = "none",
     root_folder_modifier = ":~",
     indent_markers = {
-      enable = true,
+      enable = false,
       icons = {
         corner = "└ ",
         edge = "│ ",
@@ -84,7 +84,7 @@ require 'nvim-tree'.setup { -- BEGIN_DEFAULT_OPTS
   },
   update_focused_file = {
     enable = false,
-    update_cwd = false,
+    update_cwd = true,
     ignore_list = {},
   },
   ignore_ft_on_setup = {},
@@ -159,4 +159,4 @@ require 'nvim-tree'.setup { -- BEGIN_DEFAULT_OPTS
       profile = false,
     },
   },
-} -- END_DEFAULT_OPTS
+}
