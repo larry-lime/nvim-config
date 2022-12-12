@@ -95,7 +95,7 @@ keymap("n", "<leader>qq", ":qa!<CR>", opts)
 -- Reload File
 keymap("n", "<leader>R", ":e!<CR>", opts)
 keymap("n", "<leader>I", ":so | PackerInstall<CR>", opts)
-keymap("n", "<leader>I", ":so | PackerUpdate<CR>", opts)
+keymap("n", "<leader>U", ":so | PackerUpdate<CR>", opts)
 
 -- Copy paste
 keymap("v", "<C-C>", '"+y', opts)
