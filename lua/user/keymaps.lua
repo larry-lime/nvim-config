@@ -245,8 +245,10 @@ keymap("n", "<leader>mp", ":Telescope keymaps<CR>", opts)
 keymap("n", "<leader>sc", ":Telescope spell_suggest<CR>", opts)
 keymap("n", "<leader>hl", ":Telescope help_tags<CR>", opts)
 keymap("n", "<leader>td", ":lua require('telescope.builtin').grep_string({prompt_title='TODOs',search='TODO'})<CR>", opts)
-keymap("n", "<leader>fx", ":lua require('telescope.builtin').grep_string({prompt_title='FIXMEs',search='FIXME:'})<CR>", opts)
-keymap("n", "<leader>ne", ":lua require('telescope.builtin').grep_string({prompt_title='NOTEs',search='NOTE:'})<CR>", opts)
+keymap("n", "<leader>fx", ":lua require('telescope.builtin').grep_string({prompt_title='FIXMEs',search='FIXME:'})<CR>",
+  opts)
+keymap("n", "<leader>ne", ":lua require('telescope.builtin').grep_string({prompt_title='NOTEs',search='NOTE:'})<CR>",
+  opts)
 
 -- Colortils
 keymap("n", "<leader>P", ":Colortils picker<CR>", opts)
@@ -254,12 +256,21 @@ keymap("n", "<leader>P", ":Colortils picker<CR>", opts)
 -- Harpoon
 keymap("n", "<leader>=", ":lua require('harpoon.ui').toggle_quick_menu()<CR>", opts)
 keymap("n", "<leader>a", ":echo 'File added to harpoon' |lua require('harpoon.mark').add_file()<CR>", opts)
-keymap("n", "<leader>1", ":echo 'Nav File 1'| lua require('harpoon.ui').nav_file(1)<CR>", opts)
-keymap("n", "<leader>2", ":echo 'Nav File 2'|lua require('harpoon.ui').nav_file(2)<CR>", opts)
-keymap("n", "<leader>3", ":echo 'Nav File 3'|lua require('harpoon.ui').nav_file(3)<CR>", opts)
-keymap("n", "<leader>4", ":echo 'Nav File 4'|lua require('harpoon.ui').nav_file(4)<CR>", opts)
-keymap("n", "<leader>5", ":echo 'Nav File 5'|lua require('harpoon.ui').nav_file(5)<CR>", opts)
-keymap("n", "<leader>6", ":echo 'Nav File 6'|lua require('harpoon.ui').nav_file(6)<CR>", opts)
+keymap("n", "<leader>!", ":echo 'Nav File 1'| lua require('harpoon.ui').nav_file(1)<CR>", opts)
+keymap("n", "<leader>@", ":echo 'Nav File 2'|lua require('harpoon.ui').nav_file(2)<CR>", opts)
+keymap("n", "<leader>#", ":echo 'Nav File 3'|lua require('harpoon.ui').nav_file(3)<CR>", opts)
+keymap("n", "<leader>$", ":echo 'Nav File 4'|lua require('harpoon.ui').nav_file(4)<CR>", opts)
+keymap("n", "<leader>%", ":echo 'Nav File 5'|lua require('harpoon.ui').nav_file(5)<CR>", opts)
+keymap("n", "<leader>^", ":echo 'Nav File 6'|lua require('harpoon.ui').nav_file(6)<CR>", opts)
+
+-- Harpoon
+keymap("n", "<leader>1", ":lua require('bufferline').go_to_buffer(1, true)<cr>", opts)
+keymap("n", "<leader>2", ":lua require('bufferline').go_to_buffer(2, true)<cr> ", opts)
+keymap("n", "<leader>3", ":lua require('bufferline').go_to_buffer(3, true)<cr> ", opts)
+keymap("n", "<leader>4", ":lua require('bufferline').go_to_buffer(4, true)<cr> ", opts)
+keymap("n", "<leader>5", ":lua require('bufferline').go_to_buffer(5, true)<cr> ", opts)
+keymap("n", "<leader>6", ":lua require('bufferline').go_to_buffer(6, true)<cr> ", opts)
+keymap("n", "<leader>7", ":lua require('bufferline').go_to_buffer(7, true)<cr> ", opts)
 
 -- Gitsigns
 keymap("n", "]h", ":Gitsigns next_hunk<CR>", opts)
