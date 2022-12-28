@@ -58,7 +58,6 @@ return packer.startup(function(use)
   use { "kyazdani42/nvim-tree.lua", requires = { "kyazdani42/nvim-web-devicons" } }
   use { "windwp/nvim-autopairs" }
   use { "akinsho/toggleterm.nvim", tag = "v1.*" }
-  use { 'simrat39/symbols-outline.nvim' }
   use { "fedepujol/move.nvim" }
 
   -- LSP
@@ -70,7 +69,6 @@ return packer.startup(function(use)
   use { "hrsh7th/cmp-nvim-lsp" }
   use { "williamboman/nvim-lsp-installer" }
   use { "github/copilot.vim" }
-  use { "RRethy/vim-illuminate" }
 
   -- CMP
   use { "hrsh7th/nvim-cmp" }
@@ -97,7 +95,7 @@ return packer.startup(function(use)
 
   -- Add-Ons
   use { 'norcalli/nvim-colorizer.lua' }
-  use { "andymass/vim-matchup" }
+  use { "RRethy/vim-illuminate" }
   use { 'stevearc/aerial.nvim' }
   use { 'jubnzv/mdeval.nvim' }
   use { "windwp/nvim-spectre" }
@@ -119,12 +117,16 @@ return packer.startup(function(use)
   -- use { "mxsdev/nvim-dap-vscode-js", requires = { "mfussenegger/nvim-dap" } }
 
   -- Plugin Graveyard
+  -- use { "andymass/vim-matchup" }
+  -- use { "williamboman/mason.nvim" }
+  -- use { "williamboman/mason-lspconfig.nvim" }
   -- use { "nacro90/numb.nvim" }
   -- use "stevearc/dressing.nvim"
   -- use {'karb94/neoscroll.nvim'}
   -- use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
   -- use { "nvim-neorg/neorg", requires = "wbthomason/packer.nvim" }
   -- use { "vimwiki/vimwiki" }
+  -- use { 'simrat39/symbols-outline.nvim' }
 
   if PACKER_BOOTSTRAP then
     require("packer").sync()
