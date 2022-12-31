@@ -1,16 +1,64 @@
-local status_ok, lsp_installer = pcall(require, "nvim-lsp-installer")
+local status_ok, mason = pcall(require, "mason")
 if not status_ok then
   return
 end
 
--- TODO change my setup so that it is much more similar to chris@machine's setup
-lsp_installer.on_server_ready(function(server)
-  local opts = {
+local status_ok_1, mason_lspconfig = pcall(require, "mason-lspconfig")
+if not status_ok_1 then
+  return
+end
+
+local servers = {
+  "cssls",
+  "cssmodules_ls",
+  "emmet_ls",
+  "html",
+  "jsonls",
+  "solidity",
+  "sumneko_lua",
+  "tsserver",
+  "pyright",
+  "yamlls",
+  "eslint",
+  "bashls",
+  "clangd",
+  "rust_analyzer",
+}
+
+local settings = {
+  ui = {
+    border = "rounded",
+    icons = {
+      package_installed = "◍",
+      package_pending = "◍",
+      package_uninstalled = "◍",
+    },
+  },
+  log_level = vim.log.levels.INFO,
+  max_concurrent_installers = 4,
+}
+
+mason.setup(settings)
+mason_lspconfig.setup {
+  ensure_installed = servers,
+  automatic_installation = true,
+}
+
+local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
+if not lspconfig_status_ok then
+  return
+end
+
+local opts = {}
+
+for _, server in pairs(servers) do
+  opts = {
     on_attach = require("user.lsp.handlers").on_attach,
     capabilities = require("user.lsp.handlers").capabilities,
   }
 
-  -- Python
+  server = vim.split(server, "@")[1]
+
   if server.name == "pyright" then
     local pyright_opts = require("user.lsp.settings.pyright")
     opts = vim.tbl_deep_extend("force", pyright_opts, opts)
@@ -47,26 +95,28 @@ lsp_installer.on_server_ready(function(server)
   end
 
   -- Solidity
-
   if server.name == "solc" then
     local solc_opts = require("user.lsp.settings.solc")
     opts = vim.tbl_deep_extend("force", solc_opts, opts)
   end
 
-  if server.name == "solidity_ls" then
+  if server.name == "solidity-ls" then
     local solidity_ls_opts = require("user.lsp.settings.solidity_ls")
     opts = vim.tbl_deep_extend("force", solidity_ls_opts, opts)
   end
 
-  -- Rust
+  if server.name == "solang" then
+    local solang_opts = require("user.lsp.settings.solang")
+    opts = vim.tbl_deep_extend("force", solang_opts, opts)
+  end
 
+  -- Rust
   if server.name == "rust_analyzer" then
     local rust_analyzer_opts = require("user.lsp.settings.rust_analyzer")
     opts = vim.tbl_deep_extend("force", rust_analyzer_opts, opts)
   end
 
   -- HTML/CSS
-
   if server.name == "html" then
     local html_opts = require("user.lsp.settings.html")
     opts = vim.tbl_deep_extend("force", html_opts, opts)
@@ -86,23 +136,12 @@ lsp_installer.on_server_ready(function(server)
   end
 
   -- Golang
-
   if server.name == "gopls" then
     local gopls_opts = require("user.lsp.settings.gopls")
     opts = vim.tbl_deep_extend("force", gopls_opts, opts)
   end
 
-  -- Unused LSPs
 
-  -- if server.name == "tailwindcss" then
-  --   local tailwindcss_opts = require("user.lsp.settings.tailwindcss")
-  --   opts = vim.tbl_deep_extend("force", tailwindcss_opts, opts)
-  -- end
-
-  -- if server.name == "emmet_ls" then
-  --   local emmet_ls_opts = require("user.lsp.settings.emmet_ls")
-  --   opts = vim.tbl_deep_extend("force", emmet_ls_opts, opts)
-  -- end
-
-  server:setup(opts)
-end)
+  lspconfig[server].setup(opts)
+  ::continue::
+end

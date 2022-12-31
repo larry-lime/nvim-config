@@ -61,13 +61,17 @@ return packer.startup(function(use)
   use { "fedepujol/move.nvim" }
 
   -- LSP
+  use { "williamboman/mason.nvim" }
+  use { "williamboman/mason-lspconfig.nvim" }
   use { "neovim/nvim-lspconfig" }
+  use {"j-hui/fidget.nvim"}
+
   use {
     "SmiteshP/nvim-navic",
     requires = "neovim/nvim-lspconfig"
   }
   use { "hrsh7th/cmp-nvim-lsp" }
-  use { "williamboman/nvim-lsp-installer" }
+  -- use { "williamboman/nvim-lsp-installer" }
   use { "github/copilot.vim" }
 
   -- CMP
@@ -118,8 +122,6 @@ return packer.startup(function(use)
 
   -- Plugin Graveyard
   -- use { "andymass/vim-matchup" }
-  -- use { "williamboman/mason.nvim" }
-  -- use { "williamboman/mason-lspconfig.nvim" }
   -- use { "nacro90/numb.nvim" }
   -- use "stevearc/dressing.nvim"
   -- use {'karb94/neoscroll.nvim'}
