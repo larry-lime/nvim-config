@@ -71,7 +71,6 @@ return packer.startup(function(use)
     requires = "neovim/nvim-lspconfig"
   }
   use { "hrsh7th/cmp-nvim-lsp" }
-  -- use { "williamboman/nvim-lsp-installer" }
   use { "github/copilot.vim" }
 
   -- CMP
@@ -129,6 +128,7 @@ return packer.startup(function(use)
   -- use { "nvim-neorg/neorg", requires = "wbthomason/packer.nvim" }
   -- use { "vimwiki/vimwiki" }
   -- use { 'simrat39/symbols-outline.nvim' }
+  -- use { "williamboman/nvim-lsp-installer" }
 
   if PACKER_BOOTSTRAP then
     require("packer").sync()
