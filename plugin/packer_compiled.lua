@@ -74,11 +74,6 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
-  ["AutoSave.nvim"] = {
-    loaded = true,
-    path = "/Users/lawrencelim/.local/share/nvim/site/pack/packer/start/AutoSave.nvim",
-    url = "https://github.com/Pocco81/AutoSave.nvim"
-  },
   ["Comment.nvim"] = {
     loaded = true,
     path = "/Users/lawrencelim/.local/share/nvim/site/pack/packer/start/Comment.nvim",
@@ -98,6 +93,21 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/lawrencelim/.local/share/nvim/site/pack/packer/start/aerial.nvim",
     url = "https://github.com/stevearc/aerial.nvim"
+  },
+  ["auto-save.nvim"] = {
+    loaded = true,
+    path = "/Users/lawrencelim/.local/share/nvim/site/pack/packer/start/auto-save.nvim",
+    url = "https://github.com/Pocco81/auto-save.nvim"
+  },
+  ["bufferline.nvim"] = {
+    loaded = true,
+    path = "/Users/lawrencelim/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
+    url = "https://github.com/akinsho/bufferline.nvim"
+  },
+  catppuccin = {
+    loaded = true,
+    path = "/Users/lawrencelim/.local/share/nvim/site/pack/packer/start/catppuccin",
+    url = "https://github.com/catppuccin/nvim"
   },
   ["cmp-buffer"] = {
     loaded = true,
@@ -129,15 +139,15 @@ _G.packer_plugins = {
     path = "/Users/lawrencelim/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
-  ["copilot-cmp"] = {
+  ["colortils.nvim"] = {
     loaded = true,
-    path = "/Users/lawrencelim/.local/share/nvim/site/pack/packer/start/copilot-cmp",
-    url = "https://github.com/zbirenbaum/copilot-cmp"
+    path = "/Users/lawrencelim/.local/share/nvim/site/pack/packer/start/colortils.nvim",
+    url = "https://github.com/nvim-colortils/colortils.nvim"
   },
-  ["copilot.lua"] = {
+  ["copilot.vim"] = {
     loaded = true,
-    path = "/Users/lawrencelim/.local/share/nvim/site/pack/packer/start/copilot.lua",
-    url = "https://github.com/zbirenbaum/copilot.lua"
+    path = "/Users/lawrencelim/.local/share/nvim/site/pack/packer/start/copilot.vim",
+    url = "https://github.com/github/copilot.vim"
   },
   ["friendly-snippets"] = {
     loaded = true,
@@ -159,6 +169,11 @@ _G.packer_plugins = {
     path = "/Users/lawrencelim/.local/share/nvim/site/pack/packer/start/harpoon",
     url = "https://github.com/ThePrimeagen/harpoon"
   },
+  ["hop.nvim"] = {
+    loaded = true,
+    path = "/Users/lawrencelim/.local/share/nvim/site/pack/packer/start/hop.nvim",
+    url = "https://github.com/phaazon/hop.nvim"
+  },
   ["indent-blankline.nvim"] = {
     loaded = true,
     path = "/Users/lawrencelim/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
@@ -176,15 +191,15 @@ _G.packer_plugins = {
     path = "/Users/lawrencelim/.local/share/nvim/site/pack/packer/opt/markdown-preview.nvim",
     url = "https://github.com/iamcco/markdown-preview.nvim"
   },
+  ["mdeval.nvim"] = {
+    loaded = true,
+    path = "/Users/lawrencelim/.local/share/nvim/site/pack/packer/start/mdeval.nvim",
+    url = "https://github.com/jubnzv/mdeval.nvim"
+  },
   ["move.nvim"] = {
     loaded = true,
     path = "/Users/lawrencelim/.local/share/nvim/site/pack/packer/start/move.nvim",
     url = "https://github.com/fedepujol/move.nvim"
-  },
-  neorg = {
-    loaded = true,
-    path = "/Users/lawrencelim/.local/share/nvim/site/pack/packer/start/neorg",
-    url = "https://github.com/nvim-neorg/neorg"
   },
   ["nvim-autopairs"] = {
     loaded = true,
@@ -196,6 +211,21 @@ _G.packer_plugins = {
     path = "/Users/lawrencelim/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
   },
+  ["nvim-colorizer.lua"] = {
+    loaded = true,
+    path = "/Users/lawrencelim/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua",
+    url = "https://github.com/norcalli/nvim-colorizer.lua"
+  },
+  ["nvim-dap"] = {
+    loaded = true,
+    path = "/Users/lawrencelim/.local/share/nvim/site/pack/packer/start/nvim-dap",
+    url = "https://github.com/mfussenegger/nvim-dap"
+  },
+  ["nvim-dap-ui"] = {
+    loaded = true,
+    path = "/Users/lawrencelim/.local/share/nvim/site/pack/packer/start/nvim-dap-ui",
+    url = "https://github.com/rcarriga/nvim-dap-ui"
+  },
   ["nvim-lsp-installer"] = {
     loaded = true,
     path = "/Users/lawrencelim/.local/share/nvim/site/pack/packer/start/nvim-lsp-installer",
@@ -205,6 +235,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/lawrencelim/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
+  },
+  ["nvim-navic"] = {
+    loaded = true,
+    path = "/Users/lawrencelim/.local/share/nvim/site/pack/packer/start/nvim-navic",
+    url = "https://github.com/SmiteshP/nvim-navic"
+  },
+  ["nvim-spectre"] = {
+    loaded = true,
+    path = "/Users/lawrencelim/.local/share/nvim/site/pack/packer/start/nvim-spectre",
+    url = "https://github.com/windwp/nvim-spectre"
   },
   ["nvim-tree.lua"] = {
     loaded = true,
@@ -217,9 +257,8 @@ _G.packer_plugins = {
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
   ["nvim-web-devicons"] = {
-    loaded = false,
-    needs_bufread = false,
-    path = "/Users/lawrencelim/.local/share/nvim/site/pack/packer/opt/nvim-web-devicons",
+    loaded = true,
+    path = "/Users/lawrencelim/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
   ["onedark.nvim"] = {
@@ -247,11 +286,6 @@ _G.packer_plugins = {
     path = "/Users/lawrencelim/.local/share/nvim/site/pack/packer/start/refactoring.nvim",
     url = "https://github.com/ThePrimeagen/refactoring.nvim"
   },
-  ["symbols-outline.nvim"] = {
-    loaded = true,
-    path = "/Users/lawrencelim/.local/share/nvim/site/pack/packer/start/symbols-outline.nvim",
-    url = "https://github.com/simrat39/symbols-outline.nvim"
-  },
   ["tabout.nvim"] = {
     loaded = true,
     path = "/Users/lawrencelim/.local/share/nvim/site/pack/packer/start/tabout.nvim",
@@ -277,10 +311,20 @@ _G.packer_plugins = {
     path = "/Users/lawrencelim/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
     url = "https://github.com/folke/tokyonight.nvim"
   },
+  ["trouble.nvim"] = {
+    loaded = true,
+    path = "/Users/lawrencelim/.local/share/nvim/site/pack/packer/start/trouble.nvim",
+    url = "https://github.com/folke/trouble.nvim"
+  },
   ["vim-fugitive"] = {
     loaded = true,
     path = "/Users/lawrencelim/.local/share/nvim/site/pack/packer/start/vim-fugitive",
     url = "https://github.com/tpope/vim-fugitive"
+  },
+  ["vim-illuminate"] = {
+    loaded = true,
+    path = "/Users/lawrencelim/.local/share/nvim/site/pack/packer/start/vim-illuminate",
+    url = "https://github.com/RRethy/vim-illuminate"
   },
   ["vim-obsession"] = {
     loaded = true,
