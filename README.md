@@ -1,7 +1,4 @@
-# Essential Luavim
-
-## My Config
-All the essential configurations needed to run Neovime like an IDE. None of the fluff. It should be noted however I will be transitioning to Lua-Vim in the near future.
+# Neovim Configuration
 
 ## Table of Contents
 1. [Installation](#installation)
