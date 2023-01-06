@@ -4,3 +4,10 @@ vim.api.nvim_exec(
   ]], true)
 vim.g.copilot_no_tab_map = "v:true"
 vim.g.copilot_enabled = "v:false"
+
+local opts = { noremap = true, silent = true }
+local keymap = vim.api.nvim_set_keymap
+keymap("n", "<leader>ce", ":Copilot enable<CR>", opts)
+keymap("n", "<leader>cd", ":Copilot disable<CR>", opts)
+keymap("n", "<leader>cp", ":Copilot panel<CR>", opts)
+keymap("n", "<leader>cs", ":echo g:copilot#Enabled()<CR>", opts)

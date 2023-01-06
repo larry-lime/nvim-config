@@ -59,6 +59,7 @@ return packer.startup(function(use)
   use { "windwp/nvim-autopairs" }
   use { "akinsho/toggleterm.nvim", tag = "v1.*" }
   use { "fedepujol/move.nvim" }
+  use { 'rmagatti/auto-session' }
 
   -- LSP
   use { "williamboman/mason.nvim" }
@@ -109,7 +110,6 @@ return packer.startup(function(use)
   use { "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" }
   use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install",
     setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
-  use { "tpope/vim-obsession" }
   use { 'phaazon/hop.nvim', branch = 'v2' }
 
   -- Debugger

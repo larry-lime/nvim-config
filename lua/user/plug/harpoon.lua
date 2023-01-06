@@ -19,3 +19,16 @@ require("harpoon").setup {
     mark_branch = false,
   }
 }
+
+local opts = { noremap = true, silent = true }
+local keymap = vim.api.nvim_set_keymap
+
+-- Harpoon
+keymap("n", "<leader>=", ":lua require('harpoon.ui').toggle_quick_menu()<CR>", opts)
+keymap("n", "<leader>a", ":echo 'File added to harpoon' |lua require('harpoon.mark').add_file()<CR>", opts)
+keymap("n", "<leader>!", ":echo 'Nav File 1'| lua require('harpoon.ui').nav_file(1)<CR>", opts)
+keymap("n", "<leader>@", ":echo 'Nav File 2'|lua require('harpoon.ui').nav_file(2)<CR>", opts)
+keymap("n", "<leader>#", ":echo 'Nav File 3'|lua require('harpoon.ui').nav_file(3)<CR>", opts)
+keymap("n", "<leader>$", ":echo 'Nav File 4'|lua require('harpoon.ui').nav_file(4)<CR>", opts)
+keymap("n", "<leader>%", ":echo 'Nav File 5'|lua require('harpoon.ui').nav_file(5)<CR>", opts)
+keymap("n", "<leader>^", ":echo 'Nav File 6'|lua require('harpoon.ui').nav_file(6)<CR>", opts)

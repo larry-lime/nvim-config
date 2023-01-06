@@ -1,4 +1,8 @@
-require 'nvim-tree'.setup {
+local status_ok, nvimtree = pcall(require, "nvim-tree")
+if not status_ok then
+  return
+end
+nvimtree.setup {
   auto_reload_on_write = true,
   create_in_closed_folder = false,
   disable_netrw = true,
@@ -160,3 +164,9 @@ require 'nvim-tree'.setup {
     },
   },
 }
+
+local opts = { noremap = true, silent = true }
+local keymap = vim.api.nvim_set_keymap
+
+keymap("n", "<leader>nt", ":NvimTreeToggle<CR>", opts)
+keymap("n", "<leader>nf", ":NvimTreeFindFile<CR>", opts)

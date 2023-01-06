@@ -1,6 +1,16 @@
 vim.opt.termguicolors = true
 vim.opt.list = true
 vim.opt.listchars:append "space:⋅"
+vim.g.indent_blankline_filetype_exclude = {
+  "help",
+  "startify",
+  "dashboard",
+  "packer",
+  "neogitstatus",
+  "NvimTree",
+  "Trouble",
+  "text"
+}
 -- vim.opt.listchars:append "eol:↴"
 
 require("indent_blankline").setup {

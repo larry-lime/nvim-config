@@ -95,14 +95,22 @@ dapui.setup({
       step_back = "",
       run_last = "",
       terminate = "",
-      -- pause = "⏸",
-      -- play = "▶️",
-      -- step_into = "⬇️",
-      -- step_over = "⬆️",
-      -- step_out = "⏫",
-      -- step_back = "⏪",
-      -- run_last = "↪️",
-      -- terminate = "⏹",
     },
   },
 })
+
+local nopts = { noremap = true, silent = false }
+local opts = { noremap = true, silent = true }
+local keymap = vim.api.nvim_set_keymap
+
+-- Nvim-Dap
+keymap("n", "<leader>ds", ":silent lua require'dap'.continue()<CR>", opts)
+keymap("n", "<F5>", ":silent lua require'dap'.continue()<CR>", opts)
+keymap("n", "<leader>de", ":lua require'dap'.disconnect()<CR>", opts)
+keymap("n", "<leader>.", ":lua require'dap'.toggle_breakpoint()<CR>", opts)
+keymap("n", "<leader>bc", ":lua require'dap'.clear_breakpoints()<CR>", opts)
+keymap("n", "<F5>", ":lua require'dap'.continue()<CR>", nopts)
+keymap("n", "<F9>", ":lua require'dap'.step_into()<CR>", opts)
+keymap("n", "<F10>", ":lua require'dap'.step_over()<CR>", opts)
+keymap("n", "<F11>", ":lua require'dap'.step_out()<CR>", opts)
+keymap("n", "<F12>", ":lua require'dap'.step_back()<CR>", opts)

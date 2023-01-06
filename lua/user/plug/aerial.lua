@@ -45,3 +45,11 @@ require('aerial').setup {
   lazy_load = false,
   filter_kind = false,
 }
+
+local opts = { noremap = true, silent = true }
+local keymap = vim.api.nvim_set_keymap
+
+keymap("n", "<leader>tb", ":AerialToggle! right<CR>", opts)
+keymap("n", "<leader>nv", ":AerialOpen float<CR>", opts)
+keymap("n", "]f", ":AerialNext<CR>", opts)
+keymap("n", "[f", ":AerialPrev<CR>", opts)

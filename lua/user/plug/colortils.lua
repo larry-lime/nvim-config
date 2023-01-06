@@ -40,3 +40,8 @@ require("colortils").setup({
     choose_background = "B",
   }
 })
+
+local opts = { noremap = true, silent = true }
+local keymap = vim.api.nvim_set_keymap
+
+keymap("n", "<leader>P", ":Colortils picker<CR>", opts)

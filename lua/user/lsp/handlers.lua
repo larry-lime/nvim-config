@@ -50,29 +50,33 @@ local function attach_navic(client, bufnr)
   navic.attach(client, bufnr)
 end
 
+local function lsp_commands()
+  local command = vim.cmd
+  command [[ command! Format execute 'lua vim.lsp.buf.format {async = true}' ]]
+  command [[ command! LspServerConfig execute 'vert h lspconfig-server-configurations' ]]
+end
 
 local function lsp_keymaps(bufnr)
+  local buffer_keymap = vim.api.nvim_buf_set_keymap
   local opts = { noremap = true, silent = true }
   -- vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "gD", "<cmd>Telescope lsp_declarations<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>silent Telescope lsp_definitions<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "gI", "<cmd>Telescope lsp_implementations<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ra", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action({apply=true})<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
-  vim.cmd [[ command! Format execute 'lua vim.lsp.buf.format {async = true}' ]]
-  vim.cmd [[ command! LspServerConfig execute 'vert h lspconfig-server-configurations' ]]
+  buffer_keymap(bufnr, "n", "gD", "<cmd>Telescope lsp_declarations<CR>", opts)
+  buffer_keymap(bufnr, "n", "gd", "<cmd>silent Telescope lsp_definitions<CR>", opts)
+  buffer_keymap(bufnr, "n", "gI", "<cmd>Telescope lsp_implementations<CR>", opts)
+  buffer_keymap(bufnr, "n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+  buffer_keymap(bufnr, "n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
+  buffer_keymap(bufnr, "n", "<leader>rm", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
+  buffer_keymap(bufnr, "n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action({apply=true})<CR>", opts)
+  buffer_keymap(bufnr, "n", "[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', opts)
+  buffer_keymap(bufnr, "n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
+  buffer_keymap(bufnr, "n", "<leader>F", "<cmd>Format<CR>", opts)
 end
 
 M.on_attach = function(client, bufnr)
+  lsp_commands()
   lsp_keymaps(bufnr)
   attach_navic(client, bufnr)
 end
-
-local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 if not status_ok then

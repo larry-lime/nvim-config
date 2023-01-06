@@ -3,10 +3,9 @@ if not status_ok then
   return
 end
 
-hop.setup()
---
--- TODO Move all the keymaps for specific plugins into the plugins files
+hop.setup{}
+
 local opts = { noremap = true, silent = true }
 local keymap = vim.api.nvim_set_keymap
 
-keymap("n", "F", ":HopWord<CR>", opts)
+keymap("n", "<leader>H", ":HopWord<CR>", opts)
