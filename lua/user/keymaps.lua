@@ -113,6 +113,7 @@ keymap("n", "<leader>A", "GVgg", opts)
 keymap("n", "<leader>R", ":e!<CR>", opts)
 
 -- Buffers
+keymap("n", "<leader>Q", ":qa!<CR>", opts)
 keymap("n", "<leader>qq", ":qa!<CR>", opts)
 keymap("n", "<C-s>", "<C-^>", opts)
 keymap("n", "]b", ":bnext<CR>", opts)
