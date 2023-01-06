@@ -98,7 +98,6 @@ return packer.startup(function(use)
 
   -- Add-Ons
   use { 'norcalli/nvim-colorizer.lua' }
-  use { "RRethy/vim-illuminate" }
   use { 'stevearc/aerial.nvim' }
   use { 'jubnzv/mdeval.nvim' }
   use { "windwp/nvim-spectre" }
@@ -128,6 +127,7 @@ return packer.startup(function(use)
   -- use { "vimwiki/vimwiki" }
   -- use { 'simrat39/symbols-outline.nvim' }
   -- use { "williamboman/nvim-lsp-installer" }
+  -- use { "RRethy/vim-illuminate" }
 
   if PACKER_BOOTSTRAP then
     require("packer").sync()
