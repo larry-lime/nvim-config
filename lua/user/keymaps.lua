@@ -6,75 +6,6 @@
 --           /____/               /_/
 
 M = {}
-vim.api.nvim_exec(
-  [[
-if has('wsl')
-    let g:clipboard = {
-      \   'name': 'wslclipboard',
-      \   'copy': {
-      \      '+': '/mnt/c/Users/larry/scoop/apps/neovim/0.6.1/bin/win32yank.exe -i --crlf',
-      \    },
-      \   'paste': {
-      \      '+': '/mnt/c/Users/larry/scoop/apps/neovim/0.6.1/bin/win32yank.exe -i --crlf',
-      \   },
-      \   'cache_enabled': 1,
-      \ }
-endif
-
-let g:focusModeNum = 0
-function FocusUpNumToggle()
-    if (g:focusModeNum == 0)
-        let g:focusModeNum = 1
-        set showtabline=0 | set winbar=
-        set showtabline=0
-    else
-        let g:focusModeNum = 0
-        set showtabline=3 | set winbar=%=%m%t
-        set showtabline=3
-    endif
-endfunction
-
-let g:orgSpaceState = 0
-function OrgSpace(opt)
-    if (g:orgSpaceState == 0)
-        let g:orgSpaceState = 1
-        NeorgStart silent=true
-    endif
-    silent! execute a:opt
-endfunction
-
-" Find a way to jump back to OG after a new one is closed
-let g:focusMode = 0
-function FocusUpToggle()
-    if (g:focusMode == 0)
-        tabnew %
-        let g:focusMode = 1
-        set laststatus=0 | set showtabline=0
-        set winbar=
-        lua vim.o.ch = 0
-        set wrap | set nornu | set nonu
-        set linebreak | set breakindent
-        map k gk
-        map j gj
-        unmap )
-        unmap (
-    else
-        q
-        let g:focusMode = 0
-        set laststatus=3 | set showtabline=3
-        set nowrap | set rnu | set nu
-        set winbar=%=%m%t
-        lua vim.o.ch = 1
-        set nolinebreak | set nobreakindent
-        unmap k
-        unmap j
-        map ) g_
-        map ( ^
-    endif
-endfunction
-]] , true)
-
--- KEYBOARD SHORTCUTS --
 local opts = { noremap = true, silent = true }
 local nopts = { noremap = true, silent = false }
 local keymap = vim.api.nvim_set_keymap
@@ -127,7 +58,7 @@ keymap("n", "<C-t>", ":tabnew<CR>", opts)
 keymap("n", "<C-w>", ":tabclose<CR>", opts)
 
 -- Custom Focus Modes
-keymap("n", "<leader>Z", "<cmd>call FocusUpToggle()<CR>", opts)
+keymap("n", "<leader>Z", "<cmd>ZenMode<CR>", opts)
 -- keymap("n", "<leader>H", "<cmd>call FocusUpNumToggle()<CR>", opts)
 
 -- Backspace

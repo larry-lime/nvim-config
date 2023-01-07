@@ -69,7 +69,7 @@ local function lsp_keymaps(bufnr)
   buffer_keymap(bufnr, "n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action({apply=true})<CR>", opts)
   buffer_keymap(bufnr, "n", "[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', opts)
   buffer_keymap(bufnr, "n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
-  buffer_keymap(bufnr, "n", "<leader>F", "<cmd>Format<CR>", opts)
+  -- buffer_keymap(bufnr, "n", "<leader>F", "<cmd>Format<CR>", opts)
 end
 
 M.on_attach = function(client, bufnr)

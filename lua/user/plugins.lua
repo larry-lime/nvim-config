@@ -109,15 +109,18 @@ return packer.startup(function(use)
   use { "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" }
   use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install",
     setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
-  use { 'phaazon/hop.nvim', branch = 'v2' }
 
   -- Debugger
   use { "mfussenegger/nvim-dap" }
   use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
+  -- Lua
+  use { "folke/zen-mode.nvim" }
   -- use { "mfussenegger/nvim-dap-python" }
   -- use { "mxsdev/nvim-dap-vscode-js", requires = { "mfussenegger/nvim-dap" } }
+  -- use { 'phaazon/hop.nvim', branch = 'v2' }
 
   -- Plugin Graveyard
+  -- use { 'goolord/alpha-nvim' }
   -- use { "andymass/vim-matchup" }
   -- use { "nacro90/numb.nvim" }
   -- use "stevearc/dressing.nvim"
