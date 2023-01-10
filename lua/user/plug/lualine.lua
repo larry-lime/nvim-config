@@ -13,13 +13,13 @@ require('lualine').setup {
     globalstatus = true,
   },
   sections = {
-    lualine_a = { { 'mode', color = { fg = 'NonText' } } },
+    lualine_a = { 'mode' },
     lualine_b = { 'branch', 'diff', 'diagnostics' },
     lualine_c = { 'filename' },
     lualine_x = { 'encoding', 'fileformat', 'filetype' },
     lualine_y = { 'progress' },
     -- lualine_z = { '%l/%L' },
-    lualine_z = { { 'location', color = {  fg = 'NonText'  } } },
+    lualine_z = { 'location' },
   },
   tabline = {
     -- lualine_a = {
