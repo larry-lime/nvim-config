@@ -120,7 +120,7 @@ return packer.startup(function(use)
   -- use { 'phaazon/hop.nvim', branch = 'v2' }
 
   -- Plugin Graveyard
-  -- use { 'goolord/alpha-nvim' }
+  use { 'goolord/alpha-nvim' }
   -- use { "andymass/vim-matchup" }
   -- use { "nacro90/numb.nvim" }
   -- use "stevearc/dressing.nvim"
