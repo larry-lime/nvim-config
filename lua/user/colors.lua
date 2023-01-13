@@ -11,8 +11,11 @@ if colorscheme == "catppuccin" then
 end
 
 if colorscheme == "tokyonight" then
-  vim.g.tokyonight_style = "storm" --storm, night, day
-  vim.g.tokyonight_dark_sidebar = true
+  require("tokyonight").setup({
+    style = "storm",
+    -- vim.g.tokyonight_style = "storm",
+    -- vim.g.tokyonight_dark_sidebar = true
+  })
 end
 
 if colorscheme == "gruvbox" then
