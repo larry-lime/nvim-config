@@ -23,6 +23,7 @@ local servers = {
   "bashls",
   "clangd",
   "rust_analyzer",
+  "sourcery"
 }
 
 local settings = {
