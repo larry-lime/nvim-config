@@ -96,8 +96,8 @@ keymap("v", ")", "g_", opts)
 keymap("v", "(", "^", opts)
 
 -- Renaming words
--- keymap("n", "<leader>rn", "*Ncgn", opts)
--- keymap("n", "<leader>ra", 'yiw:%s/<C-r>"/', nopts)
+keymap("n", "<leader>rn", "*Ncgn", opts)
+keymap("n", "<leader>ra", 'yiw:%s/<C-r>"/', nopts)
 
 -- Apple Specific Keymaps
 keymap("n", "<leader>of", ":silent !open . -a finder<CR>", opts)
