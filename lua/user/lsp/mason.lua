@@ -21,7 +21,8 @@ local servers = {
   "yamlls",
   "eslint",
   "bashls",
-  -- "clangd",
+  "clangd",
+  "sourcery",
   "rust_analyzer",
 }
 
