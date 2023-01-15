@@ -58,7 +58,7 @@ return packer.startup(function(use)
   use { "kyazdani42/nvim-tree.lua", requires = { "kyazdani42/nvim-web-devicons" } }
   use { "windwp/nvim-autopairs" }
   use { "akinsho/toggleterm.nvim", tag = "v1.*" }
-  use { "fedepujol/move.nvim" }
+  use { "hinell/move.nvim" }
   use { 'rmagatti/auto-session' }
 
   -- LSP
@@ -105,10 +105,12 @@ return packer.startup(function(use)
   use { "Pocco81/auto-save.nvim" }
   use { "nyngwang/NeoZoom.lua" }
   use { "lukas-reineke/indent-blankline.nvim" }
-  use { "nvim-colortils/colortils.nvim" }
+  use { "max397574/colortils.nvim" }
   use { "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" }
   use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install",
     setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
+
+
 
   -- Debugger
   use { "mfussenegger/nvim-dap" }
