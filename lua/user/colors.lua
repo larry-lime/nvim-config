@@ -13,6 +13,8 @@ end
 if colorscheme == "tokyonight" then
   require("tokyonight").setup({
     style = "storm",
+    transparent = false,
+    -- terminal_colors = true,
     -- vim.g.tokyonight_style = "storm",
     -- vim.g.tokyonight_dark_sidebar = true
   })
