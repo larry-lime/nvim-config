@@ -124,14 +124,15 @@ keymap("n", "<leader>gb", ":G branch | resize -20<CR>", opts)
 keymap("n", "<leader>gs", ":G status<CR>", opts)
 
 -- Move Nvim
-keymap('n', '<A-j>', ":MoveLine 1<CR>", opts)
-keymap('n', '<A-k>', ":MoveLine -1<CR>", opts)
-keymap('v', '<A-j>', ":MoveBlock 1<CR>", opts)
-keymap('v', '<A-k>', ":MoveBlock -1<CR>", opts)
-keymap('n', '<A-l>', ":MoveHChar 1<CR>", opts)
-keymap('n', '<A-h>', ":MoveHChar -1<CR>", opts)
-keymap('v', '<A-l>', ":MoveHBlock 1<CR>", opts)
-keymap('v', '<A-h>', ":MoveHBlock -1<CR>", opts)
+keymap('n', '<A-Down>', ":MoveLine 1<CR>", opts)
+keymap('n', '<A-Up>', ":MoveLine -1<CR>", opts)
+keymap('v', '<A-Down>', ":MoveBlock 1<CR>", opts)
+keymap('v', '<A-Up>', ":MoveBlock -1<CR>", opts)
+
+-- keymap('n', '<A-l>', ":MoveHChar 1<CR>", opts)
+-- keymap('n', '<A-h>', ":MoveHChar -1<CR>", opts)
+-- keymap('v', '<A-l>', ":MoveHBlock 1<CR>", opts)
+-- keymap('v', '<A-h>', ":MoveHBlock -1<CR>", opts)
 
 -- Skip snippet part
 keymap('s', '<C-n>', "<BS>i<A-n>", jump_opt)
