@@ -15,7 +15,7 @@ local servers = {
   "html",
   "jsonls",
   "solidity",
-  "sumneko_lua",
+  "lua_ls",
   "tsserver",
   "pyright",
   "yamlls",
