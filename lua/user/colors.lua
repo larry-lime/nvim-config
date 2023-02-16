@@ -16,7 +16,7 @@ if colorscheme == "tokyonight" then
     -- or leave it empty to use the default settings
     style = "storm", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
     light_style = "day", -- The theme is used when the background is set to light
-    transparent = false, -- Enable this to disable setting the background color
+    transparent = true, -- Enable this to disable setting the background color
     terminal_colors = false, -- Configure the colors used when opening a `:terminal` in Neovim
     styles = {
       -- Style to be applied to different syntax groups
@@ -49,13 +49,13 @@ if colorscheme == "gruvbox" then
     invert_tabline = false,
     invert_intend_guides = false,
     inverse = true, -- invert background for search, diffs, statuslines and errors
-    contrast = "", -- can be "hard", "soft" or empty string
+    contrast = "hard", -- can be "hard", "soft" or empty string
     palette_overrides = {},
     overrides = {},
     dim_inactive = false,
-    transparent_mode = false,
+    transparent_mode = true,
   })
-  vim.o.background = "light" -- or "light" for light mode
+  vim.o.background = "dark" -- or "light" for light mode
   vim.cmd([[colorscheme gruvbox]])
 end
 
