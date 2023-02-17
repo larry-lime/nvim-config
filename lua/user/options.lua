@@ -8,7 +8,7 @@
 -- this is test text that I need to copy
 local options = {
   signcolumn = "yes", -- always show the sign column, otherwise it would shift the text each time
-  cursorline = false, -- highlight the current line
+  cursorline = true, -- highlight the current line
   tabstop = 2, -- insert 2 spaces for a tab
   shiftwidth = 2, -- the number of spaces inserted for each indentatioN
   relativenumber = true, -- set relative numbered lines

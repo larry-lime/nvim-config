@@ -14,6 +14,7 @@ local servers = {
   "emmet_ls",
   "html",
   "jsonls",
+  "sqlls",
   "solidity",
   "lua_ls",
   "tsserver",
@@ -101,8 +102,8 @@ for _, server in pairs(servers) do
     opts = vim.tbl_deep_extend("force", solc_opts, opts)
   end
 
-  if server.name == "sqls" then
-    local sqls_opts = require("user.lsp.settings.sqls")
+  if server.name == "sqlls" then
+    local sqls_opts = require("user.lsp.settings.sqlls")
     opts = vim.tbl_deep_extend("force", sqls_opts, opts)
   end
 
