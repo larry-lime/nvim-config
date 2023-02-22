@@ -37,7 +37,6 @@ packer.init {
 }
 
 return packer.startup(function(use)
-
   -- Core Plugins
   use { "wbthomason/packer.nvim" }
   use { "nvim-lua/popup.nvim" }
@@ -99,7 +98,6 @@ return packer.startup(function(use)
   -- Add-Ons
   use { 'norcalli/nvim-colorizer.lua' }
   use { 'stevearc/aerial.nvim' }
-  use { 'jubnzv/mdeval.nvim' }
   use { "windwp/nvim-spectre" }
   use { 'abecodes/tabout.nvim' }
   use { "Pocco81/auto-save.nvim" }
@@ -107,8 +105,12 @@ return packer.startup(function(use)
   use { "lukas-reineke/indent-blankline.nvim" }
   use { "max397574/colortils.nvim" }
   use { "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" }
-  use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install",
-    setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
+  use({
+    "iamcco/markdown-preview.nvim",
+    run = "cd app && npm install",
+    setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
+    ft = { "markdown" },
+  })
 
 
 
@@ -120,10 +122,12 @@ return packer.startup(function(use)
   -- use { "mfussenegger/nvim-dap-python" }
   -- use { "mxsdev/nvim-dap-vscode-js", requires = { "mfussenegger/nvim-dap" } }
   -- use { 'phaazon/hop.nvim', branch = 'v2' }
+  use { 'lervag/vimtex' }
 
   -- Plugin Graveyard
   -- use { 'goolord/alpha-nvim' }
   -- use { "andymass/vim-matchup" }
+  -- use { 'jubnzv/mdeval.nvim' }
   -- use { "nacro90/numb.nvim" }
   -- use "stevearc/dressing.nvim"
   -- use {'karb94/neoscroll.nvim'}
