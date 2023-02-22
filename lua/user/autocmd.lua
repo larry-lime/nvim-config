@@ -5,30 +5,39 @@ local commands = api.nvim_create_augroup("commands", { clear = true })
 -- LSP Formatter
 api.nvim_create_autocmd(
   { "Filetype" },
-  { pattern = { "lua, html" }, command = "nnoremap <leader>F <cmd>execute 'lua vim.lsp.buf.format {async = true}'<CR>",
-    group = formatter }
+  {
+    pattern = { "*" },
+    command = "nnoremap <leader>F <cmd>execute 'lua vim.lsp.buf.format {async = true}'<CR>",
+    group = formatter
+  }
 )
 
 -- Prettier
 api.nvim_create_autocmd(
   { "Filetype" },
-  { pattern = { "javascript", "typescript", "solidity", "yaml", "css", "scss" },
+  {
+    pattern = { "javascript", "typescript", "solidity", "yaml", "css", "scss" },
     command = "nnoremap <silent><leader>F :silent !npx prettier --write %<CR>",
-    group = formatter }
+    group = formatter
+  }
 )
 
 api.nvim_create_autocmd(
   { "Filetype" },
-  { pattern = { "csv" },
+  {
+    pattern = { "csv", "json" },
     command = "set foldmethod=manual",
-    group = formatter }
+    group = formatter
+  }
 )
 
 api.nvim_create_autocmd(
   { "Filetype" },
-  { pattern = { "css", "html", "scss","lua" },
+  {
+    pattern = { "css", "html", "scss", "lua" },
     command = "ColorizerAttachToBuffer",
-    group = formatter }
+    group = formatter
+  }
 )
 
 -- Black
@@ -37,37 +46,38 @@ api.nvim_create_autocmd(
   { pattern = { "python" }, command = "nnoremap <silent><leader>F :silent !python3 -m black %<CR>", group = formatter }
 )
 
--- MdEval
--- api.nvim_create_autocmd(
---   { "Filetype" },
---   { pattern = { "markdown" }, command = "nnoremap <F5> :MdEval<CR>", group = formatter }
--- )
---
--- api.nvim_create_autocmd(
---   { "Filetype" },
---   { pattern = { "markdown" }, command = "nnoremap <F4> :MdEvalClean<CR>", group = formatter }
--- )
-
 api.nvim_create_autocmd(
   { "BufNewFile", "BufFilePre", "BufRead" },
-  { pattern = { "*.conf" }, command = "set filetype=tmux",
-    group = commands }
+  {
+    pattern = { "*.conf" },
+    command = "set filetype=tmux",
+    group = commands
+  }
 )
 
 api.nvim_create_autocmd(
   { "VimResized" },
-  { pattern = { "*" }, command = "wincmd =",
-    group = commands }
+  {
+    pattern = { "*" },
+    command = "wincmd =",
+    group = commands
+  }
 )
 
 api.nvim_create_autocmd(
   { "BufNewFile", "BufFilePre", "BufRead" },
-  { pattern = { "*.conf" }, command = "set filetype=tmux",
-    group = commands }
+  {
+    pattern = { "*.conf" },
+    command = "set filetype=tmux",
+    group = commands
+  }
 )
 
 api.nvim_create_autocmd(
   { "Filetype" },
-  { pattern = { "solidity" }, command = "setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4",
-    group = commands }
+  {
+    pattern = { "solidity" },
+    command = "setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4",
+    group = commands
+  }
 )
