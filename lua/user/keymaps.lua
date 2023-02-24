@@ -137,8 +137,6 @@ keymap('v', '<A-Up>', ":MoveBlock(-1)<CR>", opts)
 -- Skip snippet part
 keymap('s', '<C-n>', "<BS>i<A-n>", jump_opt)
 
--- Markdown Preview
-keymap('n', '<leader>M', ":MarkdownPreviewToggle<CR>", opts)
 
 M.show_documentation = function()
   local filetype = vim.bo.filetype

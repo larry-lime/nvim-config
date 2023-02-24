@@ -45,6 +45,7 @@ return packer.startup(function(use)
 
   -- Colorschemes
   use { "ful1e5/onedark.nvim" }
+  use { 'tanvirtin/monokai.nvim' }
   use { "catppuccin/nvim", as = "catppuccin" }
   use { "ellisonleao/gruvbox.nvim" }
   use { "folke/tokyonight.nvim" }
@@ -100,7 +101,6 @@ return packer.startup(function(use)
   use { 'stevearc/aerial.nvim' }
   use { "windwp/nvim-spectre" }
   use { 'abecodes/tabout.nvim' }
-  use { "Pocco81/auto-save.nvim" }
   use { "nyngwang/NeoZoom.lua" }
   use { "lukas-reineke/indent-blankline.nvim" }
   use { "max397574/colortils.nvim" }
@@ -122,14 +122,21 @@ return packer.startup(function(use)
   -- use { "mfussenegger/nvim-dap-python" }
   -- use { "mxsdev/nvim-dap-vscode-js", requires = { "mfussenegger/nvim-dap" } }
   -- use { 'phaazon/hop.nvim', branch = 'v2' }
-  use { 'lervag/vimtex' }
+  -- use({ "Pocco81/auto-save.nvim" })
+  -- use { 'lervag/vimtex' }
 
   -- Plugin Graveyard
   -- use { 'goolord/alpha-nvim' }
-  -- use { "andymass/vim-matchup" }
+  use {
+    'andymass/vim-matchup',
+    setup = function()
+      -- may set any options here
+      vim.g.matchup_matchparen_offscreen = { method = "popup" }
+    end
+  }
   -- use { 'jubnzv/mdeval.nvim' }
   -- use { "nacro90/numb.nvim" }
-  -- use "stevearc/dressing.nvim"
+  use "stevearc/dressing.nvim"
   -- use {'karb94/neoscroll.nvim'}
   -- use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
   -- use { "nvim-neorg/neorg", requires = "wbthomason/packer.nvim" }

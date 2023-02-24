@@ -22,6 +22,84 @@ api.nvim_create_autocmd(
   }
 )
 
+-- Black
+api.nvim_create_autocmd(
+  { "Filetype" },
+  { pattern = { "python" }, command = "nnoremap <silent><leader>F :silent !python3 -m black %<CR>", group = formatter }
+)
+
+-- Autosave
+api.nvim_create_autocmd(
+  { "InsertLeave", "TextChanged" },
+  {
+    -- Execute autocmd for all files except .tex files
+    pattern = { "*" },
+    command = "silent! write",
+    group = commands
+  }
+)
+
+-- Autosave
+api.nvim_create_autocmd(
+  { "InsertLeave", "TextChanged" },
+  {
+    -- Execute autocmd for all files except .tex files
+    pattern = { "*.tex" },
+    command = "TexlabBuild",
+    group = commands
+  }
+)
+
+-- Latex
+api.nvim_create_autocmd(
+  { "Filetype" },
+  {
+    pattern = { "tex" },
+    command = "nnoremap <silent><leader>M :silent !open -a sioyek %:p:r.pdf<CR>",
+    group = formatter
+  }
+)
+
+api.nvim_create_autocmd(
+  { "Filetype" },
+  {
+    pattern = { "tex" },
+    -- Open filename with .pdf extension in sioyek.app
+    command = "nnoremap <silent><leader>B :TexlabBuild<CR>",
+    group = formatter
+  }
+)
+
+api.nvim_create_autocmd(
+  { "BufWritePost" },
+  {
+    pattern = { "*.tex" },
+    command = "TexlabBuild",
+    group = formatter
+  }
+)
+
+-- Latex
+api.nvim_create_autocmd(
+  { "Filetype" },
+  {
+    pattern = { "tex" },
+    -- Open filename with .pdf extension in sioyek.app
+    command = "nnoremap <silent><leader>B :TexlabBuild<CR>",
+    group = formatter
+  }
+)
+
+-- Markdown
+api.nvim_create_autocmd(
+  { "Filetype" },
+  {
+    pattern = { "markdown" },
+    command = "nnoremap <silent><leader>M :silent :MarkdownPreviewToggle<CR>",
+    group = formatter
+  }
+)
+
 api.nvim_create_autocmd(
   { "Filetype" },
   {
@@ -40,11 +118,6 @@ api.nvim_create_autocmd(
   }
 )
 
--- Black
-api.nvim_create_autocmd(
-  { "Filetype" },
-  { pattern = { "python" }, command = "nnoremap <silent><leader>F :silent !python3 -m black %<CR>", group = formatter }
-)
 
 api.nvim_create_autocmd(
   { "BufNewFile", "BufFilePre", "BufRead" },
@@ -60,15 +133,6 @@ api.nvim_create_autocmd(
   {
     pattern = { "*" },
     command = "wincmd =",
-    group = commands
-  }
-)
-
-api.nvim_create_autocmd(
-  { "BufNewFile", "BufFilePre", "BufRead" },
-  {
-    pattern = { "*.conf" },
-    command = "set filetype=tmux",
     group = commands
   }
 )
