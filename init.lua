@@ -17,7 +17,7 @@ require("user.snippets")
 
 -- Default Plugin Configs
 require("Comment").setup()
-require("dressing").setup()
+-- require("dressing").setup()
 
 -- Custom Plugins Configs
 require("user.plug.gitsigns")
