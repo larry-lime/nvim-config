@@ -14,6 +14,7 @@ autosession.setup {
       require("lualine").refresh() -- refresh lualine so the new session name is displayed in the status bar
     end,
   },
+  auto_session_use_git_branch = true,
 }
 
 local opts = { noremap = true, silent = true }

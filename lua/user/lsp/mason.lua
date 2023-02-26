@@ -14,11 +14,13 @@ local servers = {
   "emmet_ls",
   "html",
   "jsonls",
+  "sqlls",
   "solidity",
-  "sumneko_lua",
+  "lua_ls",
   "tsserver",
   "pyright",
   "yamlls",
+  "texlab",
   "eslint",
   "bashls",
   "clangd",
@@ -60,6 +62,7 @@ for _, server in pairs(servers) do
 
   server = vim.split(server, "@")[1]
 
+  -- Python
   if server.name == "pyright" then
     local pyright_opts = require("user.lsp.settings.pyright")
     opts = vim.tbl_deep_extend("force", pyright_opts, opts)
@@ -77,9 +80,8 @@ for _, server in pairs(servers) do
   end
 
   -- Lua
-
-  if server.name == "sumneko_lua" then
-    local sumneko_lua_opts = require("user.lsp.settings.sumneko_lua")
+  if server.name == "lua_ls" then
+    local sumneko_lua_opts = require("user.lsp.settings.lua_ls")
     opts = vim.tbl_deep_extend("force", sumneko_lua_opts, opts)
   end
 
@@ -99,6 +101,11 @@ for _, server in pairs(servers) do
   if server.name == "solc" then
     local solc_opts = require("user.lsp.settings.solc")
     opts = vim.tbl_deep_extend("force", solc_opts, opts)
+  end
+
+  if server.name == "sqlls" then
+    local sqls_opts = require("user.lsp.settings.sqlls")
+    opts = vim.tbl_deep_extend("force", sqls_opts, opts)
   end
 
   if server.name == "solidity-ls" then
@@ -129,11 +136,10 @@ for _, server in pairs(servers) do
     opts = vim.tbl_deep_extend("force", cssls_opts, opts)
   end
 
-  -- Markdown
-
-  if server.name == "zk" then
-    local zk_opts = require("user.lsp.settings.zk")
-    opts = vim.tbl_deep_extend("force", zk_opts, opts)
+  -- Latex
+  if server.name == "texlab" then
+    local tex_opts = require("user.lsp.settings.texlab")
+    opts = vim.tbl_deep_extend("force", tex_opts, opts)
   end
 
   -- Golang

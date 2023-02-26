@@ -12,6 +12,13 @@ end
 
 if colorscheme == "tokyonight" then
   require("tokyonight").setup({
+<<<<<<< HEAD
+    style = "storm",
+    transparent = false,
+    -- terminal_colors = true,
+    -- vim.g.tokyonight_style = "storm",
+    -- vim.g.tokyonight_dark_sidebar = true
+=======
     -- your configuration comes here
     -- or leave it empty to use the default settings
     style = "storm", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
@@ -34,6 +41,7 @@ if colorscheme == "tokyonight" then
     hide_inactive_statusline = false, -- Enabling this option, will hide inactive statuslines and replace them with a thin border instead. Should work with the standard **StatusLine** and **LuaLine**.
     dim_inactive = false, -- dims inactive windows
     lualine_bold = false, -- When `true`, section headers in the lualine theme will be bold
+>>>>>>> main
   })
 end
 

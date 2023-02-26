@@ -37,7 +37,6 @@ packer.init {
 }
 
 return packer.startup(function(use)
-
   -- Core Plugins
   use { "wbthomason/packer.nvim" }
   use { "nvim-lua/popup.nvim" }
@@ -46,6 +45,7 @@ return packer.startup(function(use)
 
   -- Colorschemes
   use { "ful1e5/onedark.nvim" }
+  use { 'tanvirtin/monokai.nvim' }
   use { "catppuccin/nvim", as = "catppuccin" }
   use { "ellisonleao/gruvbox.nvim" }
   use { "folke/tokyonight.nvim" }
@@ -58,7 +58,7 @@ return packer.startup(function(use)
   use { "kyazdani42/nvim-tree.lua", requires = { "kyazdani42/nvim-web-devicons" } }
   use { "windwp/nvim-autopairs" }
   use { "akinsho/toggleterm.nvim", tag = "v1.*" }
-  use { "hinell/move.nvim" }
+  use { 'fedepujol/move.nvim' }
   use { 'rmagatti/auto-session' }
 
   -- LSP
@@ -99,16 +99,20 @@ return packer.startup(function(use)
   -- Add-Ons
   use { 'norcalli/nvim-colorizer.lua' }
   use { 'stevearc/aerial.nvim' }
-  use { 'jubnzv/mdeval.nvim' }
   use { "windwp/nvim-spectre" }
   use { 'abecodes/tabout.nvim' }
-  use { "Pocco81/auto-save.nvim" }
   use { "nyngwang/NeoZoom.lua" }
   use { "lukas-reineke/indent-blankline.nvim" }
   use { "max397574/colortils.nvim" }
   use { "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" }
-  use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install",
-    setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
+  use({
+    "iamcco/markdown-preview.nvim",
+    run = "cd app && npm install",
+    setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
+    ft = { "markdown" },
+  })
+
+
 
 
 
@@ -120,12 +124,21 @@ return packer.startup(function(use)
   -- use { "mfussenegger/nvim-dap-python" }
   -- use { "mxsdev/nvim-dap-vscode-js", requires = { "mfussenegger/nvim-dap" } }
   -- use { 'phaazon/hop.nvim', branch = 'v2' }
+  -- use({ "Pocco81/auto-save.nvim" })
+  -- use { 'lervag/vimtex' }
 
   -- Plugin Graveyard
   -- use { 'goolord/alpha-nvim' }
-  -- use { "andymass/vim-matchup" }
+  use {
+    'andymass/vim-matchup',
+    setup = function()
+      -- may set any options here
+      vim.g.matchup_matchparen_offscreen = { method = "popup" }
+    end
+  }
+  -- use { 'jubnzv/mdeval.nvim' }
   -- use { "nacro90/numb.nvim" }
-  -- use "stevearc/dressing.nvim"
+  use "stevearc/dressing.nvim"
   -- use {'karb94/neoscroll.nvim'}
   -- use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
   -- use { "nvim-neorg/neorg", requires = "wbthomason/packer.nvim" }

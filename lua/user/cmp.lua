@@ -124,7 +124,7 @@ cmp.setup {
     end
     ),
     ["<A-p>"] = cmp.mapping(function()
-      if luasnip.jumpable(-1) then luasnip.jump(-1) end
+      if luasnip.jumpable( -1) then luasnip.jump( -1) end
     end
     )
   },
@@ -145,24 +145,24 @@ cmp.setup {
       -- end
 
       vim_item.menu = ({
-        nvim_lua = "[NVIM LUA]",
-        nvim_lsp = "[LSP]",
-        luasnip = "[Snippet]",
-        buffer = "[Buffer]",
-        path = "[Path]",
-        -- copilot = "[COPILOT]",
-        -- neorg = "[NEORG]",
-        -- cmp_tabnine = "[TN]",
-      })[entry.source.name]
+            nvim_lua = "[NVIM LUA]",
+            nvim_lsp = "[LSP]",
+            luasnip = "[Snippet]",
+            buffer = "[Buffer]",
+            path = "[Path]",
+            -- copilot = "[COPILOT]",
+            -- neorg = "[NEORG]",
+            -- cmp_tabnine = "[TN]",
+          })[entry.source.name]
       return vim_item
     end,
   },
   sources = {
     { name = "nvim_lua", group_index = 2 },
     { name = "nvim_lsp", group_index = 2 },
-    { name = "luasnip", group_index = 2 },
-    { name = "buffer", group_index = 2 },
-    { name = "path", group_index = 2 },
+    { name = "luasnip",  group_index = 2 },
+    { name = "buffer",   group_index = 2 },
+    { name = "path",     group_index = 2 },
     -- { name = "copilot", group_index = 2 },
     -- { name = "neorg", group_index = 2 },
     -- { name = "cmp_tabnine", group_index = 2 },
