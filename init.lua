@@ -5,8 +5,7 @@
 -- /___/_/ /_/_/\__/
 
 -- General Configs
-require("user.options")
-require("user.plugins")
+require("user.options") require("user.plugins")
 require("user.keymaps")
 require("user.cmp")
 require("user.colors")
@@ -17,7 +16,6 @@ require("user.snippets")
 
 -- Default Plugin Configs
 require("Comment").setup()
--- require("dressing").setup()
 
 -- Custom Plugins Configs
 require("user.plug.gitsigns")
@@ -43,7 +41,6 @@ require("user.plug.bufferline")
 require("user.plug.harpoon")
 require("user.plug.auto-session")
 require("user.plug.zen-mode")
-require("user.plug.knap")
 
 -- require("user.plug.alpha")
 -- require("user.plug.mdeval")
