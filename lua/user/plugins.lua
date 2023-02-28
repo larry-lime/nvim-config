@@ -96,14 +96,6 @@ return packer.startup(function(use)
   use { "ThePrimeagen/refactoring.nvim",
     requires = { { "nvim-lua/plenary.nvim" }, { "nvim-treesitter/nvim-treesitter" } } }
 
-  -- Add-Ons
-  use({
-    "folke/noice.nvim",
-    requires = {
-      "MunifTanjim/nui.nvim",
-      "rcarriga/nvim-notify",
-    }
-  })
   use { 'norcalli/nvim-colorizer.lua' }
   use { 'stevearc/aerial.nvim' }
   use { "windwp/nvim-spectre" }
@@ -118,8 +110,6 @@ return packer.startup(function(use)
     setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
     ft = { "markdown" },
   })
-
-
 
   -- Debugger
   use { "mfussenegger/nvim-dap" }

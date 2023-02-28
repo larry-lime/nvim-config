@@ -41,7 +41,7 @@ require("user.plug.bufferline")
 require("user.plug.harpoon")
 require("user.plug.auto-session")
 require("user.plug.zen-mode")
-require("user.plug.noice")
+-- require("user.plug.noice")
 
 -- require("user.plug.alpha")
 -- require("user.plug.mdeval")
