@@ -97,6 +97,14 @@ return packer.startup(function(use)
     requires = { { "nvim-lua/plenary.nvim" }, { "nvim-treesitter/nvim-treesitter" } } }
 
   use { 'norcalli/nvim-colorizer.lua' }
+  -- Packer
+  use({
+    "folke/noice.nvim",
+    requires = {
+      "MunifTanjim/nui.nvim",
+      "rcarriga/nvim-notify",
+    }
+  })
   use { 'stevearc/aerial.nvim' }
   use { "windwp/nvim-spectre" }
   use { 'abecodes/tabout.nvim' }
