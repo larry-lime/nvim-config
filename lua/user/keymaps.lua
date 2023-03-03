@@ -44,8 +44,8 @@ keymap("n", "<leader>A", "GVgg", opts)
 keymap("n", "<leader>R", ":e!<CR>", opts)
 
 -- Buffers
-keymap("n", "<leader>Q", ":qa!<CR>", opts)
-keymap("n", "<leader>qq", ":qa!<CR>", opts)
+keymap("n", "<leader>q", ":qa<CR>", opts)
+-- keymap("n", "<leader>qq", ":qa!<CR>", opts)
 keymap("n", "<C-s>", "<C-^>", opts)
 keymap("n", "]b", ":bnext<CR>", opts)
 keymap("n", "[b", ":bprevious<CR>", opts)
@@ -97,7 +97,7 @@ keymap("v", "(", "^", opts)
 
 -- Renaming words
 keymap("n", "<leader>rn", "*Ncgn", opts)
-keymap("n", "<leader>ra", 'yiw:%s/<C-r>"/', nopts)
+keymap("n", "<leader>rm", 'yiw:%s/<C-r>"/', nopts)
 
 -- Apple Specific Keymaps
 keymap("n", "<leader>of", ":silent !open . -a finder<CR>", opts)
@@ -124,20 +124,19 @@ keymap("n", "<leader>gb", ":G branch | resize -20<CR>", opts)
 keymap("n", "<leader>gs", ":G status<CR>", opts)
 
 -- Move Nvim
-keymap('n', '<A-j>', ":MoveLine(1)<CR>", opts)
-keymap('n', '<A-k>', ":MoveLine(-1)<CR>", opts)
-keymap('v', '<A-j>', ":MoveBlock(1)<CR>", opts)
-keymap('v', '<A-k>', ":MoveBlock(-1)<CR>", opts)
-keymap('n', '<A-l>', ":MoveHChar(1)<CR>", opts)
-keymap('n', '<A-h>', ":MoveHChar(-1)<CR>", opts)
-keymap('v', '<A-l>', ":MoveHBlock(1)<CR>", opts)
-keymap('v', '<A-h>', ":MoveHBlock(-1)<CR>", opts)
+keymap('n', '<A-Down>', ":MoveLine(1)<CR>", opts)
+keymap('n', '<A-Up>', ":MoveLine(-1)<CR>", opts)
+keymap('v', '<A-Down>', ":MoveBlock(1)<CR>", opts)
+keymap('v', '<A-Up>', ":MoveBlock(-1)<CR>", opts)
+
+-- keymap('n', '<A-l>', ":MoveHChar 1<CR>", opts)
+-- keymap('n', '<A-h>', ":MoveHChar -1<CR>", opts)
+-- keymap('v', '<A-l>', ":MoveHBlock 1<CR>", opts)
+-- keymap('v', '<A-h>', ":MoveHBlock -1<CR>", opts)
 
 -- Skip snippet part
 keymap('s', '<C-n>', "<BS>i<A-n>", jump_opt)
 
--- Markdown Preview
-keymap('n', '<leader>M', ":MarkdownPreviewToggle<CR>", opts)
 
 M.show_documentation = function()
   local filetype = vim.bo.filetype

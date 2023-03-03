@@ -24,6 +24,16 @@ function M.open_python(func_name)
   func_name()
 end
 
+function M.open_tex()
+  local pdf_file = vim.fn.expand "%:p:r" .. ".pdf"
+  if vim.fn.filereadable(pdf_file) == 1 then
+    vim.cmd("silent !open -a sioyek.app " .. pdf_file)
+  else
+    vim.lsp.buf.execute_command { command = "TexlabBuild", arguments = { 1 } }
+    vim.cmd("silent !open -a sioyek.app " .. pdf_file)
+  end
+end
+
 function M.toggle_sniprun()
   if vim.fn.exists "#_sniprun#TextChanged" == 0 then
     M.sniprun_enable()
