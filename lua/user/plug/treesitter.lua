@@ -5,6 +5,9 @@ require 'nvim-treesitter.configs'.setup {
   sync_install = false,
   highlight = {
     enable = true,
+    disable = function(lang, bufnr) -- Disable in large C++ buffers
+      return lang == "*" and api.nvim_buf_line_count(bufnr) > 50000
+    end,
     additional_vim_regex_highlighting = false,
   },
   matchup = {
