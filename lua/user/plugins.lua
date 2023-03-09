@@ -44,7 +44,7 @@ return packer.startup(function(use)
   use { "nvim-treesitter/nvim-treesitter" }
 
   -- Colorschemes
-  use { "ful1e5/onedark.nvim" }
+  use { "navarasu/onedark.nvim" }
   use { 'tanvirtin/monokai.nvim' }
   use { "catppuccin/nvim", as = "catppuccin" }
   use { "ellisonleao/gruvbox.nvim" }
