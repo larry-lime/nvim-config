@@ -57,7 +57,7 @@ return packer.startup(function(use)
   use { "numToStr/Comment.nvim" }
   use { "kyazdani42/nvim-tree.lua", requires = { "kyazdani42/nvim-web-devicons" } }
   use { "windwp/nvim-autopairs" }
-  use { "akinsho/toggleterm.nvim", tag = "v1.*" }
+  -- use { "akinsho/toggleterm.nvim", tag = "v1.*" }
   use { 'fedepujol/move.nvim' }
   use { 'rmagatti/auto-session' }
 
@@ -87,7 +87,7 @@ return packer.startup(function(use)
 
   -- Git
   use { "lewis6991/gitsigns.nvim" }
-  use { "tpope/vim-fugitive" }
+  -- use { "tpope/vim-fugitive" }
 
   -- Telescope
   use { "nvim-telescope/telescope.nvim", requires = { { "nvim-lua/plenary.nvim" } } }
@@ -98,13 +98,13 @@ return packer.startup(function(use)
 
   use { 'norcalli/nvim-colorizer.lua' }
   -- Packer
-  -- use({
-  --   "folke/noice.nvim",
-  --   requires = {
-  --     "MunifTanjim/nui.nvim",
-  --     "rcarriga/nvim-notify",
-  --   }
-  -- })
+  use({
+    "folke/noice.nvim",
+    requires = {
+      "MunifTanjim/nui.nvim",
+      "rcarriga/nvim-notify",
+    }
+  })
   use { 'stevearc/aerial.nvim' }
   use { "windwp/nvim-spectre" }
   use { 'abecodes/tabout.nvim' }
