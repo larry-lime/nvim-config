@@ -22,6 +22,16 @@ api.nvim_create_autocmd(
   }
 )
 
+-- SQL
+api.nvim_create_autocmd(
+  { "Filetype" },
+  {
+    pattern = { "sql" },
+    command = "nnoremap <silent><leader>F :silent !cat % \\| sql-formatter-cli -o %<CR>",
+    group = formatter
+  }
+)
+
 -- Black
 api.nvim_create_autocmd(
   { "Filetype" },
