@@ -5,7 +5,8 @@
 -- /___/_/ /_/_/\__/
 
 -- General Configs
-require("user.options") require("user.plugins")
+require("user.options")
+require("user.plugins")
 require("user.keymaps")
 require("user.cmp")
 require("user.colors")
@@ -39,6 +40,11 @@ require("user.plug.colortils")
 require("user.plug.auto-session")
 require("user.plug.zen-mode")
 require("user.plug.bufferline")
+-- require('lspconfig').sqls.setup{
+--     on_attach = function(client, bufnr)
+--         require('sqls').on_attach(client, bufnr)
+--     end
+-- }
 -- require("user.plug.noice")
 -- require("user.plug.harpoon")
 -- require("user.plug.alpha")

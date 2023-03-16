@@ -71,6 +71,8 @@ return packer.startup(function(use)
     "SmiteshP/nvim-navic",
     requires = "neovim/nvim-lspconfig"
   }
+  -- use { 'codota/tabnine-nvim', run = "./dl_binaries.sh" }
+  -- use { 'nanotee/sqls.nvim' }
 
   -- CMP
   use { "hrsh7th/nvim-cmp" }

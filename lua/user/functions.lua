@@ -115,6 +115,24 @@ function M.smart_quit()
   end
 end
 
+function M.copy_visual_selection()
+  -- Get the current visual selection
+  local start_line, start_col, end_line, end_col = vim.fn.getpos("'<")[2], vim.fn.getpos("'<")[3], vim.fn.getpos("'>")
+      [2], vim.fn.getpos("'>")[3]
+  local lines = vim.fn.getline(start_line, end_line)
+  lines[#lines] = string.sub(lines[#lines], 1, end_col - 1)
+  lines[1] = string.sub(lines[1], start_col)
+
+  -- Join the lines into a single string without newlines
+  local text = table.concat(lines, " ")
+
+  -- Copy the text to the specified register
+  local reg = '"'
+  vim.fn.setreg(reg, text, 'v')
+  vim.cmd('!mycli -uroot -t university -e ' .. vim.fn.shellescape(text))
+end
+
+
 -- M.toggle_ipython = function() -- Needed so the cursor doesn't jump
 
 -- Run File
@@ -124,13 +142,13 @@ function M.run_file(arg)
   if filetype == 'python' then
     if vim.g.ipython_open == false then
       if arg == 1 then
-        M.open_python(Ipython_spawn_h) -- Starts a new python terminal
-        execute(":silent 1TermExec cmd='run %' go_back=0<CR>", true) -- Runs the file
+        M.open_python(Ipython_spawn_h)                                          -- Starts a new python terminal
+        execute(":silent 1TermExec cmd='run %' go_back=0<CR>", true)            -- Runs the file
         keymap("n", "<leader>p1", ":1TermExec cmd='run %' go_back=0<CR>", opts) -- Remamps <leader>p1 to run the file in the runnig ipython terminal
       end
       if arg == 2 then
-        M.open_python(Ipython_spawn_v) -- Starts a new python terminal
-        execute(":silent 2TermExec cmd='run %' go_back=0<CR>", true) -- Runs the file
+        M.open_python(Ipython_spawn_v)                                          -- Starts a new python terminal
+        execute(":silent 2TermExec cmd='run %' go_back=0<CR>", true)            -- Runs the file
         keymap("n", "<leader>p2", ":2TermExec cmd='run %' go_back=0<CR>", opts) -- Remamps <leader>p1 to run the file in the runnig ipython terminal
       end
       vim.g.ipython_open = true
