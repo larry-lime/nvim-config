@@ -154,10 +154,10 @@ for _, server in pairs(servers) do
     opts = vim.tbl_deep_extend("force", solc_opts, opts)
   end
 
-  if server.name == "sqlls" then
-    local sqls_opts = {}
-    opts = vim.tbl_deep_extend("force", sqls_opts, opts)
-  end
+  -- if server.name == "sqlls" then
+  --   local sqls_opts = {}
+  --   opts = vim.tbl_deep_extend("force", sqls_opts, opts)
+  -- end
 
   if server.name == "solidity-ls" then
     local solidity_ls_opts = {}

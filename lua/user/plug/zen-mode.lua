@@ -29,7 +29,7 @@ require("zen-mode").setup{
     },
     twilight = { enabled = true }, -- enable to start Twilight when zen mode opens
     gitsigns = { enabled = true }, -- disables git signs
-    tmux = { enabled = true }, -- disables the tmux statusline
+    tmux = { enabled = false }, -- disables the tmux statusline
     -- this will change the font size on kitty when in zen mode
     -- to make this work, you need to set the following kitty options:
     -- - allow_remote_control socket-only
@@ -40,25 +40,4 @@ require("zen-mode").setup{
     },
   },
   -- callback where you can add custom code when the Zen window opens
-  on_open = function(win)
-    vim.opt.wrap = true
-    vim.opt.linebreak = true
-    vim.opt.breakindent = true
-    vim.api.nvim_exec("!tmux set-option status",true)
-    vim.api.nvim_exec("map j gj",true)
-    vim.api.nvim_exec("map k gk",true)
-    vim.api.nvim_exec("unmap )",true)
-    vim.api.nvim_exec("unmap (",true)
-  end,
-  -- callback where you can add custom code when the Zen window closes
-  on_close = function()
-    vim.opt.wrap = false
-    vim.opt.linebreak = false
-    vim.opt.breakindent = false
-    vim.api.nvim_exec("!tmux set-option status",true)
-    vim.api.nvim_exec("unmap j",true)
-    vim.api.nvim_exec("unmap k",true)
-    vim.api.nvim_exec("map ) g_",true)
-    vim.api.nvim_exec("map ( ^",true)
-  end,
 }

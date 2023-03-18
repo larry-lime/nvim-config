@@ -17,6 +17,11 @@ require("user.snippets")
 
 -- Default Plugin Configs
 require("Comment").setup()
+-- require('lspconfig').sqls.setup {
+--   on_attach = function(client, bufnr)
+--     require('sqls').on_attach(client, bufnr)
+--   end
+-- }
 
 -- Custom Plugins Configs
 require("user.plug.gitsigns")

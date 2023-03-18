@@ -27,7 +27,7 @@ api.nvim_create_autocmd(
   { "Filetype" },
   {
     pattern = { "sql" },
-    command = "nnoremap <silent><leader>F :silent !cat % \\| sql-formatter-cli -o %<CR>",
+    command = "nnoremap <silent><leader>F :silent !sql-formatter --fix % -c /Users/lawrencelim/.sql-formatter-config.json<CR>",
     group = formatter
   }
 )
@@ -37,7 +37,8 @@ api.nvim_create_autocmd(
   { "Filetype" },
   {
     pattern = { "sql" },
-    command = "nnoremap <silent><leader>R :!mycli -uroot -t university < %<CR>",
+    -- command = "nnoremap <silent><leader>R :!mycli -uroot -t university < %<CR>",
+    command = "nnoremap <silent><leader>R :lua require('user.functions').run_sql()<CR>",
     group = formatter
   }
 )
@@ -62,7 +63,7 @@ api.nvim_create_autocmd(
   { "Filetype" },
   {
     pattern = { "c", "cpp" },
-    command = "nnoremap <silent><leader>R :!gcc -Wall % && ./a.out && rm a.out <CR>",
+    command = "nnoremap <silent><leader>R :!gcc -Wall % && ./a.out<CR>",
     group = formatter
   }
 )

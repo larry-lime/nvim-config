@@ -129,11 +129,33 @@ function M.copy_visual_selection()
   -- Copy the text to the specified register
   local reg = '"'
   vim.fn.setreg(reg, text, 'v')
-  vim.cmd('!mycli -uroot -t university -e ' .. vim.fn.shellescape(text))
+
+  local output = vim.fn.system('mycli -uroot -t university -e ' .. vim.fn.shellescape(text))
+  -- Use vim.notify to display the output
+  -- vim.notify(output)
+  require("notify").dismiss({ silent = true })
+  require("notify")(output, vim.log.levels.OFF,
+    {
+      title = "MySQL",
+      timeout = false,
+      background_colour = "NotifyBackground",
+      top_down = true,
+    })
 end
 
-
--- M.toggle_ipython = function() -- Needed so the cursor doesn't jump
+function M.run_sql()
+  -- Get current filename
+  local filename = vim.fn.expand "%:p"
+  local output = vim.fn.system('mycli -uroot -t university < ' .. vim.fn.shellescape(filename))
+  require("notify").dismiss({ silent = true })
+  require("notify")(output, vim.log.levels.OFF,
+    {
+      title = "MySQL",
+      timeout = false,
+      background_colour = "NotifyBackground",
+      top_down = true,
+    })
+end
 
 -- Run File
 -- FIXME: Not working when terminal is opened first and then p1/p2 is ran
