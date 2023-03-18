@@ -6,7 +6,7 @@ local commands = api.nvim_create_augroup("commands", { clear = true })
 api.nvim_create_autocmd(
   { "Filetype" },
   {
-    pattern = { "lua" },
+    pattern = { "lua", "c" },
     command = "nnoremap <leader>F <cmd>execute 'lua vim.lsp.buf.format {async = true}'<CR>",
     group = formatter
   }
@@ -27,7 +27,8 @@ api.nvim_create_autocmd(
   { "Filetype" },
   {
     pattern = { "sql" },
-    command = "nnoremap <silent><leader>F :silent !sql-formatter --fix % -c /Users/lawrencelim/.sql-formatter-config.json<CR>",
+    command =
+    "nnoremap <silent><leader>F :silent !sql-formatter --fix % -c /Users/lawrencelim/.sql-formatter-config.json<CR>",
     group = formatter
   }
 )
@@ -38,7 +39,7 @@ api.nvim_create_autocmd(
   {
     pattern = { "sql" },
     -- command = "nnoremap <silent><leader>R :!mycli -uroot -t university < %<CR>",
-    command = "nnoremap <silent><leader>R :lua require('user.functions').run_sql()<CR>",
+    command = "nnoremap <silent><leader>R :lua require('user.functions').run_file('university')<CR>",
     group = formatter
   }
 )
@@ -47,7 +48,7 @@ api.nvim_create_autocmd(
   { "Filetype" },
   {
     pattern = { "sql" },
-    command = "vnoremap <silent><leader>R :lua require('user.functions').copy_visual_selection()<CR>",
+    command = "vnoremap <silent><leader>R :lua require('user.functions').run_selection()<CR>",
     group = formatter
   }
 )
@@ -58,22 +59,23 @@ api.nvim_create_autocmd(
   { pattern = { "python" }, command = "nnoremap <silent><leader>F :silent !python3 -m black %<CR>", group = formatter }
 )
 
--- Run Python Commands
+-- Run C
 api.nvim_create_autocmd(
   { "Filetype" },
   {
     pattern = { "c", "cpp" },
-    command = "nnoremap <silent><leader>R :!gcc -Wall % && ./a.out<CR>",
+    -- command = "nnoremap <silent><leader>R :!gcc -Wall % && ./a.out<CR>",
+    command = "nnoremap <silent><leader>R :lua require('user.functions').run_file()<CR>",
     group = formatter
   }
 )
 
--- Run SQL Selection
+-- Run Python Commands
 api.nvim_create_autocmd(
   { "Filetype" },
   {
-    pattern = { "sql" },
-    command = "vnoremap <silent><leader>R :lua require('user.functions').copy_visual_selection()<CR>",
+    pattern = { "python" },
+    command = "nnoremap <silent><leader>R :lua require('user.functions').run_file()<CR>",
     group = formatter
   }
 )

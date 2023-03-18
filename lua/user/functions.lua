@@ -115,7 +115,7 @@ function M.smart_quit()
   end
 end
 
-function M.copy_visual_selection()
+function M.run_selection()
   -- Get the current visual selection
   local start_line, start_col, end_line, end_col = vim.fn.getpos("'<")[2], vim.fn.getpos("'<")[3], vim.fn.getpos("'>")
       [2], vim.fn.getpos("'>")[3]
@@ -131,9 +131,6 @@ function M.copy_visual_selection()
   vim.fn.setreg(reg, text, 'v')
 
   local output = vim.fn.system('mycli -uroot -t university -e ' .. vim.fn.shellescape(text))
-  -- Use vim.notify to display the output
-  -- vim.notify(output)
-  require("notify").dismiss({ silent = true })
   require("notify")(output, vim.log.levels.OFF,
     {
       title = "MySQL",
@@ -143,39 +140,37 @@ function M.copy_visual_selection()
     })
 end
 
-function M.run_sql()
-  -- Get current filename
-  local filename = vim.fn.expand "%:p"
-  local output = vim.fn.system('mycli -uroot -t university < ' .. vim.fn.shellescape(filename))
-  require("notify").dismiss({ silent = true })
-  require("notify")(output, vim.log.levels.OFF,
-    {
-      title = "MySQL",
-      timeout = false,
-      background_colour = "NotifyBackground",
-      top_down = true,
-    })
-end
-
--- Run File
--- FIXME: Not working when terminal is opened first and then p1/p2 is ran
+-- Allow it to take in a filetype, filename
 function M.run_file(arg)
+  -- Detect filetype
   local filetype = vim.bo.filetype
-  if filetype == 'python' then
-    if vim.g.ipython_open == false then
-      if arg == 1 then
-        M.open_python(Ipython_spawn_h)                                          -- Starts a new python terminal
-        execute(":silent 1TermExec cmd='run %' go_back=0<CR>", true)            -- Runs the file
-        keymap("n", "<leader>p1", ":1TermExec cmd='run %' go_back=0<CR>", opts) -- Remamps <leader>p1 to run the file in the runnig ipython terminal
-      end
-      if arg == 2 then
-        M.open_python(Ipython_spawn_v)                                          -- Starts a new python terminal
-        execute(":silent 2TermExec cmd='run %' go_back=0<CR>", true)            -- Runs the file
-        keymap("n", "<leader>p2", ":2TermExec cmd='run %' go_back=0<CR>", opts) -- Remamps <leader>p1 to run the file in the runnig ipython terminal
-      end
-      vim.g.ipython_open = true
-    end
+  local filename = vim.fn.expand "%:p"
+  local output = ""
+  local replace_notifs = false
+  local notify_options = {
+    title = filetype,
+    timeout = false,
+    background_colour = "NotifyBackground",
+    top_down = true,
+  }
+  if filetype == "sql" then
+    -- Run python file
+    output = vim.fn.system('mycli -uroot -t ' .. vim.fn.shellescape(arg) .. ' < ' .. vim.fn.shellescape(filename))
+    notify_options.title = "MySQL"
+  elseif filetype == "python" then -- Run python file
+    output = vim.fn.system('python3 ' .. vim.fn.shellescape(filename))
+  elseif filetype == "c" then
+    output = vim.fn.system('gcc -Wall ' .. vim.fn.shellescape(filename) .. ' && ./a.out')
+    vim.fn.system('rm a.out')
+  elseif filetype == "javascript" then
+    output = vim.fn.system('node ' .. vim.fn.shellescape(filename))
   end
+
+  -- Use vim.notify to display the output
+  if replace_notifs then
+    require("notify").dismiss({ silent = true })
+  end
+  require("notify")(output, vim.log.levels.OFF, notify_options)
 end
 
 return M

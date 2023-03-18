@@ -129,6 +129,9 @@ keymap('n', '<A-Up>', ":MoveLine(-1)<CR>", opts)
 keymap('v', '<A-Down>', ":MoveBlock(1)<CR>", opts)
 keymap('v', '<A-Up>', ":MoveBlock(-1)<CR>", opts)
 
+-- Notify
+keymap('n', '<leader>D', ":lua require('notify').dismiss({ silent = true })<CR>", opts)
+
 -- keymap('n', '<A-l>', ":MoveHChar 1<CR>", opts)
 -- keymap('n', '<A-h>', ":MoveHChar -1<CR>", opts)
 -- keymap('v', '<A-l>', ":MoveHBlock 1<CR>", opts)
