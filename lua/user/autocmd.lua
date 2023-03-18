@@ -33,13 +33,31 @@ api.nvim_create_autocmd(
   }
 )
 
--- Run SQL Commands
+-- Run SQL File
 api.nvim_create_autocmd(
   { "Filetype" },
   {
     pattern = { "sql" },
-    -- command = "nnoremap <silent><leader>R :!mycli -uroot -t university < %<CR>",
-    command = "nnoremap <silent><leader>R :lua require('user.functions').run_file('university')<CR>",
+    command = "nnoremap <silent><leader>rf :lua require('user.functions').run_file('university')<CR>",
+    group = formatter
+  }
+)
+
+-- Run SQL File
+api.nvim_create_autocmd(
+  { "Filetype" },
+  {
+    pattern = { "sql" },
+    command = "nnoremap <silent><leader>R :lua require('user.functions').run_paragraph('university')<CR>",
+    group = formatter
+  }
+)
+-- Run SQL Selection
+api.nvim_create_autocmd(
+  { "Filetype" },
+  {
+    pattern = { "sql" },
+    command = "vnoremap <silent><leader>R :lua require('user.functions').run_selection()<CR>",
     group = formatter
   }
 )

@@ -35,9 +35,28 @@ require("zen-mode").setup{
     -- - allow_remote_control socket-only
     -- - listen_on unix:/tmp/kitty
     kitty = {
-      enabled = false,
+      enabled = true,
       font = "+4", -- font size increment
     },
   },
   -- callback where you can add custom code when the Zen window opens
+  on_open = function(win)
+    vim.opt.wrap = true
+    vim.opt.linebreak = true
+    vim.opt.breakindent = true
+    vim.api.nvim_exec("map j gj",true)
+    vim.api.nvim_exec("map k gk",true)
+    vim.api.nvim_exec("unmap )",true)
+    vim.api.nvim_exec("unmap (",true)
+  end,
+  -- callback where you can add custom code when the Zen window closes
+  on_close = function()
+    vim.opt.wrap = false
+    vim.opt.linebreak = false
+    vim.opt.breakindent = false
+    vim.api.nvim_exec("unmap j",true)
+    vim.api.nvim_exec("unmap k",true)
+    vim.api.nvim_exec("map ) g_",true)
+    vim.api.nvim_exec("map ( ^",true)
+  end,
 }

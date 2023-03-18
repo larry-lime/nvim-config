@@ -115,6 +115,29 @@ function M.smart_quit()
   end
 end
 
+function M.run_paragraph()
+  local reg = '"'
+  local filetype = vim.bo.filetype
+  vim.cmd "normal! ma"
+  vim.cmd "normal! yip"
+  vim.cmd "normal! `a"
+  -- Add text in register to a variable
+  local text = vim.fn.getreg(reg)
+  local replace_notifs = false
+  local notify_options = {
+    title = filetype,
+    timeout = 5000, -- 1 minute
+    background_colour = "NotifyBackground",
+    top_down = true,
+  }
+  -- Run the text
+  local output = vim.fn.system('mycli -uroot -t university -e ' .. vim.fn.shellescape(text))
+  if replace_notifs then
+    require("notify").dismiss({ silent = true })
+  end
+  require("notify")(output, vim.log.levels.OFF, notify_options)
+end
+
 function M.run_selection()
   -- Get the current visual selection
   local start_line, start_col, end_line, end_col = vim.fn.getpos("'<")[2], vim.fn.getpos("'<")[3], vim.fn.getpos("'>")
@@ -123,8 +146,8 @@ function M.run_selection()
   lines[#lines] = string.sub(lines[#lines], 1, end_col - 1)
   lines[1] = string.sub(lines[1], start_col)
 
-  -- Join the lines into a single string without newlines
-  local text = table.concat(lines, " ")
+  -- Join the lines into a single string with newlines
+  local text = table.concat(lines, "\n")
 
   -- Copy the text to the specified register
   local reg = '"'
@@ -134,7 +157,7 @@ function M.run_selection()
   require("notify")(output, vim.log.levels.OFF,
     {
       title = "MySQL",
-      timeout = false,
+      timeout = 5000,
       background_colour = "NotifyBackground",
       top_down = true,
     })
@@ -149,7 +172,7 @@ function M.run_file(arg)
   local replace_notifs = false
   local notify_options = {
     title = filetype,
-    timeout = 60000, -- 1 minute
+    timeout = 5000, -- 1 minute
     background_colour = "NotifyBackground",
     top_down = true,
   }
