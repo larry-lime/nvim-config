@@ -6,7 +6,7 @@ local commands = api.nvim_create_augroup("commands", { clear = true })
 api.nvim_create_autocmd(
   { "Filetype" },
   {
-    pattern = { "lua", "c" },
+    pattern = { "lua", "c", "rust" },
     command = "nnoremap <leader>F <cmd>execute 'lua vim.lsp.buf.format {async = true}'<CR>",
     group = formatter
   }

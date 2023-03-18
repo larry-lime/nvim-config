@@ -149,7 +149,7 @@ function M.run_file(arg)
   local replace_notifs = false
   local notify_options = {
     title = filetype,
-    timeout = false,
+    timeout = 60000, -- 1 minute
     background_colour = "NotifyBackground",
     top_down = true,
   }
