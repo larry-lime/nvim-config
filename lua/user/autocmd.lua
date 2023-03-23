@@ -16,7 +16,7 @@ api.nvim_create_autocmd(
 api.nvim_create_autocmd(
   { "Filetype" },
   {
-    pattern = { "javascript", "typescript", "solidity", "yaml", "css", "scss" },
+    pattern = { "javascript", "typescript", "solidity", "yaml", "css", "scss", "html" },
     command = "nnoremap <silent><leader>F :silent !npx prettier --write %<CR>",
     group = formatter
   }
@@ -74,7 +74,11 @@ api.nvim_create_autocmd(
 -- Black
 api.nvim_create_autocmd(
   { "Filetype" },
-  { pattern = { "python" }, command = "nnoremap <silent><leader>F :silent !python3 -m black %<CR>", group = formatter }
+  {
+    pattern = { "python" },
+    command = "nnoremap <silent><leader>F :silent !python3 -m black %<CR>",
+    group = formatter
+  }
 )
 
 -- Run C

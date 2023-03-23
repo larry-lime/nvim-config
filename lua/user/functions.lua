@@ -115,6 +115,7 @@ function M.smart_quit()
   end
 end
 
+-- Set the database name for the specific buffer
 function M.run_paragraph()
   local reg = '"'
   local filetype = vim.bo.filetype
@@ -126,7 +127,7 @@ function M.run_paragraph()
   local replace_notifs = false
   local notify_options = {
     title = filetype,
-    timeout = 5000, -- 1 minute
+    timeout = false, -- 1 minute
     background_colour = "NotifyBackground",
     top_down = true,
   }

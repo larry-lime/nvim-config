@@ -151,6 +151,9 @@ nvimtree.setup {
     prefix = "[FILTER]: ",
     always_show_folders = true,
   },
+  notify = {
+    threshold = vim.log.levels.OFF,
+  },
   log = {
     enable = false,
     truncate = false,

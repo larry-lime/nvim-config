@@ -17,11 +17,7 @@ require("user.snippets")
 
 -- Default Plugin Configs
 require("Comment").setup()
--- require('lspconfig').sqls.setup {
---   on_attach = function(client, bufnr)
---     require('sqls').on_attach(client, bufnr)
---   end
--- }
+require("notify").setup({ fps = 1 })
 
 -- Custom Plugins Configs
 require("user.plug.gitsigns")
@@ -45,11 +41,6 @@ require("user.plug.colortils")
 require("user.plug.auto-session")
 require("user.plug.zen-mode")
 require("user.plug.bufferline")
--- require('lspconfig').sqls.setup{
---     on_attach = function(client, bufnr)
---         require('sqls').on_attach(client, bufnr)
---     end
--- }
 -- require("user.plug.noice")
 -- require("user.plug.harpoon")
 -- require("user.plug.alpha")
