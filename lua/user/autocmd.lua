@@ -22,6 +22,16 @@ api.nvim_create_autocmd(
   }
 )
 
+-- Markdown
+api.nvim_create_autocmd(
+  { "Filetype" },
+  {
+    pattern = { "markdown" },
+    command = "nnoremap <silent><leader>F :silent !mdformat %<CR>",
+    group = formatter
+  }
+)
+
 -- SQL
 api.nvim_create_autocmd(
   { "Filetype" },

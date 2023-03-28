@@ -101,7 +101,6 @@ return packer.startup(function(use)
   use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
   -- Lua
   use { "folke/zen-mode.nvim" }
-  -- use 'nanotee/sqls.nvim'
 
   -- Add ons
   use { 'stevearc/aerial.nvim' }
@@ -127,6 +126,7 @@ return packer.startup(function(use)
 
   -- Plugin Graveyard
   -- use { 'jubnzv/mdeval.nvim' }
+  -- use 'nanotee/sqls.nvim'
   -- use { "nacro90/numb.nvim" }
   -- use "stevearc/dressing.nvim"
   -- use {'karb94/neoscroll.nvim'}

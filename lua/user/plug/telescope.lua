@@ -88,10 +88,14 @@ keymap("n", "<leader>fi", ":Telescope current_buffer_fuzzy_find<CR>", opts)
 keymap("n", "<leader>cl", ":Telescope colorscheme<CR>", opts)
 keymap("n", "<leader>bl", ":Telescope buffers<CR>", opts)
 keymap("n", "<leader>rg", ":Telescope live_grep<CR>", opts)
+keymap("n", "<leader>rs", ":Telescope resume<CR>", opts)
 keymap("n", "<leader>jl", ":Telescope jumplist<CR>", opts)
 keymap("n", "<leader>mp", ":Telescope keymaps<CR>", opts)
 keymap("n", "<leader>sc", ":Telescope spell_suggest<CR>", opts)
 keymap("n", "<leader>hl", ":Telescope help_tags<CR>", opts)
+keymap("n", "<leader>gs", ":Telescope git_status<CR>", opts)
+
+-- Notes
 keymap("n", "<leader>td", ":lua require('telescope.builtin').grep_string({prompt_title='TODOs',search='TODO'})<CR>", opts)
 keymap("n", "<leader>fx", ":lua require('telescope.builtin').grep_string({prompt_title='FIXMEs',search='FIXME:'})<CR>",
   opts)
