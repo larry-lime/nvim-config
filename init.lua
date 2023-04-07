@@ -5,7 +5,8 @@
 -- /___/_/ /_/_/\__/
 
 -- General Configs
-require("user.options") require("user.plugins")
+require("user.options")
+require("user.plugins")
 require("user.keymaps")
 require("user.cmp")
 require("user.colors")
@@ -16,6 +17,7 @@ require("user.snippets")
 
 -- Default Plugin Configs
 require("Comment").setup()
+require("notify").setup({ fps = 1 })
 
 -- Custom Plugins Configs
 require("user.plug.gitsigns")
@@ -24,7 +26,6 @@ require("user.plug.nvim-tree")
 require("user.plug.lualine")
 require("user.plug.treesitter")
 require("user.plug.telescope")
-require('user.plug.toggleterm')
 require("user.plug.tabout")
 require("user.plug.blankline")
 require("user.plug.neozoom")
@@ -35,17 +36,17 @@ require("user.plug.aerial")
 require("user.plug.colorizer")
 require("user.plug.navic")
 require("user.plug.winbar")
-require("user.plug.spectre")
 require("user.plug.colortils")
-require("user.plug.bufferline")
-require("user.plug.harpoon")
 require("user.plug.auto-session")
 require("user.plug.zen-mode")
+require("user.plug.bufferline")
+-- require("user.plug.spectre")
 -- require("user.plug.noice")
-
+-- require("user.plug.harpoon")
 -- require("user.plug.alpha")
 -- require("user.plug.mdeval")
 -- require("user.plug.hop")
 -- require("user.plug.illuminate")
 -- require("user.plug.neorg")
 -- require("user.plug.tabnine")
+-- require('user.plug.toggleterm')

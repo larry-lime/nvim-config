@@ -9,23 +9,21 @@ if not status_ok_1 then
 end
 
 local servers = {
-  -- "cssls",
-  -- "cssmodules_ls",
-  -- "emmet_ls",
-  -- "html",
-  -- "jsonls",
-  -- "sqlls",
-  -- "solidity",
-  -- "lua_ls",
-  -- "tsserver",
-  -- "pyright",
-  -- "yamlls",
-  -- "texlab",
-  -- "eslint",
-  -- "bashls",
-  -- "clangd",
-  -- "sourcery",
-  -- "rust_analyzer",
+  "cssls",
+  "cssmodules_ls",
+  "emmet_ls",
+  "html",
+  "jsonls",
+  "solidity",
+  "lua_ls",
+  "tsserver",
+  "pyright",
+  "texlab",
+  "eslint",
+  "bashls",
+  "clangd",
+  "sourcery",
+  "rust_analyzer",
 }
 
 local settings = {
@@ -64,87 +62,148 @@ for _, server in pairs(servers) do
 
   -- Python
   if server.name == "pyright" then
-    local pyright_opts = require("user.lsp.settings.pyright")
+    local pyright_opts = {
+      settings = {
+        python = {
+          analysis = {
+            typeCheckingMode = "off",
+            autoSearchPaths = true,
+            diagnosticMode = "workspace",
+            useLibraryCodeForTypes = true
+          }
+        }
+      },
+    }
     opts = vim.tbl_deep_extend("force", pyright_opts, opts)
   end
 
   if server.name == "sourcery" then
-    local sourcery_opts = require("user.lsp.settings.sourcery")
+    local sourcery_opts = {
+      init_options = {
+        --- The Sourcery token for authenticating the user.
+        --- This is retrieved from the Sourcery website and must be
+        --- provided by each user. The extension must provide a
+        --- configuration option for the user to provide this value.
+        cmd = { 'sourcery', 'lsp' },
+        filetypes = { 'python' },
+        single_file_support = true,
+        token = 'user_t3_0QDCtej6yVfc3hdBu9eVkEVY7HcgL6J8IolTUZH_pb4zkavmHqWqOT5Y',
+        editor_version = 'vim',
+        extension_version = 'vim_lsp',
+      }
+    }
     opts = vim.tbl_deep_extend("force", sourcery_opts, opts)
   end
 
   -- Shell
   if server.name == "bashls" then
-    local bashls_opts = require("user.lsp.settings.bashls")
+    local bashls_opts = { filetypes = { "zsh", "sh" },
+    }
     opts = vim.tbl_deep_extend("force", bashls_opts, opts)
   end
 
   -- Lua
   if server.name == "lua_ls" then
-    local sumneko_lua_opts = require("user.lsp.settings.lua_ls")
+    local sumneko_lua_opts = {
+      settings = {
+        Lua = {
+          diagnostics = {
+            globals = { 'vim' }
+          }
+        }
+      }
+    }
     opts = vim.tbl_deep_extend("force", sumneko_lua_opts, opts)
   end
 
   -- Typescript & Javascript
-
   if server.name == "tsserver" then
-    local tsserver_opts = require("user.lsp.settings.tsserver")
+    local tsserver_opts = {
+      filetypes = {
+        "javascript",
+        "javascriptreact",
+        "javascript.jsx",
+        "typescript",
+        "typescriptreact",
+        "typescript.tsx",
+        -- "html"
+      }
+    }
     opts = vim.tbl_deep_extend("force", tsserver_opts, opts)
   end
 
   if server.name == "eslint" then
-    local eslint_opts = require("user.lsp.settings.eslint")
+    local eslint_opts = {
+      filtypes = {
+        "javascript",
+        "javascriptreact",
+        "javascript.jsx",
+        "typescript",
+        "typescriptreact",
+        "typescript.tsx",
+        "vue",
+        -- "html"
+      }
+    }
     opts = vim.tbl_deep_extend("force", eslint_opts, opts)
   end
 
   -- Solidity
   if server.name == "solc" then
-    local solc_opts = require("user.lsp.settings.solc")
+    local solc_opts = { cmd = { "solc", "--lsp", "--include-path", "../node_modules" } }
     opts = vim.tbl_deep_extend("force", solc_opts, opts)
   end
 
-  if server.name == "sqlls" then
-    local sqls_opts = require("user.lsp.settings.sqlls")
-    opts = vim.tbl_deep_extend("force", sqls_opts, opts)
-  end
+  -- if server.name == "sqlls" then
+  --   local sqls_opts = {}
+  --   opts = vim.tbl_deep_extend("force", sqls_opts, opts)
+  -- end
 
   if server.name == "solidity-ls" then
-    local solidity_ls_opts = require("user.lsp.settings.solidity_ls")
+    local solidity_ls_opts = {}
     opts = vim.tbl_deep_extend("force", solidity_ls_opts, opts)
   end
 
   if server.name == "solang" then
-    local solang_opts = require("user.lsp.settings.solang")
+    local solang_opts = {}
     opts = vim.tbl_deep_extend("force", solang_opts, opts)
   end
 
   -- Rust
   if server.name == "rust_analyzer" then
-    local rust_analyzer_opts = require("user.lsp.settings.rust_analyzer")
+    local rust_analyzer_opts = {}
     opts = vim.tbl_deep_extend("force", rust_analyzer_opts, opts)
   end
 
   -- HTML/CSS
   if server.name == "html" then
-    local html_opts = require("user.lsp.settings.html")
+    local html_opts = {
+      configurationSection = { "html" },
+      embeddedLanguages = {
+        css = true,
+        javascript = true
+      },
+      provideFormatter = true
+    }
+
     opts = vim.tbl_deep_extend("force", html_opts, opts)
   end
 
 
   if server.name == "cssls" then
-    local cssls_opts = require("user.lsp.settings.cssls")
+    local cssls_opts = {}
     opts = vim.tbl_deep_extend("force", cssls_opts, opts)
   end
 
   -- Latex
   if server.name == "texlab" then
-    local tex_opts = require("user.lsp.settings.texlab")
+    local tex_opts = {}
     opts = vim.tbl_deep_extend("force", tex_opts, opts)
   end
 
   -- Golang
   if server.name == "gopls" then
-    local gopls_opts = require("user.lsp.settings.gopls")
+    local gopls_opts = {}
     opts = vim.tbl_deep_extend("force", gopls_opts, opts)
   end
 

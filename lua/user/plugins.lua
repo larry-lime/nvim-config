@@ -44,8 +44,9 @@ return packer.startup(function(use)
   use { "nvim-treesitter/nvim-treesitter" }
 
   -- Colorschemes
-  use { "ful1e5/onedark.nvim" }
-  use { 'tanvirtin/monokai.nvim' }
+  use { "navarasu/onedark.nvim" }
+  -- use { 'tanvirtin/monokai.nvim' }
+  use 'shaunsingh/nord.nvim'
   use { "catppuccin/nvim", as = "catppuccin" }
   use { "ellisonleao/gruvbox.nvim" }
   use { "folke/tokyonight.nvim" }
@@ -57,7 +58,6 @@ return packer.startup(function(use)
   use { "numToStr/Comment.nvim" }
   use { "kyazdani42/nvim-tree.lua", requires = { "kyazdani42/nvim-web-devicons" } }
   use { "windwp/nvim-autopairs" }
-  use { "akinsho/toggleterm.nvim", tag = "v1.*" }
   use { 'fedepujol/move.nvim' }
   use { 'rmagatti/auto-session' }
 
@@ -65,13 +65,14 @@ return packer.startup(function(use)
   use { "williamboman/mason.nvim" }
   use { "williamboman/mason-lspconfig.nvim" }
   use { "neovim/nvim-lspconfig" }
-
+  use { "hrsh7th/cmp-nvim-lsp" }
+  use { "github/copilot.vim" }
   use {
     "SmiteshP/nvim-navic",
     requires = "neovim/nvim-lspconfig"
   }
-  use { "hrsh7th/cmp-nvim-lsp" }
-  use { "github/copilot.vim" }
+  -- use { 'codota/tabnine-nvim', run = "./dl_binaries.sh" }
+  -- use { 'nanotee/sqls.nvim' }
 
   -- CMP
   use { "hrsh7th/nvim-cmp" }
@@ -87,30 +88,26 @@ return packer.startup(function(use)
 
   -- Git
   use { "lewis6991/gitsigns.nvim" }
-  use { "tpope/vim-fugitive" }
 
   -- Telescope
   use { "nvim-telescope/telescope.nvim", requires = { { "nvim-lua/plenary.nvim" } } }
   use { "nvim-telescope/telescope-ui-select.nvim" }
-  use { "ThePrimeagen/harpoon" }
-  use { "ThePrimeagen/refactoring.nvim",
-    requires = { { "nvim-lua/plenary.nvim" }, { "nvim-treesitter/nvim-treesitter" } } }
-
+  use { "max397574/colortils.nvim" }
   use { 'norcalli/nvim-colorizer.lua' }
-  -- Packer
-  -- use({
-  --   "folke/noice.nvim",
-  --   requires = {
-  --     "MunifTanjim/nui.nvim",
-  --     "rcarriga/nvim-notify",
-  --   }
-  -- })
+
+
+  -- Debugger
+  use { "mfussenegger/nvim-dap" }
+  use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
+  -- Lua
+  use { "folke/zen-mode.nvim" }
+
+  -- Add ons
   use { 'stevearc/aerial.nvim' }
   use { "windwp/nvim-spectre" }
   use { 'abecodes/tabout.nvim' }
   use { "nyngwang/NeoZoom.lua" }
   use { "lukas-reineke/indent-blankline.nvim" }
-  use { "max397574/colortils.nvim" }
   use { "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" }
   use({
     "iamcco/markdown-preview.nvim",
@@ -118,20 +115,6 @@ return packer.startup(function(use)
     setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
     ft = { "markdown" },
   })
-
-  -- Debugger
-  use { "mfussenegger/nvim-dap" }
-  use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
-  -- Lua
-  use { "folke/zen-mode.nvim" }
-  -- use { "mfussenegger/nvim-dap-python" }
-  -- use { "mxsdev/nvim-dap-vscode-js", requires = { "mfussenegger/nvim-dap" } }
-  -- use { 'phaazon/hop.nvim', branch = 'v2' }
-  -- use({ "Pocco81/auto-save.nvim" })
-  -- use { 'lervag/vimtex' }
-
-  -- Plugin Graveyard
-  -- use { 'goolord/alpha-nvim' }
   use {
     'andymass/vim-matchup',
     setup = function()
@@ -139,7 +122,11 @@ return packer.startup(function(use)
       vim.g.matchup_matchparen_offscreen = { method = "popup" }
     end
   }
+  use { 'rcarriga/nvim-notify' }
+
+  -- Plugin Graveyard
   -- use { 'jubnzv/mdeval.nvim' }
+  -- use 'nanotee/sqls.nvim'
   -- use { "nacro90/numb.nvim" }
   -- use "stevearc/dressing.nvim"
   -- use {'karb94/neoscroll.nvim'}
@@ -149,6 +136,24 @@ return packer.startup(function(use)
   -- use { 'simrat39/symbols-outline.nvim' }
   -- use { "williamboman/nvim-lsp-installer" }
   -- use { "RRethy/vim-illuminate" }
+  -- use { "tpope/vim-fugitive" }
+  -- use { "akinsho/toggleterm.nvim", tag = "v1.*" }
+  -- use { 'goolord/alpha-nvim' }
+  -- use { "mfussenegger/nvim-dap-python" }
+  -- use { "mxsdev/nvim-dap-vscode-js", requires = { "mfussenegger/nvim-dap" } }
+  -- use { 'phaazon/hop.nvim', branch = 'v2' }
+  -- use({ "Pocco81/auto-save.nvim" })
+  -- use { 'lervag/vimtex' }
+  -- use { "ThePrimeagen/harpoon" }
+  -- use({
+  --   "folke/noice.nvim",
+  --   requires = {
+  --     "MunifTanjim/nui.nvim",
+  --     "rcarriga/nvim-notify",
+  --   }
+  -- })
+  -- use { "ThePrimeagen/refactoring.nvim",
+  --   requires = { { "nvim-lua/plenary.nvim" }, { "nvim-treesitter/nvim-treesitter" } } }
 
   if PACKER_BOOTSTRAP then
     require("packer").sync()

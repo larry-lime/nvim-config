@@ -52,7 +52,7 @@ end
 
 local function lsp_commands()
   local command = vim.cmd
-  command [[ command! Format execute 'lua vim.lsp.buf.format {async = true}' ]]
+  -- command [[ command! Format execute 'lua vim.lsp.buf.format {async = true}' ]]
   command [[ command! LspServerConfig execute 'vert h lspconfig-server-configurations' ]]
 end
 

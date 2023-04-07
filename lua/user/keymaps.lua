@@ -41,7 +41,7 @@ keymap("n", "<C-C>", '"+yiw', opts)
 keymap("n", "<leader>A", "GVgg", opts)
 
 -- Reload File
-keymap("n", "<leader>R", ":e!<CR>", opts)
+-- keymap("n", "<leader>R", ":e!<CR>", opts)
 
 -- Buffers
 keymap("n", "<leader>q", ":qa<CR>", opts)
@@ -58,7 +58,7 @@ keymap("n", "<C-t>", ":tabnew<CR>", opts)
 keymap("n", "<C-w>", ":tabclose<CR>", opts)
 
 -- Custom Focus Modes
-keymap("n", "<leader>Z", "<cmd>ZenMode<CR>", opts)
+keymap("n", "<leader>z", "<cmd>ZenMode<CR>", opts)
 -- keymap("n", "<leader>H", "<cmd>call FocusUpNumToggle()<CR>", opts)
 
 -- Backspace
@@ -128,6 +128,9 @@ keymap('n', '<A-Down>', ":MoveLine(1)<CR>", opts)
 keymap('n', '<A-Up>', ":MoveLine(-1)<CR>", opts)
 keymap('v', '<A-Down>', ":MoveBlock(1)<CR>", opts)
 keymap('v', '<A-Up>', ":MoveBlock(-1)<CR>", opts)
+
+-- Notify
+keymap('n', '<leader>D', ":lua require('notify').dismiss({ silent = true })<CR>", opts)
 
 -- keymap('n', '<A-l>', ":MoveHChar 1<CR>", opts)
 -- keymap('n', '<A-h>', ":MoveHChar -1<CR>", opts)

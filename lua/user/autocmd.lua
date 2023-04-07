@@ -6,7 +6,7 @@ local commands = api.nvim_create_augroup("commands", { clear = true })
 api.nvim_create_autocmd(
   { "Filetype" },
   {
-    pattern = { "*" },
+    pattern = { "lua", "c", "rust" },
     command = "nnoremap <leader>F <cmd>execute 'lua vim.lsp.buf.format {async = true}'<CR>",
     group = formatter
   }
@@ -16,8 +16,67 @@ api.nvim_create_autocmd(
 api.nvim_create_autocmd(
   { "Filetype" },
   {
-    pattern = { "javascript", "typescript", "solidity", "yaml", "css", "scss" },
+    pattern = { "javascript", "typescript", "solidity", "yaml", "css", "scss", "html" },
     command = "nnoremap <silent><leader>F :silent !npx prettier --write %<CR>",
+    group = formatter
+  }
+)
+
+-- Markdown
+api.nvim_create_autocmd(
+  { "Filetype" },
+  {
+    pattern = { "markdown" },
+    command = "nnoremap <silent><leader>F :silent !mdformat %<CR>",
+    group = formatter
+  }
+)
+
+-- SQL
+api.nvim_create_autocmd(
+  { "Filetype" },
+  {
+    pattern = { "sql" },
+    command =
+    "nnoremap <silent><leader>F :silent !sql-formatter --fix % -c /Users/lawrencelim/.sql-formatter-config.json<CR>",
+    group = formatter
+  }
+)
+
+-- Run SQL File
+api.nvim_create_autocmd(
+  { "Filetype" },
+  {
+    pattern = { "sql" },
+    command = "nnoremap <silent><leader>rf :lua require('user.functions').run_file('university')<CR>",
+    group = formatter
+  }
+)
+
+-- Run SQL File
+api.nvim_create_autocmd(
+  { "Filetype" },
+  {
+    pattern = { "sql" },
+    command = "nnoremap <silent><leader>R :lua require('user.functions').run_paragraph('university')<CR>",
+    group = formatter
+  }
+)
+-- Run SQL Selection
+api.nvim_create_autocmd(
+  { "Filetype" },
+  {
+    pattern = { "sql" },
+    command = "vnoremap <silent><leader>R :lua require('user.functions').run_selection()<CR>",
+    group = formatter
+  }
+)
+-- Run SQL Selection
+api.nvim_create_autocmd(
+  { "Filetype" },
+  {
+    pattern = { "sql" },
+    command = "vnoremap <silent><leader>R :lua require('user.functions').run_selection()<CR>",
     group = formatter
   }
 )
@@ -25,7 +84,32 @@ api.nvim_create_autocmd(
 -- Black
 api.nvim_create_autocmd(
   { "Filetype" },
-  { pattern = { "python" }, command = "nnoremap <silent><leader>F :silent !python3 -m black %<CR>", group = formatter }
+  {
+    pattern = { "python" },
+    command = "nnoremap <silent><leader>F :silent !python3 -m black %<CR>",
+    group = formatter
+  }
+)
+
+-- Run C
+api.nvim_create_autocmd(
+  { "Filetype" },
+  {
+    pattern = { "c", "cpp" },
+    -- command = "nnoremap <silent><leader>R :!gcc -Wall % && ./a.out<CR>",
+    command = "nnoremap <silent><leader>R :lua require('user.functions').run_file()<CR>",
+    group = formatter
+  }
+)
+
+-- Run Python Commands
+api.nvim_create_autocmd(
+  { "Filetype" },
+  {
+    pattern = { "python" },
+    command = "nnoremap <silent><leader>R :lua require('user.functions').run_file()<CR>",
+    group = formatter
+  }
 )
 
 -- Autosave
