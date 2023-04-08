@@ -27,7 +27,7 @@ api.nvim_create_autocmd(
   { "Filetype" },
   {
     pattern = { "markdown" },
-    command = "nnoremap <silent><leader>F :silent !mdformat %<CR>",
+    command = "nnoremap <silent><leader>F :silent !prettier --write %<CR>",
     group = formatter
   }
 )
@@ -208,6 +208,15 @@ api.nvim_create_autocmd(
   {
     pattern = { "*.conf" },
     command = "set filetype=tmux",
+    group = commands
+  }
+)
+
+api.nvim_create_autocmd(
+  {"Filetype"},
+  {
+    pattern = { "vimwiki" },
+    command = "set filetype=markdown",
     group = commands
   }
 )

@@ -45,7 +45,7 @@ return packer.startup(function(use)
 
   -- Colorschemes
   use { "navarasu/onedark.nvim" }
-  -- use { 'tanvirtin/monokai.nvim' }
+  use { 'tanvirtin/monokai.nvim' }
   use 'shaunsingh/nord.nvim'
   use { "catppuccin/nvim", as = "catppuccin" }
   use { "ellisonleao/gruvbox.nvim" }
@@ -71,8 +71,6 @@ return packer.startup(function(use)
     "SmiteshP/nvim-navic",
     requires = "neovim/nvim-lspconfig"
   }
-  -- use { 'codota/tabnine-nvim', run = "./dl_binaries.sh" }
-  -- use { 'nanotee/sqls.nvim' }
 
   -- CMP
   use { "hrsh7th/nvim-cmp" }
@@ -125,6 +123,8 @@ return packer.startup(function(use)
   use { 'rcarriga/nvim-notify' }
 
   -- Plugin Graveyard
+  -- use { 'codota/tabnine-nvim', run = "./dl_binaries.sh" }
+  -- use { 'nanotee/sqls.nvim' }
   -- use { 'jubnzv/mdeval.nvim' }
   -- use 'nanotee/sqls.nvim'
   -- use { "nacro90/numb.nvim" }
@@ -132,7 +132,7 @@ return packer.startup(function(use)
   -- use {'karb94/neoscroll.nvim'}
   -- use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
   -- use { "nvim-neorg/neorg", requires = "wbthomason/packer.nvim" }
-  -- use { "vimwiki/vimwiki" }
+  use { "vimwiki/vimwiki" }
   -- use { 'simrat39/symbols-outline.nvim' }
   -- use { "williamboman/nvim-lsp-installer" }
   -- use { "RRethy/vim-illuminate" }
