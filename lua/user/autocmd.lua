@@ -213,6 +213,15 @@ api.nvim_create_autocmd(
 )
 
 api.nvim_create_autocmd(
+  {"Filetype"},
+  {
+    pattern = { "vimwiki" },
+    command = "set filetype=markdown",
+    group = commands
+  }
+)
+
+api.nvim_create_autocmd(
   { "VimResized" },
   {
     pattern = { "*" },

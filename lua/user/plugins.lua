@@ -45,7 +45,7 @@ return packer.startup(function(use)
 
   -- Colorschemes
   use { "navarasu/onedark.nvim" }
-  -- use { 'tanvirtin/monokai.nvim' }
+  use { 'tanvirtin/monokai.nvim' }
   use 'shaunsingh/nord.nvim'
   use { "catppuccin/nvim", as = "catppuccin" }
   use { "ellisonleao/gruvbox.nvim" }
@@ -71,8 +71,6 @@ return packer.startup(function(use)
     "SmiteshP/nvim-navic",
     requires = "neovim/nvim-lspconfig"
   }
-  -- use { 'codota/tabnine-nvim', run = "./dl_binaries.sh" }
-  -- use { 'nanotee/sqls.nvim' }
 
   -- CMP
   use { "hrsh7th/nvim-cmp" }
@@ -127,6 +125,8 @@ return packer.startup(function(use)
   use { "vimwiki/vimwiki" }
 
   -- Plugin Graveyard
+  -- use { 'codota/tabnine-nvim', run = "./dl_binaries.sh" }
+  -- use { 'nanotee/sqls.nvim' }
   -- use { 'jubnzv/mdeval.nvim' }
   -- use 'nanotee/sqls.nvim'
   -- use { "nacro90/numb.nvim" }
