@@ -123,6 +123,8 @@ return packer.startup(function(use)
     end
   }
   use { 'rcarriga/nvim-notify' }
+  use { "tpope/vim-fugitive" }
+  use { "vimwiki/vimwiki" }
 
   -- Plugin Graveyard
   -- use { 'jubnzv/mdeval.nvim' }
@@ -132,11 +134,9 @@ return packer.startup(function(use)
   -- use {'karb94/neoscroll.nvim'}
   -- use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
   -- use { "nvim-neorg/neorg", requires = "wbthomason/packer.nvim" }
-  -- use { "vimwiki/vimwiki" }
   -- use { 'simrat39/symbols-outline.nvim' }
   -- use { "williamboman/nvim-lsp-installer" }
   -- use { "RRethy/vim-illuminate" }
-  -- use { "tpope/vim-fugitive" }
   -- use { "akinsho/toggleterm.nvim", tag = "v1.*" }
   -- use { 'goolord/alpha-nvim' }
   -- use { "mfussenegger/nvim-dap-python" }
