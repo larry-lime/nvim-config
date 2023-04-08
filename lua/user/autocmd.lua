@@ -27,7 +27,7 @@ api.nvim_create_autocmd(
   { "Filetype" },
   {
     pattern = { "markdown" },
-    command = "nnoremap <silent><leader>F :silent !mdformat %<CR>",
+    command = "nnoremap <silent><leader>F :silent !prettier --write %<CR>",
     group = formatter
   }
 )
