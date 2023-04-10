@@ -16,7 +16,7 @@ api.nvim_create_autocmd(
 api.nvim_create_autocmd(
   { "Filetype" },
   {
-    pattern = { "javascript", "typescript", "solidity", "yaml", "css", "scss", "html" },
+    pattern = { "javascript", "typescript", "solidity", "yaml", "css", "scss", "html", "json" },
     command = "nnoremap <silent><leader>F :silent !npx prettier --write %<CR>",
     group = formatter
   }
@@ -213,7 +213,7 @@ api.nvim_create_autocmd(
 )
 
 api.nvim_create_autocmd(
-  {"Filetype"},
+  { "Filetype" },
   {
     pattern = { "vimwiki" },
     command = "set filetype=markdown",
