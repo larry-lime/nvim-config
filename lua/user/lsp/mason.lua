@@ -148,37 +148,18 @@ for _, server in pairs(servers) do
     opts = vim.tbl_deep_extend("force", eslint_opts, opts)
   end
 
-  -- Solidity
-  if server.name == "solc" then
-    local solc_opts = { cmd = { "solc", "--lsp", "--include-path", "../node_modules" } }
-    opts = vim.tbl_deep_extend("force", solc_opts, opts)
-  end
-
-
-  if server.name == "solidity-ls" then
-    local solidity_ls_opts = {}
-    opts = vim.tbl_deep_extend("force", solidity_ls_opts, opts)
-  end
-
-  if server.name == "solc" then
-    local solc = {}
-    opts = vim.tbl_deep_extend("force", solc, opts)
-  end
-
-  if server.name == "solidity" then
-    local solidity_opts = {}
-    opts = vim.tbl_deep_extend("force", solidity_opts, opts)
-  end
-
-  if server.name == "solang" then
-    local solang_opts = {}
-    opts = vim.tbl_deep_extend("force", solang_opts, opts)
-  end
+  require 'lspconfig'.solidity.setup { settings = { solidity = { remapping = { ["forge-std/"] = 'lib/forge-std/src/' } } } }
 
   -- Rust
   if server.name == "rust_analyzer" then
     local rust_analyzer_opts = {}
     opts = vim.tbl_deep_extend("force", rust_analyzer_opts, opts)
+  end
+
+  -- Solidity
+  if server.name == "solidity" then
+    local solidity_opts = { { settings = { solidity = { remapping = { ["forge-std/"] = 'lib/forge-std/src/' } } } } }
+    opts = vim.tbl_deep_extend("force", solidity_opts, opts)
   end
 
   -- HTML/CSS
