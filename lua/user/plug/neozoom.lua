@@ -45,4 +45,4 @@ neozoom.setup { -- use the defaults or UNCOMMENT and change any one to overwrite
 local opts = { noremap = true, silent = true }
 local keymap = vim.api.nvim_set_keymap
 
-keymap('n', '<leader>Z', ":NeoZoomToggle<CR>", opts)
+keymap('n', '<leader>z', ":NeoZoomToggle<CR>", opts)

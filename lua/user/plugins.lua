@@ -102,6 +102,7 @@ return packer.startup(function(use)
 
   -- Add ons
   use { 'stevearc/aerial.nvim' }
+  use { 'simrat39/symbols-outline.nvim' }
   use { "windwp/nvim-spectre" }
   use { 'abecodes/tabout.nvim' }
   use { "nyngwang/NeoZoom.lua" }
@@ -119,6 +120,10 @@ return packer.startup(function(use)
       -- may set any options here
       vim.g.matchup_matchparen_offscreen = { method = "popup" }
     end
+  }
+  use {
+    "folke/todo-comments.nvim",
+    requires = "nvim-lua/plenary.nvim",
   }
   use { 'rcarriga/nvim-notify' }
 

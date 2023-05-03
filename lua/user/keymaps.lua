@@ -58,7 +58,7 @@ keymap("n", "<C-t>", ":tabnew<CR>", opts)
 keymap("n", "<C-w>", ":tabclose<CR>", opts)
 
 -- Custom Focus Modes
-keymap("n", "<leader>z", "<cmd>ZenMode<CR>", opts)
+keymap("n", "<leader>Z", "<cmd>ZenMode<CR>", opts)
 -- keymap("n", "<leader>H", "<cmd>call FocusUpNumToggle()<CR>", opts)
 
 -- Backspace

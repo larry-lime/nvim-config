@@ -132,7 +132,7 @@ function M.run_paragraph()
     top_down = true,
   }
   -- Run the text
-  local output = vim.fn.system('mycli -uroot -t university -e ' .. vim.fn.shellescape(text))
+  local output = vim.fn.system('mycli -uroot -t jika_deliverable -e ' .. vim.fn.shellescape(text))
   if replace_notifs then
     require("notify").dismiss({ silent = true })
   end
@@ -150,11 +150,10 @@ function M.run_selection()
   -- Join the lines into a single string with newlines
   local text = table.concat(lines, "\n")
 
-  -- Copy the text to the specified register
-  local reg = '"'
   vim.fn.setreg(reg, text, 'v')
 
-  local output = vim.fn.system('mycli -uroot -t university -e ' .. vim.fn.shellescape(text))
+  local output = vim.fn.system('mycli -uroot -t jika_deliverable -e ' .. vim.fn.shellescape(text))
+  -- Use string interpolation o 
   require("notify")(output, vim.log.levels.OFF,
     {
       title = "MySQL",

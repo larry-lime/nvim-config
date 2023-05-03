@@ -16,8 +16,18 @@ api.nvim_create_autocmd(
 api.nvim_create_autocmd(
   { "Filetype" },
   {
-    pattern = { "javascript", "typescript", "solidity", "yaml", "css", "scss", "html" },
+    pattern = { "javascript", "typescript", "solidity", "yaml", "css", "scss"},
     command = "nnoremap <silent><leader>F :silent !npx prettier --write %<CR>",
+    group = formatter
+  }
+)
+
+-- Djlint
+api.nvim_create_autocmd(
+  { "Filetype" },
+  {
+    pattern = { "html", "htmldjango" },
+    command = "nnoremap <silent><leader>F :silent !djlint % --reformat<CR>",
     group = formatter
   }
 )
@@ -48,7 +58,7 @@ api.nvim_create_autocmd(
   { "Filetype" },
   {
     pattern = { "sql" },
-    command = "nnoremap <silent><leader>rf :lua require('user.functions').run_file('university')<CR>",
+    command = "nnoremap <silent><leader>rf :lua require('user.functions').run_file('jika_deliverable')<CR>",
     group = formatter
   }
 )
@@ -58,7 +68,7 @@ api.nvim_create_autocmd(
   { "Filetype" },
   {
     pattern = { "sql" },
-    command = "nnoremap <silent><leader>R :lua require('user.functions').run_paragraph('university')<CR>",
+    command = "nnoremap <silent><leader>R :lua require('user.functions').run_paragraph('jika_deliverable')<CR>",
     group = formatter
   }
 )
