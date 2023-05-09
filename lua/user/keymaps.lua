@@ -56,6 +56,8 @@ keymap("n", "<leader>x", ":q<CR>", opts)
 -- Tabs
 keymap("n", "<C-t>", ":tabnew<CR>", opts)
 keymap("n", "<C-w>", ":tabclose<CR>", opts)
+keymap("n", "<C-Tab>", ":tabNext<CR>", opts)
+keymap("n", "<C-Tab>", ":tabNext<CR>", opts)
 
 -- Custom Focus Modes
 keymap("n", "<leader>Z", "<cmd>ZenMode<CR>", opts)
@@ -132,6 +134,7 @@ keymap('v', '<A-Up>', ":MoveBlock(-1)<CR>", opts)
 -- Notify
 keymap('n', '<leader>D', ":lua require('notify').dismiss({ silent = true })<CR>", opts)
 
+-- Harpoon
 keymap('n', '<leader>a', ":lua require('harpoon.mark').add_file()<CR>", opts)
 keymap('n', '<leader>1', ":lua require('harpoon.ui').nav_file(1)<CR>", opts)
 keymap('n', '<leader>2', ":lua require('harpoon.ui').nav_file(2)<CR>", opts)

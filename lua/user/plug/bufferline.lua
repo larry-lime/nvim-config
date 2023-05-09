@@ -8,6 +8,7 @@ require("bufferline").setup {
       icon = '▎', -- this should be omitted if indicator style is not 'icon'
       style = 'icon'
     },
+    truncate_names = false, -- whether or not tab names should be truncated
     offsets = {
       {
         filetype = "NvimTree",
@@ -16,6 +17,6 @@ require("bufferline").setup {
         separator = true
       }
     },
-    separator_style = "thin" --[[ "slant" | "thick" | "thin" | { 'any', 'any' }, ]]
+    separator_style = "thin", --[[ "slant" | "thick" | "thin" | { 'any', 'any' }, ]]
   },
 }

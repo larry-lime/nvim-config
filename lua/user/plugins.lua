@@ -66,6 +66,7 @@ return packer.startup(function(use)
   use { "williamboman/mason-lspconfig.nvim" }
   use { "neovim/nvim-lspconfig" }
   use { "hrsh7th/cmp-nvim-lsp" }
+  -- TODO: Update this to copilot lua
   use { "github/copilot.vim" }
   use {
     "SmiteshP/nvim-navic",
