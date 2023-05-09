@@ -17,7 +17,9 @@ require("user.snippets")
 
 -- Default Plugin Configs
 require("Comment").setup()
+require("Comment").setup()
 require("notify").setup({ fps = 1 })
+require("scope").setup()
 
 -- Custom Plugins Configs
 require("user.plug.gitsigns")

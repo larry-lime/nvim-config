@@ -112,16 +112,6 @@ api.nvim_create_autocmd(
   }
 )
 
--- Run Python Commands
-api.nvim_create_autocmd(
-  { "Filetype" },
-  {
-    pattern = { "python" },
-    command = "nnoremap <silent><leader>R :lua require('user.functions').run_file()<CR>",
-    group = formatter
-  }
-)
-
 -- Autosave
 api.nvim_create_autocmd(
   { "InsertLeave", "TextChanged" },

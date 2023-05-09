@@ -4,7 +4,7 @@
 -- / /___/ /_/ / / /_/ / /  (__  )
 -- \____/\____/_/\____/_/  /____/
 
-local colorscheme = "tokyonight" -- onedark, gruvbox, tokyonight, catppuccin
+local colorscheme = "catppuccin" -- onedark, gruvbox, tokyonight, catppuccin
 
 if colorscheme == "catppuccin" then
   vim.g.catppuccin_flavour = "macchiato" -- latte, frappe, macchiato, mocha
@@ -40,6 +40,15 @@ end
 
 if colorscheme == "monokai" then
   require('monokai').setup { palette = require('monokai').pro }
+end
+
+if colorscheme == "nord" then
+  vim.g.nord_contrast = true
+  vim.g.nord_borders = false
+  vim.g.nord_disable_background = false
+  vim.g.nord_italic = false
+  vim.g.nord_uniform_diff_background = true
+  vim.g.nord_bold = false
 end
 
 if colorscheme == "gruvbox" then

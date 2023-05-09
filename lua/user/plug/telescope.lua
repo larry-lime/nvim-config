@@ -94,6 +94,7 @@ keymap("n", "<leader>mp", ":Telescope keymaps<CR>", opts)
 keymap("n", "<leader>sc", ":Telescope spell_suggest<CR>", opts)
 keymap("n", "<leader>hl", ":Telescope help_tags<CR>", opts)
 keymap("n", "<leader>gs", ":Telescope git_status<CR>", opts)
+keymap("n", "<leader>ts", ":Telescope treesitter<CR>", opts)
 
 -- Notes
 -- keymap("n", "<leader>td", ":lua require('telescope.builtin').grep_string({prompt_title='TODOs',search='TODO'})<CR>", opts)

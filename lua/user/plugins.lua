@@ -101,6 +101,7 @@ return packer.startup(function(use)
   use { "folke/zen-mode.nvim" }
 
   -- Add ons
+  use { "tiagovla/scope.nvim" }
   use { 'stevearc/aerial.nvim' }
   use { 'simrat39/symbols-outline.nvim' }
   use { "windwp/nvim-spectre" }
@@ -149,7 +150,7 @@ return packer.startup(function(use)
   -- use { 'phaazon/hop.nvim', branch = 'v2' }
   -- use({ "Pocco81/auto-save.nvim" })
   -- use { 'lervag/vimtex' }
-  -- use { "ThePrimeagen/harpoon" }
+  use { "ThePrimeagen/harpoon" }
   -- use({
   --   "folke/noice.nvim",
   --   requires = {

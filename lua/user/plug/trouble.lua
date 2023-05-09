@@ -8,4 +8,4 @@ trouble.setup()
 local opts = { noremap = true, silent = true }
 local keymap = vim.api.nvim_set_keymap
 
-keymap('n', '<leader>E', ":Trouble<CR>", opts)
+keymap('n', '<leader>E', ":Trouble workspace_diagnostics<CR>", opts)
