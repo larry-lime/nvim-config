@@ -128,6 +128,7 @@ return packer.startup(function(use)
     requires = "nvim-lua/plenary.nvim",
   }
   use { 'rcarriga/nvim-notify' }
+  use { "vimwiki/vimwiki" }
 
   -- Plugin Graveyard
   -- use { 'codota/tabnine-nvim', run = "./dl_binaries.sh" }
@@ -139,7 +140,6 @@ return packer.startup(function(use)
   -- use {'karb94/neoscroll.nvim'}
   -- use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
   -- use { "nvim-neorg/neorg", requires = "wbthomason/packer.nvim" }
-  use { "vimwiki/vimwiki" }
   -- use { 'simrat39/symbols-outline.nvim' }
   -- use { "williamboman/nvim-lsp-installer" }
   -- use { "RRethy/vim-illuminate" }
