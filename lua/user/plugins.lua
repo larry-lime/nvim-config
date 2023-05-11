@@ -39,6 +39,7 @@ packer.init {
 return packer.startup(function(use)
   -- Core Plugins
   use { "wbthomason/packer.nvim" }
+  use { 'jose-elias-alvarez/null-ls.nvim' }
   use { "nvim-lua/popup.nvim" }
   use { "nvim-lua/plenary.nvim" }
   use { "nvim-treesitter/nvim-treesitter" }

@@ -61,21 +61,10 @@ for _, server in pairs(servers) do
   server = vim.split(server, "@")[1]
 
   -- Python
-  if server.name == "pyright" then
-    local pyright_opts = {
-      -- settings = {
-      --   python = {
-      --     analysis = {
-      --       typeCheckingMode = "off",
-      --       autoSearchPaths = true,
-      --       diagnosticMode = "workspace",
-      --       useLibraryCodeForTypes = true
-      --     }
-      --   }
-      -- },
-    }
-    opts = vim.tbl_deep_extend("force", pyright_opts, opts)
-  end
+  -- if server.name == "pyright" then
+  --   local pyright_opts = {}
+  --   opts = vim.tbl_deep_extend("force", pyright_opts, opts)
+  -- end
 
   if server.name == "sourcery" then
     local sourcery_opts = {
