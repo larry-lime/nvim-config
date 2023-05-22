@@ -42,7 +42,7 @@ return packer.startup(function(use)
   use { 'jose-elias-alvarez/null-ls.nvim' }
   use { "nvim-lua/popup.nvim" }
   use { "nvim-lua/plenary.nvim" }
-  -- use { "nvim-treesitter/nvim-treesitter" }
+  use { "nvim-treesitter/nvim-treesitter" }
 
   -- Colorschemes
   use { "navarasu/onedark.nvim" }
