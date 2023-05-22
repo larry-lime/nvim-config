@@ -93,11 +93,12 @@ keymap("n", "<leader>jl", ":Telescope jumplist<CR>", opts)
 keymap("n", "<leader>mp", ":Telescope keymaps<CR>", opts)
 keymap("n", "<leader>sc", ":Telescope spell_suggest<CR>", opts)
 keymap("n", "<leader>hl", ":Telescope help_tags<CR>", opts)
--- keymap("n", "<leader>gs", ":Telescope git_status<CR>", opts)
+keymap("n", "<leader>gs", ":Telescope git_status<CR>", opts)
+keymap("n", "<leader>ts", ":Telescope treesitter<CR>", opts)
 
 -- Notes
-keymap("n", "<leader>td", ":lua require('telescope.builtin').grep_string({prompt_title='TODOs',search='TODO'})<CR>", opts)
-keymap("n", "<leader>fx", ":lua require('telescope.builtin').grep_string({prompt_title='FIXMEs',search='FIXME:'})<CR>",
-  opts)
-keymap("n", "<leader>ne", ":lua require('telescope.builtin').grep_string({prompt_title='NOTEs',search='NOTE:'})<CR>",
-  opts)
+-- keymap("n", "<leader>td", ":lua require('telescope.builtin').grep_string({prompt_title='TODOs',search='TODO'})<CR>", opts)
+-- keymap("n", "<leader>fx", ":lua require('telescope.builtin').grep_string({prompt_title='FIXMEs',search='FIXME:'})<CR>",
+--   opts)
+-- keymap("n", "<leader>ne", ":lua require('telescope.builtin').grep_string({prompt_title='NOTEs',search='NOTE:'})<CR>",
+--   opts)

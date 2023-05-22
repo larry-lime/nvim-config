@@ -98,8 +98,8 @@ cmp.setup {
       i = cmp.mapping.abort(),
       c = cmp.mapping.close(),
     },
-    -- Accept currently selected item. If none selected, `select` first item.
-    -- Set `select` to `false` to only confirm explicitly selected items.
+    ['<C-k>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-j>'] = cmp.mapping.scroll_docs(4),
     ["<CR>"] = cmp.mapping.confirm { select = true },
     ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
@@ -119,12 +119,12 @@ cmp.setup {
       end
     end, { "i", "s", }
     ),
-    ["<A-n>"] = cmp.mapping(function()
+    ["<C-n>"] = cmp.mapping(function()
       if luasnip.jumpable(1) then luasnip.jump(1) end
     end
     ),
-    ["<A-p>"] = cmp.mapping(function()
-      if luasnip.jumpable( -1) then luasnip.jump( -1) end
+    ["<C-p>"] = cmp.mapping(function()
+      if luasnip.jumpable(-1) then luasnip.jump(-1) end
     end
     )
   },
@@ -145,15 +145,15 @@ cmp.setup {
       -- end
 
       vim_item.menu = ({
-            nvim_lua = "[NVIM LUA]",
-            nvim_lsp = "[LSP]",
-            luasnip = "[Snippet]",
-            buffer = "[Buffer]",
-            path = "[Path]",
-            -- copilot = "[COPILOT]",
-            -- neorg = "[NEORG]",
-            -- cmp_tabnine = "[TN]",
-          })[entry.source.name]
+        nvim_lua = "[NVIM LUA]",
+        nvim_lsp = "[LSP]",
+        luasnip = "[Snippet]",
+        buffer = "[Buffer]",
+        path = "[Path]",
+        -- copilot = "[COPILOT]",
+        -- neorg = "[NEORG]",
+        -- cmp_tabnine = "[TN]",
+      })[entry.source.name]
       return vim_item
     end,
   },

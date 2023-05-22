@@ -39,6 +39,7 @@ packer.init {
 return packer.startup(function(use)
   -- Core Plugins
   use { "wbthomason/packer.nvim" }
+  use { 'jose-elias-alvarez/null-ls.nvim' }
   use { "nvim-lua/popup.nvim" }
   use { "nvim-lua/plenary.nvim" }
   use { "nvim-treesitter/nvim-treesitter" }
@@ -66,6 +67,7 @@ return packer.startup(function(use)
   use { "williamboman/mason-lspconfig.nvim" }
   use { "neovim/nvim-lspconfig" }
   use { "hrsh7th/cmp-nvim-lsp" }
+  -- TODO: Update this to copilot lua
   use { "github/copilot.vim" }
   use {
     "SmiteshP/nvim-navic",
@@ -101,7 +103,9 @@ return packer.startup(function(use)
   use { "folke/zen-mode.nvim" }
 
   -- Add ons
+  use { "tiagovla/scope.nvim" }
   use { 'stevearc/aerial.nvim' }
+  use { 'simrat39/symbols-outline.nvim' }
   use { "windwp/nvim-spectre" }
   use { 'abecodes/tabout.nvim' }
   use { "nyngwang/NeoZoom.lua" }
@@ -119,6 +123,10 @@ return packer.startup(function(use)
       -- may set any options here
       vim.g.matchup_matchparen_offscreen = { method = "popup" }
     end
+  }
+  use {
+    "folke/todo-comments.nvim",
+    requires = "nvim-lua/plenary.nvim",
   }
   use { 'rcarriga/nvim-notify' }
   use { "tpope/vim-fugitive" }
@@ -144,7 +152,7 @@ return packer.startup(function(use)
   -- use { 'phaazon/hop.nvim', branch = 'v2' }
   -- use({ "Pocco81/auto-save.nvim" })
   -- use { 'lervag/vimtex' }
-  -- use { "ThePrimeagen/harpoon" }
+  use { "ThePrimeagen/harpoon" }
   -- use({
   --   "folke/noice.nvim",
   --   requires = {

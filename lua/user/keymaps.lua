@@ -41,10 +41,10 @@ keymap("n", "<C-C>", '"+yiw', opts)
 keymap("n", "<leader>A", "GVgg", opts)
 
 -- Reload File
--- keymap("n", "<leader>R", ":e!<CR>", opts)
+keymap("n", "<leader>R", ":e! | LspRestart<CR>", opts)
 
 -- Buffers
-keymap("n", "<leader>q", ":qa<CR>", opts)
+keymap("n", "<leader>q", ":qa!<CR>", opts)
 -- keymap("n", "<leader>qq", ":qa!<CR>", opts)
 keymap("n", "<C-s>", "<C-^>", opts)
 keymap("n", "]b", ":bnext<CR>", opts)
@@ -56,9 +56,11 @@ keymap("n", "<leader>x", ":q<CR>", opts)
 -- Tabs
 keymap("n", "<C-t>", ":tabnew<CR>", opts)
 keymap("n", "<C-w>", ":tabclose<CR>", opts)
+keymap("n", "<C-Tab>", ":tabNext<CR>", opts)
+keymap("n", "<C-Tab>", ":tabNext<CR>", opts)
 
 -- Custom Focus Modes
-keymap("n", "<leader>z", "<cmd>ZenMode<CR>", opts)
+keymap("n", "<leader>Z", "<cmd>ZenMode<CR>", opts)
 -- keymap("n", "<leader>H", "<cmd>call FocusUpNumToggle()<CR>", opts)
 
 -- Backspace
@@ -132,10 +134,15 @@ keymap('v', '<A-Up>', ":MoveBlock(-1)<CR>", opts)
 -- Notify
 keymap('n', '<leader>D', ":lua require('notify').dismiss({ silent = true })<CR>", opts)
 
--- keymap('n', '<A-l>', ":MoveHChar 1<CR>", opts)
--- keymap('n', '<A-h>', ":MoveHChar -1<CR>", opts)
--- keymap('v', '<A-l>', ":MoveHBlock 1<CR>", opts)
--- keymap('v', '<A-h>', ":MoveHBlock -1<CR>", opts)
+-- Harpoon
+keymap('n', '<leader>a', ":lua require('harpoon.mark').add_file()<CR>", opts)
+keymap('n', '<leader>1', ":lua require('harpoon.ui').nav_file(1)<CR>", opts)
+keymap('n', '<leader>2', ":lua require('harpoon.ui').nav_file(2)<CR>", opts)
+keymap('n', '<leader>3', ":lua require('harpoon.ui').nav_file(3)<CR>", opts)
+keymap('n', '<leader>4', ":lua require('harpoon.ui').nav_file(4)<CR>", opts)
+keymap('n', '<leader>5', ":lua require('harpoon.ui').nav_file(5)<CR>", opts)
+keymap('n', '<leader>6', ":lua require('harpoon.ui').nav_file(6)<CR>", opts)
+keymap('n', '<leader>=', ":lua require('harpoon.ui').toggle_quick_menu()<CR>", opts)
 
 -- Skip snippet part
 keymap('s', '<C-n>', "<BS>i<A-n>", jump_opt)

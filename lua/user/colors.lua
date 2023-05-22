@@ -4,7 +4,7 @@
 -- / /___/ /_/ / / /_/ / /  (__  )
 -- \____/\____/_/\____/_/  /____/
 
-local colorscheme = "onedark" -- onedark, gruvbox, tokyonight, catppuccin
+local colorscheme = "catppuccin" -- onedark, gruvbox, tokyonight, catppuccin
 
 if colorscheme == "catppuccin" then
   vim.g.catppuccin_flavour = "macchiato" -- latte, frappe, macchiato, mocha
@@ -33,13 +33,22 @@ if colorscheme == "tokyonight" then
     day_brightness = 0.3,             -- Adjusts the brightness of the colors of the **Day** style. Number between 0 and 1, from dull to vibrant colors
     hide_inactive_statusline = false, -- Enabling this option, will hide inactive statuslines and replace them with a thin border instead. Should work with the standard **StatusLine** and **LuaLine**.
     dim_inactive = false,             -- dims inactive windows
-    lualine_bold = false,             -- When `true`, section headers in the lualine theme will be bold
+    lualine_bold = true,             -- When `true`, section headers in the lualine theme will be bold
   })
 end
 
 
 if colorscheme == "monokai" then
   require('monokai').setup { palette = require('monokai').pro }
+end
+
+if colorscheme == "nord" then
+  vim.g.nord_contrast = true
+  vim.g.nord_borders = false
+  vim.g.nord_disable_background = false
+  vim.g.nord_italic = false
+  vim.g.nord_uniform_diff_background = true
+  vim.g.nord_bold = false
 end
 
 if colorscheme == "gruvbox" then
