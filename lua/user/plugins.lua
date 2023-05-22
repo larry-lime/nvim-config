@@ -107,7 +107,7 @@ return packer.startup(function(use)
     require('git-conflict').setup()
   end }
   use { "tiagovla/scope.nvim" }
-  use { 'stevearc/aerial.nvim' }
+  use { 'akinsho/git-conflict.nvim', tag = "*" }
   use { 'simrat39/symbols-outline.nvim' }
   use { "windwp/nvim-spectre" }
   use { 'abecodes/tabout.nvim' }
@@ -125,6 +125,7 @@ return packer.startup(function(use)
     requires = "nvim-lua/plenary.nvim",
   }
   use { 'rcarriga/nvim-notify' }
+  use { "tpope/vim-fugitive" }
   use { "vimwiki/vimwiki" }
 
   -- Plugin Graveyard
@@ -140,7 +141,6 @@ return packer.startup(function(use)
   -- use { 'simrat39/symbols-outline.nvim' }
   -- use { "williamboman/nvim-lsp-installer" }
   -- use { "RRethy/vim-illuminate" }
-  -- use { "tpope/vim-fugitive" }
   -- use { "akinsho/toggleterm.nvim", tag = "v1.*" }
   -- use { 'goolord/alpha-nvim' }
   -- use { "mfussenegger/nvim-dap-python" }

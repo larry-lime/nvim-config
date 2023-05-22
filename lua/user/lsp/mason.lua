@@ -18,7 +18,6 @@ local servers = {
   "lua_ls",
   "tsserver",
   "pyright",
-  "texlab",
   "eslint",
   "bashls",
   "clangd",
