@@ -115,27 +115,85 @@ function M.smart_quit()
   end
 end
 
--- M.toggle_ipython = function() -- Needed so the cursor doesn't jump
-
--- Run File
--- FIXME: Not working when terminal is opened first and then p1/p2 is ran
-function M.run_file(arg)
+-- Set the database name for the specific buffer
+function M.run_paragraph()
+  local reg = '"'
   local filetype = vim.bo.filetype
-  if filetype == 'python' then
-    if vim.g.ipython_open == false then
-      if arg == 1 then
-        M.open_python(Ipython_spawn_h) -- Starts a new python terminal
-        execute(":silent 1TermExec cmd='run %' go_back=0<CR>", true) -- Runs the file
-        keymap("n", "<leader>p1", ":1TermExec cmd='run %' go_back=0<CR>", opts) -- Remamps <leader>p1 to run the file in the runnig ipython terminal
-      end
-      if arg == 2 then
-        M.open_python(Ipython_spawn_v) -- Starts a new python terminal
-        execute(":silent 2TermExec cmd='run %' go_back=0<CR>", true) -- Runs the file
-        keymap("n", "<leader>p2", ":2TermExec cmd='run %' go_back=0<CR>", opts) -- Remamps <leader>p1 to run the file in the runnig ipython terminal
-      end
-      vim.g.ipython_open = true
-    end
+  vim.cmd "normal! ma"
+  vim.cmd "normal! yip"
+  vim.cmd "normal! `a"
+  -- Add text in register to a variable
+  local text = vim.fn.getreg(reg)
+  local replace_notifs = false
+  local notify_options = {
+    title = filetype,
+    timeout = false, -- 1 minute
+    background_colour = "NotifyBackground",
+    top_down = true,
+  }
+  -- Run the text
+  local output = vim.fn.system('mycli -uroot -t jika_deliverable -e ' .. vim.fn.shellescape(text))
+  if replace_notifs then
+    require("notify").dismiss({ silent = true })
   end
+  require("notify")(output, vim.log.levels.OFF, notify_options)
+end
+
+function M.run_selection()
+  -- Get the current visual selection
+  local start_line, start_col, end_line, end_col = vim.fn.getpos("'<")[2], vim.fn.getpos("'<")[3], vim.fn.getpos("'>")
+      [2], vim.fn.getpos("'>")[3]
+  local lines = vim.fn.getline(start_line, end_line)
+  lines[#lines] = string.sub(lines[#lines], 1, end_col - 1)
+  lines[1] = string.sub(lines[1], start_col)
+
+  -- Join the lines into a single string with newlines
+  local text = table.concat(lines, "\n")
+
+  vim.fn.setreg(reg, text, 'v')
+
+  local output = vim.fn.system('mycli -uroot -t jika_deliverable -e ' .. vim.fn.shellescape(text))
+  -- Use string interpolation o 
+  require("notify")(output, vim.log.levels.OFF,
+    {
+      title = "MySQL",
+      timeout = 5000,
+      background_colour = "NotifyBackground",
+      top_down = true,
+    })
+end
+
+-- Allow it to take in a filetype, filename
+function M.run_file(arg)
+  -- Detect filetype
+  local filetype = vim.bo.filetype
+  local filename = vim.fn.expand "%:p"
+  local output = ""
+  local replace_notifs = false
+  local notify_options = {
+    title = filetype,
+    timeout = 5000, -- 1 minute
+    background_colour = "NotifyBackground",
+    top_down = true,
+  }
+  if filetype == "sql" then
+    -- Run python file
+    output = vim.fn.system('mycli -uroot -t ' .. vim.fn.shellescape(arg) .. ' < ' .. vim.fn.shellescape(filename))
+    notify_options.title = "MySQL"
+  elseif filetype == "python" then -- Run python file
+    output = vim.fn.system('python3 ' .. vim.fn.shellescape(filename))
+  elseif filetype == "c" then
+    output = vim.fn.system('gcc -Wall ' .. vim.fn.shellescape(filename) .. ' && ./a.out')
+    vim.fn.system('rm a.out')
+  elseif filetype == "javascript" then
+    output = vim.fn.system('node ' .. vim.fn.shellescape(filename))
+  end
+
+  -- Use vim.notify to display the output
+  if replace_notifs then
+    require("notify").dismiss({ silent = true })
+  end
+  require("notify")(output, vim.log.levels.OFF, notify_options)
 end
 
 return M

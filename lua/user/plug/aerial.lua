@@ -42,14 +42,16 @@ require('aerial').setup {
     ["zx"] = "actions.tree_sync_folds",
     ["zX"] = "actions.tree_sync_folds",
   },
-  lazy_load = false,
+  lazy_load = true,
   filter_kind = false,
+  nerd_font = "auto",
+
 }
 
 local opts = { noremap = true, silent = true }
 local keymap = vim.api.nvim_set_keymap
 
-keymap("n", "<leader>tb", ":AerialToggle! right<CR>", opts)
-keymap("n", "<leader>nv", ":AerialToggle float<CR>", opts)
-keymap("n", "]f", ":AerialNext<CR>", opts)
-keymap("n", "[f", ":AerialPrev<CR>", opts)
+-- keymap("n", "<leader>tb", ":AerialToggle! right<CR>", opts)
+-- keymap("n", "<leader>nv", ":AerialToggle float<CR>", opts)
+-- keymap("n", "]f", ":AerialNext<CR>", opts)
+-- keymap("n", "[f", ":AerialPrev<CR>", opts)

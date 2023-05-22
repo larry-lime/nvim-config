@@ -1,11 +1,20 @@
 require 'nvim-treesitter.configs'.setup {
 
-  ensure_installed = { "python", "lua", "solidity", "javascript", "rust", "typescript", "html", "css", "help" },
+  ensure_installed = { "python", "lua", "solidity", "javascript", "rust", "typescript", "html", "css", "help"},
 
   sync_install = false,
   highlight = {
     enable = true,
-    additional_vim_regex_highlighting = true,
+    disable = function(lang, bufnr) -- Disable in large C++ buffers
+      return lang == "*" and api.nvim_buf_line_count(bufnr) > 50000
+    end,
+    additional_vim_regex_highlighting = false,
+  },
+  matchup = {
+    enable = true, -- mandatory, false will disable the whole extension
+    disable_virtual_text = true,
+    disable = { "html" }, -- optional, list of language that will be disabled
+    -- include_match_words = false
   },
   textobjects = {
     move = {
@@ -40,10 +49,10 @@ require 'nvim-treesitter.configs'.setup {
       -- Use if you want more granular movements
       -- Make it even more gradual by adding multiple queries and regex.
       goto_next = {
-        ["]d"] = "@conditional.outer",
+        ["]c"] = "@conditional.outer",
       },
       goto_previous = {
-        ["[d"] = "@conditional.outer",
+        ["[c"] = "@conditional.outer",
       }
     },
   }

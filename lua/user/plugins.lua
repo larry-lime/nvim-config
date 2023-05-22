@@ -39,13 +39,15 @@ packer.init {
 return packer.startup(function(use)
   -- Core Plugins
   use { "wbthomason/packer.nvim" }
+  use { 'jose-elias-alvarez/null-ls.nvim' }
   use { "nvim-lua/popup.nvim" }
   use { "nvim-lua/plenary.nvim" }
   -- use { "nvim-treesitter/nvim-treesitter" }
 
   -- Colorschemes
-  use { "ful1e5/onedark.nvim" }
+  use { "navarasu/onedark.nvim" }
   use { 'tanvirtin/monokai.nvim' }
+  use 'shaunsingh/nord.nvim'
   use { "catppuccin/nvim", as = "catppuccin" }
   use { "ellisonleao/gruvbox.nvim" }
   use { "folke/tokyonight.nvim" }
@@ -57,7 +59,6 @@ return packer.startup(function(use)
   use { "numToStr/Comment.nvim" }
   use { "kyazdani42/nvim-tree.lua", requires = { "kyazdani42/nvim-web-devicons" } }
   use { "windwp/nvim-autopairs" }
-  use { "akinsho/toggleterm.nvim", tag = "v1.*" }
   use { 'fedepujol/move.nvim' }
   use { 'rmagatti/auto-session' }
 
@@ -65,13 +66,13 @@ return packer.startup(function(use)
   use { "williamboman/mason.nvim" }
   use { "williamboman/mason-lspconfig.nvim" }
   use { "neovim/nvim-lspconfig" }
-
+  use { "hrsh7th/cmp-nvim-lsp" }
+  -- TODO: Update this to copilot lua
+  use { "github/copilot.vim" }
   use {
     "SmiteshP/nvim-navic",
     requires = "neovim/nvim-lspconfig"
   }
-  use { "hrsh7th/cmp-nvim-lsp" }
-  use { "github/copilot.vim" }
 
   -- CMP
   use { "hrsh7th/nvim-cmp" }
@@ -87,49 +88,12 @@ return packer.startup(function(use)
 
   -- Git
   use { "lewis6991/gitsigns.nvim" }
-  use { "tpope/vim-fugitive" }
 
   -- Telescope
   use { "nvim-telescope/telescope.nvim", requires = { { "nvim-lua/plenary.nvim" } } }
   use { "nvim-telescope/telescope-ui-select.nvim" }
-  use { "ThePrimeagen/harpoon" }
-  use { "ThePrimeagen/refactoring.nvim",
-    requires = { { "nvim-lua/plenary.nvim" }, { "nvim-treesitter/nvim-treesitter" } } }
-
-  -- Add-Ons
-  use({
-    "folke/noice.nvim",
-    config = function()
-      require("noice").setup({
-        -- add any options here
-      })
-    end,
-    requires = {
-      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-      "MunifTanjim/nui.nvim",
-      -- OPTIONAL:
-      --   `nvim-notify` is only needed, if you want to use the notification view.
-      --   If not available, we use `mini` as the fallback
-      "rcarriga/nvim-notify",
-    }
-  })
-  use { 'norcalli/nvim-colorizer.lua' }
-  use { 'stevearc/aerial.nvim' }
-  use { "windwp/nvim-spectre" }
-  use { 'abecodes/tabout.nvim' }
-  use { "nyngwang/NeoZoom.lua" }
-  use { "lukas-reineke/indent-blankline.nvim" }
   use { "max397574/colortils.nvim" }
-  use { "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" }
-  use({
-    "iamcco/markdown-preview.nvim",
-    run = "cd app && npm install",
-    setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
-    ft = { "markdown" },
-  })
-
-
-
+  use { 'norcalli/nvim-colorizer.lua' }
 
 
   -- Debugger
@@ -137,31 +101,63 @@ return packer.startup(function(use)
   use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
   -- Lua
   use { "folke/zen-mode.nvim" }
-  -- use { "mfussenegger/nvim-dap-python" }
-  -- use { "mxsdev/nvim-dap-vscode-js", requires = { "mfussenegger/nvim-dap" } }
-  -- use { 'phaazon/hop.nvim', branch = 'v2' }
-  -- use({ "Pocco81/auto-save.nvim" })
-  -- use { 'lervag/vimtex' }
+
+  -- Add ons
+  use { 'akinsho/git-conflict.nvim', tag = "*", config = function()
+    require('git-conflict').setup()
+  end }
+  use { "tiagovla/scope.nvim" }
+  use { 'stevearc/aerial.nvim' }
+  use { 'simrat39/symbols-outline.nvim' }
+  use { "windwp/nvim-spectre" }
+  use { 'abecodes/tabout.nvim' }
+  use { "nyngwang/NeoZoom.lua" }
+  use { "lukas-reineke/indent-blankline.nvim" }
+  use { "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" }
+  use({
+    "iamcco/markdown-preview.nvim",
+    run = "cd app && npm install",
+    setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
+    ft = { "markdown" },
+  })
+  use {
+    "folke/todo-comments.nvim",
+    requires = "nvim-lua/plenary.nvim",
+  }
+  use { 'rcarriga/nvim-notify' }
+  use { "vimwiki/vimwiki" }
 
   -- Plugin Graveyard
-  -- use { 'goolord/alpha-nvim' }
-  use {
-    'andymass/vim-matchup',
-    setup = function()
-      -- may set any options here
-      vim.g.matchup_matchparen_offscreen = { method = "popup" }
-    end
-  }
+  -- use { 'codota/tabnine-nvim', run = "./dl_binaries.sh" }
+  -- use { 'nanotee/sqls.nvim' }
   -- use { 'jubnzv/mdeval.nvim' }
+  -- use 'nanotee/sqls.nvim'
   -- use { "nacro90/numb.nvim" }
   -- use "stevearc/dressing.nvim"
   -- use {'karb94/neoscroll.nvim'}
   -- use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
   -- use { "nvim-neorg/neorg", requires = "wbthomason/packer.nvim" }
-  -- use { "vimwiki/vimwiki" }
   -- use { 'simrat39/symbols-outline.nvim' }
   -- use { "williamboman/nvim-lsp-installer" }
   -- use { "RRethy/vim-illuminate" }
+  -- use { "tpope/vim-fugitive" }
+  -- use { "akinsho/toggleterm.nvim", tag = "v1.*" }
+  -- use { 'goolord/alpha-nvim' }
+  -- use { "mfussenegger/nvim-dap-python" }
+  -- use { "mxsdev/nvim-dap-vscode-js", requires = { "mfussenegger/nvim-dap" } }
+  -- use { 'phaazon/hop.nvim', branch = 'v2' }
+  -- use({ "Pocco81/auto-save.nvim" })
+  -- use { 'lervag/vimtex' }
+  use { "ThePrimeagen/harpoon" }
+  -- use({
+  --   "folke/noice.nvim",
+  --   requires = {
+  --     "MunifTanjim/nui.nvim",
+  --     "rcarriga/nvim-notify",
+  --   }
+  -- })
+  -- use { "ThePrimeagen/refactoring.nvim",
+  --   requires = { { "nvim-lua/plenary.nvim" }, { "nvim-treesitter/nvim-treesitter" } } }
 
   if PACKER_BOOTSTRAP then
     require("packer").sync()

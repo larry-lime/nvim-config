@@ -52,7 +52,7 @@ end
 
 local function lsp_commands()
   local command = vim.cmd
-  command [[ command! Format execute 'lua vim.lsp.buf.format {async = true}' ]]
+  -- command [[ command! Format execute 'lua vim.lsp.buf.format {async = true}' ]]
   command [[ command! LspServerConfig execute 'vert h lspconfig-server-configurations' ]]
 end
 
@@ -85,5 +85,34 @@ end
 
 -- M.capabilities = cmp_nvim_lsp.update_capabilitifs(capabilities)
 M.capabilities = cmp_nvim_lsp.default_capabilities()
+
+-- Pyright
+local configs = require('lspconfig/configs')
+local util = require('lspconfig/util')
+
+local path = util.path
+local function get_python_path(workspace)
+  -- Use activated virtualenv.
+  if vim.env.VIRTUAL_ENV then
+    return path.join(vim.env.VIRTUAL_ENV, 'bin', 'python')
+  end
+
+  -- Find and use virtualenv in workspace directory.
+  for _, pattern in ipairs({ '*', '.*' }) do
+    local match = vim.fn.glob(path.join(workspace, pattern, 'pyvenv.cfg'))
+    if match ~= '' then
+      return path.join(path.dirname(match), 'bin', 'python')
+    end
+  end
+
+  -- Fallback to system Python.
+  return exepath('python3') or exepath('python') or 'python'
+end
+
+require("lspconfig").pyright.setup {
+  before_init = function(_, config)
+    config.settings.python.pythonPath = get_python_path(config.root_dir)
+  end,
+}
 
 return M
