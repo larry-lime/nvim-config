@@ -82,6 +82,11 @@ cmp.setup {
         sources = { { name = 'luasnip' } }
       }
     }),
+    ['<C-l>'] = cmp.mapping.complete({
+      config = {
+        sources = { { name = 'nvim_lsp' } }
+      }
+    }),
     -- ['<C-c>'] = cmp.mapping.complete({
     --   config = {
     --     sources = { { name = 'copilot' } }

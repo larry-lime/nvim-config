@@ -103,6 +103,9 @@ return packer.startup(function(use)
   use { "folke/zen-mode.nvim" }
 
   -- Add ons
+  use { 'akinsho/git-conflict.nvim', tag = "*", config = function()
+    require('git-conflict').setup()
+  end }
   use { "tiagovla/scope.nvim" }
   use { 'stevearc/aerial.nvim' }
   use { 'simrat39/symbols-outline.nvim' }
@@ -117,13 +120,6 @@ return packer.startup(function(use)
     setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
     ft = { "markdown" },
   })
-  use {
-    'andymass/vim-matchup',
-    setup = function()
-      -- may set any options here
-      vim.g.matchup_matchparen_offscreen = { method = "popup" }
-    end
-  }
   use {
     "folke/todo-comments.nvim",
     requires = "nvim-lua/plenary.nvim",
