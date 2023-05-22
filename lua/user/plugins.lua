@@ -104,7 +104,7 @@ return packer.startup(function(use)
 
   -- Add ons
   use { "tiagovla/scope.nvim" }
-  use { 'stevearc/aerial.nvim' }
+  -- use { 'stevearc/aerial.nvim' }
   use { 'simrat39/symbols-outline.nvim' }
   use { "windwp/nvim-spectre" }
   use { 'abecodes/tabout.nvim' }
@@ -117,13 +117,6 @@ return packer.startup(function(use)
     setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
     ft = { "markdown" },
   })
-  use {
-    'andymass/vim-matchup',
-    setup = function()
-      -- may set any options here
-      vim.g.matchup_matchparen_offscreen = { method = "popup" }
-    end
-  }
   use {
     "folke/todo-comments.nvim",
     requires = "nvim-lua/plenary.nvim",
