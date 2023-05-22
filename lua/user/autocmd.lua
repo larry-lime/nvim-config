@@ -6,7 +6,7 @@ local commands = api.nvim_create_augroup("commands", { clear = true })
 api.nvim_create_autocmd(
   { "Filetype" },
   {
-    pattern = { "lua", "c", "rust", "python" },
+    pattern = { "lua", "c", "rust", "python", "markdown" },
     command = "nnoremap <leader>F <cmd>execute 'lua vim.lsp.buf.format {async = true}'<CR>",
     group = formatter
   }
@@ -34,14 +34,13 @@ api.nvim_create_autocmd(
 
 -- Markdown
 api.nvim_create_autocmd(
-  { "Filetype" },
+  { "BufNewFile", "BufFilePre", "BufRead" },
   {
-    pattern = { "markdown" },
-    command = "nnoremap <silent><leader>F :silent !prettier --write %<CR>",
-    group = formatter
+    pattern = { "*.md" },
+    command = "setlocal wrap linebreak breakindent",
+    group = commands
   }
 )
-
 -- SQL
 api.nvim_create_autocmd(
   { "Filetype" },

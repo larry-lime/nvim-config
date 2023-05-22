@@ -8,7 +8,7 @@ vim.g.vimwiki_key_mappings = {
   table_mappings = 1,
   lists_return = 1,
   lists = 1,
-  links = 0,
+  links = 1,
   html = 1,
   mouse = 1,
 }

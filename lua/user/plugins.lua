@@ -103,6 +103,10 @@ return packer.startup(function(use)
   use { "folke/zen-mode.nvim" }
 
   -- Add ons
+  use {
+    'phaazon/hop.nvim',
+    branch = 'v2', -- optional but strongly recommended
+  }
   use { "tiagovla/scope.nvim" }
   use { 'akinsho/git-conflict.nvim', tag = "*" }
   use { 'simrat39/symbols-outline.nvim' }
