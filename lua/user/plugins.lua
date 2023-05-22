@@ -104,7 +104,7 @@ return packer.startup(function(use)
 
   -- Add ons
   use { "tiagovla/scope.nvim" }
-  -- use { 'stevearc/aerial.nvim' }
+  use { 'akinsho/git-conflict.nvim', tag = "*" }
   use { 'simrat39/symbols-outline.nvim' }
   use { "windwp/nvim-spectre" }
   use { 'abecodes/tabout.nvim' }
