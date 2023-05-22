@@ -103,11 +103,7 @@ return packer.startup(function(use)
   use { "folke/zen-mode.nvim" }
 
   -- Add ons
-  use { 'akinsho/git-conflict.nvim', tag = "*", config = function()
-    require('git-conflict').setup()
-  end }
   use { "tiagovla/scope.nvim" }
-  use { 'akinsho/git-conflict.nvim', tag = "*" }
   use { 'simrat39/symbols-outline.nvim' }
   use { "windwp/nvim-spectre" }
   use { 'abecodes/tabout.nvim' }
@@ -127,6 +123,7 @@ return packer.startup(function(use)
   use { 'rcarriga/nvim-notify' }
   use { "tpope/vim-fugitive" }
   use { "vimwiki/vimwiki" }
+  use { "ThePrimeagen/harpoon" }
 
   -- Plugin Graveyard
   -- use { 'codota/tabnine-nvim', run = "./dl_binaries.sh" }
@@ -148,7 +145,6 @@ return packer.startup(function(use)
   -- use { 'phaazon/hop.nvim', branch = 'v2' }
   -- use({ "Pocco81/auto-save.nvim" })
   -- use { 'lervag/vimtex' }
-  use { "ThePrimeagen/harpoon" }
   -- use({
   --   "folke/noice.nvim",
   --   requires = {
