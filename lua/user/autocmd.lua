@@ -6,7 +6,7 @@ local commands = api.nvim_create_augroup("commands", { clear = true })
 api.nvim_create_autocmd(
   { "Filetype" },
   {
-    pattern = { "lua", "c", "rust", "python" },
+    pattern = { "lua", "c", "rust", "python", "htmldjango" },
     command = "nnoremap <leader>F <cmd>execute 'lua vim.lsp.buf.format {async = true}'<CR>",
     group = formatter
   }
@@ -18,16 +18,6 @@ api.nvim_create_autocmd(
   {
     pattern = { "javascript", "typescript", "solidity", "yaml", "css", "scss" },
     command = "nnoremap <silent><leader>F :silent !npx prettier --write %<CR>",
-    group = formatter
-  }
-)
-
--- Djlint
-api.nvim_create_autocmd(
-  { "Filetype" },
-  {
-    pattern = { "html", "htmldjango" },
-    command = "nnoremap <silent><leader>F :silent !djlint % --reformat<CR>",
     group = formatter
   }
 )
