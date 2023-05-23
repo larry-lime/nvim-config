@@ -7,7 +7,50 @@
 local colorscheme = "catppuccin" -- onedark, gruvbox, tokyonight, catppuccin
 
 if colorscheme == "catppuccin" then
-  vim.g.catppuccin_flavour = "macchiato" -- latte, frappe, macchiato, mocha
+  require("catppuccin").setup({
+    flavour = "macchiato", -- latte, frappe, macchiato, mocha
+    background = {
+                       -- :h background
+      light = "latte",
+      dark = "mocha",
+    },
+    transparent_background = true,
+    show_end_of_buffer = false, -- show the '~' characters after the end of buffers
+    term_colors = false,
+    dim_inactive = {
+      enabled = false,
+      shade = "dark",
+      percentage = 0.15,
+    },
+    no_italic = false,    -- Force no italic
+    no_bold = false,      -- Force no bold
+    no_underline = false, -- Force no underline
+    styles = {
+      comments = { "italic" },
+      conditionals = { "italic" },
+      loops = {},
+      functions = {},
+      keywords = {},
+      strings = {},
+      variables = {},
+      numbers = {},
+      booleans = {},
+      properties = {},
+      types = {},
+      operators = {},
+    },
+    color_overrides = {},
+    custom_highlights = {},
+    integrations = {
+      cmp = true,
+      gitsigns = true,
+      nvimtree = true,
+      telescope = true,
+      notify = false,
+      mini = false,
+      -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
+    },
+  })
 end
 
 if colorscheme == "tokyonight" then
@@ -33,7 +76,7 @@ if colorscheme == "tokyonight" then
     day_brightness = 0.3,             -- Adjusts the brightness of the colors of the **Day** style. Number between 0 and 1, from dull to vibrant colors
     hide_inactive_statusline = false, -- Enabling this option, will hide inactive statuslines and replace them with a thin border instead. Should work with the standard **StatusLine** and **LuaLine**.
     dim_inactive = false,             -- dims inactive windows
-    lualine_bold = true,             -- When `true`, section headers in the lualine theme will be bold
+    lualine_bold = true,              -- When `true`, section headers in the lualine theme will be bold
   })
 end
 
@@ -84,7 +127,7 @@ if colorscheme == "onedark" then
     cmp_itemkind_reverse = false, -- reverse item kind highlights in cmp menu
 
     -- toggle theme style ---
-    toggle_style_key = nil,                                                            -- keybind to toggle theme style. Leave it nil to disable it, or set it to a string, for example "<leader>ts"
+    toggle_style_key = nil,                                                              -- keybind to toggle theme style. Leave it nil to disable it, or set it to a string, for example "<leader>ts"
     toggle_style_list = { 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer', 'light' }, -- List of styles to toggle between
 
     -- Change code style ---
@@ -100,7 +143,7 @@ if colorscheme == "onedark" then
 
     -- Lualine options --
     lualine = {
-      transparent = false,   -- lualine center bar transparency
+      transparent = false, -- lualine center bar transparency
     },
 
     -- Custom Highlights --
@@ -109,9 +152,9 @@ if colorscheme == "onedark" then
 
     -- Plugins Config --
     diagnostics = {
-      darker = true,       -- darker colors for diagnostic
-      undercurl = true,    -- use undercurl instead of underline for diagnostics
-      background = true,   -- use background color for virtual text
+      darker = true,     -- darker colors for diagnostic
+      undercurl = true,  -- use undercurl instead of underline for diagnostics
+      background = true, -- use background color for virtual text
     },
   }
 end
