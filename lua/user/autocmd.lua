@@ -22,7 +22,10 @@ api.nvim_create_autocmd(
   }
 )
 
--- SQL
+----------------------
+--        SQL       --
+----------------------
+
 api.nvim_create_autocmd(
   { "Filetype" },
   {
@@ -43,43 +46,40 @@ api.nvim_create_autocmd(
   }
 )
 
+
 -- Run SQL File
 api.nvim_create_autocmd(
   { "Filetype" },
   {
     pattern = { "sql" },
-    command = "nnoremap <silent><leader>R :lua require('user.functions').run_paragraph('jika_deliverable')<CR>",
-    group = formatter
-  }
-)
--- Run SQL Selection
-api.nvim_create_autocmd(
-  { "Filetype" },
-  {
-    pattern = { "sql" },
-    command = "vnoremap <silent><leader>R :lua require('user.functions').run_selection()<CR>",
-    group = formatter
-  }
-)
--- Run SQL Selection
-api.nvim_create_autocmd(
-  { "Filetype" },
-  {
-    pattern = { "sql" },
-    command = "vnoremap <silent><leader>R :lua require('user.functions').run_selection()<CR>",
+    command = "nnoremap <silent><leader>rp :lua require('user.functions').run_paragraph('jika_deliverable')<CR>",
     group = formatter
   }
 )
 
--- -- Black
--- api.nvim_create_autocmd(
---   { "Filetype" },
---   {
---     pattern = { "python" },
---     command = "nnoremap <silent><leader>F :silent !python3 -m black %<CR>",
---     group = formatter
---   }
--- )
+-- Run SQL Selection
+api.nvim_create_autocmd(
+  { "Filetype" },
+  {
+    pattern = { "sql" },
+    command = "vnoremap <silent><leader>rs :lua require('user.functions').run_selection()<CR>",
+    group = formatter
+  }
+)
+
+----------------------
+--      Python      --
+----------------------
+
+-- Run Python File
+api.nvim_create_autocmd(
+  { "Filetype" },
+  {
+    pattern = { "python" },
+    command = "nnoremap <silent><leader>rf :lua require('user.functions').run_file()<CR>",
+    group = formatter
+  }
+)
 
 -- Run C
 api.nvim_create_autocmd(
