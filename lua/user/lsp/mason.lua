@@ -169,6 +169,17 @@ for _, server in pairs(servers) do
     opts = vim.tbl_deep_extend("force", cssls_opts, opts)
   end
 
+  -- Docker
+  if server.name == "dockerls" then
+    local dockerls_opts = {}
+    opts = vim.tbl_deep_extend("force", dockerls_opts, opts)
+  end
+
+  if server.name == "docker_compose_language_service" then
+    local docker_compose_language_service_opts = {}
+    opts = vim.tbl_deep_extend("force", docker_compose_language_service_opts, opts)
+  end
+
   -- Latex
   if server.name == "texlab" then
     local tex_opts = {}

@@ -60,7 +60,12 @@ keymap("n", "<C-Tab>", ":tabNext<CR>", opts)
 keymap("n", "<C-Tab>", ":tabNext<CR>", opts)
 
 -- Custom Focus Modes
-keymap("n", "<leader>Z", "<cmd>ZenMode<CR>", opts)
+keymap("n", "<leader>z", ":TZFocus<CR>", opts)
+-- keymap("n", "<leader>zn", ":TZNarrow<CR>", opts)
+-- keymap("v", "<leader>zn", ":'<,'>TZNarrow<CR>", opts)
+-- keymap("n", "<leader>zm", ":TZMinimalist<CR>", opts)
+-- keymap("n", "<leader>za", ":TZAtaraxis<CR>", opts)
+
 -- keymap("n", "<leader>H", "<cmd>call FocusUpNumToggle()<CR>", opts)
 
 -- Backspace

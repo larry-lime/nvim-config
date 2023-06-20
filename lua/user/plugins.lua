@@ -100,15 +100,15 @@ return packer.startup(function(use)
   use { "mfussenegger/nvim-dap" }
   use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
   -- Lua
-  use { "folke/zen-mode.nvim" }
+  use({ "Pocco81/true-zen.nvim" })
 
   -- Add ons
+  use { "stevearc/dressing.nvim" }
   use { "tiagovla/scope.nvim" }
   use { 'stevearc/aerial.nvim' }
   use { 'simrat39/symbols-outline.nvim' }
   use { "windwp/nvim-spectre" }
   use { 'abecodes/tabout.nvim' }
-  use { "nyngwang/NeoZoom.lua" }
   use { "lukas-reineke/indent-blankline.nvim" }
   use { "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" }
   use({
@@ -131,7 +131,6 @@ return packer.startup(function(use)
   -- use { 'jubnzv/mdeval.nvim' }
   -- use 'nanotee/sqls.nvim'
   -- use { "nacro90/numb.nvim" }
-  -- use "stevearc/dressing.nvim"
   -- use {'karb94/neoscroll.nvim'}
   -- use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
   -- use { "nvim-neorg/neorg", requires = "wbthomason/packer.nvim" }
