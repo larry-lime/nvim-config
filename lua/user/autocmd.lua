@@ -6,7 +6,8 @@ local commands = api.nvim_create_augroup("commands", { clear = true })
 api.nvim_create_autocmd(
   { "Filetype" },
   {
-    pattern = { "lua", "c", "rust", "python", "htmldjango", "markdown" },
+    -- pattern = { "lua", "c", "rust", "python", "htmldjango", "markdown", "latex" },
+    pattern = { "*" },
     command = "nnoremap <leader>F <cmd>execute 'lua vim.lsp.buf.format {async = true}'<CR>",
     group = formatter
   }
@@ -119,17 +120,7 @@ api.nvim_create_autocmd(
   { "Filetype" },
   {
     pattern = { "tex" },
-    command = "nnoremap <silent><leader>M :silent !open -a sioyek %:p:r.pdf<CR>",
-    group = formatter
-  }
-)
-
-api.nvim_create_autocmd(
-  { "Filetype" },
-  {
-    pattern = { "tex" },
-    -- Open filename with .pdf extension in sioyek.app
-    command = "nnoremap <silent><leader>B :TexlabBuild<CR>",
+    command = "nnoremap <silent><leader>M :silent !open -a Preview %:p:r.pdf<CR>",
     group = formatter
   }
 )
