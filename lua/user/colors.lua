@@ -4,13 +4,13 @@
 -- / /___/ /_/ / / /_/ / /  (__  )
 -- \____/\____/_/\____/_/  /____/
 
-local colorscheme = "tokyonight" -- onedark, gruvbox, tokyonight, catppuccin
+local colorscheme = "catppuccin" -- onedark, gruvbox, tokyonight, catppuccin
 
 if colorscheme == "catppuccin" then
   require("catppuccin").setup({
     flavour = "macchiato", -- latte, frappe, macchiato, mocha
     background = {
-                       -- :h background
+      -- :h background
       light = "latte",
       dark = "mocha",
     },
@@ -57,7 +57,7 @@ if colorscheme == "tokyonight" then
   require("tokyonight").setup({
     -- your configuration comes here
     -- or leave it empty to use the default settings
-    style = "night",         -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
+    style = "day",           -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
     light_style = "day",     -- The theme is used when the background is set to light
     transparent = false,     -- Enable this to disable setting the background color
     terminal_colors = false, -- Configure the colors used when opening a `:terminal` in Neovim

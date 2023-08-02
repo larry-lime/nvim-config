@@ -41,7 +41,7 @@ keymap("n", "<C-C>", '"+yiw', opts)
 keymap("n", "<leader>A", "GVgg", opts)
 
 -- Reload File
-keymap("n", "<leader>R", ":e! | LspRestart<CR>", opts)
+keymap("n", "<leader>R", ":e!<CR>", opts)
 
 -- Buffers
 keymap("n", "<leader>q", ":qa!<CR>", opts)

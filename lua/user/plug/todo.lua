@@ -65,5 +65,7 @@ require("todo-comments").setup {
 local opts = { noremap = true, silent = true }
 local keymap = vim.api.nvim_set_keymap
 
-keymap("n", "<leader>td", ":TodoTelescope<CR>", opts)
-keymap("n", "<leader>T", ":TodoTrouble<CR>", opts)
+keymap("n", "<leader>td", ":TodoTelescope keywords=TODO,FIXME<CR>", opts)
+keymap("n", "<leader>tf", ":let output_of_function = expand('%:p') | execute 'TodoTrouble keywords=TODO,FIXME cwd=' . output_of_function <CR>", opts)
+keymap("n", "<leader>T", ":TodoTrouble keywords=TODO,FIXME<CR>", opts)
+-- keymap("n", "<leader>tf", ":let output_of_function = expand('%:p') | execute 'TodoTrouble keywords=TODO,FIXME cwd=' . output_of_function <CR>", opts)
