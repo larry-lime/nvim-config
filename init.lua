@@ -21,6 +21,7 @@ require("Comment").setup()
 require("dressing").setup()
 require("notify").setup({ fps = 1 })
 require("scope").setup()
+require("fidget").setup()
 
 -- Custom Plugins Configs
 require("user.plug.gitsigns")

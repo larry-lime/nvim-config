@@ -18,7 +18,7 @@ vim.g.maplocalleader = " "
 
 -- Packer Keymaps
 keymap("n", "<leader>I", ":so | PackerInstall<CR>", opts)
-keymap("n", "<leader>U", ":so | PackerUpdate<CR>", opts)
+keymap("n", "<leader>U", ":so | PackerSync<CR>", opts)
 keymap("n", "<leader>C", ":so | PackerClean<CR>", opts)
 
 -- Better window navigation

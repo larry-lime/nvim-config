@@ -92,6 +92,7 @@ return packer.startup(function(use)
   -- Telescope
   use { "nvim-telescope/telescope.nvim", requires = { { "nvim-lua/plenary.nvim" } } }
   use { "nvim-telescope/telescope-ui-select.nvim" }
+  use { "xiyaowong/telescope-emoji.nvim" }
   use { "max397574/colortils.nvim" }
   use { 'norcalli/nvim-colorizer.lua' }
 
@@ -124,6 +125,7 @@ return packer.startup(function(use)
   use { 'rcarriga/nvim-notify' }
   use { "vimwiki/vimwiki" }
   use { "ThePrimeagen/harpoon" }
+  use { 'j-hui/fidget.nvim', tag = 'legacy' }
 
   -- Plugin Graveyard
   -- use { 'codota/tabnine-nvim', run = "./dl_binaries.sh" }
