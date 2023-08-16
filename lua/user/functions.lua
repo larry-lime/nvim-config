@@ -1,39 +1,5 @@
 M = {}
 
--- TODO: Figure out how to detect if a given terminal is open or now
-local opts = { noremap = true, silent = true }
-local keymap = vim.api.nvim_set_keymap
-local execute = vim.api.nvim_exec
-
-function M.close_python()
-  vim.g.ipython_open = false
-  execute(":silent 1TermExec cmd='exit' go_back=0<CR>", true)
-  keymap('n', '<leader>p1', ":lua require'user.functions'.run_file()<CR>", opts)
-end
-
-vim.g.ipython_open = false
-
-function M.open_python(func_name)
-  vim.g.ipython_open = true
-  if func_name == Ipython_spawn_h then
-    keymap("n", "<leader>p1", ":1TermExec cmd='run %' go_back=0<CR>", opts) -- Remamps <leader>p1 to run the file in the runnig ipython terminal
-  end
-  if func_name == Ipython_spawn_v then
-    keymap("n", "<leader>p2", ":2TermExec cmd='run %' go_back=0<CR>", opts) -- Remamps <leader>p1 to run the file in the runnig ipython terminal
-  end
-  func_name()
-end
-
-function M.open_tex()
-  local pdf_file = vim.fn.expand "%:p:r" .. ".pdf"
-  if vim.fn.filereadable(pdf_file) == 1 then
-    vim.cmd("silent !open -a sioyek.app " .. pdf_file)
-  else
-    vim.lsp.buf.execute_command { command = "TexlabBuild", arguments = { 1 } }
-    vim.cmd("silent !open -a sioyek.app " .. pdf_file)
-  end
-end
-
 function M.toggle_sniprun()
   if vim.fn.exists "#_sniprun#TextChanged" == 0 then
     M.sniprun_enable()
@@ -113,89 +79,6 @@ function M.smart_quit()
   else
     vim.cmd "q!"
   end
-end
-
--- Set the database name for the specific buffer
-function M.run_paragraph()
-  local reg = '"'
-  local filetype = vim.bo.filetype
-  vim.cmd "normal! ma"
-  vim.cmd "normal! yip"
-  vim.cmd "normal! `a"
-  -- Add text in register to a variable
-  local text = vim.fn.getreg(reg)
-  local replace_notifs = false
-  local notify_options = {
-    title = filetype,
-    timeout = false, -- 1 minute
-    background_colour = "NotifyBackground",
-    top_down = true,
-  }
-  -- Run the text
-  local output = vim.fn.system('mycli -uroot -t jika_deliverable -e ' .. vim.fn.shellescape(text))
-  if replace_notifs then
-    require("notify").dismiss({ silent = true })
-  end
-  require("notify")(output, vim.log.levels.OFF, notify_options)
-end
-
-function M.run_selection()
-  -- Get the current visual selection
-  local start_line, start_col, end_line, end_col = vim.fn.getpos("'<")[2], vim.fn.getpos("'<")[3], vim.fn.getpos("'>")
-      [2], vim.fn.getpos("'>")[3]
-  local lines = vim.fn.getline(start_line, end_line)
-  lines[#lines] = string.sub(lines[#lines], 1, end_col - 1)
-  lines[1] = string.sub(lines[1], start_col)
-
-  -- Join the lines into a single string with newlines
-  local text = table.concat(lines, "\n")
-
-  -- Copy the text to the specified register
-  local reg = '"'
-  vim.fn.setreg(reg, text, 'v')
-
-  local output = vim.fn.system('mycli -uroot -t jika_deliverable -e ' .. vim.fn.shellescape(text))
-  -- Use string interpolation o 
-  require("notify")(output, vim.log.levels.OFF,
-    {
-      title = "MySQL",
-      timeout = 5000,
-      background_colour = "NotifyBackground",
-      top_down = true,
-    })
-end
-
--- Allow it to take in a filetype, filename
-function M.run_file(arg)
-  -- Detect filetype
-  local filetype = vim.bo.filetype
-  local filename = vim.fn.expand "%:p"
-  local output = ""
-  local replace_notifs = false
-  local notify_options = {
-    title = filetype,
-    timeout = 5000, -- 1 minute
-    background_colour = "NotifyBackground",
-    top_down = true,
-  }
-  if filetype == "sql" then
-    -- Run python file
-    output = vim.fn.system('mycli -uroot -t ' .. vim.fn.shellescape(arg) .. ' < ' .. vim.fn.shellescape(filename))
-    notify_options.title = "MySQL"
-  elseif filetype == "python" then -- Run python file
-    output = vim.fn.system('python3 ' .. vim.fn.shellescape(filename))
-  elseif filetype == "c" then
-    output = vim.fn.system('gcc -Wall ' .. vim.fn.shellescape(filename) .. ' && ./a.out')
-    vim.fn.system('rm a.out')
-  elseif filetype == "javascript" then
-    output = vim.fn.system('node ' .. vim.fn.shellescape(filename))
-  end
-
-  -- Use vim.notify to display the output
-  if replace_notifs then
-    require("notify").dismiss({ silent = true })
-  end
-  require("notify")(output, vim.log.levels.OFF, notify_options)
 end
 
 return M

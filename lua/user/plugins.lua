@@ -125,9 +125,16 @@ return packer.startup(function(use)
   use { 'rcarriga/nvim-notify' }
   use { "vimwiki/vimwiki" }
   use { "ThePrimeagen/harpoon" }
-  use { 'j-hui/fidget.nvim', tag = 'legacy' }
-
-  -- Plugin Graveyard
+  use {
+    'j-hui/fidget.nvim',
+    tag = 'legacy',
+    config = function()
+      require("fidget").setup {
+        -- options
+      }
+    end,
+  }
+-- Plugin Graveyard
   -- use { 'codota/tabnine-nvim', run = "./dl_binaries.sh" }
   -- use { 'nanotee/sqls.nvim' }
   -- use { 'jubnzv/mdeval.nvim' }
