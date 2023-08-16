@@ -43,7 +43,7 @@ require("aerial").setup({
   --   unfocus       - close aerial when you leave the original source window
   --   switch_buffer - close aerial when you change buffers in the source window
   --   unsupported   - close aerial when attaching to a buffer that has no symbol source
-  close_automatic_events = {"unfocus"},
+  close_automatic_events = {},
 
   -- Keymaps in aerial window. Can be any value that `vim.keymap.set` accepts OR a table of keymap
   -- options with a `callback` (e.g. { callback = function() ... end, desc = "", nowait = true })
@@ -298,9 +298,9 @@ require("aerial").setup({
       winblend = 10,
     },
     -- Jump to symbol in source window when the cursor moves
-    autojump = true,
+    autojump = false,
     -- Show a preview of the code in the right column, when there are no child symbols
-    preview = false,
+    preview = true,
     -- Keymaps in the nav window
     keymaps = {
       ["<CR>"] = "actions.jump",
@@ -356,4 +356,6 @@ require("aerial").setup({
 local opts = { noremap = true, silent = true }
 local keymap = vim.api.nvim_set_keymap
 
-keymap("n", "<leader>nv", ":AerialToggle float<CR>", opts)
+keymap("n", "<leader>tb", ":AerialToggle! right<CR>", opts)
+keymap("n", "<leader>nv", ":AerialNavToggle<CR>", opts)
+-- keymap("n", "<leader>nv", ":AerialToggle float<CR>", opts)
