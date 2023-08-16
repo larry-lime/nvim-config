@@ -104,7 +104,7 @@ return packer.startup(function(use)
   use { "stevearc/dressing.nvim" }
   use { "tiagovla/scope.nvim" }
   use { 'stevearc/aerial.nvim' }
-  use { 'simrat39/symbols-outline.nvim' }
+  -- use { 'simrat39/symbols-outline.nvim' }
   use { "windwp/nvim-spectre" }
   use { 'abecodes/tabout.nvim' }
   use { "lukas-reineke/indent-blankline.nvim" }
