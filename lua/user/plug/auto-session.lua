@@ -3,10 +3,16 @@ if not status_ok then
   return
 end
 
+local function restore_nvim_tree()
+  local api = require('nvim-tree.api')
+  api.tree.toggle({ focus = false })
+end
+
 autosession.setup {
   log_level = "error",
-
   auto_restore_enabled = true,
+  auto_session_use_git_branch = true,
+  post_restore_cmds = { restore_nvim_tree },
   cwd_change_handling = {
     restore_upcoming_session = true,   -- already the default, no need to specify like this, only here as an example
     pre_cwd_changed_hook = nil,        -- already the default, no need to specify like this, only here as an example
@@ -14,7 +20,6 @@ autosession.setup {
       require("lualine").refresh()     -- refresh lualine so the new session name is displayed in the status bar
     end,
   },
-  auto_session_use_git_branch = true,
 }
 
 local opts = { noremap = true, silent = true }
