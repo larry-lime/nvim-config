@@ -67,7 +67,6 @@ return packer.startup(function(use)
   use { "williamboman/mason-lspconfig.nvim" }
   use { "neovim/nvim-lspconfig" }
   use { "hrsh7th/cmp-nvim-lsp" }
-  -- TODO: Update this to copilot lua
   use { "github/copilot.vim" }
   use {
     "SmiteshP/nvim-navic",
@@ -96,14 +95,12 @@ return packer.startup(function(use)
   use { "max397574/colortils.nvim" }
   use { 'norcalli/nvim-colorizer.lua' }
 
-
   -- Debugger
   use { "mfussenegger/nvim-dap" }
   use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
-  -- Lua
-  use({ "Pocco81/true-zen.nvim" })
 
   -- Add ons
+  use { "nvim-treesitter/nvim-treesitter-context" };
   use { "stevearc/dressing.nvim" }
   use { "tiagovla/scope.nvim" }
   use { 'stevearc/aerial.nvim' }
@@ -134,11 +131,8 @@ return packer.startup(function(use)
       }
     end,
   }
--- Plugin Graveyard
+  -- Plugin Graveyard
   -- use { 'codota/tabnine-nvim', run = "./dl_binaries.sh" }
-  -- use { 'nanotee/sqls.nvim' }
-  -- use { 'jubnzv/mdeval.nvim' }
-  -- use 'nanotee/sqls.nvim'
   -- use { "nacro90/numb.nvim" }
   -- use {'karb94/neoscroll.nvim'}
   -- use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }

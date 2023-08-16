@@ -59,9 +59,8 @@ end
 local function lsp_keymaps(bufnr)
   local buffer_keymap = vim.api.nvim_buf_set_keymap
   local opts = { noremap = true, silent = true }
-  -- vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts)
   buffer_keymap(bufnr, "n", "gD", "<cmd>Telescope lsp_declarations<CR>", opts)
-  buffer_keymap(bufnr, "n", "gd", "<cmd>silent Telescope lsp_definitions<CR>", opts)
+  buffer_keymap(bufnr, "n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts)
   buffer_keymap(bufnr, "n", "gI", "<cmd>Telescope lsp_implementations<CR>", opts)
   buffer_keymap(bufnr, "n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
   buffer_keymap(bufnr, "n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
@@ -69,7 +68,6 @@ local function lsp_keymaps(bufnr)
   buffer_keymap(bufnr, "n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action({apply=true})<CR>", opts)
   buffer_keymap(bufnr, "n", "[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', opts)
   buffer_keymap(bufnr, "n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
-  -- buffer_keymap(bufnr, "n", "<leader>F", "<cmd>Format<CR>", opts)
 end
 
 M.on_attach = function(client, bufnr)

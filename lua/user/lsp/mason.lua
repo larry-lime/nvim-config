@@ -136,20 +136,13 @@ for _, server in pairs(servers) do
     opts = vim.tbl_deep_extend("force", html_opts, opts)
   end
 
-  -- Python
-  if server.name == "pylsp" then
-    local pylsp_opts = {
-      pylsp = {
-        plugins = {
-          pycodestyle = {
-            ignore = { 'E501' },
-            maxLineLength = 100
-          }
-        }
-      }
+  -- Bash
+  if server.name == "bashls" then
+    local bashls_opts = {
+      filetypes = { "sh", "zsh" },
     }
 
-    opts = vim.tbl_deep_extend("force", pylsp_opts, opts)
+    opts = vim.tbl_deep_extend("force", bashls_opts, opts)
   end
 
   lspconfig[server].setup(opts)
