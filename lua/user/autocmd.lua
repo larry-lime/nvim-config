@@ -49,15 +49,15 @@ api.nvim_create_autocmd(
 )
 
 -- Autosave
-api.nvim_create_autocmd(
-  { "InsertLeave", "TextChanged" },
-  {
-    -- Execute autocmd for all files except .tex files
-    pattern = { "*.tex" },
-    command = "TexlabBuild",
-    group = commands
-  }
-)
+-- api.nvim_create_autocmd(
+--   { "InsertLeave", "TextChanged" },
+--   {
+--     -- Execute autocmd for all files except .tex files
+--     pattern = { "*.tex" },
+--     command = "TexlabBuild",
+--     group = commands
+--   }
+-- )
 
 -- Latex
 api.nvim_create_autocmd(
@@ -144,6 +144,7 @@ api.nvim_create_autocmd(
     group = commands
   }
 )
+
 
 api.nvim_create_autocmd(
   { "Filetype" },

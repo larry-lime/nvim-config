@@ -104,7 +104,7 @@ return packer.startup(function(use)
   use { "stevearc/dressing.nvim" }
   use { "tiagovla/scope.nvim" }
   use { 'stevearc/aerial.nvim' }
-  -- use { 'simrat39/symbols-outline.nvim' }
+  use { 'simrat39/symbols-outline.nvim' }
   use { "windwp/nvim-spectre" }
   use { 'abecodes/tabout.nvim' }
   use { "lukas-reineke/indent-blankline.nvim" }
@@ -122,14 +122,15 @@ return packer.startup(function(use)
   use { 'rcarriga/nvim-notify' }
   use { "vimwiki/vimwiki" }
   use { "ThePrimeagen/harpoon" }
+  use { 'j-hui/fidget.nvim', tag = 'legacy' }
   use {
-    'j-hui/fidget.nvim',
-    tag = 'legacy',
-    config = function()
-      require("fidget").setup {
-        -- options
-      }
-    end,
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v3.x",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+      "MunifTanjim/nui.nvim",
+    }
   }
   -- Plugin Graveyard
   -- use { 'codota/tabnine-nvim', run = "./dl_binaries.sh" }

@@ -152,7 +152,6 @@ keymap('n', '<leader>=', ":lua require('harpoon.ui').toggle_quick_menu()<CR>", o
 -- Skip snippet part
 keymap('s', '<C-n>', "<BS>i<A-n>", jump_opt)
 
-
 M.show_documentation = function()
   local filetype = vim.bo.filetype
   if vim.tbl_contains({ "vim", "help" }, filetype) then

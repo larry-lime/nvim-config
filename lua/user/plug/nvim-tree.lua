@@ -2,7 +2,8 @@ local status_ok, nvimtree = pcall(require, "nvim-tree")
 if not status_ok then
   return
 end
-nvimtree.setup {
+
+nvimtree.setup({
   auto_reload_on_write = true,
   disable_netrw = true,
   hijack_cursor = false,
@@ -236,7 +237,7 @@ nvimtree.setup {
       watcher = false,
     },
   },
-} -- END_DEFAULT_OPTS
+})
 
 local opts = { noremap = true, silent = true }
 local keymap = vim.api.nvim_set_keymap

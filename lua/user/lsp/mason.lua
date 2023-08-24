@@ -141,7 +141,28 @@ for _, server in pairs(servers) do
     local bashls_opts = {
       filetypes = { "sh", "zsh" },
     }
+    opts = vim.tbl_deep_extend("force", bashls_opts, opts)
+  end
 
+  -- Bash
+  if server.name == "pylsp" then
+    local bashls_opts = {
+      settings = {
+        pylsp = {
+          plugins = {
+            pydocstyle = {
+              enabled = false,
+            },
+            pyflakes = {
+              enabled = false,
+            },
+            pylint = {
+              enabled = false,
+            }
+          }
+        }
+      }
+    }
     opts = vim.tbl_deep_extend("force", bashls_opts, opts)
   end
 
