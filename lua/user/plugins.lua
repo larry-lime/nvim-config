@@ -100,6 +100,7 @@ return packer.startup(function(use)
   use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
 
   -- Add ons
+  use { "Pocco81/true-zen.nvim" }
   use { "nvim-treesitter/nvim-treesitter-context" };
   use { "stevearc/dressing.nvim" }
   use { "tiagovla/scope.nvim" }

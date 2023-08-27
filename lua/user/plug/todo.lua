@@ -1,11 +1,16 @@
-require("todo-comments").setup {
+local status_ok, todo = pcall(require, "todo-comments")
+if not status_ok then
+  return
+end
+
+todo.setup({
   signs = true,      -- show icons in the signs column
   sign_priority = 8, -- sign priority
   -- keywords recognized as todo comments
   keywords = {
     FIX = {
-      icon = " ",                              -- icon used for the sign, and in search results
-      color = "error",                            -- can be a hex color, or a named color (see below)
+      icon = " ", -- icon used for the sign, and in search results
+      color = "error", -- can be a hex color, or a named color (see below)
       alt = { "FIXME", "BUG", "FIXIT", "ISSUE" }, -- a set of other keywords that all map to this FIX keywords
       -- signs = false, -- configure signs for some keywords individually
     },
@@ -61,11 +66,4 @@ require("todo-comments").setup {
     pattern = [[\b(KEYWORDS):]], -- ripgrep regex
     -- pattern = [[\b(KEYWORDS)\b]], -- match without the extra colon. You'll likely get false positives
   },
-}
-local opts = { noremap = true, silent = true }
-local keymap = vim.api.nvim_set_keymap
-
-keymap("n", "<leader>td", ":TodoTelescope keywords=TODO,FIXME<CR>", opts)
-keymap("n", "<leader>tf", ":let output_of_function = expand('%:p') | execute 'TodoTrouble keywords=TODO,FIXME cwd=' . output_of_function <CR>", opts)
-keymap("n", "<leader>T", ":TodoTrouble keywords=TODO,FIXME<CR>", opts)
--- keymap("n", "<leader>tf", ":let output_of_function = expand('%:p') | execute 'TodoTrouble keywords=TODO,FIXME cwd=' . output_of_function <CR>", opts)
+})

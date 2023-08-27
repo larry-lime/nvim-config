@@ -22,6 +22,7 @@ require("dressing").setup()
 require("notify").setup({ fps = 1 })
 require("scope").setup()
 require("fidget").setup()
+require("true-zen").setup()
 
 -- Custom Plugins Configs
 require("user.plug.gitsigns")
