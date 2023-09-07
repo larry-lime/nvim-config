@@ -18,7 +18,7 @@ vim.g.maplocalleader = " "
 
 -- Packer Keymaps
 keymap("n", "<leader>I", ":so | PackerInstall<CR>", opts)
-keymap("n", "<leader>U", ":so | PackerUpdate<CR>", opts)
+keymap("n", "<leader>U", ":so | PackerSync<CR>", opts)
 keymap("n", "<leader>C", ":so | PackerClean<CR>", opts)
 
 -- Better window navigation
@@ -57,7 +57,12 @@ keymap("n", "<C-t>", ":tabnew<CR>", opts)
 keymap("n", "<C-w>", ":tabclose<CR>", opts)
 
 -- Custom Focus Modes
-keymap("n", "<leader>Z", "<cmd>ZenMode<CR>", opts)
+keymap("n", "<leader>z", ":TZFocus<CR>", opts)
+-- keymap("n", "<leader>zn", ":TZNarrow<CR>", opts)
+-- keymap("v", "<leader>zn", ":'<,'>TZNarrow<CR>", opts)
+-- keymap("n", "<leader>zm", ":TZMinimalist<CR>", opts)
+-- keymap("n", "<leader>za", ":TZAtaraxis<CR>", opts)
+
 -- keymap("n", "<leader>H", "<cmd>call FocusUpNumToggle()<CR>", opts)
 
 -- Backspace
@@ -111,16 +116,16 @@ keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", opts)
 keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", opts)
 
 -- Fugitive
-keymap("n", "<leader>gaa", ":G add ", nopts)
-keymap("n", "<leader>gpp", ":G push origin ", nopts)
-keymap("n", "<leader>ga%", ":G add % | echo 'Git Add Current File'<CR>", opts)
-keymap("n", "<leader>ga.", ":G add . | echo 'Git Add All Files'<CR>", opts)
-keymap("n", "<leader>gr%", ":G reset % | echo 'Git Reset Current File'<CR>", opts)
-keymap("n", "<leader>gr.", ":G reset . | echo 'Git Reset All Files'<CR>", opts)
-keymap("n", "<leader>gc", ":G commit | startinsert<Cr>", opts)
-keymap("n", "<leader>gl", ":G log<CR>", opts)
-keymap("n", "<leader>gb", ":G branch | resize -20<CR>", opts)
-keymap("n", "<leader>gs", ":G status<CR>", opts)
+-- keymap("n", "<leader>gaa", ":G add ", nopts)
+-- keymap("n", "<leader>gpp", ":G push origin ", nopts)
+-- keymap("n", "<leader>ga%", ":G add % | echo 'Git Add Current File'<CR>", opts)
+-- keymap("n", "<leader>ga.", ":G add . | echo 'Git Add All Files'<CR>", opts)
+-- keymap("n", "<leader>gr%", ":G reset % | echo 'Git Reset Current File'<CR>", opts)
+-- keymap("n", "<leader>gr.", ":G reset . | echo 'Git Reset All Files'<CR>", opts)
+-- keymap("n", "<leader>gc", ":G commit | startinsert<Cr>", opts)
+-- keymap("n", "<leader>gl", ":G log<CR>", opts)
+-- keymap("n", "<leader>gb", ":G branch | resize -20<CR>", opts)
+-- keymap("n", "<leader>gs", ":G status<CR>", opts)
 
 -- Move Nvim
 keymap('n', '<A-j>', ":MoveLine 1<CR>", opts)
@@ -148,6 +153,8 @@ keymap('n', '<leader>5', ":lua require('harpoon.ui').nav_file(5)<CR>", opts)
 keymap('n', '<leader>6', ":lua require('harpoon.ui').nav_file(6)<CR>", opts)
 keymap('n', '<leader>=', ":lua require('harpoon.ui').toggle_quick_menu()<CR>", opts)
 
+-- Skip snippet part
+keymap('s', '<C-n>', "<BS>i<A-n>", jump_opt)
 
 M.show_documentation = function()
   local filetype = vim.bo.filetype

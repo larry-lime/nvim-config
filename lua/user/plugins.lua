@@ -67,7 +67,6 @@ return packer.startup(function(use)
   use { "williamboman/mason-lspconfig.nvim" }
   use { "neovim/nvim-lspconfig" }
   use { "hrsh7th/cmp-nvim-lsp" }
-  -- TODO: Update this to copilot lua
   use { "github/copilot.vim" }
   use {
     "SmiteshP/nvim-navic",
@@ -92,22 +91,22 @@ return packer.startup(function(use)
   -- Telescope
   use { "nvim-telescope/telescope.nvim", requires = { { "nvim-lua/plenary.nvim" } } }
   use { "nvim-telescope/telescope-ui-select.nvim" }
+  use { "xiyaowong/telescope-emoji.nvim" }
   use { "max397574/colortils.nvim" }
   use { 'norcalli/nvim-colorizer.lua' }
-
 
   -- Debugger
   use { "mfussenegger/nvim-dap" }
   use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
-  -- Lua
-  use { "folke/zen-mode.nvim" }
 
   -- Add ons
+  use { "Pocco81/true-zen.nvim" }
+  use { "nvim-treesitter/nvim-treesitter-context" };
+  use { "stevearc/dressing.nvim" }
   use { "tiagovla/scope.nvim" }
   use { 'simrat39/symbols-outline.nvim' }
   use { "windwp/nvim-spectre" }
   use { 'abecodes/tabout.nvim' }
-  use { "nyngwang/NeoZoom.lua" }
   use { "lukas-reineke/indent-blankline.nvim" }
   use { "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" }
   use({
@@ -124,14 +123,19 @@ return packer.startup(function(use)
   use { "tpope/vim-fugitive" }
   use { "vimwiki/vimwiki" }
   use { "ThePrimeagen/harpoon" }
-
+  use { 'j-hui/fidget.nvim', tag = 'legacy' }
+  use {
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v3.x",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+      "MunifTanjim/nui.nvim",
+    }
+  }
   -- Plugin Graveyard
   -- use { 'codota/tabnine-nvim', run = "./dl_binaries.sh" }
-  -- use { 'nanotee/sqls.nvim' }
-  -- use { 'jubnzv/mdeval.nvim' }
-  -- use 'nanotee/sqls.nvim'
   -- use { "nacro90/numb.nvim" }
-  -- use "stevearc/dressing.nvim"
   -- use {'karb94/neoscroll.nvim'}
   -- use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
   -- use { "nvim-neorg/neorg", requires = "wbthomason/packer.nvim" }

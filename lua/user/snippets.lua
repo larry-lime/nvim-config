@@ -60,4 +60,22 @@ ls.add_snippets(nil, {
       insert(0)
     }),
   },
+  python = {
+    snip({
+      trig = "pc",
+      namr = "Python Cell",
+      dscr = "Insert Python Cell",
+    }, {
+      text({ "# %%" }),
+      insert(0)
+    }),
+    snip({
+      trig = "mc",
+      namr = "Markdown Cell",
+      dscr = "Insert Markdown Cell",
+    }, {
+      text({ "# %% [md]" }),
+      insert(0)
+    }),
+  }
 })

@@ -78,6 +78,7 @@ require('telescope').setup {
 }
 
 require("telescope").load_extension("ui-select")
+require("telescope").load_extension("emoji")
 
 local opts = { noremap = true, silent = true }
 local keymap = vim.api.nvim_set_keymap
