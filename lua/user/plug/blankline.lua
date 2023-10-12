@@ -13,7 +13,9 @@
 -- }
 -- vim.opt.listchars:append "eol:↴"
 
-require("ibl").setup()
+require("ibl").setup(
+
+)
 -- vim.cmd [[highlight IndentBlanklineContextChar guifg=#707AA5 gui=nocombine]]
 --
 -- vim.api.nvim_exec(
