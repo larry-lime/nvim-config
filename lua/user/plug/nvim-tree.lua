@@ -25,7 +25,6 @@ nvimtree.setup({
     cursorline = true,
     debounce_delay = 15,
     width = 30,
-    hide_root_folder = false,
     side = "left",
     preserve_window_proportions = false,
     number = false,
@@ -149,7 +148,7 @@ nvimtree.setup({
     ignore_dirs = {},
   },
   git = {
-    enable = true,
+    enable = false,
     show_on_dirs = false,
     show_on_open_dirs = true,
     disable_for_dirs = {},

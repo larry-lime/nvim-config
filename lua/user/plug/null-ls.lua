@@ -7,6 +7,7 @@ null_ls.setup({
     null_ls.builtins.formatting.latexindent,
     null_ls.builtins.formatting.djlint,
     null_ls.builtins.formatting.prettier,
+    null_ls.builtins.formatting.beautysh,
 
     -- diagnostics
     null_ls.builtins.diagnostics.ruff,
