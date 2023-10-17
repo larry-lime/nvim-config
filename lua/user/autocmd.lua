@@ -69,22 +69,21 @@ api.nvim_create_autocmd(
   }
 )
 
-api.nvim_create_autocmd(
-  { "BufWritePost" },
-  {
-    pattern = { "*.tex" },
-    command = "TexlabBuild",
-    group = formatter
-  }
-)
-
 -- Latex
 api.nvim_create_autocmd(
   { "Filetype" },
   {
     pattern = { "tex" },
-    -- Open filename with .pdf extension in sioyek.app
-    command = "nnoremap <silent><leader>B :TexlabBuild<CR>",
+    command = "set wrap breakindent linebreak",
+    group = formatter
+  }
+)
+
+api.nvim_create_autocmd(
+  { "BufWritePost" },
+  {
+    pattern = { "*.tex" },
+    command = "TexlabBuild",
     group = formatter
   }
 )
