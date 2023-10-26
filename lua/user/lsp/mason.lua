@@ -24,6 +24,7 @@ local servers = {
   "sourcery",
   "rust_analyzer",
   "pyright",
+  "jdtls",
   -- "pylsp"
 }
 
