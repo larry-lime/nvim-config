@@ -101,6 +101,15 @@ api.nvim_create_autocmd(
 api.nvim_create_autocmd(
   { "Filetype" },
   {
+    pattern = { "markdown" },
+    command = "nnoremap <silent><leader>e :Telescope emoji<CR>",
+    group = formatter
+  }
+)
+
+api.nvim_create_autocmd(
+  { "Filetype" },
+  {
     pattern = { "csv", "json" },
     command = "set foldmethod=manual",
     group = formatter

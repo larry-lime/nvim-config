@@ -61,6 +61,7 @@ keymap("n", "<C-Tab>", ":tabNext<CR>", opts)
 
 -- Custom Focus Modes
 keymap("n", "<leader>z", ":TZFocus<CR>", opts)
+keymap("n", "<leader>Z", ":set linebreak breakindent wrap | map j gj | map k gk<CR>", opts)
 -- keymap("n", "<leader>zn", ":TZNarrow<CR>", opts)
 -- keymap("v", "<leader>zn", ":'<,'>TZNarrow<CR>", opts)
 -- keymap("n", "<leader>zm", ":TZMinimalist<CR>", opts)

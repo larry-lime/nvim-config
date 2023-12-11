@@ -136,7 +136,7 @@ nvimtree.setup({
   },
   filters = {
     git_ignored = true,
-    dotfiles = true,
+    dotfiles = false,
     git_clean = false,
     no_buffer = false,
     custom = {},
@@ -148,7 +148,7 @@ nvimtree.setup({
     ignore_dirs = {},
   },
   git = {
-    enable = false,
+    enable = true,
     show_on_dirs = false,
     show_on_open_dirs = true,
     disable_for_dirs = {},

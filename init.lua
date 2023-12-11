@@ -18,7 +18,7 @@ require("user.snippets")
 -- Default Plugin Configs
 require("Comment").setup()
 -- require("dressing").setup()
-require("notify").setup({ fps = 1 })
+-- require("notify").setup({ fps = 1 })
 require("scope").setup()
 require("fidget").setup()
 require("true-zen").setup()

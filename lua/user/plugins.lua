@@ -120,20 +120,11 @@ return packer.startup(function(use)
     "folke/todo-comments.nvim",
     requires = "nvim-lua/plenary.nvim",
   }
-  use { 'rcarriga/nvim-notify' }
   use { "vimwiki/vimwiki" }
   use { "ThePrimeagen/harpoon" }
-  use { 'j-hui/fidget.nvim', tag = 'legacy' }
-  use {
-    "nvim-neo-tree/neo-tree.nvim",
-    branch = "v3.x",
-    requires = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-      "MunifTanjim/nui.nvim",
-    }
-  }
+  use { 'j-hui/fidget.nvim'}
   -- Plugin Graveyard
+  -- use { 'rcarriga/nvim-notify' }
   -- use { 'codota/tabnine-nvim', run = "./dl_binaries.sh" }
   -- use { "nacro90/numb.nvim" }
   -- use {'karb94/neoscroll.nvim'}
