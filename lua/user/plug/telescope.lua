@@ -2,6 +2,8 @@ require('telescope').setup {
   defaults = {
     -- Default configuration for telescope goes here:
     -- config_key = value,
+    file_ignore_patterns = { ".git/", ".cache", "%.o", "%.a", "%.out", "%.class",
+      "%.pdf", "%.mkv", "%.mp4", "%.zip" },
     layout_strategy = 'horizontal', -- vertical, horizontal, center, cursor, flex
     layout_config = {
       bottom_pane = {
@@ -62,7 +64,7 @@ require('telescope').setup {
       }
     },
     find_files = {
-      hidden = false,
+      hidden = true,
       no_ignore = false,
     },
   },

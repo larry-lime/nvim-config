@@ -139,7 +139,8 @@ nvimtree.setup({
     dotfiles = false,
     git_clean = false,
     no_buffer = false,
-    custom = {},
+    custom = { ".git/", ".cache", "%.o", "%.a", "%.out", "%.class",
+      "%.pdf", "%.mkv", "%.mp4", "%.zip" },
     exclude = {},
   },
   filesystem_watchers = {

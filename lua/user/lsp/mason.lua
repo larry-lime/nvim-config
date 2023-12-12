@@ -22,10 +22,10 @@ local servers = {
   "bashls",
   "clangd",
   "sourcery",
+  "eslint",
   "rust_analyzer",
   "pyright",
   "jdtls",
-  -- "pylsp"
 }
 
 local settings = {
@@ -63,89 +63,7 @@ for _, server in pairs(servers) do
 
   server = vim.split(server, "@")[1]
 
-  if server.name == "sourcery" then
-    local sourcery_opts = {
-      init_options = {
-        cmd = { 'sourcery', 'lsp' },
-        filetypes = { 'python' },
-        single_file_support = true,
-        token = 'user_t3_0QDCtej6yVfc3hdBu9eVkEVY7HcgL6J8IolTUZH_pb4zkavmHqWqOT5Y',
-        editor_version = 'vim',
-        extension_version = 'vim_lsp',
-      }
-    }
-    opts = vim.tbl_deep_extend("force", sourcery_opts, opts)
-  end
-
-  -- Lua
-  if server.name == "lua_ls" then
-    local sumneko_lua_opts = {
-      settings = {
-        Lua = {
-          diagnostics = {
-            globals = { 'vim' }
-          }
-        }
-      }
-    }
-    opts = vim.tbl_deep_extend("force", sumneko_lua_opts, opts)
-  end
-
-  -- Typescript & Javascript
-  if server.name == "tsserver" then
-    local tsserver_opts = {
-      filetypes = {
-        "javascript",
-        "javascriptreact",
-        "javascript.jsx",
-        "typescript",
-        "typescriptreact",
-        "typescript.tsx",
-        -- "html"
-      }
-    }
-    opts = vim.tbl_deep_extend("force", tsserver_opts, opts)
-  end
-
-  if server.name == "eslint" then
-    local eslint_opts = {
-      filtypes = {
-        "javascript",
-        "javascriptreact",
-        "javascript.jsx",
-        "typescript",
-        "typescriptreact",
-        "typescript.tsx",
-        "vue",
-        -- "html"
-      }
-    }
-    opts = vim.tbl_deep_extend("force", eslint_opts, opts)
-  end
-
-  -- HTML/CSS
-  if server.name == "html" then
-    local html_opts = {
-      configurationSection = { "html" },
-      embeddedLanguages = {
-        css = true,
-        javascript = true
-      },
-      provideFormatter = true
-    }
-
-    opts = vim.tbl_deep_extend("force", html_opts, opts)
-  end
-
-  -- Bash
-  if server.name == "bashls" then
-    local bashls_opts = {
-      filetypes = { "sh", "zsh" },
-    }
-    opts = vim.tbl_deep_extend("force", bashls_opts, opts)
-  end
-
-  -- Bash
+  -- FIXME: Get this working
   if server.name == "pylsp" then
     local bashls_opts = {
       settings = {
